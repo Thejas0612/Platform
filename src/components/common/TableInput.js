@@ -1,25 +1,23 @@
 import React from "react";
 import { TableInput } from "@emerson/dynamic-ui";
-function TableInput() {
+const TableInput = (props) => {
+  const TableInputProps = {
+    data: [],
+    title: "",
+    label: "",
+    value: {},
+    showLabel:true,
+    onChange: () => {},
+    containerClass: "",
+    labelClass: "",
+    tableClass: "",
+    dataSourceUrl: ""
+  };
   return (
     <>
-      <TableInput
-        data={[]}
-        label={{}}
-        onChange={() => {}}
-        value={
-          {
-            //   flow_rate_max: "",
-            //   flow_rate_min: "",
-            //   flow_rate_units: "USGPH",
-            //   line_pressure_max: "",
-            //   line_pressure_min: "",
-            //   line_pressure_unit: "psig"
-          }
-        }
-      />
+      <TableInput {...TableInputProps} />
     </>
   );
-}
+};
 
 export default TableInput;

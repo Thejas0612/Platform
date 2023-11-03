@@ -1,18 +1,21 @@
-import React from 'react'
+import React from "react";
+import TileOrThumbnail from "./TileOrThumbnail";
 
-function TileLayout() {
+const TileLayout = (props) => {
+  const TileLayoutProps = {
+    data: [],
+    defaultDirection: "",
+    defaultIds: [],
+    description: "",
+    onChange: () => {},
+    dataSource: ""
+  };
+
   return (
     <>
-      
-<TileOrThumbnail
-  data={[]}
-  defaultDirection=""
-  defaultIds={[]}
-  description=""
-  onChange={function noRefCheck() {}}
-/>
+      <TileOrThumbnail {...TileLayoutProps} />
     </>
-  )
-}
+  );
+};
 
-export default TileLayout
+export default TileLayout;

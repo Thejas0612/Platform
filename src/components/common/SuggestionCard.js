@@ -1,11 +1,22 @@
 import React from "react";
 import { SuggestionCard } from "@emerson/dynamic-ui";
-function SuggestionCard() {
+const SuggestionCard = (props) => {
+  const SuggestionCardProps = {
+    data: [],
+    label: "",
+    labelClass: "",
+    showLabel: "",
+    dataSourceUrl: "",
+    sort: true,
+    onChange: () => {},
+    onSort: (noRefCheck = () => {}),
+    sortOptions: []
+  };
   return (
     <>
-      <SuggestionCard data={[]} />
+      <SuggestionCard {...SuggestionCardProps} />
     </>
   );
-}
+};
 
 export default SuggestionCard;

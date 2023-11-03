@@ -1,11 +1,26 @@
 import React from "react";
 import { CheckboxInput } from "@emerson/dynamic-ui";
-function CheckBox() {
+const CheckBox = (props) => {
+  const CheckBoxProps = {
+    label: "",
+    title: "",
+    showLabel: true,
+    labelClass: "",
+    sixe: "meduim",
+    selectedIds: [],
+    disabledIds: [],
+    error: "",
+    errorClass: "",
+    required: true,
+    onChange: () => {},
+    options: [],
+    dataSourceUrl: ""
+  };
   return (
     <>
-      <CheckboxInput label={{}} onChange={() => {}} options={[]} title={{}} />
+      <CheckboxInput {...CheckBoxProps} />
     </>
   );
-}
+};
 
 export default CheckBox;

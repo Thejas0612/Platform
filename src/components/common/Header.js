@@ -1,25 +1,20 @@
 import { Header } from "@emerson/dynamic-ui";
 import { headerSchema } from "../../JsonSchema/UsmSchema";
 const HeaderSection = () => {
-  const { data, title, userInfo, logo } = headerSchema;
-  document.body.addEventListener('click', (evt) => {
-    const siteLogo = document.querySelector('.siteLogo');
-    if (evt.target === siteLogo) {
-      window.location = '/';
-    }
-  }, false);
+  const HeaderProps = {
+    logo: {},
+    menuData: {},
+    title: {},
+    isAuthenticated:false,
+    userInfo: {},
+    onLogin: () => {},
+    onLogout: (noRefCheck = () => {}),
+    onOptionClick: (noRefCheck = () => {})
+  };
+
   return (
     <>
-      <Header
-        isAuthenticated
-        logo={`${logo}`}
-        menuData={data}
-        title={`${title}`}
-        userInfo={userInfo}
-        onLogin={() => {}}
-        onLogout={function noRefCheck() {}}
-        onOptionClick={function noRefCheck() {}}
-      />
+      <Header  {...HeaderProps} />
     </>
   );
 };

@@ -1,17 +1,27 @@
 import React from "react";
 import { SortTable } from "@emerson/dynamic-ui";
-function SortTable() {
+const SortTable = (props) => {
+  const SortTableProps = {
+    data: [],
+    label: "",
+    showLabel: true,
+    selectable: true,
+    sort: true,
+    sortInternal: true,
+    selectedId: "",
+    subLabel: "",
+    multiselect: false,
+    selectedIds: [],
+    onChange: () => {},
+    onSortChange: (noRefCheck = () => {}),
+    subLabelClass: "",
+    dataSourceUrl: ""
+  };
   return (
     <>
-      <SortTable
-        data={{}}
-        multiselect
-        onChange={() => {}}
-        onSortChange={function noRefCheck() {}}
-        subLabel={{}}
-      />
+      <SortTable multiselect {...SortTableProps} />
     </>
   );
-}
+};
 
 export default SortTable;

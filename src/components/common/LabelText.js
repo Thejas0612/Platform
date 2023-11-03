@@ -1,18 +1,20 @@
 import React from "react";
 import { LabelText } from "@emerson/dynamic-ui";
-function LabelText() {
+const LabelText = (props) => {
+  const LabelTextProps = {
+    label: "",
+    showLabel:"",
+    textStyle:"",
+    labelClass: "ddl-from-custom-label",
+    subText: "",
+    text: "",
+    textClass: "ddl-typography--h5"
+  };
   return (
     <>
-      <LabelText
-        label=""
-        labelClass="ddl-from-custom-label"
-        showLabel
-        subText="(option)"
-        text=""
-        textClass="ddl-typography--h5"
-      />
+      <LabelText showLabel {...LabelTextProps} />
     </>
   );
-}
+};
 
 export default LabelText;

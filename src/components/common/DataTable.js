@@ -1,11 +1,20 @@
 import React from "react";
-
-function DataTable() {
+const DataTable = (props) => {
+  const DataTableProps = {
+    data: [],
+    label: "",
+    size: "",
+    labelClass: "",
+    showLabel: "",
+    defaultOrder: "asc",
+    defaultOrderBy: "",
+    dataSourceUrl: ""
+  };
   return (
     <>
-      <DataTable data={{}} label="dataTable" />
+      <DataTable {...DataTableProps} />
     </>
   );
-}
+};
 
 export default DataTable;

@@ -1,18 +1,25 @@
 import React from "react";
 import { CustomButtonGroup } from "@emerson/dynamic-ui";
-function CustomButtonGroup() {
+const CustomButtonGroup = (props) => {
+  const CustomButtonGroupProps = {
+    data: [],
+    defaultIds: [],
+    label: "",
+    labelClass: "",
+    multiple: false,
+    size: "",
+    isRequired: false,
+    title: "",
+    showLabel: true,
+    defaultId: "",
+    onChange: () => {},
+    dataSourceUrl: ""
+  };
   return (
     <>
-      <CustomButtonGroup
-        data={[]}
-        defaultIds={["1"]}
-        label="MultiCustomButtonGroup"
-        labelClass="ddl-from-custom-label"
-        multiple
-        onChange={() => {}}
-      />
+      <CustomButtonGroup {...CustomButtonGroupProps} />
     </>
   );
-}
+};
 
 export default CustomButtonGroup;

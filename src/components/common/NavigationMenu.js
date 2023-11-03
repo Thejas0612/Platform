@@ -1,11 +1,17 @@
 import React from "react";
 import { NavigationMenu } from "@emerson/dynamic-ui";
-function NavigationMenu() {
+const NavigationMenu = (props) => {
+  const NavMenuProps = {
+    data: [],
+    onDelete: () => {},
+    onSelect: () => {},
+    dataSourceUrl: ""
+  };
   return (
     <>
-      <NavigationMenu data={[]} onDelete={() => {}} onSelect={function noRefCheck() {}} />
+      <NavigationMenu {...NavMenuProps} />
     </>
   );
-}
+};
 
 export default NavigationMenu;

@@ -1,32 +1,26 @@
 import React from "react";
 import { SelectList } from "@emerson/dynamic-ui";
-function SelectList() {
+const SelectList = (props) => {
+  const SelectListProps = {
+    columns: [],
+    rows: [],
+    title: "",
+    label: "",
+    labelClass:"",
+    value:"",
+    placeholder: "",
+    onChange: () => {},
+    options:[],
+    showLabel:"",
+    dataSourceUrl:"",
+    error:"",
+    errorClass:""
+  };
   return (
     <>
-      <SelectList
-        columns={
-          [
-            // {
-            //   align: 'center',
-            //   label: 'MATERIAL',
-            //   name: 'material'
-            // }
-          ]
-        }
-        label={{}}
-        onChange={() => {}}
-        placeholder={{}}
-        rows={[
-        //   {
-        //     material: "316L SST",
-        //     rating: "E",
-        //     value: "316L SST"
-        //   }
-        ]}
-        title={{}}
-      />
+      <SelectList {...SelectListProps} />
     </>
   );
-}
+};
 
 export default SelectList;

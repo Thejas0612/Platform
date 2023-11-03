@@ -1,11 +1,15 @@
 import React from "react";
 import { PaBreadcrumbs } from "@emerson/dynamic-ui";
-function BreadCrumbs() {
+const BreadCrumbs = (props) => {
+  const BreadCrumbsProps = {
+    data: [],
+    selected: "Pressure Measurement"
+  };
   return (
     <>
-      <PaBreadcrumbs data={[]} selected="Pressure Measurement" />
+      <PaBreadcrumbs {...BreadCrumbsProps} />
     </>
   );
-}
+};
 
 export default BreadCrumbs;

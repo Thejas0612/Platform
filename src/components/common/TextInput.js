@@ -1,16 +1,31 @@
 import React from "react";
 import { TextInput } from "@emerson/dynamic-ui";
-function TextInput() {
+const TextInput = (props) => {
+  const TextInputProps = {
+    label: "",
+    title: "",
+    type: "",
+    name: "",
+    value: "",
+    placeholder: "",
+    error: "",
+    onChange: () => {},
+    onBlur: () => {},
+    wrapperClass: "",
+    WrapperId: "",
+    inputClass: "",
+    labelClass: "",
+    errorClass: "",
+    onKeyPress: () => {},
+    disabled: false,
+    autofocus: true,
+    maxLength: 5
+  };
   return (
     <>
-      <TextInput
-        label={{}}
-        onBlur={() => {}}
-        onChange={function noRefCheck() {}}
-        onKeyPress={function noRefCheck() {}}
-      />
+      <TextInput {...TextInputProps} />
     </>
   );
-}
+};
 
 export default TextInput;

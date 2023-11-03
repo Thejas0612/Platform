@@ -1,11 +1,21 @@
 import React from "react";
 import { ItemsTable } from "@emerson/dynamic-ui";
-function ItemTable() {
+const ItemTable = (props) => {
+  const ItemsTableProps = {
+    data: [],
+    isPrint: true,
+    isDownload: true,
+    labelClass: "",
+    label: "",
+    showLabel: "",
+    onChange: () => {},
+    dataSourceUrl: ""
+  };
   return (
     <>
-      <ItemsTable data={[]} onChange={() => {}} />
+      <ItemsTable {...ItemsTableProps} />
     </>
   );
-}
+};
 
 export default ItemTable;

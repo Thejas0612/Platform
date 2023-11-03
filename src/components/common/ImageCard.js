@@ -1,18 +1,23 @@
 import React from "react";
 import { ImageCard } from "@emerson/dynamic-ui";
-function ImageCard() {
+const ImageCard = () => {
+  const ImageCardProps = {
+    label: "",
+    showLabel:"",
+    labelClass:"",
+    imageStyle: {
+      width: "50%"
+    },
+    src: "",
+    name:"",
+    alt:"",
+    wrapperClass:""
+  };
   return (
     <>
-      <ImageCard
-        imageStyle={{
-          width: "50%"
-        }}
-        label=""
-        showLabel
-        src=""
-      />
+      <ImageCard showLabel {...ImageCardProps} />
     </>
   );
-}
+};
 
 export default ImageCard;

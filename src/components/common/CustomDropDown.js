@@ -1,18 +1,29 @@
 import React from "react";
 import { CustomDropdown } from "@emerson/dynamic-ui";
-function CustomDropDown() {
+const CustomDropDown = () => {
+  const CustomDropDownProps = {
+    disabledIds: "",
+    name: "",
+    options: [],
+    value: "",
+    onChange: () => {},
+    label: "",
+    title: "",
+    options: [],
+    wrapperClass: "",
+    wrapperId: "",
+    required: false,
+    showLabel: true,
+    labelClass: "",
+    dataSourceUrl: "",
+    error: "",
+    errorClass: ""
+  };
   return (
     <>
-      <CustomDropdown
-        disabledIds={[]}
-        labelClass="app-content-label"
-        name={{}}
-        onChange={() => {}}
-        options={[]}
-        value={{}}
-      />
+      <CustomDropdown {...CustomDropDownProps} />
     </>
   );
-}
+};
 
 export default CustomDropDown;

@@ -1,11 +1,17 @@
 import React from "react";
-import {PaStepper } from "@emerson/dynamic-ui";
-function Stepper() {
+import { PaStepper } from "@emerson/dynamic-ui";
+const Stepper = (props) => {
+  const StepperProps = {
+    data: [],
+    activeIndex: 1,
+    onChange: () => {},
+    datSourceUrl: ""
+  };
   return (
     <>
-      <PaStepper data={[]} onChange={() => {}} />
+      <PaStepper {...StepperProps} />
     </>
   );
-}
+};
 
 export default Stepper;

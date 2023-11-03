@@ -1,26 +1,25 @@
-import React from 'react'
-import { RadioInput } from '@emerson/dynamic-ui'
-function RadioInput() {
+import React from "react";
+import { RadioInput } from "@emerson/dynamic-ui";
+const RadioInput = (props) => {
+  const RadioInputProps = {
+    disabledIds: [],
+    title: "",
+    size: "",
+    label: "",
+    showLabel: true,
+    onChange: () => {},
+    options: [],
+    value: "",
+    dataSource: "",
+    error: "",
+    errorClass: "",
+    required: false
+  };
   return (
     <>
-      <RadioInput
-  disabledIds={[
-    // 'Liquid'
-  ]}
-  label={{}}
-  onChange={() => {}}
-  options={[
-    // {
-    //   label: 'Liquid',
-    //   value: 'Liquid'
-    // },
-   
-  ]}
-  size={{}}    // small and medium
-  value={{}}
-/>
+      <RadioInput {...RadioInputProps} />
     </>
-  )
-}
+  );
+};
 
-export default RadioInput
+export default RadioInput;
