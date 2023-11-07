@@ -27,5 +27,5 @@ it("renders title link", async () => {
   });
 
   const linkElement = container.querySelector("h1");
-  expect(linkElement.textContent.trim()).toBe("Click on login to visit website");
+  expect(linkElement.textContent.trim()).toBe("Click on login to visit MSOL PA Platform");
 });

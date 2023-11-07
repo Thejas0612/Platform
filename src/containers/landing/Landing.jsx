@@ -7,7 +7,7 @@ export default function Landing() {
   return (
     <div>
       {authState && authState.isAuthenticated && <h1>Click on logout for stop the session</h1>}
-      {authState && !authState.isAuthenticated && <h1>Click on login to visit website</h1>}
+      {authState && !authState.isAuthenticated && <h1>Click on login to visit MSOL PA Platform</h1>}
     </div>
   );
 }
