@@ -1,9 +1,9 @@
 import React from "react";
 import { ButtonInput } from "@emerson/dynamic-ui";
-const ButtonInput = (props) => {
+const MsolButtonInput = (props) => {
   const ButtonProps = {
-    btnType: "",
-    label: "",
+    btnType: props.type || "",
+    label: props.label || "",
     disabled: false,
     showBackIcon: false,
     onClick: () => {}
@@ -15,4 +15,4 @@ const ButtonInput = (props) => {
   );
 };
 
-export default ButtonInput;
+export default MsolButtonInput;

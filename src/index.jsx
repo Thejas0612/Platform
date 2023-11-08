@@ -5,12 +5,15 @@ import "./polyfills";
 import App from "./App";
 import style from "./index.module.css";
 import registerServiceWorker from "./registerServiceWorker";
+import i18n from "./i18next";
+import { I18nextProvider } from "react-i18next";
 
-/* eslint-disable react/jsx-filename-extension */
 ReactDOM.render(
-  <Router>
-    <App className={style.app} />
-  </Router>,
+  <I18nextProvider i18n={i18n}>
+    <Router>
+      <App className={style.app} />
+    </Router>
+  </I18nextProvider>,
   document.getElementById("root")
 );
 registerServiceWorker();
