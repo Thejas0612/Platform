@@ -1,14 +1,16 @@
 import React from "react";
 import { ImageThumbnail } from "@emerson/dynamic-ui";
-const ImageThumbnail = (props) => {
+
+// eslint-disable-next-line no-unused-vars
+const MsolImageThumbnail = (props) => {
   const ImageThumbnailProps = {
     data: [],
-    label:"",
-    labelClass:"",
-    showLabel:"",
-    isComparable:"",
-    compareAll:"",
-    dataSourceUrl:"",
+    label: "",
+    labelClass: "",
+    showLabel: "",
+    isComparable: "",
+    compareAll: "",
+    dataSourceUrl: "",
     defaultIds: "",
     onCompare: () => {},
     onSelect: () => {}
