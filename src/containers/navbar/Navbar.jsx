@@ -5,7 +5,10 @@ import style from "./navbar.module.css";
 
 const Navbar = () => {
   const { authState, oktaAuth } = useOktaAuth();
-  const login = async () => oktaAuth.signInWithRedirect();
+  const login = async () =>
+    oktaAuth.signInWithRedirect({
+      originalUri: "/component"
+    });
   const logout = async () => oktaAuth.signOut();
 
   if (!authState) {
@@ -35,6 +38,13 @@ const Navbar = () => {
         <li>
           <NavLink to={"/counter"} activeClassName={style.active}>
             Counter
+          </NavLink>
+        </li>
+      )}
+      {authState.isAuthenticated && (
+        <li>
+          <NavLink to={"/user"} activeClassName={style.active}>
+            User
           </NavLink>
         </li>
       )}
