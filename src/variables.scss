@@ -1,0 +1,29 @@
+$emerson-green: #00aa7e;
+$emerson-blue: #004B8D;
+$error-red: #d31245;
+$emerson-black: #000;
+$thin-border-grey: 1px solid #e3e3e3;
+$thicker-border-grey: 2px solid #c4ced1;
+$background-grey: #f0f0f0;
+$background-grey2: #dee6ea;
+$thin-black-border: 1px solid #000;
+$emerson-white: #fff;
+$CheckBoxList: #88898e;
+$smallGrid: 9;
+$largeGrid: 12;
+$ayoutPadding: 20px;
+$Top: "Top";
+$Right: "Right";
+$Left: "Left";
+
+
+
+:export {
+    emersonGreen: $emerson-green;
+    smallGrid: $smallGrid;
+    largeGrid: $largeGrid;
+    layoutPadding: $ayoutPadding;
+    Left: $Left;
+    Right: $Right;
+    Top: $Top
+}

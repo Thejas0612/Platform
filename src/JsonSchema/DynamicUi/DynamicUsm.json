@@ -1,0 +1,63 @@
+{
+    "components": [
+        {
+            "type": "EMSOL_HEADER",
+            "props": {
+                "text": "EMSOLHEADER HEADER"
+            },
+            "alignment": "Top",
+            "wrapper": "",
+            "order": "",
+            "visible": true
+        },
+        {
+            "type": "EMSOL_BREADCRUMB",
+            "props": {
+                "data": [
+                    {
+                        "text": "Sizing & Selection",
+                        "url": "/"
+                    }
+                ],
+                "selected": "Sizing & Selection"
+            },
+            "alignment": "Top"
+        },
+        {
+            "type": "EMSOL_TILEORTHUMBNAIL",
+            "props": {
+                "data": [
+                    {
+                        "id": 1,
+                        "title": "Gas Ultra Sonic Meter",
+                        "description": "With a multi-path chordal design,Intelligent ultrasonic flow meters deliver real-time diagnostics, high accuracy, stability, redundancy, and operational cost savings for oil and gas fiscal flow measure..",
+                        "imgUrl": "https://epms12.emerson.com/dmcpa/WebContent/css/images/xxczDMCPAGasImg.jpg"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Liquid Ultra Sonic Meter",
+                        "description": "With a multi-path chordal design,Intelligent ultrasonic flow meters deliver real-time diagnostics, high accuracy, stability, redundancy, and operational cost savings for oil and gas fiscal flow measure..",
+                        "imgUrl": "https://epms12.emerson.com/dmcpa/WebContent/css/images/xxczDMCPALiquidImg.jpg"
+                    }
+                ],
+                "defaultDirection": "thumbnail",
+                "defaultIds": []
+            },
+            "alignment": "Right",
+            "wrapper": "",
+            "order": "",
+            "visible": true
+        },
+        {
+            "type": "EMSOL_LABEL_TEXT",
+            "props": {
+                "label": "label text",
+                "labelClass": "element_label",
+                "subText": "",
+                "text": "Product Family",
+                "textClass": "ddl-typography--h5"
+            },
+            "alignment": "Top"
+        }
+    ]
+}

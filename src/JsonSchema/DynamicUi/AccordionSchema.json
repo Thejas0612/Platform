@@ -1,0 +1,2588 @@
+[
+    {
+      "componentName": "Header",
+  
+      "schema": [
+        {
+          "title": "Automation",
+  
+          "list": [
+            "Operations Management Software",
+  
+            "Automation & Control Software",
+  
+            "Advanced Industry Software"
+          ]
+        }
+      ]
+    },
+  
+    {
+      "componentName": "NavigationMenu",
+  
+      "schema": [
+        {
+          "label": "Technology Type",
+  
+          "enabled": true,
+  
+          "selected": true,
+  
+          "name": "fpa_MeasurementType",
+  
+          "ne_id": 0,
+  
+          "np_id": 7,
+  
+          "sn_id": 4347,
+  
+          "step_order": 1,
+  
+          "bu_code": "FLOW_PA_NEW",
+  
+          "gui_type_code": "TEXT",
+  
+          "attribute_code_json": "N/A",
+  
+          "html_field_name": "fpa_MeasurementType",
+  
+          "badges": []
+        },
+  
+        {
+          "label": "Instrument Type",
+  
+          "enabled": true,
+  
+          "selected": true,
+  
+          "name": "fpa_ProcessPiping",
+  
+          "sn_id": 4347,
+  
+          "ne_id": 1,
+  
+          "bu_code": "FLOW_PA_NEW",
+  
+          "np_id": 7,
+  
+          "element_label": "Process Piping",
+  
+          "step_order": 2,
+  
+          "gui_type_code": "TEXT",
+  
+          "attribute_code_json": "N/A",
+  
+          "html_field_name": "fpa_ProcessPiping",
+  
+          "badges": []
+        },
+  
+        {
+          "label": "Sizing Name",
+  
+          "enabled": true,
+  
+          "selected": false,
+  
+          "name": "fpa_lh_FluidSelection",
+  
+          "badges": [],
+  
+          "sn_id": 4347,
+  
+          "ne_id": 2,
+  
+          "bu_code": "FLOW_PA_NEW",
+  
+          "np_id": 7,
+  
+          "element_label": "Fluid Selection",
+  
+          "step_order": 3,
+  
+          "left_right_anchor_flag": "L",
+  
+          "gui_type_code": "TEXT",
+  
+          "attribute_code_json": "N/A",
+  
+          "html_field_name": "fpa_lh_FluidSelection"
+        },
+  
+        {
+          "label": "Process Piping",
+  
+          "enabled": true,
+  
+          "selected": true,
+  
+          "name": "processpiping",
+  
+          "badges": [],
+  
+          "sn_id": 4347,
+  
+          "ne_id": 3,
+  
+          "bu_code": "FLOW_PA_NEW",
+  
+          "np_id": 7,
+  
+          "element_label": "processpiping",
+  
+          "step_order": 3,
+  
+          "left_right_anchor_flag": "L",
+  
+          "gui_type_code": "TEXT",
+  
+          "attribute_code_json": "N/A",
+  
+          "html_field_name": "processpiping"
+        },
+        {
+          "label": "Fluid Section",
+  
+          "enabled": true,
+  
+          "selected": true,
+  
+          "name": "fluidsection",
+  
+          "badges": [],
+  
+          "sn_id": 4347,
+  
+          "ne_id": 4,
+  
+          "bu_code": "FLOW_PA_NEW",
+  
+          "np_id": 7,
+  
+          "element_label": "fluidsection",
+  
+          "step_order": 4,
+  
+          "left_right_anchor_flag": "L",
+  
+          "gui_type_code": "TEXT",
+  
+          "attribute_code_json": "N/A",
+  
+          "html_field_name": "fluidsection"
+        },
+        {
+          "label": "Process Variable",
+  
+          "enabled": true,
+  
+          "selected": true,
+  
+          "name": "processvariable",
+  
+          "badges": [],
+  
+          "sn_id": 4447,
+  
+          "ne_id": 5,
+  
+          "bu_code": "FLOW_PA_NEW",
+  
+          "np_id": 7,
+  
+          "element_label": "processvariable",
+  
+          "step_order": 5,
+  
+          "left_right_anchor_flag": "L",
+  
+          "gui_type_code": "TEXT",
+  
+          "attribute_code_json": "N/A",
+  
+          "html_field_name": "processvariable"
+        },
+        {
+          "label": "Rosemount 1595 Conditioning Orifice",
+  
+          "enabled": true,
+  
+          "selected": false,
+  
+          "name": "rosemount1595",
+  
+          "badges": [],
+  
+          "sn_id": 4447,
+  
+          "ne_id": 5,
+  
+          "bu_code": "FLOW_PA_NEW",
+  
+          "np_id": 7,
+  
+          "element_label": "rosemount1595",
+  
+          "step_order": 5,
+  
+          "left_right_anchor_flag": "L",
+  
+          "gui_type_code": "TEXT",
+  
+          "attribute_code_json": "N/A",
+  
+          "html_field_name": "processvariable"
+        },
+  
+        {
+          "label": "Transmitter Connection",
+  
+          "enabled": true,
+  
+          "selected": false,
+  
+          "name": "transmitterconnection",
+  
+          "badges": [],
+  
+          "sn_id": 4447,
+  
+          "ne_id": 6,
+  
+          "bu_code": "FLOW_PA_NEW",
+  
+          "np_id": 7,
+  
+          "element_label": "transmitterconnection",
+  
+          "step_order": 5,
+  
+          "left_right_anchor_flag": "L",
+  
+          "gui_type_code": "TEXT",
+  
+          "attribute_code_json": "N/A",
+  
+          "html_field_name": "transmitterconnection"
+        },
+        {
+          "label": "Transmitter Details",
+  
+          "enabled": true,
+  
+          "selected": false,
+  
+          "name": "transmitterdetail",
+  
+          "badges": [],
+  
+          "sn_id": 4447,
+  
+          "ne_id": 7,
+  
+          "bu_code": "FLOW_PA_NEW",
+  
+          "np_id": 7,
+  
+          "element_label": "transmitterdetail",
+  
+          "step_order": 5,
+  
+          "left_right_anchor_flag": "L",
+  
+          "gui_type_code": "TEXT",
+  
+          "attribute_code_json": "N/A",
+  
+          "html_field_name": "transmitterdetail"
+        },
+        {
+          "label": "Transmitter Capabilities",
+  
+          "enabled": true,
+  
+          "selected": false,
+  
+          "name": "transmittercapabilities",
+  
+          "badges": [],
+  
+          "sn_id": 4447,
+  
+          "ne_id": 8,
+  
+          "bu_code": "FLOW_PA_NEW",
+  
+          "np_id": 7,
+  
+          "element_label": "transmittercapabilities",
+  
+          "step_order": 5,
+  
+          "left_right_anchor_flag": "L",
+  
+          "gui_type_code": "TEXT",
+  
+          "attribute_code_json": "N/A",
+  
+          "html_field_name": "transmittercapabilities"
+        },
+        {
+          "label": "Transmitter Comparison",
+  
+          "enabled": true,
+  
+          "selected": false,
+  
+          "name": "transmittercomparison",
+  
+          "badges": [],
+  
+          "sn_id": 4447,
+  
+          "ne_id": 9,
+  
+          "bu_code": "FLOW_PA_NEW",
+  
+          "np_id": 7,
+  
+          "element_label": "transmittercomparison",
+  
+          "step_order": 5,
+  
+          "left_right_anchor_flag": "L",
+  
+          "gui_type_code": "TEXT",
+  
+          "attribute_code_json": "N/A",
+  
+          "html_field_name": "transmittercomparison"
+        },
+        {
+          "label": "Flow Meter Advisor",
+  
+          "enabled": true,
+  
+          "selected": false,
+  
+          "name": "flowmeteradvisor",
+  
+          "badges": [],
+  
+          "sn_id": 4447,
+  
+          "ne_id": 10,
+  
+          "bu_code": "FLOW_PA_NEW",
+  
+          "np_id": 7,
+  
+          "element_label": "flowmeteradvisor",
+  
+          "step_order": 5,
+  
+          "left_right_anchor_flag": "L",
+  
+          "gui_type_code": "TEXT",
+  
+          "attribute_code_json": "N/A",
+  
+          "html_field_name": "flowmeteradvisor"
+        }
+      ]
+    },
+  
+    {
+      "componentName": "PaStepper",
+  
+      "schema": [
+        {
+          "label": "Step1",
+  
+          "url": "/",
+  
+          "ne_id": 0
+        },
+  
+        {
+          "label": "Step2",
+  
+          "url": "/",
+  
+          "ne_id": 1
+        },
+  
+        {
+          "label": "Step3",
+  
+          "url": "/",
+  
+          "ne_id": 2
+        },
+  
+        {
+          "label": "Step4",
+  
+          "url": "/",
+  
+          "ne_id": 3
+        },
+  
+        {
+          "label": "Step5",
+  
+          "url": "/",
+  
+          "ne_id": 4
+        },
+  
+        {
+          "label": "Step6",
+  
+          "url": "/",
+  
+          "ne_id": 5
+        },
+  
+        {
+          "label": "Step7",
+  
+          "url": "/",
+  
+          "ne_id": 6
+        },
+  
+        {
+          "label": "Step8",
+  
+          "url": "/",
+  
+          "ne_id": 7
+        },
+  
+        {
+          "label": "Step9",
+  
+          "url": "/",
+  
+          "ne_id": 8
+        },
+  
+        {
+          "label": "Step10",
+  
+          "url": "/",
+  
+          "ne_id": 9
+        },
+  
+        {
+          "label": "Step11",
+  
+          "url": "/",
+  
+          "ne_id": 10
+        },
+  
+        {
+          "label": "Step12",
+  
+          "url": "/",
+  
+          "ne_id": 11
+        }
+  
+  
+     
+      ]
+    },
+  
+    {
+      "componentName": "DynamicForm",
+  
+      "schema": [
+        {
+          "id": 0,
+  
+          "fields": [
+            {
+              "type": "TILE_THUMBNAIL",
+  
+              "name": "fpa_MeasurementType",
+  
+              "label": "fpa_MeasurementType",
+  
+              "labelClass": "app-content-label",
+  
+              "description": "here is a toggle button",
+  
+              "attribute_code_value": {
+                "defaultIds": [],
+  
+                "defaultDirection": "tile"
+              },
+  
+              "options": [
+                {
+                  "id": 1,
+  
+                  "title": "DP Flow",
+  
+                  "description": "Innovative products enhance your flow measurement capabilities by expanding on time-tested and proven technology.",
+  
+                  "imgUrl": "https://www.emerson.com/resource/image/155810/portrait_ratio1x1/555/555/ec733c591b22f923adef9c25625f4585/B5316980A00E27C8F3B5BD5ACE3387B8/rosemount-3051s-dp-flow-transmitter-5-valves.jpg",
+  
+                  "buttonLabel": "SHOW FULL SPECS"
+                }
+              ],
+  
+              "required": true,
+  
+              "error": "required",
+  
+              "errorClass": "",
+              "value": []
+            }
+          ]
+        },
+  
+        {
+          "id": 1,
+  
+          "fields": [
+            {
+              "type": "TILE_THUMBNAIL",
+  
+              "name": "instrumenttype",
+  
+              "label": "Test Thumbnail",
+  
+              "labelClass": "app-content-label",
+  
+              "description": "here is a toggle button",
+  
+              "attribute_code_value": {
+                "defaultIds": [],
+  
+                "defaultDirection": "tile"
+              },
+  
+              "options": [
+                {
+                  "id": 1,
+  
+                  "title": "Flow Meter",
+  
+                  "description": "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, Differential Pressure, Vortex, Magnetic, Ultrasonic, Turbine and positive displacement meters.",
+  
+                  "imgUrl": "https://www.emerson.com/resource/image/155810/portrait_ratio1x1/555/555/ec733c591b22f923adef9c25625f4585/B5316980A00E27C8F3B5BD5ACE3387B8/rosemount-3051s-dp-flow-transmitter-5-valves.jpg",
+  
+                  "buttonLabel": "SHOW FULL SPECS"
+                },
+  
+                {
+                  "id": 2,
+  
+                  "title": "Primary Element",
+  
+                  "description": "Rosemount patented primary element designs offer best-in-class performance for a wide range of applications",
+  
+                  "imgUrl": "https://webapp.emerson.com/rmtpa/resource/images/PrimaryElement.PNG"
+                }
+              ],
+  
+              "required": true,
+  
+              "error": "required",
+  
+              "errorClass": ""
+            }
+          ]
+        },
+  
+        {
+          "id": 2,
+  
+          "fields": [
+            {
+              "column": 6,
+              "type": "TEXT_INPUT",
+              "name": "sizingName",
+              "label": "sizing name",
+              "labelClass": "app-content-label",
+              "inputClass": "app-content-text-width-custom",
+              "value": "",
+              "required": true,
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 6,
+              "visible": false
+            },
+            {
+              "column": 6,
+              "type": "TEXT_INPUT",
+              "name": "Service",
+              "label": "service",
+              "labelClass": "app-content-label",
+              "inputClass": "app-content-text-width-custom",
+              "value": "",
+              "required": false,
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 6,
+              "visible": false
+            },
+            {
+              "column": 6,
+              "type": "TEXT_INPUT",
+              "name": "projectname",
+              "label": "Project Name",
+              "labelClass": "app-content-label",
+              "inputClass": "app-content-text-width-custom",
+              "value": "",
+              "required": false,
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 12,
+              "visible": false
+            },
+            {
+              "type": "LABEL_TEXT",
+              "column": 12,
+              "name": "LABEL_TEXT",
+              "title": "",
+              "tableClass": "",
+              "labelClass": "app-content-label",
+              "label": "Customer Information",
+              "showLabel": true,
+              "text": "",
+              "subText": "t",
+              "textClass": "ddl-typography--h5"
+            },
+            {
+              "column": 6,
+              "type": "TEXT_INPUT",
+              "name": "customerName",
+              "label": "Customer Name",
+              "labelClass": "app-content-label",
+              "inputClass": "app-content-text-width-custom",
+              "value": "",
+              "required": false,
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 6,
+              "visible": false
+            },
+            {
+              "column": 6,
+              "type": "TEXT_INPUT",
+              "name": "orderNumber",
+              "label": "Purchase Order Number",
+              "labelClass": "app-content-label",
+              "inputClass": "app-content-text-width-custom",
+              "value": "",
+              "required": false,
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 6,
+              "visible": false
+            },
+            {
+              "column": 6,
+              "type": "TEXT_INPUT",
+              "name": "Notes",
+              "label": "Notes",
+              "labelClass": "app-content-label",
+              "inputClass": "app-content-text-width-custom",
+              "value": "",
+              "required": false,
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 12,
+              "visible": false
+            },
+            {
+              "column": 12,
+              "type": "LABEL_TEXT",
+              "name": "LABEL_TEXT",
+              "title": "",
+              "tableClass": "",
+              "labelClass": "app-content-label",
+              "label": "Legacy Interco Order",
+              "showLabel": true,
+              "text": "",
+              "subText": "t",
+              "textClass": "ddl-typography--h5"
+            },
+            {
+              "column": 6,
+              "type": "TEXT_INPUT",
+              "name": "salesOrderNumber",
+              "label": "Legacy Sales Order Number",
+              "labelClass": "app-content-label",
+              "inputClass": "app-content-text-width-custom",
+              "value": "",
+              "required": false,
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 6,
+              "type": "TEXT_INPUT",
+              "name": "operatingUnit",
+              "label": "Operating Unit",
+              "labelClass": "app-content-label",
+              "inputClass": "app-content-text-width-custom",
+              "value": "",
+              "required": false,
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 6,
+              "type": "TEXT_INPUT",
+              "name": "legacyLineNumber",
+              "label": "Legacy Line Number",
+              "labelClass": "app-content-label",
+              "inputClass": "app-content-text-width-custom",
+              "value": "",
+              "required": false,
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 6,
+              "visible": false
+            },
+            {
+              "column": 6,
+              "type": "TEXT_INPUT",
+              "name": "tagNumber",
+              "label": "Tag Number",
+              "labelClass": "app-content-label",
+              "inputClass": "app-content-text-width-custom",
+              "value": "",
+              "required": false,
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 12,
+              "visible": false
+            },
+            {
+              "column": 12,
+              "type": "LABEL_TEXT",
+              "name": "LABEL_TEXT",
+              "title": "",
+              "tableClass": "",
+              "labelClass": "app-content-label",
+              "label": "Legacy Interco Order",
+              "showLabel": true,
+              "text": "",
+              "subText": "t",
+              "textClass": "ddl-typography--h5"
+            },
+            {
+              "column": 6,
+              "type": "TEXT_INPUT",
+              "name": "legacyMfgNumber",
+              "label": "Legacy Mfg Number",
+              "labelClass": "app-content-label",
+              "inputClass": "app-content-text-width-custom",
+              "value": "",
+              "required": false,
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 6,
+              "type": "TEXT_INPUT",
+              "name": "mfgOperatingUnit",
+              "label": "Operating Unit",
+              "labelClass": "app-content-label",
+              "inputClass": "app-content-text-width-custom",
+              "value": "",
+              "required": false,
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 6,
+              "type": "TEXT_INPUT",
+              "name": "serialNumber",
+              "label": "Serial Number",
+              "labelClass": "app-content-label",
+              "inputClass": "app-content-text-width-custom",
+              "value": "",
+              "required": false,
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 6,
+              "visible": false
+            },
+            {
+              "column": 6,
+              "type": "TEXT_INPUT",
+              "name": "mfgTagNumber",
+              "label": "Tag Number",
+              "labelClass": "app-content-label",
+              "inputClass": "app-content-text-width-custom",
+              "value": "",
+              "required": false,
+              "error": "",
+              "errorClass": ""
+            }
+          ]
+        },
+  
+        {
+          "id": 3,
+  
+          "fields": [
+            {
+              "column": 12,
+              "type": "CUSTOM_TOGGLE_BUTTON",
+  
+              "name": "Units Of Measurement",
+  
+              "label": "Units Of Measurement",
+  
+              "labelClass": "app-content-label",
+  
+              "value": "Milimeter",
+  
+              "attribute_code_value": {
+                "size": "small"
+              },
+  
+              "options": [
+                {
+                  "label": "inch",
+  
+                  "value": "inch"
+                },
+  
+                {
+                  "label": "Milimeter",
+  
+                  "value": "Milimeter"
+                }
+              ],
+  
+              "required": true,
+  
+              "error": "",
+  
+              "errorClass": ""
+            },
+  
+            {
+              "column": 12,
+              "type": "CUSTOM_TOGGLE_BUTTON",
+  
+              "name": "Pipe Cross-Section",
+  
+              "label": "Pipe Cross-Section",
+  
+              "labelClass": "app-content-label",
+  
+              "value": "Circular",
+  
+              "attribute_code_value": {
+                "size": "small"
+              },
+  
+              "options": [
+                {
+                  "label": "Circular",
+  
+                  "value": "Circular"
+                },
+  
+                {
+                  "label": "Reactangular",
+  
+                  "value": "Reactangular"
+                }
+              ],
+  
+              "required": true,
+  
+              "error": "",
+  
+              "errorClass": ""
+            },
+  
+            {
+              "column": 12,
+              "type": "CUSTOM_TOGGLE_BUTTON",
+  
+              "name": "Custom Pipe ID",
+  
+              "label": "Custom Pipe ID",
+  
+              "labelClass": "app-content-label",
+  
+              "value": "Standard",
+  
+              "attribute_code_value": {
+                "size": "small"
+              },
+  
+              "options": [
+                {
+                  "label": "Standard",
+  
+                  "value": "Standard"
+                },
+  
+                {
+                  "label": "Custom",
+  
+                  "value": "Custom"
+                }
+              ],
+  
+              "required": true,
+  
+              "error": "",
+  
+              "errorClass": ""
+            },
+  
+            {
+              "column": 4,
+              "type": "SINGLE_SELECT",
+  
+              "name": "pipemeterial",
+  
+              "label": "Pipe Material",
+  
+              "labelClass": "app-content-label",
+  
+              "disabled": false,
+  
+              "value": "",
+  
+              "options": [
+                {
+                  "value": "0",
+  
+                  "label": "Carbon Steel",
+  
+                  "id": "0"
+                },
+  
+                {
+                  "value": "1",
+  
+                  "label": "Stainless Steel(304,316)",
+  
+                  "id": "1"
+                },
+  
+                {
+                  "value": "2",
+  
+                  "label": "Duplex Stainless Stell",
+  
+                  "id": "2"
+                },
+  
+                {
+                  "value": "3",
+  
+                  "label": "Chrome-Moly(Grade 11,22)",
+  
+                  "id": "3"
+                }
+              ],
+  
+              "required": true,
+  
+              "error": "",
+  
+              "errorClass": ""
+            },
+            {
+              "column":8
+            },
+  
+            {
+              "column": 3,
+              "type": "SINGLE_SELECT",
+  
+              "name": "nominalpipesize",
+  
+              "label": "Nominal Pipe Size",
+  
+              "labelClass": "app-content-label",
+  
+              "disabled": false,
+  
+              "value": "",
+  
+              "options": [
+                {
+                  "value": "0",
+  
+                  "label": "15",
+  
+                  "id": "0"
+                },
+  
+                {
+                  "value": "1",
+  
+                  "label": "20",
+  
+                  "id": "1"
+                },
+  
+                {
+                  "value": "2",
+  
+                  "label": "25",
+  
+                  "id": "2"
+                },
+  
+                {
+                  "value": "3",
+  
+                  "label": "30",
+  
+                  "id": "3"
+                }
+              ],
+  
+              "required": true,
+  
+              "error": "",
+  
+              "errorClass": ""
+            },
+            {
+              "column":9
+            },
+              
+  
+            {
+              "column": 3,
+              "type": "SINGLE_SELECT",
+  
+              "name": "pipeschedule",
+  
+              "label": "Pipe Schedule",
+  
+              "labelClass": "app-content-label",
+  
+              "disabled": false,
+  
+              "value": "",
+  
+              "options": [
+                {
+                  "value": "0",
+  
+                  "label": "5",
+  
+                  "id": "0"
+                },
+  
+                {
+                  "value": "1",
+  
+                  "label": "10",
+  
+                  "id": "1"
+                },
+  
+                {
+                  "value": "2",
+  
+                  "label": "30",
+  
+                  "id": "2"
+                },
+  
+                {
+                  "value": "3",
+  
+                  "label": "40",
+  
+                  "id": "3"
+                }
+              ],
+  
+              "required": true,
+  
+              "error": "",
+  
+              "errorClass": ""
+            },
+            {
+              "column":9
+            },
+  
+      
+            {
+              "column": 3,
+              "type": "TEXT_INPUT",
+  
+              "name": "pipeid",
+  
+              "label": "Pipe ID",
+  
+              "labelClass": "app-content-label",
+  
+              "inputClass": "app-content-text-width-custom",
+  
+              "value": "",
+  
+              "required": false,
+  
+              "error": "",
+  
+              "disabled": true,
+  
+              "errorClass": ""
+            },
+            {
+              "column":9
+            },
+            
+         
+           
+  
+            {
+              "column": 3,
+              "type": "TEXT_INPUT",
+  
+              "name": "wallthickness",
+  
+              "label": "Wall Thickness",
+  
+              "labelClass": "app-content-label",
+  
+              "inputClass": "app-content-text-width-custom",
+  
+              "value": "",
+  
+              "required": false,
+  
+              "error": "",
+  
+              "disabled": true,
+  
+              "errorClass": ""
+            },
+           
+            {
+              "column":9
+            },
+  
+            {
+              "column": 4,
+              "type": "SINGLE_SELECT",
+  
+              "name": "flowdirection",
+  
+              "label": "Flow Direction",
+  
+              "labelClass": "app-content-label",
+  
+              "disabled": false,
+  
+              "value": "",
+  
+              "options": [
+                {
+                  "value": "0",
+  
+                  "label": "Horizontal",
+  
+                  "id": "0"
+                },
+  
+                {
+                  "value": "1",
+  
+                  "label": "Vertical Up",
+  
+                  "id": "1"
+                },
+  
+                {
+                  "value": "2",
+  
+                  "label": "Vertical Down",
+  
+                  "id": "2"
+                }
+              ],
+  
+              "required": false,
+  
+              "error": "",
+  
+              "errorClass": ""
+            }
+          ]
+        },
+        {
+          "id": 4,
+  
+          "fields": [
+            {
+              "type": "CUSTOM_BUTTON_GROUP",
+              "column": 12,
+              "title": "Fluid Type",
+              "label": "Fluid Type",
+              "name": "fluidtype",
+              "options": [
+                {
+                  "id": "0",
+  
+                  "label": "Liquid"
+                },
+  
+                {
+                  "id": "1",
+  
+                  "label": "Gas"
+                },
+  
+                {
+                  "id": "2",
+  
+                  "label": "Steam"
+                },
+                {
+                  "id": "3",
+  
+                  "label": "Natural Gas"
+                }
+              ],
+  
+              "label": "CUSTOM_BUTTON_GROUP",
+  
+              "showLabel": "",
+  
+              "wrapperId": "",
+  
+              "wrapperClass": "cutsom_class",
+  
+              "labelClass": "ddl-from-custom-label",
+  
+              "value": ["1"],
+  
+              "attribute_code_value": {
+                "multiple": false,
+  
+                "size": "medium"
+              }
+            },
+            {
+              "type": "RADIO_INPUT",
+              "name": "fluidsource",
+              "column": 2,
+              "label": "Fluid Source",
+              "labelClass": "app-content-label",
+              "value": "1",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "Database"
+                },
+                {
+                  "value": "1",
+                  "label": "Custom"
+                }
+              ],
+              "required": true,
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "type": "SINGLE_SELECT",
+              "name": "fluidsdatabase",
+              "column": 4,
+              "label": "Fluids Database",
+              "labelClass": "app-content-label",
+              "value": "",
+              "options": [
+                {
+                  "value": "0",
+                  "label": "water",
+                  "id": "0"
+                },
+                {
+                  "value": "1",
+                  "label": "Air",
+                  "id": "1"
+                }
+              ],
+              "dataSourceUrl": "http://localhost:5000/entity",
+              "required": true
+            },
+            {
+              "column": 12,
+              "type": "CHECKBOX_INPUT",
+              "name": "CHECKBOX_INPUT",
+              "labelClass": "app-content-label",
+              "selectedIds": [
+                "1"
+              ],
+              "disabledIds": [],
+              "options": [
+                {
+                  "value": "0",
+                  "label": "AFluid Plugs Or Clogs (High Viscosity, Slurry, Entrained Solids, Solidifies Etc.)"
+                },
+                {
+                  "value": "1",
+                  "label": "Fluid Causes Wear And Erosion (Entrained Solids, Abrasive, Etc.)"
+                }
+              ],
+              "required": true,
+              "error": "",
+              "errorClass": "",
+              "value": []
+            }
+           
+          ]
+        },
+        {
+          "id": 5,
+          "fields": [
+            {
+              "type": "TABLE_INPUT",
+              "column": 12,
+              "tableClass": "tableClass",
+              "options": [
+                [
+                  {
+                    "type": "TEXT",
+                    "label": "",
+                    "name": "",
+                    "align": "center",
+                    "labelClass": "textLabel",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT",
+                    "label": "Min",
+                    "align": "center",
+                    "name": "r1min",
+                    "labelClass": "textLabel",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT",
+                    "label": "Normal",
+                    "align": "center",
+                    "name": "r1min",
+                    "labelClass": "textLabel",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT",
+                    "label": "Max",
+                    "name": "r1max",
+                    "align": "center",
+                    "labelClass": "textLabel",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT",
+                    "label": "Full Scale",
+                    "align": "center",
+                    "name": "r1min",
+                    "labelClass": "textLabel",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT",
+                    "label": "Units",
+                    "name": "r1units",
+                    "align": "center",
+                    "labelClass": "textLabel",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  }
+                ],
+                [
+                  {
+                    "type": "TEXT",
+                    "label": "Flow",
+                    "name": "lbl_flow_rate",
+                    "align": "right",
+                    "textStyles": {
+                      "fontSize": "0.8rem",
+                      "marginBottom": "10px"
+                    },
+                    "labelClass": "textLabel"
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "",
+                    "name": "flow_rate_min",
+  
+                    "inputClass": "textInputClass",
+                    "validations": [
+                      {
+                        "validationKey": "\\S",
+                        "validationMessage": "This is required"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "",
+                    "name": "flow_rate_normal",
+                    "required": true,
+                    "inputClass": "textInputClass",
+                    "validations": [
+                      {
+                        "validationKey": "\\S",
+                        "validationMessage": "This is required"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "",
+                    "name": "flow_rate_max",
+                    "inputClass": "textInputClass",
+  
+                    "validations": [
+                      {
+                        "validationKey": "\\S",
+                        "validationMessage": "This is required"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "",
+                    "name": "full_scape",
+                    "inputClass": "textInputClass",
+                    "validations": [
+                      {
+                        "validationKey": "\\S",
+                        "validationMessage": "This is required"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "SINGLE_SELECT",
+                    "label": "",
+                    "name": "flow_rate_units",
+                    "inputClass": "textInputClass",
+                    "wrapperId": "selectInputWrapper",
+                    "value": "SCF/min",
+                    "options": [
+                      {
+                        "value": "SCF/min",
+                        "label": "SCF/min"
+                      },
+                      {
+                        "value": "Gallons",
+                        "label": "Gallons"
+                      }
+                    ],
+                    "validations": [
+                      {
+                        "validationKey": "\\S",
+                        "validationMessage": "This is required"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "TEXT",
+                    "label": "",
+                    "name": "",
+                    "align": "center",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT",
+                    "label": "",
+                    "name": "",
+                    "align": "center",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT",
+                    "label": "",
+                    "name": "",
+                    "align": "center",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT",
+                    "label": "",
+                    "name": "",
+                    "align": "center",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT",
+                    "label": "Design",
+                    "name": "",
+                    "labelClass": "textLabel",
+                    "align": "center",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  }
+                ],
+                [
+                  {
+                    "type": "TEXT",
+                    "label": "Pressure",
+                    "name": "lbe_line_pressure",
+                    "labelClass": "textLabel",
+                    "align": "right",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "",
+                    "required": true,
+                    "inputClass": "textInputClass",
+                    "name": "line_pressure_min"
+                  },
+                  {
+                    "column": 3,
+                    "type": "TEXT_INPUT",
+                    "inputClass": "textInputClass",
+                    "required": true,
+                    "label": "",
+                    "name": "line_pressure_max"
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "",
+  
+                    "inputClass": "textInputClass",
+                    "name": "line_pressure_max"
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "Design",
+                    "required": true,
+                    "inputClass": "textInputClass",
+                    "name": "line_pressure_max"
+                  },
+                  {
+                    "type": "SINGLE_SELECT",
+                    "label": "",
+                    "name": "line_pressure_unit",
+                    "wrapperId": "selectInputWrapper",
+                    "value": "F",
+                    "options": [
+                      {
+                        "value": "F",
+                        "label": "F"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "TEXT",
+                    "label": "Temperature",
+                    "name": "lbe_line_pressure",
+                    "labelClass": "textLabel",
+                    "align": "right",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "",
+  
+                    "inputClass": "textInputClass",
+                    "name": "line_pressure_min"
+                  },
+                  {
+                    "column": 3,
+                    "type": "TEXT_INPUT",
+                    "inputClass": "textInputClass",
+                    "required": true,
+                    "label": "",
+                    "name": "line_pressure_max"
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "",
+  
+                    "inputClass": "textInputClass",
+                    "name": "line_pressure_max"
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "Design",
+                    "required": true,
+                    "inputClass": "textInputClass",
+                    "name": "line_pressure_max"
+                  },
+                  {
+                    "type": "SINGLE_SELECT",
+                    "label": "",
+                    "name": "line_pressure_unit",
+                    "wrapperId": "selectInputWrapper",
+                    "value": "F",
+                    "options": [
+                      {
+                        "value": "F",
+                        "label": "F"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "TEXT",
+                    "label": "Ambient Temperature",
+                    "name": "lbe_line_pressure",
+                    "align": "right",
+                    "labelClass": "textLabel",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "column": 3,
+                    "type": "TEXT_INPUT",
+                    "label": "",
+  
+                    "inputClass": "textInputClass",
+                    "name": "line_pressure_min"
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "",
+                    "required": true,
+                    "inputClass": "textInputClass",
+                    "name": "line_pressure_max"
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "",
+  
+                    "inputClass": "textInputClass",
+                    "name": "line_pressure_max"
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "Design",
+  
+                    "inputClass": "textInputClass",
+                    "name": "line_pressure_max"
+                  },
+                  {
+                    "type": "SINGLE_SELECT",
+                    "label": "",
+                    "name": "line_pressure_unit",
+                    "value": "F",
+                    "inputClass": "textInputClass",
+  
+                    "options": [
+                      {
+                        "value": "F",
+                        "label": "F"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "TEXT",
+                    "label": "Atmospheric Pressure",
+                    "name": "lbe_line_pressure",
+                    "labelClass": "textLabel",
+                    "align": "right",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "",
+                    "required": true,
+                    "inputClass": "textInputClass",
+                    "name": "line_pressure_min"
+                  },
+                  {
+                    "type": "SINGLE_SELECT",
+                    "label": "",
+                    "name": "line_pressure_unit",
+                    "wrapperId": "selectInputWrapper",
+                    "column": 6,
+                    "value": "psia",
+                    "options": [
+                      {
+                        "value": "psia",
+                        "label": "psia"
+                      }
+                    ]
+                  }
+                ]
+              ],
+              "value": {
+                "vessel_dimension_unit": "Meter",
+                "exclude_model": "3.000"
+              },
+  
+              "name": "Operating Condition",
+              "tableClass": "",
+              "labelClass": "app-content-label",
+              "label": "Operating Condition"
+            },
+            {
+              "column": 6.1,
+              "type": "BUTTON",
+              "label": "More Details",
+              "value": "",
+  
+              "error": "",
+              "errorClass": "",
+              "attribute_code_value": {
+                "type": "textary"
+              }
+            },
+            {
+              "type": "TABLE_INPUT",
+              "column": 12,
+              "options": [
+                [
+                  {
+                    "type": "TEXT",
+                    "label": "",
+                    "name": "",
+                    "align": "center",
+                    "labelClass": "textLabel",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT",
+                    "label": "Normal",
+                    "align": "center",
+                    "name": "r1min",
+                    "labelClass": "textLabel",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT",
+                    "label": "Unit",
+                    "name": "r1max",
+                    "align": "center",
+                    "labelClass": "textLabel",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  }
+                ],
+                [
+                  {
+                    "type": "TEXT",
+                    "label": "Density",
+                    "name": "lbl_flow_rate",
+                    "align": "right",
+                    "textStyles": {
+                      "fontSize": "0.8rem",
+                      "marginBottom": "10px"
+                    },
+                    "labelClass": "textLabel"
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "",
+                    "name": "flow_rate_min",
+                    "required": true,
+                    "validations": [
+                      {
+                        "validationKey": "\\S",
+                        "validationMessage": "This is required"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "SINGLE_SELECT",
+                    "label": "",
+                    "name": "flow_rate_units",
+                    "value": "SCF/min",
+                    "options": [
+                      {
+                        "value": "lb/ft3",
+                        "label": "lb/ft3"
+                      }
+                    ],
+                    "validations": [
+                      {
+                        "validationKey": "\\S",
+                        "validationMessage": "This is required"
+                      }
+                    ]
+                  }
+                ],
+  
+                [
+                  {
+                    "type": "TEXT",
+                    "label": "Compressibility",
+                    "name": "lbe_line_pressure",
+                    "labelClass": "textLabel",
+                    "align": "right",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "",
+                    "name": "line_pressure_min"
+                  }
+                ],
+                [
+                  {
+                    "type": "TEXT",
+                    "label": "Viscosity",
+                    "name": "lbl_flow_rate",
+                    "align": "right",
+                    "textStyles": {
+                      "fontSize": "0.8rem",
+                      "marginBottom": "10px"
+                    },
+                    "labelClass": "textLabel"
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "",
+                    "name": "flow_rate_min",
+                    "validations": [
+                      {
+                        "validationKey": "\\S",
+                        "validationMessage": "This is required"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "SINGLE_SELECT",
+                    "label": "",
+                    "name": "flow_rate_units",
+                    "value": "cP",
+                    "options": [
+                      {
+                        "value": "cP",
+                        "label": "cP"
+                      }
+                    ],
+                    "validations": [
+                      {
+                        "validationKey": "\\S",
+                        "validationMessage": "This is required"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "TEXT",
+                    "label": "Isentropic Exponent",
+                    "name": "lbe_line_pressure",
+                    "labelClass": "textLabel",
+                    "align": "right",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "",
+                    "value": "1.40098",
+                    "name": "line_pressure_min"
+                  }
+                ]
+              ],
+              "value": {
+                "vessel_dimension_unit": "Meter",
+                "exclude_model": "3.000"
+              },
+              "title": "",
+              "name": "fluidproperties",
+              "tableClass": "",
+              "labelClass": "app-content-label",
+              "label": "Fluid Properties"
+            },
+            {
+              "type": "TABLE_INPUT",
+              "column": 12,
+              "options": [
+                [
+                  {
+                    "type": "TEXT",
+                    "label": "",
+                    "name": "",
+                    "align": "center",
+                    "labelClass": "textLabel",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT",
+                    "label": "",
+                    "align": "center",
+                    "name": "",
+                    "labelClass": "textLabel",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT",
+                    "label": "Unit",
+                    "name": "",
+                    "align": "center",
+                    "labelClass": "textLabel",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  }
+                ],
+                [
+                  {
+                    "type": "TEXT",
+                    "label": "Base Pressure",
+                    "name": "basepressure",
+                    "align": "right",
+                    "textStyles": {
+                      "fontSize": "0.8rem",
+                      "marginBottom": "10px"
+                    },
+                    "labelClass": "textLabel"
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "",
+                    "value": "60",
+                    "name": "basepressure",
+                    "required": true,
+                    "validations": [
+                      {
+                        "validationKey": "\\S",
+                        "validationMessage": "This is required"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "SINGLE_SELECT",
+                    "label": "",
+                    "name": "S1",
+                    "value": "psia",
+                    "options": [
+                      {
+                        "value": "psia",
+                        "label": "psia"
+                      }
+                    ],
+                    "validations": [
+                      {
+                        "validationKey": "\\S",
+                        "validationMessage": "This is required"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "TEXT",
+                    "label": "Base Temperature",
+                    "align": "right",
+                    "textStyles": {
+                      "fontSize": "0.8rem",
+                      "marginBottom": "10px"
+                    },
+                    "labelClass": "textLabel"
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "",
+                    "value": "60",
+                    "name": "basetemperature",
+                    "validations": [
+                      {
+                        "validationKey": "\\S",
+                        "validationMessage": "This is required"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "SINGLE_SELECT",
+                    "label": "",
+                    "name": "S2",
+                    "value": "F",
+                    "options": [
+                      {
+                        "value": "F",
+                        "label": "F"
+                      }
+                    ],
+                    "validations": [
+                      {
+                        "validationKey": "\\S",
+                        "validationMessage": "This is required"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "TEXT",
+                    "label": "Base Density",
+                    "name": "",
+                    "labelClass": "textLabel",
+                    "align": "right",
+                    "textStyles": {
+                      "fontSize": "0.8rem"
+                    }
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "label": "",
+                    "value": "0.07635",
+                    "name": "basedensity"
+                  },
+                  {
+                    "type": "SINGLE_SELECT",
+                    "label": "",
+                    "name": "S3",
+                    "value": "F",
+                    "options": [
+                      {
+                        "value": "lb/ft3",
+                        "label": "lb/ft3"
+                      }
+                    ],
+                    "validations": [
+                      {
+                        "validationKey": "\\S",
+                        "validationMessage": "This is required"
+                      }
+                    ]
+                  }
+                ]
+              ],
+              "value": {
+                "vessel_dimension_unit": "Meter",
+                "exclude_model": "3.000"
+              },
+              "title": "",
+              "name": "Basecondition",
+              "tableClass": "",
+              "labelClass": "app-content-label",
+              "label": "Base Condition"
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "fields": [
+            {
+              "column": 12,
+              "type": "LABEL_TEXT",
+              "name": "LABEL_TEXT",
+              "title": "Tis is title",
+              "tableClass": "",
+              "labelClass": "app-content-label",
+              "showLabel": true,
+              "text": "Rosemount 1595 Conditioning Orifice Plate",
+              "subText": "",
+              "textClass": "ddl-typography--h5"
+            },
+            {
+              "column": 6.1,
+              "type": "SINGLE_SELECT",
+              "name": "tapetype",
+              "label": "Tape Type",
+              "labelClass": "app-content-label",
+              "disabled": false,
+              "value": "",
+              "options": [
+                {
+                  "value": "D $ D?2 Tapping",
+                  "label": "D $ D?2 Tapping"
+                },
+                {
+                  "value": "Flange Tapping",
+                  "label": "Flange Tapping"
+                }
+              ],
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 6.1,
+              "type": "SINGLE_SELECT",
+              "name": "primaryelement",
+              "label": "Primary Element Material",
+              "labelClass": "app-content-label",
+              "value": "Automation Solutions",
+              "options": [
+                {
+                  "value": "316/316L Staqinless Steel",
+                  "label": "316/316L Staqinless Steel"
+                },
+                {
+                  "value": "Alloy C-276",
+                  "label": "Alloy C-276"
+                },
+                {
+                  "value": "Alloy 400",
+                  "label": "Alloy 400"
+                }
+              ],
+              "dataSourceUrl": "http://localhost:5000/entity"
+            },
+            {
+              "column": 6.1,
+              "type": "SINGLE_SELECT",
+              "name": "Fitting type",
+              "label": "Orifice Flange/Fitting Type",
+              "labelClass": "app-content-label",
+              "value": "Automation Solutions",
+              "options": [
+                {
+                  "value": "Orifice Flange/Fitting",
+                  "label": "Orifice Flange/Fitting"
+                },
+                {
+                  "value": "ASME B16.36 CL 150 RF",
+                  "label": "ASME B16.36 CL 150 RF"
+                },
+                {
+                  "value": "ASME B16.36 CL 300 RF",
+                  "label": "ASME B16.36 CL 300 RF"
+                },
+                {
+                  "value": "ASME B16.36 CL 600 RF",
+                  "label": "ASME B16.36 CL 600 RF"
+                },
+                {
+                  "value": "ASME B16.36 CL 900 RF",
+                  "label": "ASME B16.36 CL 900 RF"
+                }
+              ],
+              "dataSourceUrl": "http://localhost:5000/entity"
+            },
+            {
+              "column": 6,
+              "type": "CHECKBOX_INPUT",
+              "name": "check1",
+              "labelClass": "app-content-label",
+              "selectedIds": [
+                "1"
+              ],
+              "disabledIds": [],
+              "options": [
+                {
+                  "value": "1",
+                  "label": "Add A Model 1496 Orifice Flange Union"
+                }
+              ],
+              "required": true,
+              "error": "",
+              "errorClass": "",
+              "value": []
+            },
+            {
+              "column": 6.1,
+              "type": "SINGLE_SELECT",
+              "name": "betaratio",
+              "label": "Beta Ratio",
+              "labelClass": "app-content-label",
+              "value": "Automation Solutions",
+              "options": [
+                {
+                  "value": "Show all standard beta ratio",
+                  "label": "316/316L Staqinless Steel"
+                },
+                {
+                  "value": "0.2",
+                  "label": "0.2"
+                },
+                {
+                  "value": "0.25",
+                  "label": "0.25"
+                },
+                {
+                  "value": "0.3",
+                  "label": "0.3"
+                },
+                {
+                  "value": "0.35",
+                  "label": "0.35"
+                }
+              ],
+              "dataSourceUrl": "http://localhost:5000/entity"
+            },
+            {
+              "column": 6.1,
+              "type": "BUTTON",
+              "label": "More Details",
+              "value": "",
+              "error": "",
+              "errorClass": "",
+              "attribute_code_value": {
+                "type": "textary"
+              },
+              "showBackIcon": false,
+              "align": "left"
+            },
+            {
+              "column": 6,
+              "type": "CHECKBOX_INPUT",
+              "name": "Check2",
+              "labelClass": "app-content-label",
+              "selectedIds": [
+                "1"
+              ],
+              "disabledIds": [],
+              "options": [
+                {
+                  "value": "1",
+                  "label": "Override Calibration Factor"
+                }
+              ],
+              "required": true,
+              "error": "",
+              "errorClass": "",
+              "value": []
+            },
+            {
+              "type": "TEXT_INPUT",
+              "label": "",
+              "value": "0.999",
+              "name": "",
+              "width": "20px",
+              "validations": [
+                {
+                  "validationKey": "\\S",
+                  "validationMessage": "This is required"
+                }
+              ]
+            },
+            {
+              "column": 12,
+              "type": "LABEL_TEXT",
+              "name": "",
+              "title": "Tis is title",
+              "tableClass": "",
+              "labelClass": "app-content-label",
+              "showLabel": true,
+              "text": "Enter a value between 0.750 to 1.250",
+              "subText": "",
+              "textClass": "ddl-typography--h5"
+            },
+            {
+              "column": 12,
+              "type": "LABEL_TEXT",
+              "name": "LABEL_TEXT",
+              "title": "Tis is title",
+              "tableClass": "",
+              "labelClass": "app-content-label",
+              "label": "Material Section",
+              "showLabel": true,
+              "text": " ",
+              "subText": "Emerson provides a variety of Rosemount products with various product options and configurations including materials of construction that can be expected to perform well in a wide range of applications. The Rosemount product information presented is intended as a guide for the purchaser to make an appropriate selection for the application. It is the purchaser’s sole responsibility to make a careful analysis of all process parameters (such as all chemical components, temperature, pressure, flow rate, abrasives, contaminants, etc.), when specifying product materials, options, and components for the particular application. Emerson is not in a position to evaluate or guarantee the compatibility of the process fluid or other process parameters with the product options.",
+              "textClass": "ddl-typography--h5"
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "fields": [
+            {
+              "column": 12,
+              "type": "RADIO_INPUT",
+              "name": "mountingstyle",
+              "title": "Mounting Style",
+              "label": "Mounting Style",
+              "labelClass": "app-content-label",
+              "selectedIds": ["1"],
+              "disabledIds": [],
+              "options": [
+                {
+                  "value": "1",
+                  "label": "Direct Mount"
+                },
+                {
+                  "value": "0",
+                  "label": "Remote Mount"
+                }
+              ],
+              "error": "",
+              "errorClass": ""
+            },
+  
+            {
+              "column": 12,
+              "type": "SINGLE_SELECT",
+              "name": "manifoldstyle",
+              "label": "Manifold Style",
+              "labelClass": "",
+              "disabled": false,
+              "value": "Integral",
+              "options": [
+                {
+                  "value": "Integral",
+                  "label": "Integral"
+                },
+                {
+                  "value": "Conventional",
+                  "label": "Conventional"
+                }
+              ],
+              "error": "",
+              "errorClass": ""
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "fields": [
+            {
+              "column": 6.1,
+              "type": "SINGLE_SELECT",
+              "name": "communicationprotocol",
+              "label": "Communication Protocol",
+              "labelClass": "app-content-label",
+              "disabled": false,
+              "value": "",
+              "options": [
+                {
+                  "value": "4-20mA HART",
+                  "label": "4-20mA HART"
+                },
+                {
+                  "value": "Wireless HART",
+                  "label": "Wireless HART"
+                }
+              ],
+  
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 6,
+              "type": "RADIO_INPUT",
+              "name": "Flow Calculations",
+              "title": "Flow Calculations",
+              "label": "Flow Calculations",
+              "labelClass": "app-content-label",
+  
+              "disabledIds": [],
+              "options": [
+                {
+                  "value": "1",
+                  "label": " Fully Compensated Mass, Volumetric and Energy Flow"
+                },
+                {
+                  "value": "0",
+                  "label": " No Flow Calculations"
+                }
+              ],
+  
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 6.1,
+              "type": "CHECKBOX_INPUT",
+              "name": "measurmenttype",
+              "label": "Measurement Type",
+              "labelClass": "app-content-label",
+              "selectedIds": ["0"],
+              "disabledIds": ["0"],
+              "options": [
+                {
+                  "value": "",
+                  "label": "Differential Pressure"
+                },
+                {
+                  "value": "1",
+                  "label": " Static Pressure"
+                },
+                {
+                  "value": "2",
+                  "label": "Process Temperature"
+                }
+              ],
+  
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 12,
+              "type": "RADIO_INPUT",
+              "name": "accuracy",
+              "title": "Accuracy and Long Term Stability",
+              "label": "Accuracy and Long Term Stability",
+              "labelClass": "app-content-label",
+              "selectedIds": ["1"],
+              "disabledIds": [],
+              "options": [
+                {
+                  "value": "1",
+                  "label": "Industry Leading (15 Year Stability, 8:1 Flow Turndown, 0.04% of Span Accuracy)"
+                }
+              ],
+  
+              "error": "",
+              "errorClass": ""
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "fields": [
+            {
+              "column": 6,
+              "type": "RADIO_INPUT",
+              "name": "Warranty",
+              "title": "Warranty ",
+              "label": "Warranty ",
+              "labelClass": "app-content-label",
+  
+              "disabledIds": [],
+              "options": [
+                {
+                  "value": "2",
+                  "label": " 5 Year Limited Warranty"
+                },
+                {
+                  "value": "1",
+                  "label": "3 Year Limited Warranty"
+                },
+                {
+                  "value": "0",
+                  "label": " 18 Month Limited Warranty (Standard)"
+                }
+              ],
+  
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 6,
+              "type": "CHECKBOX_INPUT",
+              "name": "Diagnostics",
+              "title": "Diagnostics ",
+              "label": "Diagnostics ",
+              "labelClass": "app-content-label",
+  
+              "disabledIds": [],
+              "options": [
+                {
+                  "value": "2",
+                  "label": "Transmitter"
+                },
+                {
+                  "value": "1",
+                  "label": "Loop Integrity"
+                },
+                {
+                  "value": "0",
+                  "label": "Process Integrity"
+                }
+              ],
+  
+              "error": "",
+              "errorClass": ""
+            },
+            {
+              "column": 6,
+              "type": "RADIO_INPUT",
+              "name": "Display And Interface",
+              "title": "",
+              "label": "Display And Interface ",
+              "labelClass": "app-content-label",
+  
+              "disabledIds": [],
+              "options": [
+                {
+                  "value": "3",
+                  "label": "No Display"
+                },
+                {
+                  "value": "2",
+                  "label": "LCD DisplaY"
+                },
+                {
+                  "value": "1",
+                  "label": "Remote Display and Interface"
+                },
+                {
+                  "value": "0",
+                  "label": "Local Operator Interface"
+                }
+              ],
+  
+              "error": "",
+              "errorClass": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  
