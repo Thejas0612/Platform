@@ -1,5 +1,5 @@
 trigger:
-  - develop
+  - deploy-react
 
 pool:
   vmImage: "ubuntu-latest"
@@ -18,25 +18,34 @@ steps:
       npm run build
     displayName: "npm build"
 
-  - task: CopyFiles@2
-    inputs:
-      sourceFolder: "$(Build.SourcesDirectory)"
-      contents: |
-        src/*
-        public/*
-      targetFolder: "$(Build.ArtifactStagingDirectory)"
-    displayName: "Archive project files"
+  # - task: CopyFiles@2
+  #   inputs:
+  #     sourceFolder: "$(Build.SourcesDirectory)"
+  #     contents: |
+  #       src/*
+  #       public/*
+  #     targetFolder: "$(Build.ArtifactStagingDirectory)"
+  #   displayName: "Archive project files"
 
-  - task: ArchiveFiles@2
-    inputs:
-      rootFolderOrFile: $(Build.ArtifactStagingDirectory)
-      archiveType: "zip"
-      archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
-      includeRootFolder: false
+  # - task: ArchiveFiles@2
+  #   inputs:
+  #     rootFolderOrFile: $(Build.ArtifactStagingDirectory)
+  #     archiveType: "zip"
+  #     archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
+  #     includeRootFolder: false
 
-  - task: PublishPipelineArtifact@1
-    inputs:
-      artifactName: e2e-server
-      targetPath: "$(Build.ArtifactStagingDirectory)"
-      publishLocation: "pipeline"
-    displayName: "Publish npm artifact"
+  # - task: PublishPipelineArtifact@1
+  #   inputs:
+  #     artifactName: e2e-server
+  #     targetPath: "$(Build.ArtifactStagingDirectory)"
+  #     publishLocation: "pipeline"
+  #   displayName: "Publish npm artifact"
+  - script: |
+      docker build -f docker/prod/Dockerfile -t $(dockerId).azurecr.io/$(imageName):$(Build.BuildId) .
+      docker login $(dockerId).azurecr.io -u $(dockerId) -p $pswd
+      docker push $(dockerId).azurecr.io/$(imageName):$(Build.BuildId)
+    env:
+      pswd: $(dockerPassword)
+    displayName: "Build and Push Docker Image for Digital Installed Base Application"
+
+
