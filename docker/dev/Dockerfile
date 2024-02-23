@@ -4,8 +4,8 @@ FROM node:16
 # Create app directory
 WORKDIR /usr/src/app
 # Remove package-lock.json and node_modules
-RUN rm /usr/src/app/package-lock.json
-RUN rm /usr/src/app/node_modules
+# RUN rm /usr/src/app/package-lock.json
+# RUN rm /usr/src/app/node_modules
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
