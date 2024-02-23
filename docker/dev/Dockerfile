@@ -12,6 +12,7 @@ RUN rm /usr/src/app/node_modules
 COPY package*.json /usr/src/app/package.json
 
 RUN npm install
+RUN npm build
 # If you are building your code for production
 # RUN npm install --only=production
 COPY . /usr/src/app

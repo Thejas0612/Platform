@@ -9,6 +9,7 @@ COPY package.json /usr/src/app/package.json
 #RUN yarnpkg install && yarnpkg cache clean
 
 RUN npm install
+RUN npm build
 
 COPY . /usr/src/app
 # RUN npm run build
