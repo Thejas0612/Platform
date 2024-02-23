@@ -10,6 +10,12 @@ RUN rm /usr/src/app/node_modules
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json /usr/src/app/package.json
+#Install "vsts-npm-auth" Globally:
+RUN npm install -g vsts-npm-auth
+#run vsts-npm-auth to get an Azure Artifacts token added to your user-level .npmrc file
+RUN npx vsts-npm-auth -config .npmrc
+# Install "@emerson/dynamic-ui":
+RUN npm install @emerson/dynamic-ui
 RUN npm install
 # If you are building your code for production
 # RUN npm install --only=production
