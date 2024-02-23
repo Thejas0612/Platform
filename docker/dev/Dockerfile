@@ -13,11 +13,11 @@ COPY package*.json /usr/src/app/package.json
 
 COPY docker/dev/.npmrc  /user/src/app/.npmrc
 #Install "vsts-npm-auth" Globally:
-#  RUN npm install -g vsts-npm-auth
+#   RUN npm install -g vsts-npm-auth
 # #run vsts-npm-auth to get an Azure Artifacts token added to your user-level .npmrc file
 #  RUN npx vsts-npm-auth -config .npmrc
 # # Install "@emerson/dynamic-ui" Globally:
-# RUN npm install @emerson/dynamic-ui
+RUN npm install @emerson/dynamic-ui
 RUN npm install
 # If you are building your code for production
 # RUN npm install --only=production
