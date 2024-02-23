@@ -41,8 +41,8 @@ steps:
   #     publishLocation: "pipeline"
   #   displayName: "Publish npm artifact"
   - script: |
-      docker build -f docker/prod/Dockerfile -t $(dockerId).azurecr.io/$(imageName):$(Build.BuildId) .
       docker login $(dockerId).azurecr.io -u $(dockerId) -p $pswd
+      docker build -f docker/prod/Dockerfile -t $(dockerId).azurecr.io/$(imageName):$(Build.BuildId) .
       docker push $(dockerId).azurecr.io/$(imageName):$(Build.BuildId)
     env:
       pswd: $(dockerPassword)
