@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "vite",
+    "start": "react-scripts start",
     "build": "vite build",
     "test": "jest",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
