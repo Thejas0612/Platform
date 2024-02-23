@@ -7,6 +7,12 @@ COPY package.json /usr/src/app/package.json
 #RUN rm -r ./node_modules && package-lock.json
 # RUN npm install --legacy-peer-deps && npm build && rm -r ./node_modules
 #RUN yarnpkg install && yarnpkg cache clean
+#Install "vsts-npm-auth" Globally:
+RUN npm install -g vsts-npm-auth
+#run vsts-npm-auth to get an Azure Artifacts token added to your user-level .npmrc file
+RUN npx vsts-npm-auth -config .npmrc
+# Install "@emerson/dynamic-ui":
+RUN npm install @emerson/dynamic-ui
 RUN npm install
 
 COPY . /usr/src/app
