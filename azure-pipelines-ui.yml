@@ -3,15 +3,14 @@ trigger:
 
 pool:
   vmImage: "ubuntu-latest"
-
+  
+variables:
+  tag: '$(Build.BuildId)'
 steps:
   # - task: NodeTool@0
   #   inputs:
   #     versionSpec: "18.17.0"
   #   displayName: "Install Node.js"
-
-variables:
-  tag: '$(Build.BuildId)'
   # - script: |
   #     npm install
   #   displayName: "npm install"
