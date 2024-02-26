@@ -24,4 +24,5 @@ RUN npm install
 # RUN npm install --only=production
 COPY . ./
 EXPOSE 3000
-CMD ["npm", "start" ]
+#CMD ["npm", "start" ]
+CMD npm run start-app
