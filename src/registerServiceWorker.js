@@ -17,7 +17,11 @@ export default function register() {
       return;
     }
 
+<<<<<<< HEAD
     window.addEventListener("load", () => {
+=======
+    window.addEventListener('load', () => {
+>>>>>>> 7ab059954ea3281d4c8d01e2ca44e52cc22a4859
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
       if (isLocalhost) {
@@ -34,35 +38,57 @@ export default function register() {
 function registerValidSW(swUrl) {
   navigator.serviceWorker
     .register(swUrl)
+<<<<<<< HEAD
     .then((registration) => {
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
         installingWorker.onstatechange = () => {
           if (installingWorker.state === "installed") {
+=======
+    .then(registration => {
+      registration.onupdatefound = () => {
+        const installingWorker = registration.installing;
+        installingWorker.onstatechange = () => {
+          if (installingWorker.state === 'installed') {
+>>>>>>> 7ab059954ea3281d4c8d01e2ca44e52cc22a4859
             if (navigator.serviceWorker.controller) {
               // At this point, the old content will have been purged and
               // the fresh content will have been added to the cache.
               // It's the perfect time to display a "New content is
               // available; please refresh." message in your web app.
+<<<<<<< HEAD
               console.log("New content is available; please refresh.");
+=======
+              console.log('New content is available; please refresh.');
+>>>>>>> 7ab059954ea3281d4c8d01e2ca44e52cc22a4859
             } else {
               // At this point, everything has been precached.
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
+<<<<<<< HEAD
               console.log("Content is cached for offline use.");
+=======
+              console.log('Content is cached for offline use.');
+>>>>>>> 7ab059954ea3281d4c8d01e2ca44e52cc22a4859
             }
           }
         };
       };
     })
+<<<<<<< HEAD
     .catch((error) => {
       console.error("Error during service worker registration:", error);
+=======
+    .catch(error => {
+      console.error('Error during service worker registration:', error);
+>>>>>>> 7ab059954ea3281d4c8d01e2ca44e52cc22a4859
     });
 }
 
 function checkValidServiceWorker(swUrl) {
   // Check if the service worker can be found. If it can't reload the page.
   fetch(swUrl)
+<<<<<<< HEAD
     .then((response) => {
       // Ensure service worker exists, and that we really are getting a JS file.
       if (
@@ -71,6 +97,16 @@ function checkValidServiceWorker(swUrl) {
       ) {
         // No service worker found. Probably a different app. Reload the page.
         navigator.serviceWorker.ready.then((registration) => {
+=======
+    .then(response => {
+      // Ensure service worker exists, and that we really are getting a JS file.
+      if (
+        response.status === 404 ||
+        response.headers.get('content-type').indexOf('javascript') === -1
+      ) {
+        // No service worker found. Probably a different app. Reload the page.
+        navigator.serviceWorker.ready.then(registration => {
+>>>>>>> 7ab059954ea3281d4c8d01e2ca44e52cc22a4859
           registration.unregister().then(() => {
             window.location.reload();
           });
@@ -81,13 +117,24 @@ function checkValidServiceWorker(swUrl) {
       }
     })
     .catch(() => {
+<<<<<<< HEAD
       console.log("No internet connection found. App is running in offline mode.");
+=======
+      console.log(
+        'No internet connection found. App is running in offline mode.'
+      );
+>>>>>>> 7ab059954ea3281d4c8d01e2ca44e52cc22a4859
     });
 }
 
 export function unregister() {
+<<<<<<< HEAD
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.ready.then((registration) => {
+=======
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.ready.then(registration => {
+>>>>>>> 7ab059954ea3281d4c8d01e2ca44e52cc22a4859
       registration.unregister();
     });
   }

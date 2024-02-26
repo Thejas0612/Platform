@@ -2,7 +2,7 @@ import React from "react";
 import EmsolComponentsConfig from "../../utils/EmsolComponentsConfig";
 import { Grid } from "@mui/material";
 import { connect } from "react-redux";
-import { loadSchema } from "../../redux/actions/counterSliceAction";
+import { loadSchema } from "../../redux/actions/actionFile";
 
 const LayoutType = () => {
   return (

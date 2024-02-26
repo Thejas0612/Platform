@@ -26,7 +26,6 @@ Specific component styles
 ```
 
 ## Button Types
-
 Use ONE of these classes in the Button CTA root element to get a different Button CTA type
 | CTA Type | Class
 | ------ | :-----:
