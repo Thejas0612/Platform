@@ -13,9 +13,9 @@ WORKDIR /usr/src/app
 COPY package.json ./
 COPY package-lock.json ./
 COPY docker/dev/.npmrc ./
+RUN  ls
 #Install "vsts-npm-auth" Globally:
  RUN npm install -g vsts-npm-auth
- RUN npm install -g npx
 # #run vsts-npm-auth to get an Azure Artifacts token added to your user-level .npmrc file
  RUN npx vsts-npm-auth -config ./.npmrc
 # Install "@emerson/dynamic-ui" Globally:
