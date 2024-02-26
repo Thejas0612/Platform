@@ -8,6 +8,7 @@ const LayoutType = () => {
   return (
     <div>
       <Grid container xs={12}>
+     
         {/* <div className="Ui_Builder">
           <header>
             {layout.Top?.map((component) => (
