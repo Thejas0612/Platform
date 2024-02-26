@@ -1,7 +1,6 @@
 import { useOktaAuth } from "@okta/okta-react";
 import React, { useState, useEffect } from "react";
 import style from "./home.module.css";
-import Ddl from "../ddl/Ddl";
 
 const Home = () => {
   const { authState, oktaAuth } = useOktaAuth();
@@ -32,7 +31,6 @@ const Home = () => {
         expertise – from projects to operations – is focused on helping you hit your targets and
         move your organization into Top Quartile performance.
       </span>
-      <Ddl />
     </div>
   );
 };

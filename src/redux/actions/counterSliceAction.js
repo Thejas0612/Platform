@@ -1,3 +1,4 @@
 // eslint-disable-next-line prettier/prettier
-import { counterSlice } from "../reducers/counterSliceReducer";
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+// import { co } from "../reducers/counterSliceReducer";
+import { componentSlice } from "../reducers/componentReducer";
+export const { loadSchema, updateLayoutContent } = componentSlice.actions;
