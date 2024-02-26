@@ -43,7 +43,7 @@ steps:
   #   displayName: "Publish npm artifact"
   - script: |
       docker login $(dockerId).azurecr.io -u $(dockerId) -p $pswd
-      docker build -f docker/dev/Dockerfile -t $(dockerId).azurecr.io/$(imageName):$(Build.BuildId) .
+      docker build -f docker/dev/Dockerfile -t $(dockerId).azurecr.io/$(imageName):$(Build.BuildId) --build-arg ISSUER=$(ISSUER) --build-arg CLIENT=$(CLIENT) . 
       docker push $(dockerId).azurecr.io/$(imageName):$(Build.BuildId)
     env:
       pswd: $(dockerPassword)
