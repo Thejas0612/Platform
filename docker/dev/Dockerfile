@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:16
 #RUN useradd -ms /bin/bash configitUser
 #USER configitUser
 # Create app directory
@@ -12,12 +12,11 @@ WORKDIR /usr/src/app
 # COPY package*.json /usr/src/app/package.json
 COPY package.json ./
 COPY package-lock.json ./
-COPY .npmrc ./
-
+COPY docker/dev/.npmrc ./
 #Install "vsts-npm-auth" Globally:
- RUN npm install  vsts-npm-auth
+#   RUN npm install -g vsts-npm-auth
 # #run vsts-npm-auth to get an Azure Artifacts token added to your user-level .npmrc file
- RUN npx vsts-npm-auth -config .npmrc
+#  RUN npx vsts-npm-auth -config .npmrc
 # Install "@emerson/dynamic-ui" Globally:
 RUN npm install @emerson/dynamic-ui
 RUN npm install
