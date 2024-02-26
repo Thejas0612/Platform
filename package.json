@@ -8,7 +8,9 @@
     "test": "jest",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
     "lint:fix": "eslint \"src/**/*.{js,jsx}\" --fix",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "preview" : "vite preview --host --port 3000",
+    "start-app": "npm run build && npm run preview"
   },
   "dependencies": {
     "@emerson/dynamic-ui": "^0.0.16",
