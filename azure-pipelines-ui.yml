@@ -1,5 +1,5 @@
 trigger:
-  - deploy-react
+  - iteration_24.2.4
 
 pool:
   vmImage: "ubuntu-latest"
