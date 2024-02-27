@@ -5,13 +5,15 @@ import "./polyfills";
 import App from "./App";
 import style from "./index.module.css";
 import registerServiceWorker from "./registerServiceWorker";
-import i18n from "./i18next";
-import { I18nextProvider } from "react-i18next";
+import { Provider } from "react-redux";
+import store from "./redux/store/store";
 
-
+/* eslint-disable react/jsx-filename-extension */
 ReactDOM.render(
   <Router>
-    <App className={style.app} />
+    <Provider store={store}>
+      <App className={style.app} />
+    </Provider>
   </Router>,
   document.getElementById("root")
 );
