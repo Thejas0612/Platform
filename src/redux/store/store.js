@@ -1,8 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import componentReducer from "../reducers/componentReducer";
-
+import initialBuSchema from "../reducers/initialBuDataSlice";
 export default configureStore({
   reducer: {
-    componentStore: componentReducer
+    initialBuData: initialBuSchema
   }
 });
