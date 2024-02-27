@@ -23,7 +23,7 @@ export default function UiLayout() {
     );
   return (
     <div className="spinner_wrapper">
-      <CircularProgress />;
+      <CircularProgress />
     </div>
   );
 }
