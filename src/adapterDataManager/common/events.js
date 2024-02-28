@@ -17,7 +17,7 @@ const events = (type, setUpdateEvent) => {
       console.log("On change event", setUpdateEvent);
       break;
     case "fetch":
-      fetchData("", "value")
+      fetchData("", "value");
       break;
     default:
       console.log("Unknown event!");
