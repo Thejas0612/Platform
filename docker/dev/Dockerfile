@@ -14,7 +14,7 @@ COPY package.json ./
 COPY package-lock.json ./
 COPY docker/dev/.npmrc ./
 
-RUN npm ci
+RUN npm install
 # If you are building your code for production
 # RUN npm install --only=production
 COPY . ./
