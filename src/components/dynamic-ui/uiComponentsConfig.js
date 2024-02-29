@@ -8,12 +8,4 @@ import {
   CustomTop
 } from "@emerson/dynamic-ui";
 
-export {
-  PaStepper,
-  LabelText,
-  NavigationMenu,
-  DynamicForm,
-  Header,
-  ButtonInput,
-  CustomTop
-};
+export { PaStepper, LabelText, NavigationMenu, DynamicForm, Header, ButtonInput, CustomTop };

@@ -12,7 +12,6 @@
     "indent": ["error", 2],
     "linebreak-style": 0,
     "quotes": ["error", "double"],
-    // "prettier/prettier": "error",
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "arrow-body-style": "off",
     "prefer-arrow-callback": "off"
@@ -38,6 +37,9 @@
         "extensions": [".js", ".jsx"],
         "moduleDirectory": ["node_modules", "src/"]
       }
-    }
+    },
+    "ignorePatterns": [
+       "dist/**/*"
+      ]
   }
 }

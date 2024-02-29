@@ -26,7 +26,7 @@ export const getNavigationContent = (props, schema, NAVIGATION_MENU) => {
   }, {});
   const getNavMenu = initData[NAVIGATION_MENU];
   const {
-    props: { data = [] },
+    props: { data = [] }
   } = getNavMenu;
   if (data.length) {
     data.forEach((nav) => {
