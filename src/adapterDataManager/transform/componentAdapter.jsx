@@ -1,8 +1,8 @@
 // File to have functions to handle component data  API to Component parser
 import React from "react";
 import { Grid } from "@mui/material";
-import { PaStepper } from "@emerson/dynamic-ui-public";
-import { DynamicForm, CustomTop, NavigationMenu } from "@emerson//dynamic-ui-public";
+import { PaStepper } from "@emerson/dynamic-ui";
+import { DynamicForm, CustomTop, NavigationMenu } from "@emerson/dynamic-ui";
 import events from "../common/events";
 // import { DYNAMIC_FORM, NAVIGATION_MENU } from "../../utils/UtilConstants";
 import { dynamicFormContent, getNavigationContent } from "../common/layoutParser";

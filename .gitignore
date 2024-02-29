@@ -1,22 +1,13 @@
-# builds
-dist/
-
-# Confgirations
-.env
-
-# NodeJS
-node_modules/
-
-# Operating Systems
-.DS_Store
-
-# Editors
-.idea/
-.vscode/
-
-# etc
-yalc.lock
-.eslintcache
+node_modules
+build
+npm-debug.log
 okta-oidc-tck
 samples-nodejs-express-4
 samples-java-spring
+.DS_Store
+.vscode
+.yalc
+.idea/
+yalc.lock
+.eslintcache
+.env
