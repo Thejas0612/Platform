@@ -1,6 +1,10 @@
 .left_section {
   margin: 1rem 1rem;
 }
+.top_section {
+  /* width: 100%; */
+  margin: 1rem 1rem;
+}
 
 .spinner_wrapper {
   width: 100%;

@@ -4,6 +4,7 @@ import { NavigationMenu } from "../../../components/dynamic-ui/uiComponentsConfi
 export default function LeftLayout() {
   const leftNavData = useSelector((state) => state.initialBuData?.leftSection);
 
+
   if (leftNavData?.length > 0) {
     const { componentProps } = leftNavData[0];
     return (

@@ -4,7 +4,16 @@ import {
   NavigationMenu,
   DynamicForm,
   Header,
-  ButtonInput
-} from '@emerson/dynamic-ui';
+  ButtonInput,
+  CustomTop
+} from "@emerson/dynamic-ui";
 
-export { PaStepper, LabelText, NavigationMenu, DynamicForm, Header, ButtonInput };
+export {
+  PaStepper,
+  LabelText,
+  NavigationMenu,
+  DynamicForm,
+  Header,
+  ButtonInput,
+  CustomTop
+};

@@ -10,9 +10,17 @@ export default function RightLayout() {
   if (rightSecSchema?.length > 0) {
     const { componentProps } = rightSecSchema[0];
     const activeIndxSchema = getSchemaForDynamicForm(activeIndex, componentProps?.schema);
+
+    console.log("Schema ----353", activeIndxSchema);
     return (
       <div>
-        <DynamicForm schema={activeIndxSchema} />
+        <DynamicForm
+          schema={activeIndxSchema}
+          handleChange={(a, b, c, d) => {
+            console.log("Events are trigerring");
+            console.log(a, b, c, d);
+          }}
+        />
         <div>
           <ButtonStepper />
         </div>
