@@ -12,10 +12,10 @@ steps:
        versionSpec: "18.17.0"
      displayName: "Install Node.js"
 
-   - script: |
+   - task: Authenticate to Azure DevOps
+     script: |
       npm install -g vsts-npm-auth
       vsts-npm-auth -config .npmrc
-     displayName: "Authenticate to Azure DevOps"
 
    - script: |
        npm install
