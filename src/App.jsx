@@ -12,7 +12,7 @@ import store from "./redux/store/store";
 import { Provider } from "react-redux";
 import Counter from "./containers/counter/Counter";
 import Layout from "./containers/layout/Layout";
-import User from "./pages/user/User";
+import User from "./pages/user/User"; 
 
 const oktaAuth = new OktaAuth({ ...config.oidc, clientId: "0oad03nku4eC4BzzW5d7" });
 
