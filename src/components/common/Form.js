@@ -1,4 +1,4 @@
-import { DynamicForm } from "@emerson/dynamic-ui-public";
+import { DynamicForm } from "@emerson/dynamic-ui";
 const Form = () => {
   return (
     <>

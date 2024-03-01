@@ -1,4 +1,4 @@
-import { TileOrThumbnail } from "@emerson/dynamic-ui-public";
+import { TileOrThumbnail } from "@emerson/dynamic-ui";
 import { TileSchema } from "../../JsonSchema/UsmSchema";
 const TileLayout = (props) => {
   const { navSchema, setNavSchema, schema } = props;

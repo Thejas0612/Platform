@@ -49,7 +49,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: ["react", "react-dom", "react-redux", "react-router-dom", "@reduxjs/toolkit"],
-          emerson: ["@emerson/dynamic-ui-public"],
+          emerson: ["@emerson/dynamic-ui"],
           mui: ["@mui/material", "@emotion/react", "@emotion/styled"],
           okta: ["@okta/okta-auth-js", "@okta/okta-react"]
         }

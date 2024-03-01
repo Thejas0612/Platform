@@ -13,7 +13,7 @@
     "start-app": "npm run build && npm run preview"
   },
   "dependencies": {
-    "@emerson/dynamic-ui-public": "^0.0.1",
+    "@emerson/dynamic-ui": "^0.0.15",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.11",

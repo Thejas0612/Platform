@@ -1,5 +1,5 @@
 import React from "react";
-import { CustomTop } from "@emerson/dynamic-ui-public";
+import { CustomTop } from "@emerson/dynamic-ui";
 //import CustomTopSchema from './../../JsonSchema/CustomTopSchema'
 
 const CustomTopSection = () => {
