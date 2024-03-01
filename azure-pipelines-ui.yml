@@ -7,10 +7,15 @@ pool:
 variables:
   tag: '$(Build.BuildId)'
 steps:
-   - task: NodeTool@0
+   - task: Install Node
      inputs:
        versionSpec: "18.17.0"
      displayName: "Install Node.js"
+
+   - task: Authenticate to Azure DevOps
+     script: |
+      npm install -g vsts-npm-auth
+      vsts-npm-auth -config .npmrc
 
    - script: |
        npm install
