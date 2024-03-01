@@ -14,8 +14,8 @@ COPY package.json ./
 COPY package-lock.json ./
 COPY .npmrc ./
 
-#RUN npm install -g vsts-npm-auth
-#RUN vsts-npm-auth -config .npmrc
+RUN npm install -g vsts-npm-auth
+RUN vsts-npm-auth -config .npmrc
 
 RUN npm install
 # If you are building your code for production
