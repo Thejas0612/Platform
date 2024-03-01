@@ -12,7 +12,7 @@ WORKDIR /usr/src/app
 # COPY package*.json /usr/src/app/package.json
 COPY package.json ./
 COPY package-lock.json ./
-COPY .npmrc ./
+COPY docker/dev/.npmrc ./
 
 RUN npm install -g vsts-npm-auth
 RUN vsts-npm-auth -config .npmrc
