@@ -10,7 +10,16 @@ WORKDIR /usr/src/app
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 # COPY package*.json /usr/src/app/package.json
+COPY package.json ./
+COPY package-lock.json ./
+COPY .npmrc ./
 
+#RUN npm install -g vsts-npm-auth
+#RUN vsts-npm-auth -config .npmrc
+
+RUN npm install
+# If you are building your code for production
+# RUN npm install --only=production
 COPY . ./
 EXPOSE 3000
 #CMD ["npm", "start" ]
