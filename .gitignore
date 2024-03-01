@@ -10,5 +10,4 @@ samples-java-spring
 .idea/
 yalc.lock
 .eslintcache
-.okta.env
 .env

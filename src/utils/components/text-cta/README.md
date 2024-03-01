@@ -26,7 +26,6 @@ Generic Text CTA created with HTML.
 ```
 
 ## Text CTA types
-
 Use ONE of these classes in the Text CTA root element to get a different Text CTA type
 | Text CTA Type | Class
 | ------ | :-----:
