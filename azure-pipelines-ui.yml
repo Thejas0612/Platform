@@ -7,46 +7,23 @@ pool:
 variables:
   tag: '$(Build.BuildId)'
 steps:
-  # - task: NodeTool@0
-  #   inputs:
-  #     versionSpec: "18.17.0"
-  #   displayName: "Install Node.js"
-  # - script: |
-  #     npm install
-  #   displayName: "npm install"
+   - task: NodeTool@0
+     inputs:
+       versionSpec: "18.17.0"
+     displayName: "Install Node.js"
 
-  # - script: |
-  #     npm run build
-  #   displayName: "npm build"
+   - script: |
+       npm install
+     displayName: "npm install"
 
-  # - task: CopyFiles@2
-  #   inputs:
-  #     sourceFolder: "$(Build.SourcesDirectory)"
-  #     contents: |
-  #       src/*
-  #       public/*
-  #     targetFolder: "$(Build.ArtifactStagingDirectory)"
-  #   displayName: "Archive project files"
+   - script: |
+       npm run build
+     displayName: "npm build"
 
-  # - task: ArchiveFiles@2
-  #   inputs:
-  #     rootFolderOrFile: $(Build.ArtifactStagingDirectory)
-  #     archiveType: "zip"
-  #     archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
-  #     includeRootFolder: false
-
-  # - task: PublishPipelineArtifact@1
-  #   inputs:
-  #     artifactName: e2e-server
-  #     targetPath: "$(Build.ArtifactStagingDirectory)"
-  #     publishLocation: "pipeline"
-  #   displayName: "Publish npm artifact"
-  - script: |
-      docker login $(dockerId).azurecr.io -u $(dockerId) -p $pswd
-      docker build -f docker/dev/Dockerfile -t $(dockerId).azurecr.io/$(imageName):$(Build.BuildId) --build-arg ISSUER=$(ISSUER) --build-arg CLIENT=$(CLIENT) . 
-      docker push $(dockerId).azurecr.io/$(imageName):$(Build.BuildId)
-    env:
-      pswd: $(dockerPassword)
-    displayName: "Build and Push Docker Image for Digital Installed Base Application"
-
-
+   - script: |
+       docker login $(dockerId).azurecr.io -u $(dockerId) -p $pswd
+       docker build -f docker/dev/Dockerfile -t $(dockerId).azurecr.io/$(imageName):$(Build.BuildId) --build-arg ISSUER=$(ISSUER) --build-arg CLIENT=$(CLIENT) . 
+       docker push $(dockerId).azurecr.io/$(imageName):$(Build.BuildId)
+     env:
+       pswd: $(dockerPassword)
+     displayName: "Build and Push Docker Image for Digital Installed Base Application"
