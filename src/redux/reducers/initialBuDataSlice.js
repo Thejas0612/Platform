@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import isolateSchema from "../../adapterDataManager/schema/schemaSeperator";
-import axios from "axios";
 import { STATUS } from "../../status";
+import lookoutSchema from "./lookoutSchema.json"
+import {findSchemaByBusinessUnitCode} from "../../api/schemaApi";
 
 const initialState = {
   topSection: [],
@@ -15,17 +16,13 @@ const initialState = {
 };
 
 export const fetchSchema = createAsyncThunk("loadSchema/fetchSchema", async (buType) => {
-  try {
-    const res = await axios.post(
-      "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/schema/loadSchema",
-      { bu_code: buType.buType }
-    );
-    console.log("api-response", res);
-    return isolateSchema(res?.data[0]);
-  } catch (err) {
-    console.log("Error occurred while fetching schema", err);
-    return "Error occurred while fetching schema";
+  // TODO: upload the lookout schema to the backend.
+  if (buType.buType === 'project_Lookout'){
+    return isolateSchema(lookoutSchema[0]);
   }
+
+  const schemas = await findSchemaByBusinessUnitCode(buType.buType)
+  return isolateSchema(schemas[0]);
 });
 
 const initialBuSchema = createSlice({
