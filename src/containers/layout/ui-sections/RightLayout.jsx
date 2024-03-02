@@ -1,18 +1,21 @@
 import { DynamicForm } from "../../../components/dynamic-ui/uiComponentsConfig";
 import { useSelector } from "react-redux";
-import getSchemaForDynamicForm from "../../../adapterDataManager/schema/getSchema";
 import ButtonStepper from "../../../components/common/ButtonStepper";
+import { getDynamicFormSchema } from "../../../schema-service/schemaService";
 
 export default function RightLayout() {
-  const rightSecSchema = useSelector((state) => state.initialBuData?.rightSection);
+  const buCode = useSelector((state) => state.initialBuData?.selectedBu);
   const activeIndex = useSelector((state) => state.initialBuData?.activeIndex);
-
-  if (rightSecSchema?.length > 0) {
-    const { componentProps } = rightSecSchema[0];
-    const activeIndxSchema = getSchemaForDynamicForm(activeIndex, componentProps?.schema);
+  const data = getDynamicFormSchema(buCode, "DynamicForm", activeIndex);
+  if (data?.length > 0) {
     return (
       <div>
-        <DynamicForm schema={activeIndxSchema} />
+        <DynamicForm
+          schema={data}
+          handleChange={(a, b, c, d) => {
+            console.log("a,,b,c,d", a, b, c, d);
+          }}
+        />
         <div>
           <ButtonStepper />
         </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid } from "@mui/material";
 import "./landing.css";
-import { fetchSchema, resetActiveIndex } from "../../redux/reducers/initialBuDataSlice";
+import { fetchSchema, resetActiveIndex, updateBu } from "../../redux/reducers/initialBuDataSlice";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -11,7 +11,7 @@ export const PRODUCT_ADVISOR_CARDS = [
     title1: "DP Flow",
     title2: "Sizing & Selection",
     subtitle:
-        "The easiest way to size, configure, and order Rosemount DP Flow meters and primary elements.",
+      "The easiest way to size, configure, and order Rosemount DP Flow meters and primary elements.",
     iconName: "arrow_icon",
     buType: "dpFlow"
   },
@@ -20,7 +20,7 @@ export const PRODUCT_ADVISOR_CARDS = [
     title1: "Temperature",
     title2: "Sizing & Selection",
     subtitle:
-        "The easiest way to size, configure, and order Rosemount DP Flow meters and primary elements.",
+      "The easiest way to size, configure, and order Rosemount DP Flow meters and primary elements.",
     iconName: "arrow_icon",
     buType: "tempPA"
   },
@@ -28,13 +28,11 @@ export const PRODUCT_ADVISOR_CARDS = [
     id: "card2_project_Lookout",
     title1: "Project Lookout",
     title2: "Sizing & Selection",
-    subtitle:
-        "***** TBD ******",
+    subtitle: "***** TBD ******",
     iconName: "arrow_icon",
     buType: "project_Lookout"
   }
 ];
-
 
 export default function Landing() {
   const dispatch = useDispatch();
@@ -43,6 +41,7 @@ export default function Landing() {
   const handleSelectedBu = (buType) => {
     dispatch(resetActiveIndex(0));
     dispatch(fetchSchema({ buType }));
+    dispatch(updateBu(buType));
     history.push(`/platform?bucode=${buType}`);
   };
 
