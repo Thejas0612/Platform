@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import isolateSchema from "../../adapterDataManager/schema/schemaSeperator";
-import axios from "axios";
 import { STATUS } from "../../status";
+import lookoutSchema from "./lookoutSchema.json";
+import { findSchemaByBusinessUnitCode } from "../../api/schemaApi";
 
 const initialState = {
   topSection: [],
@@ -508,7 +509,7 @@ export const fetchSchema = createAsyncThunk("loadSchema/fetchSchema", async (buT
       { bu_code: buType.buType }
     );
     console.log("api-response", res);
-    return isolateSchema(obj[buType?.buType]);
+    return isolateSchema(res?.data[0]);
   } catch (err) {
     console.log("Error occurred while fetching schema", err);
     return "Error occurred while fetching schema";
