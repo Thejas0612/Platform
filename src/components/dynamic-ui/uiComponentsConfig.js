@@ -5,6 +5,6 @@ import {
   DynamicForm,
   Header,
   ButtonInput
-} from "@emerson/dynamic-ui";
+} from "@emerson/dynamic-ui-public";
 
 export { PaStepper, LabelText, NavigationMenu, DynamicForm, Header, ButtonInput };
