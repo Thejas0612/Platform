@@ -3,11 +3,12 @@ import "./uiLayout.css";
 import LeftLayout from "./ui-sections/LeftLayout";
 import RightLayout from "./ui-sections/RightLayout";
 import { useSelector } from "react-redux";
+import { STATUS } from "../../status";
 
 export default function UiLayout() {
   const status = useSelector((state) => state.initialBuData.status);
 
-  if (status === "successeded")
+  if (status === STATUS.SUCCESSED)
     return (
       <Grid container>
         <div className="top_section"></div>
@@ -23,7 +24,7 @@ export default function UiLayout() {
     );
   return (
     <div className="spinner_wrapper">
-      <CircularProgress />;
+      <CircularProgress />
     </div>
   );
 }

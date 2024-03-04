@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import isolateSchema from "../../adapterDataManager/schema/schemaSeperator";
-import axios from "axios";
+import { STATUS } from "../../status";
+import lookoutSchema from "./lookoutSchema.json"
+import {findSchemaByBusinessUnitCode} from "../../api/schemaApi";
 
 const initialState = {
   topSection: [],
@@ -8,33 +10,26 @@ const initialState = {
   rightSection: [],
   activeIndex: 0,
   screens: [],
-  status: "idle",
+  status: STATUS.IDLE,
   error: false,
   errorMsg: null,
   bu_code:'',
 };
 
 export const fetchSchema = createAsyncThunk("loadSchema/fetchSchema", async (buType) => {
-  try {
-    const res = await axios.post(
-      "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/schema/loadSchema",
-      { bu_code: buType.buType }
-    );
-    console.log("api-response", res);
-    return isolateSchema(res?.data[0]);
-  } catch (err) {
-    console.log("Error occured while fetching schema", err);
-    return "Error occured while fetching schema";
+  // TODO: upload the lookout schema to the backend.
+  if (buType.buType === 'project_Lookout'){
+    return isolateSchema(lookoutSchema[0]);
   }
+
+  const schemas = await findSchemaByBusinessUnitCode(buType.buType)
+  return isolateSchema(schemas[0]);
 });
 
 const initialBuSchema = createSlice({
   initialState,
   name: "loadSchema",
   reducers: {
-    loadInitialBuSchema: (state, payload) => {
-      //state.buSchemaData = payload;
-    },
     changeActiveIndex: (state, action) => {
       state.activeIndex = action.payload;
     },
@@ -47,24 +42,23 @@ const initialBuSchema = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchSchema.pending, (state) => {
-      state.status = "laoding";
+      state.status = STATUS.LOADING;
     });
     builder.addCase(fetchSchema.fulfilled, (state, action) => {
       console.log("action", action);
       state.leftSection = action.payload?.left;
       state.rightSection = action.payload?.right;
-      state.status = "successeded";
+      state.status = STATUS.SUCCESSED;
       state.isLoading = false;
     });
     builder.addCase(fetchSchema.rejected, (state, action) => {
       console.log("errMsg", action);
       state.error = true;
       state.errorMsg = "error occurred while fetching schema";
-      state.status = "failed";
+      state.status = STATUS.FAILED;
     });
   }
 });
 
-// export const {lo} = initialBuSchema.reducer
 export const { changeActiveIndex, resetActiveIndex, activeBuCode } = initialBuSchema.actions;
 export default initialBuSchema.reducer;

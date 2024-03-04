@@ -5,7 +5,7 @@ export const getLayoutApi = async () => {
   // const { data } = await axios.get(
   //   `${process.env.REACT_APP_API_BASE_URL}api/pilot/layout?type=dpFlow`
   // );
-   return [];
+  return [];
 };
 
 export const getApplicationSections = async (values) => {
