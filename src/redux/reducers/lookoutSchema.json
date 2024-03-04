@@ -351,7 +351,7 @@
                   "name": "fluidsource",
                   "label": "Fluid Source",
                   "labelClass": "app-content-label",
-                  "value": "",
+                  "value": "0",
                   "options": [
                     {
                       "value": "0",
@@ -372,17 +372,117 @@
                   "name": "fluidsdatabase",
                   "label": "Fluids Database",
                   "labelClass": "app-content-label",
-                  "value": "0",
+                  "value": "",
                   "options": [
                     {
                       "value": "0",
-                      "label": "water",
+                      "label": "1-2-2-TETRAFLUOROETHANE",
                       "id": "0"
                     },
                     {
                       "value": "1",
-                      "label": "Air",
+                      "label": "1-2-TRICHLOROETHANE",
                       "id": "1"
+                    },
+                    {
+                      "value": "2",
+                      "label": "1-2-4-TRICHLOROBENZENE",
+                      "id": "2"
+                    },
+                    {
+                      "value": "3",
+                      "label": "1-2-BUTADIENE",
+                      "id": "3"
+                    },
+                    {
+                      "value": "4",
+                      "label": "1-3-5-TRICHLOROBENZENE",
+                      "id": "4"
+                    },
+                    {
+                      "value": "5",
+                      "label": "1-3-BUTADIENE",
+                      "id": "5"
+                    },
+                    {
+                      "value": "6",
+                      "label": "I-4-DIOXANE",
+                      "id": "6"
+                    },
+                    {
+                      "value": "7",
+                      "label": "I—4-HEXADIENE",
+                      "id": "7"
+                    },
+                    {
+                      "value": "8",
+                      "label": "1-BUTENE",
+                      "id": "8"
+                    },
+                    {
+                      "value": "9",
+                      "label": "1-DECANAL",
+                      "id": "9"
+                    },
+                    {
+                      "value": "10",
+                      "label": "1-DECENE",
+                      "id": "10"
+                    },
+                    {
+                      "value": "11",
+                      "label": "1-DODECANOL",
+                      "id": "11"
+                    },
+                    {
+                      "value": "12",
+                      "label": "1-DODECENE",
+                      "id": "12"
+                    },
+                    {
+                      "value": "12",
+                      "label": "1-HEPTANOL",
+                      "id": "12"
+                    },
+                    {
+                      "value": "13",
+                      "label": "1-HEPTENE",
+                      "id": "13"
+                    },
+                    {
+                      "value": "14",
+                      "label": "1-HEXADECANOL",
+                      "id": "14"
+                    },
+                    {
+                      "value": "15",
+                      "label": "1-HEXENE",
+                      "id": "15"
+                    },
+                    {
+                      "value": "16",
+                      "label": "1-NONANAL",
+                      "id": "16"
+                    },
+                    {
+                      "value": "17",
+                      "label": "1-NONANOL",
+                      "id": "17"
+                    },
+                    {
+                      "value": "18",
+                      "label": "1-OCTANOL",
+                      "id": "18"
+                    },
+                    {
+                      "value": "19",
+                      "label": "1-OCTENE",
+                      "id": "19"
+                    },
+                    {
+                      "value": "20",
+                      "label": "1-PENTADECANOL",
+                      "id": "20"
                     }
                   ],
                   "required": true
