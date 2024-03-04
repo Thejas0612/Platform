@@ -2,7 +2,7 @@ import React from "react";
 import { Grid } from "@mui/material";
 import "./landing.css";
 import { landingPageCardInfo } from "./landingPageCards";
-import { fetchSchema, resetActiveIndex } from "../../redux/reducers/initialBuDataSlice";
+import { fetchSchema, resetActiveIndex , activeBuCode} from "../../redux/reducers/initialBuDataSlice";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -12,6 +12,7 @@ export default function Landing() {
 
   const handleSelectedBu = (buType) => {
     dispatch(resetActiveIndex(0));
+    dispatch(activeBuCode(buType));
     dispatch(fetchSchema({ buType }));
     history.push(`/platform?bucode=${buType}`);
   };

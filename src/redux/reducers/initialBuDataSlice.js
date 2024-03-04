@@ -10,7 +10,8 @@ const initialState = {
   screens: [],
   status: "idle",
   error: false,
-  errorMsg: null
+  errorMsg: null,
+  bu_code:'',
 };
 
 export const fetchSchema = createAsyncThunk("loadSchema/fetchSchema", async (buType) => {
@@ -39,6 +40,9 @@ const initialBuSchema = createSlice({
     },
     resetActiveIndex: (state, action) => {
       state.activeIndex = action.payload;
+    },
+    activeBuCode:(state, action) =>{
+      state.activeBuCode =  action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -62,5 +66,5 @@ const initialBuSchema = createSlice({
 });
 
 // export const {lo} = initialBuSchema.reducer
-export const { changeActiveIndex, resetActiveIndex } = initialBuSchema.actions;
+export const { changeActiveIndex, resetActiveIndex, activeBuCode } = initialBuSchema.actions;
 export default initialBuSchema.reducer;
