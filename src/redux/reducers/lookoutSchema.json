@@ -306,11 +306,9 @@
                   }
                 },
                 {
-                  "type": "CUSTOM_BUTTON_GROUP",
-                  "column": 12,
-                  "title": "Fluid Type",
-                  "label": "Fluid Type",
-                  "name": "fluidtype",
+                  "label": "CUSTOM_BUTTON_GROUP",
+                  "labelClass": "ddl-from-custom-label",
+                  "multiple": true,
                   "options": [
                     {
                       "id": "1",
@@ -326,24 +324,18 @@
                     },
                     {
                       "id": "4",
-                      "label": "Natural Gas"
-                    },
-                    {
-                      "id": "5",
-                      "label": "Slurry"
+                      "label": "test"
                     }
                   ],
-                  "showLabel": true,
-                  "wrapperId": "",
-                  "wrapperClass": "cutsom_class",
-                  "labelClass": "ddl-from-custom-label",
+                  "showLabel": "",
+                  "size": "medium",
+                  "title": "CUSTOM_BUTTON_GROUP",
+                  "type": "CUSTOM_BUTTON_GROUP",
                   "value": [
                     "1"
                   ],
-                  "attribute_code_value": {
-                    "multiple": false,
-                    "size": "medium"
-                  }
+                  "wrapperClass": "cutsom_class",
+                  "wrapperId": ""
                 },
                 {
                   "column": 2,

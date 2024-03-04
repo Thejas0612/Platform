@@ -6,6 +6,7 @@ import { Header } from "./components/dynamic-ui/uiComponentsConfig";
 import Landing from "./containers/landing/Landing";
 import "@emerson/dynamic-ui/dist/emerson-ui.css";
 import UiLayout from "./containers/layout/UiLayout";
+import TestLayout from './containers/layout/TestLayout'
 
 const App = () => {
   const reduxStore = useSelector((state) => state);
@@ -22,6 +23,7 @@ const App = () => {
       <Switch>
         <Route path="/" exact={true} component={Landing} />
         <Route path="/platform" exact={true} component={UiLayout} />
+        <Route path="/test" exact={true} component={TestLayout} />
       </Switch>
     </Router>
   );
