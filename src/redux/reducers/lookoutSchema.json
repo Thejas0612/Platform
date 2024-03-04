@@ -126,7 +126,7 @@
                   "showLabel": false,
                   "subText": "",
                   "tableClass": "",
-                  "text": "Measurment Type",
+                  "text": "Measurement Type",
                   "textClass": "ddl-typography--h5",
                   "title": "this is title",
                   "type": "LABEL_TEXT",
@@ -149,13 +149,19 @@
                     {
                       "id": 1,
                       "title": "Flow",
-                      "description": "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, Differential Pressure, Vortex, Magnetic, Ultrasonic, Turbine and positive displacement meters.",
+                      "description": "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, differential pressure, vortex, magnetic, ultrasonic, turbine and positive displacement meters.",
                       "imgUrl": "https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png"
                     },
                     {
                       "id": 2,
-                      "title": "Density- Viscosity",
-                      "description": "Our density & viscosity measurement devices offer unbeatableperformance for applications in alcohol concentration, API gravity, specific gravity and more.",
+                      "title": "Density",
+                      "description": "Our density measurement devices offer reliable performance for applications such as concentration, API, Brix, and more.",
+                      "imgUrl": "https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png"
+                    },
+                    {
+                      "id": 3,
+                      "title": "Viscosity",
+                      "description": "Our inline viscosity meter offers accurate, repeatable measurement in industries such as refining, chemical, life sciences, and more.",
                       "imgUrl": "https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png"
                     }
                   ],
