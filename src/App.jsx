@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { menuData } from "./containers/landing/landingPageCards";

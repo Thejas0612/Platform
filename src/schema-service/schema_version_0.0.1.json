@@ -14,7 +14,7 @@
               "ne_id": 0,
               "np_id": 7,
               "sn_id": 4347,
-              "step_order": 1,
+              "step_order": 0,
               "bu_code": "FLOW_PA_NEW",
               "gui_type_code": "TEXT",
               "attribute_code_json": "N/A",
@@ -24,14 +24,14 @@
             {
               "label": "Process Condition",
               "enabled": true,
-              "selected": true,
+              "selected": false,
               "name": "fpa_ProcessCondition",
               "sn_id": 4347,
               "ne_id": 1,
               "bu_code": "FLOW_PA_NEW",
               "np_id": 7,
               "element_label": "Process Condition",
-              "step_order": 2,
+              "step_order": 1,
               "gui_type_code": "TEXT",
               "attribute_code_json": "N/A",
               "html_field_name": "fpa_ProcessCondition",
@@ -48,7 +48,7 @@
               "bu_code": "FLOW_PA_NEW",
               "np_id": 7,
               "element_label": "Process Variable",
-              "step_order": 3,
+              "step_order": 2,
               "left_right_anchor_flag": "L",
               "gui_type_code": "TEXT",
               "attribute_code_json": "N/A",
@@ -69,7 +69,7 @@
                   "column": 12,
                   "label": "LABEL_TEXT",
                   "labelClass": "app-content-label",
-                  "name": "LABEL_TEXT",
+                  "name": "measurement_type_label",
                   "showLabel": false,
                   "subText": "",
                   "tableClass": "",
@@ -82,7 +82,7 @@
                 {
                   "column": 12,
                   "type": "TILE_THUMBNAIL",
-                  "name": "tile_thumb",
+                  "name": "flow_tial_or_thumbnail",
                   "buttonLabel": "btn lble",
                   "imgUrl": "7bd555544cf68071bafa.png",
                   "attribute_code_value": {
@@ -93,18 +93,22 @@
                   "defaultIds": [],
                   "options": [
                     {
-                      "id": 1,
+                      "id": "flow_1",
                       "title": "Flow",
                       "description": "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, Differential Pressure, Vortex, Magnetic, Ultrasonic, Turbine and positive displacement meters.",
                       "imgUrl": "https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png"
                     }
-                  ]
+                  ],
+                  "np_id": 7,
+                  "sn_id": 4347,
+                  "required": true,
+                  "error": "",
+                  "value": []
                 }
               ]
             },
             {
               "id": 1,
-
               "fields": [
                 {
                   "column": 12,
@@ -118,176 +122,115 @@
                   "textClass": "ddl-typography--h5",
                   "title": "this is title",
                   "type": "LABEL_TEXT",
-                  "textStyles": { "textAlign": "start" }
+                  "textStyles": {
+                    "textAlign": "start"
+                  }
                 },
                 {
                   "column": 3,
                   "type": "SINGLE_SELECT",
-
-                  "name": "nominalpipesize",
-
+                  "name": "line_size",
                   "label": "Line Size",
-
                   "labelClass": "app-content-label",
-
                   "disabled": false,
-
                   "value": "",
-
                   "options": [
                     {
                       "value": "0",
-
                       "label": "15",
-
                       "id": "0"
                     },
-
                     {
                       "value": "1",
-
                       "label": "20",
-
                       "id": "1"
                     },
-
                     {
                       "value": "2",
-
                       "label": "25",
-
                       "id": "2"
                     },
-
                     {
                       "value": "3",
-
                       "label": "30",
-
                       "id": "3"
                     }
                   ],
-
                   "required": true,
-
                   "error": "",
-
-                  "errorClass": ""
+                  "errorClass": "",
+                  "placeholder": "Pick One"
                 },
-
                 {
                   "column": 3,
                   "type": "SINGLE_SELECT",
-
                   "name": "pipeschedule",
-
                   "label": "Pipe Schedule",
-
                   "labelClass": "app-content-label",
-
                   "disabled": false,
-
                   "value": "",
-
                   "options": [
                     {
                       "value": "0",
-
                       "label": "5",
-
                       "id": "0"
                     },
-
                     {
                       "value": "1",
-
                       "label": "10",
-
                       "id": "1"
                     },
-
                     {
                       "value": "2",
-
                       "label": "30",
-
                       "id": "2"
                     },
-
                     {
                       "value": "3",
-
                       "label": "40",
-
                       "id": "3"
                     }
                   ],
-
                   "required": true,
-
                   "error": "",
-
                   "errorClass": ""
                 },
-
                 {
                   "column": 3,
                   "type": "TEXT_INPUT",
-
                   "name": "pipeid",
-
                   "label": "Pipe ID",
-
                   "labelClass": "app-content-label",
-
                   "inputClass": "app-content-text-width-custom",
-
                   "value": "",
-
                   "required": false,
-
                   "error": "",
-
                   "disabled": false,
-
-                  "errorClass": ""
+                  "errorClass": "",
+                  "showonUi": false
                 },
                 {
                   "column": 3,
                   "type": "SINGLE_SELECT",
-
                   "name": "unit",
-
                   "label": "Unit",
-
                   "labelClass": "app-content-label",
-
                   "disabled": false,
-
                   "value": "",
-
                   "options": [
                     {
-                      "value": "INCH",
-
+                      "value": "0",
                       "label": "INCH",
-
                       "id": "0"
                     },
-
                     {
-                      "value": "MM",
-
+                      "value": "1",
                       "label": "MM",
-
                       "id": "1"
                     }
                   ],
-
                   "required": true,
-
                   "error": "",
-
                   "errorClass": ""
                 },
                 {
@@ -302,7 +245,9 @@
                   "textClass": "ddl-typography--h5",
                   "title": "this is title",
                   "type": "LABEL_TEXT",
-                  "textStyles": { "textAlign": "start" }
+                  "textStyles": {
+                    "textAlign": "start"
+                  }
                 },
                 {
                   "type": "CUSTOM_BUTTON_GROUP",
@@ -312,47 +257,34 @@
                   "name": "fluidtype",
                   "options": [
                     {
-                      "id": "1",
-
+                      "id": "0",
                       "label": "Liquid"
                     },
-
                     {
-                      "id": "2",
-
+                      "id": "1",
                       "label": "Gas"
                     },
-
                     {
-                      "id": "3",
-
+                      "id": "2",
                       "label": "Steam"
                     },
                     {
-                      "id": "4",
-
+                      "id": "3",
                       "label": "Natural Gas"
                     },
                     {
-                      "id": "5",
-
+                      "id": "4",
                       "label": "Slurry"
                     }
                   ],
-
+                  "defaultIds": ["0"],
                   "showLabel": true,
-
                   "wrapperId": "",
-
                   "wrapperClass": "cutsom_class",
-
                   "labelClass": "ddl-from-custom-label",
-
-                  "value": ["1"],
-
+                  "value": "0",
                   "attribute_code_value": {
-                    "multiple": false,
-
+                    "multiple": true,
                     "size": "medium"
                   }
                 },
@@ -362,17 +294,21 @@
                   "name": "fluidsource",
                   "label": "Fluid Source",
                   "labelClass": "app-content-label",
-                  "value": "",
+                  "selectedIds": ["0"],
+                  "disabledIds": ["1"],
                   "options": [
                     {
                       "value": "0",
-                      "label": "Database"
+                      "label": "Database",
+                      "id": "0"
                     },
                     {
                       "value": "1",
-                      "label": "Custom"
+                      "label": "Custom",
+                      "id": "1"
                     }
                   ],
+                  "value": "0",
                   "required": true,
                   "error": "",
                   "errorClass": ""
@@ -396,10 +332,8 @@
                       "id": "1"
                     }
                   ],
-
                   "required": true,
                   "error": "",
-
                   "errorClass": ""
                 },
                 {
@@ -524,7 +458,6 @@
                         "type": "TEXT_INPUT",
                         "label": "",
                         "name": "flow_rate_min",
-
                         "inputClass": "textInputClass",
                         "validations": [
                           {
@@ -551,7 +484,6 @@
                         "label": "",
                         "name": "flow_rate_max",
                         "inputClass": "textInputClass",
-
                         "validations": [
                           {
                             "validationKey": "\\S",
@@ -596,7 +528,6 @@
                         ]
                       }
                     ],
-
                     [
                       {
                         "type": "TEXT",
@@ -626,7 +557,6 @@
                       {
                         "type": "TEXT_INPUT",
                         "label": "",
-
                         "inputClass": "textInputClass",
                         "name": "line_pressure_max"
                       },
@@ -665,7 +595,6 @@
                       {
                         "type": "TEXT_INPUT",
                         "label": "",
-
                         "inputClass": "textInputClass",
                         "name": "procTemperature_min"
                       },
@@ -680,7 +609,6 @@
                       {
                         "type": "TEXT_INPUT",
                         "label": "",
-
                         "inputClass": "textInputClass",
                         "name": "procTemperature_max"
                       },
@@ -720,7 +648,6 @@
                         "column": 3,
                         "type": "TEXT_INPUT",
                         "label": "",
-
                         "inputClass": "textInputClass",
                         "name": "ambTemperature_min"
                       },
@@ -734,14 +661,12 @@
                       {
                         "type": "TEXT_INPUT",
                         "label": "",
-
                         "inputClass": "textInputClass",
                         "name": "ambTemperature_max"
                       },
                       {
                         "type": "TEXT_INPUT",
                         "label": "Design",
-
                         "inputClass": "textInputClass",
                         "name": "line_pressure_max"
                       },
@@ -751,7 +676,6 @@
                         "name": "line_pressure_unit",
                         "value": "F",
                         "inputClass": "textInputClass",
-
                         "options": [
                           {
                             "value": "F",
@@ -798,7 +722,6 @@
                     "vessel_dimension_unit": "Meter",
                     "exclude_model": "3.000"
                   },
-
                   "name": "Operating Condition",
                   "labelClass": "app-content-label",
                   "label": "Process Variables"

@@ -42,7 +42,7 @@ export default function Landing() {
     dispatch(resetActiveIndex(0));
     dispatch(fetchSchema({ buType }));
     dispatch(updateBu(buType));
-    history.push(`/platform?bucode=${buType}`);
+    history.push(`/platform?bucode=${buType}`, { bu_code: buType });
   };
 
   return (
