@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ButtonInput } from "../dynamic-ui/uiComponentsConfig";
-import { changeActiveIndex } from "../../redux/reducers/initialBuDataSlice";
-import "./buttonStepper.css";
+import { ButtonInput } from "../../dynamic-ui/uiComponentsConfig";
+import { changeActiveIndex } from "../../../redux/reducers/initialBuDataSlice";
+import "./ButtonStepper.css";
 
 export default function ButtonStepper() {
   const activeIndex = useSelector((state) => state.initialBuData?.activeIndex);

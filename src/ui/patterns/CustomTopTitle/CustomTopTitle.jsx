@@ -2,7 +2,7 @@ import React from "react";
 import { CustomTop } from "@emerson/dynamic-ui-public";
 //import CustomTopSchema from './../../JsonSchema/CustomTopSchema'
 
-const CustomTopSection = () => {
+const CustomTopTitle = () => {
   const CustomTopSchema = {
     data: [
       {
@@ -62,4 +62,4 @@ const CustomTopSection = () => {
   );
 };
 
-export default CustomTopSection;
+export default CustomTopTitle;

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { menuData } from "./containers/landing/landingPageCards";
-import { Header } from "./components/dynamic-ui/uiComponentsConfig";
-import Landing from "./containers/landing/Landing";
+import { menuData } from "./ui/templates/Landing/landingPageCards";
+import { Header } from "./ui/dynamic-ui/uiComponentsConfig";
+import Landing from "./ui/templates/Landing";
 import "@emerson/dynamic-ui-public/dist/emerson-ui.css";
-import UiLayout from "./containers/layout/UiLayout";
+import UiLayout from "./ui/templates/Layout";
 //Hi
 const App = () => {
   const reduxStore = useSelector((state) => state);

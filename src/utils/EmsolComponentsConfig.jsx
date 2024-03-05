@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderSection from "../components/common/Header";
+import HeaderSection from "../ui/patterns/Header";
 import { TileOrThumbnail, NavigationMenu, PaBreadcrumbs, LabelText } from "@emerson/dynamic-ui-public";
 import {
   getEmsolStepper,
@@ -14,14 +14,14 @@ const EmsolComponentsConfig = ({ component, sourceData, updateLayoutContent }) =
   const { props = {}, type, schema = [] } = component;
   const componentMap = {
     // EMSOL_BUTTON: (
-    //   <button
+    //   <Button
     //     {...props}
     //     onClick={() => {
     //       events("click", sourceData);
     //     }}
     //   >
-    //     {props?.text || "button"}
-    //   </button>
+    //     {props?.text || "Button"}
+    //   </Button>
     // ),
     EMSOL_INPUT: <input {...props} />,
     EMSOL_TEXT: <p {...props}>{props.text}</p>,

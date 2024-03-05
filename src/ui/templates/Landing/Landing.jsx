@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid } from "@mui/material";
 import "./landing.css";
-import { fetchSchema, resetActiveIndex } from "../../redux/reducers/initialBuDataSlice";
+import { fetchSchema, resetActiveIndex } from "../../../redux/reducers/initialBuDataSlice";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 //Hello

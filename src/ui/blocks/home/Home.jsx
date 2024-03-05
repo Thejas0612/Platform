@@ -8,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     if (!authState || !authState.isAuthenticated) {
-      // When user isn't authenticated, forget any user info
+      // When User isn't authenticated, forget any User info
       setUserInfo(null);
     } else {
       oktaAuth.getUser().then((info) => {

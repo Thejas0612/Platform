@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { NavigationMenu } from "../../../components/dynamic-ui/uiComponentsConfig";
+import { NavigationMenu } from "../../../dynamic-ui/uiComponentsConfig";
 
 export default function LeftLayout() {
   const leftNavData = useSelector((state) => state.initialBuData?.leftSection);

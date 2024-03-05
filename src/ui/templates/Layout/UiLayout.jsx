@@ -1,9 +1,9 @@
 import { CircularProgress, Grid } from "@mui/material";
 import "./uiLayout.css";
-import LeftLayout from "./ui-sections/LeftLayout";
-import RightLayout from "./ui-sections/RightLayout";
+import LeftLayout from "./Sections/LeftLayout";
+import RightLayout from "./Sections/RightLayout";
 import { useSelector } from "react-redux";
-import { STATUS } from "../../status";
+import { STATUS } from "../../../status";
 
 export default function UiLayout() {
   const status = useSelector((state) => state.initialBuData.status);
