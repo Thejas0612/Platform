@@ -22,6 +22,27 @@ steps:
   - script: |
       npm run build
     displayName: "npm build"
+  - task: SonarCloudPrepare@1
+    displayName: "Prepare analysis on SonarCloud"
+    inputs:
+      SonarCloud: $(SONARCLOUD_ServiceConnection)
+      organization: $(organization_name)
+      scannerMode: "CLI"
+      configMode: "manual"
+      cliProjectKey: $(SonarCloudProjectKey)
+      cliProjectName: $(SonarCloudProjectName)
+      cliSources: "."
+
+  - task: SonarCloudAnalyze@1
+    displayName: "Analysis on SonarCloud"
+    continueOnError: true
+
+  - task: SonarCloudPublish@1
+    displayName: "Publish Quality Gate Report on SonarCloud"
+    continueOnError: true
+    inputs:
+      pollingTimeoutSec: "300"
+      
 
   # - task: CopyFiles@2
   #   inputs:
