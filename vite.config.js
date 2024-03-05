@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import path from 'path';
-import getEnvModule from './env'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import path from "path";
+import getEnvModule from "./env";
 
 getEnvModule().setEnvironmentVarsFromTestEnv(__dirname);
 
@@ -24,7 +24,7 @@ const env = {};
 export default defineConfig({
   plugins: [react()],
   define: {
-    'process.env': env
+    "process.env": env
   },
   resolve: {
     // alias: {
@@ -39,19 +39,21 @@ export default defineConfig({
     external: ["emitter"],
     rollupOptions: {
       // always throw with build warnings
-      onwarn (warning, warn) {
-        console.log({warning});
-        warn('\nBuild warning happened, customize "onwarn" callback in vite.config.js to handle this error.');
+      onwarn(warning, warn) {
+        console.log({ warning });
+        warn(
+          '\nBuild warning happened, customize "onwarn" callback in vite.config.js to handle this error.'
+        );
         throw new Error(warning);
       },
       output: {
         manualChunks: {
-          'vendor': ['react', 'react-dom', 'react-redux', 'react-router-dom', '@reduxjs/toolkit'],
-          'emerson': ['@emerson/dynamic-ui'],
-          'mui': ['@mui/material', '@emotion/react', '@emotion/styled'],
-          'okta': ['@okta/okta-auth-js', '@okta/okta-react']
+          vendor: ["react", "react-dom", "react-redux", "react-router-dom", "@reduxjs/toolkit"],
+          emerson: ["@emerson/dynamic-ui-public"],
+          mui: ["@mui/material", "@emotion/react", "@emotion/styled"],
+          okta: ["@okta/okta-auth-js", "@okta/okta-react"]
         }
       }
     }
   }
-})
+});

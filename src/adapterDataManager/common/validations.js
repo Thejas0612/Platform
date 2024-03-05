@@ -9,6 +9,5 @@ const EmsolValidate = (data, type) => {
 
 export default EmsolValidate;
 
-
 //  data=> the user entered data
 // type=> to identify the type for validation

@@ -1,25 +1,29 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
-import "@emerson/dynamic-ui/dist/emerson-ui.css";
-import LayoutType from "./components/common/LayoutType";
-import { Provider } from "react-redux";
-import store from "./redux/store/store";
+import React, { useState } from "react";
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { menuData } from "./containers/landing/landingPageCards";
+import { Header } from "./components/dynamic-ui/uiComponentsConfig";
+import Landing from "./containers/landing/Landing";
+import "@emerson/dynamic-ui-public/dist/emerson-ui.css";
+import UiLayout from "./containers/layout/UiLayout";
 //Hi
 const App = () => {
+  const reduxStore = useSelector((state) => state);
+  console.log("Redux-store", reduxStore);
+
   return (
-    
-     <Provider store={store}>
-      <div>
-        {/* <LayoutType /> */}
-        
-        <h1>Hello React</h1>
-        <Route path="/component" exact={true} component={LayoutType} />
-        {/* <Route path="/login/callback" component={LoginCallback} /> */}
-        {/* <Route path="/component" component={Layout} /> */}
-      </div>
-      </Provider>
-    
+    <Router>
+      <Header
+        menuData={menuData}
+        isAuthenticated={false}
+        title="MSOL PA PLATFORM"
+        logo="https://www.emerson.com/resource/blob/emerson-logo-compressed--data-5576584.png"
+      />
+      <Switch>
+        <Route path="/" exact={true} component={Landing} />
+        <Route path="/platform" exact={true} component={UiLayout} />
+      </Switch>
+    </Router>
   );
 };
-
 export default App;

@@ -1,59 +1,60 @@
-import React from 'react';
-import { CustomTop } from "@emerson/dynamic-ui";
+import React from "react";
+import { CustomTop } from "@emerson/dynamic-ui-public";
 //import CustomTopSchema from './../../JsonSchema/CustomTopSchema'
 
 const CustomTopSection = () => {
   const CustomTopSchema = {
     data: [
       {
-        labelClass: 'page-heading',
+        labelClass: "page-heading",
         labelStyle: {
-          marginBottom: '8px',
-          marginTop: '8px'
+          marginBottom: "8px",
+          marginTop: "8px"
         },
-        name: '',
+        name: "",
         order: 1,
-        type: 'LABEL_TEXT',
-        value: 'Sizing and Selection'
+        type: "LABEL_TEXT",
+        value: "Sizing and Selection"
       },
       {
-        labelClass: 'ddl-typography--paragraph',
+        labelClass: "ddl-typography--paragraph",
         labelStyle: {
           paddingBottom: "40px"
         },
-        name: '',
+        name: "",
         order: 2,
-        type: 'LABEL_TEXT',
-        value: 'Enter all of your flow application data below. Check the input summary to the right, and click Configure when all required input fields have been completed.'
+        type: "LABEL_TEXT",
+        value:
+          "Enter all of your flow application data below. Check the input summary to the right, and click Configure when all required input fields have been completed."
       },
       {
         data: [
           {
-            text: 'Automation Solutions',
-            url: '/'
+            text: "Automation Solutions",
+            url: "/"
           },
           {
-            text: 'Engineering Tools',
-            url: '/'
+            text: "Engineering Tools",
+            url: "/"
           },
           {
-            text: 'Technology Advisor',
-            url: '/'
+            text: "Technology Advisor",
+            url: "/"
           },
           {
-            text: 'Level Measurement',
-            url: '/'
+            text: "Level Measurement",
+            url: "/"
           }
         ],
-        labelClass: 'ddl-typography--paragraph',
+        labelClass: "ddl-typography--paragraph",
         labelStyle: {},
-        name: '',
+        name: "",
         order: 3,
-        type: 'BREAD_CRUMBS',
-        value: 'Level Measurement'
+        type: "BREAD_CRUMBS",
+        value: "Level Measurement"
       }
     ]
-  }
+  };
   return (
     <>
       <CustomTop {...CustomTopSchema} />
