@@ -1,17 +1,16 @@
 import { CircularProgress, Grid } from "@mui/material";
 import "./uiLayout.css";
-import LeftLayout from "./ui-sections/LeftLayout";
-import RightLayout from "./ui-sections/RightLayout";
-import TopLayout from "./ui-sections/TopLayout";
 import { useEffect, useState } from "react";
-import data from "../../schema-service/schema_version_0.0.1.json";
-import { getLineSizeValues } from "../../api/dp-flow/dpFlowApis";
-import { updateApiDataInSchema } from "../../schema-service/schemaService";
+import data from "../../../../schema-service/schema_version_0.0.1.json";
+import { getLineSizeValues } from "../../../../api/dp-flow/dpFlowApis";
+import { updateApiDataInSchema } from "../../../../schema-service/schemaService";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { updateBu } from "../../redux/reducers/initialBuDataSlice";
+import { updateBu } from "../../../../redux/reducers/initialBuDataSlice";
+import DpFlowLeftLayout from "./DpFlowLeftLayout";
+import DpFlowRightLayout from "./DpFlowRightLayout";
 
-export default function UiLayout() {
+export default function DpFlowUiLayout() {
   const [schema, setSchema] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const use_location = useLocation();
@@ -99,16 +98,14 @@ export default function UiLayout() {
 
   return (
     <Grid container>
-      <div className="top_section">
-        <TopLayout />
-      </div>
+      <div className="top_section"></div>
       {Object.keys(schema)?.length > 0 && isLoading === false && (
         <Grid className="left_section" container direction="row">
           <Grid xs={12} md={3}>
-            <LeftLayout schema={schema} />
+            <DpFlowLeftLayout schema={schema} />
           </Grid>
           <Grid className="right_section" container xs={12} md={9}>
-            <RightLayout
+            <DpFlowRightLayout
               schema={schema}
               updateFieldsInSchema={updateFieldsInSchema}
               updateValidations={updateValidations}
