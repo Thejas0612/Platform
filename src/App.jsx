@@ -4,9 +4,9 @@ import { useSelector } from "react-redux";
 import { menuData } from "./containers/landing/landingPageCards";
 import { Header } from "./components/dynamic-ui/uiComponentsConfig";
 import Landing from "./containers/landing/Landing";
-import "@emerson/dynamic-ui/dist/emerson-ui.css";
+import "@emerson/dynamic-ui-public/dist/emerson-ui.css";
 import UiLayout from "./containers/layout/UiLayout";
-
+//Hi
 const App = () => {
   const reduxStore = useSelector((state) => state);
   console.log("Redux-store", reduxStore);
