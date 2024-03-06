@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom";
 import { updateBu } from "../../../../redux/reducers/initialBuDataSlice";
 import DpFlowLeftLayout from "./DpFlowLeftLayout";
 import DpFlowRightLayout from "./DpFlowRightLayout";
+import TopLayout from "../TopLayout";
 
 export default function DpFlowUiLayout() {
   const [schema, setSchema] = useState({});
@@ -98,7 +99,9 @@ export default function DpFlowUiLayout() {
 
   return (
     <Grid container>
-      <div className="top_section"></div>
+      <div className="top_section">
+        <TopLayout />
+      </div>
       {Object.keys(schema)?.length > 0 && isLoading === false && (
         <Grid className="left_section" container direction="row">
           <Grid xs={12} md={3}>
