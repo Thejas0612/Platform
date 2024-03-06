@@ -4,14 +4,18 @@ import { useSelector } from "react-redux";
 import ProjectLookoutLeftLayout from "./ProjectLookoutLeftLayout";
 import ProjectLookoutRightLayout from "./ProjectLookoutRightLayout";
 import { STATUS } from "../../../../status";
+import TopLayout from "../TopLayout";
 
 export default function ProjectLookoutUiLayout() {
   const status = useSelector((state) => state.initialBuData.status);
+  document.title = "msol-projectlookout-productadvisor";
 
   if (status === STATUS.SUCCESSED)
     return (
       <Grid container>
-        <div className="top_section"></div>
+        <div className="top_section">
+          <TopLayout />
+        </div>
         <Grid className="left_section" container direction="row">
           <Grid xs={12} md={3}>
             <ProjectLookoutLeftLayout />
