@@ -10,7 +10,7 @@ const App = () => {
      <Provider store={store}>
       <div>
         {/* <LayoutType /> */}
-        <h1>Hello React</h1>
+        {/* <h1>Hello React</h1> */}
         <Route path="/component" exact={true} component={LayoutType} />
         {/* <Route path="/login/callback" component={LoginCallback} /> */}
         {/* <Route path="/component" component={Layout} /> */}

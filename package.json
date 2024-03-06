@@ -13,10 +13,8 @@
     "start-app": "npm run build && npm run preview"
   },
   "dependencies": {
-    "@emerson/dynamic-ui": "^0.0.15",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.15.11",
+    "@emerson/dynamic-ui": "^0.0.13",
+    "@emerson/dynamic-ui-public": "^0.0.4",
     "@okta/okta-auth-js": "6.6.1",
     "@okta/okta-react": "^6.4.3",
     "@reduxjs/toolkit": "^1.8.4",

@@ -9,7 +9,7 @@ const LayoutType = () => {
     <div>
       <Grid container xs={12}>
      
-        {/* <div className="Ui_Builder">
+        <div className="Ui_Builder">
           <header>
             {layout.Top?.map((component) => (
               <EmsolComponentsConfig
@@ -40,7 +40,7 @@ const LayoutType = () => {
               />
             ))}
           </main>
-        </div> */}
+        </div>
       </Grid>
     </div>
   );
