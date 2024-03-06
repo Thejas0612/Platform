@@ -13,7 +13,6 @@ export default function TopLayout() {
             label="Sizing & Selection"
             labelClass="labeltext"
             showLabel
-            subText=""
             text="Please select from the options below to best describe your application requirements. These selections will aid in instrumentation selection throughout the module."
             textClass="text"
           />
@@ -33,11 +32,8 @@ export default function TopLayout() {
                   }
                 ],
                 labelClass: "ddl-typography--paragraph",
-                labelStyle: {},
-                name: "",
-                order: 3,
                 type: "BREAD_CRUMBS",
-                value: "Level Measurement"
+                value: ""
               }
             ]}
           />
