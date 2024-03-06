@@ -1,14 +1,13 @@
 import { CircularProgress, Grid } from "@mui/material";
 import "./uiLayout.css";
-import LeftLayout from "./ui-sections/LeftLayout";
-import RightLayout from "./ui-sections/RightLayout";
 import { useSelector } from "react-redux";
-import { STATUS } from "../../status";
-import TopLayout from "./ui-sections/TopLayout";
-
-export default function UiLayout() {
+import { STATUS } from "../../../../status";
+import TempLeftLayout from "./TempLeftLayout";
+import TempRightLayout from "./TempRightLayout";
+import TopLayout from "../TopLayout";
+export default function TempUiLayout() {
   const status = useSelector((state) => state.initialBuData.status);
-
+   document.title = "msol-tempPA-productadvisor";
   if (status === STATUS.SUCCESSED)
     return (
       <Grid container>
@@ -17,10 +16,10 @@ export default function UiLayout() {
         </div>
         <Grid className="left_section" container direction="row">
           <Grid xs={12} md={3}>
-            <LeftLayout />
+            <TempLeftLayout />
           </Grid>
           <Grid className="right_section" container xs={12} md={9}>
-            <RightLayout />
+            <TempRightLayout />
           </Grid>
         </Grid>
       </Grid>

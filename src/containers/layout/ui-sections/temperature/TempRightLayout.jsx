@@ -1,9 +1,9 @@
-import { DynamicForm } from "../../../components/dynamic-ui/uiComponentsConfig";
+import { DynamicForm } from "../../../../components/dynamic-ui/uiComponentsConfig";
 import { useSelector } from "react-redux";
-import getSchemaForDynamicForm from "../../../adapterDataManager/schema/getSchema";
-import ButtonStepper from "../../../components/common/ButtonStepper";
+import ButtonStepperCommon from "../../../../components/button/ButtonStepperCommon";
+import getSchemaForDynamicForm from "../../../../adapterDataManager/schema/getSchema";
 
-export default function RightLayout() {
+export default function TempRightLayout() {
   const rightSecSchema = useSelector((state) => state.initialBuData?.rightSection);
   const activeIndex = useSelector((state) => state.initialBuData?.activeIndex);
 
@@ -14,7 +14,7 @@ export default function RightLayout() {
       <div>
         <DynamicForm schema={activeIndxSchema} />
         <div>
-          <ButtonStepper />
+          <ButtonStepperCommon />
         </div>
       </div>
     );
