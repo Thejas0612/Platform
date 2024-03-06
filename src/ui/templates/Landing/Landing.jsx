@@ -8,10 +8,10 @@ import { useHistory } from "react-router-dom";
 export const PRODUCT_ADVISOR_CARDS = [
   {
     id: "card1_dpflow",
-    title1: "DP Flow",
+    title1: "DP RouteFlow",
     title2: "Sizing & Selection",
     subtitle:
-        "The easiest way to size, configure, and order Rosemount DP Flow meters and primary elements.",
+        "The easiest way to size, configure, and order Rosemount DP RouteFlow meters and primary elements.",
     iconName: "arrow_icon",
     buType: "dpFlow"
   },
@@ -20,7 +20,7 @@ export const PRODUCT_ADVISOR_CARDS = [
     title1: "Temperature",
     title2: "Sizing & Selection",
     subtitle:
-        "The easiest way to size, configure, and order Rosemount DP Flow meters and primary elements.",
+        "The easiest way to size, configure, and order Rosemount DP RouteFlow meters and primary elements.",
     iconName: "arrow_icon",
     buType: "tempPA"
   },
@@ -43,7 +43,7 @@ export default function Landing() {
   const handleSelectedBu = (buType) => {
     dispatch(resetActiveIndex(0));
     dispatch(fetchSchema({ buType }));
-    history.push(`/platform?bucode=${buType}`);
+    history.push(`/flow/measurement-type`);
   };
 
   return (
