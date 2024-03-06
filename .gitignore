@@ -11,3 +11,5 @@ samples-java-spring
 yalc.lock
 .eslintcache
 .env
+
+junit.xml
