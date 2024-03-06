@@ -1,7 +1,9 @@
 const getSchemaForDynamicForm = (activeIndex, compProps) => {
-  let schema = [];
-  if (compProps?.length > 0) schema = compProps?.filter((sch) => sch.id === activeIndex);
-  return schema;
+  console.log("compProps", compProps);
+
+  const arr = compProps?.filter((sch) => sch.id === activeIndex);
+  console.log("schema-in-get-schema", arr);
+  return arr;
 };
 
 export default getSchemaForDynamicForm;
