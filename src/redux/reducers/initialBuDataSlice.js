@@ -22,8 +22,22 @@ export const fetchSchema = createAsyncThunk("loadSchema/fetchSchema", async (buT
     return isolateSchema(lookoutSchema[0]);
   }
 
-  const schemas = await findSchemaByBusinessUnitCode(buType.buType);
-  return isolateSchema(schemas[0]);
+  try {
+    const { default: data } = await import(`../../../ui_schemas/${buType.buType}.json`);
+    if (Array.isArray(data)) {
+       return isolateSchema(data[0]);
+    } else {
+       throw(`Invalid JSON in /ui_schemas/'${buType.buType}'.json schema.`)
+    }
+ } catch (localSchemaError) {
+    try {
+      const schemas = await findSchemaByBusinessUnitCode(buType.buType)
+      return isolateSchema(schemas[0]);
+    } catch (err) {
+       console.log("Error occurred while fetching schema", err);
+       return "Error occurred while fetching schema";
+    }
+ }  
 });
 
 const initialBuSchema = createSlice({

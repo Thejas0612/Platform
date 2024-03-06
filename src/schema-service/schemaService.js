@@ -31,20 +31,12 @@ export const getDynamicFormSchema = (buCode, componentName, activeIndex, schema)
 };
 
 export const updateSchema = (e, formObj, formData, name, isValid, activeIndex, buCode) => {
-  console.log("e", e);
-  console.log("formobj", formObj);
-  console.log("formData", formData);
-  console.log("name", name);
-  console.log("activeIndex", activeIndex);
   const field = formData[0]?.fields?.find((itm) => itm.name === name);
-  console.log("FIELD", field);
 
   field["required"] = true;
-  console.log("field?.value?.length", field?.value?.length);
   field["error"] = "";
   field["defaultIds"] = formObj[name];
   const tileObj = field?.options?.filter((itm) => formObj[name]?.includes(itm.id));
-  console.log("tileObj", tileObj);
   const badges = [];
   if (field?.type === "TILE_THUMBNAIL") {
     tileObj.forEach((itm) => {
@@ -71,8 +63,6 @@ export const updateSchema = (e, formObj, formData, name, isValid, activeIndex, b
 };
 
 export const updateApiDataInSchema = async (res, schema) => {
-  console.log("element_name", res);
-  console.log("schema", schema);
   const transformApiData = [];
   if (res?.apiResponse && res?.target?.uiElementType === "SINGLE_SELECT") {
     for (let [key, value] of Object.entries(res?.apiResponse[0])) {
@@ -84,7 +74,6 @@ export const updateApiDataInSchema = async (res, schema) => {
       transformApiData.push(lineSize);
     }
   }
-  console.log("transformApiData", transformApiData);
   if (Object.keys(schema).length > 0) {
     const update_schema = {
       uiComponents: schema?.uiComponents.map((comp) => {

@@ -33,7 +33,6 @@ export default function UiLayout() {
                       const findBadgeId = field?.badges?.find(
                         (itm) => itm.id === data?.badges[0]?.id
                       );
-                      console.log("findBadgeId", findBadgeId);
                       return {
                         ...field,
                         badges: data?.badges
@@ -73,7 +72,6 @@ export default function UiLayout() {
           })
         }
       };
-      console.log("update_schema", update_schema);
       setSchema(update_schema);
     }
   };
@@ -81,7 +79,6 @@ export default function UiLayout() {
   const updateValidations = (field, buCode) => {
     setSchema({ ...schema, [buCode]: field });
   };
-  console.log("schemaaaaaaaa", schema);
 
   const getSchema = async () => {
     const res = await getLineSizeValues();

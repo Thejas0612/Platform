@@ -1,6 +1,4 @@
 export const schemaValidations = (activeIndex, field, schema) => {
-  console.log("field validations", activeIndex, field);
-  console.log("schema---", schema);
   let isError = false;
 
   field[0]?.fields?.forEach((itm) => {
@@ -9,7 +7,6 @@ export const schemaValidations = (activeIndex, field, schema) => {
       return;
     }
   });
-  console.log("isError", isError);
   if (isError) {
     const update_schema = {
       uiComponents: schema?.uiComponents?.map((itm) => {
