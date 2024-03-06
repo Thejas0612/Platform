@@ -6,6 +6,7 @@ import { Header } from "./ui/dynamic-ui/uiComponentsConfig";
 import Landing from "./ui/templates/Landing";
 import "@emerson/dynamic-ui-public/dist/emerson-ui.css";
 import UiLayout from "./ui/templates/Layout";
+import ProcessCondition from "./ui/templates/screens/ProcessCondition/ProcessCondition";
 //Hi
 const App = () => {
   const reduxStore = useSelector((state) => state);
@@ -22,6 +23,7 @@ const App = () => {
       <Switch>
         <Route path="/" exact={true} component={Landing} />
         <Route path="/platform" exact={true} component={UiLayout} />
+        <Route path="/process-condition" exact={true} component={ProcessCondition} />
       </Switch>
     </Router>
   );
