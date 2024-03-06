@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import isolateSchema from "../../adapterDataManager/schema/schemaSeperator";
 import { STATUS } from "../../status";
-import lookoutSchema from "./lookoutSchema.json"
-import {findSchemaByBusinessUnitCode} from "../../api/schemaApi";
+import lookoutSchema from "./lookoutSchema.json";
+import { findSchemaByBusinessUnitCode } from "../../api/schemaApi";
 
 const initialState = {
   topSection: [],
@@ -10,6 +10,7 @@ const initialState = {
   rightSection: [],
   activeIndex: 0,
   screens: [],
+  selectedBu: "",
   status: STATUS.IDLE,
   error: false,
   errorMsg: null
@@ -17,7 +18,7 @@ const initialState = {
 
 export const fetchSchema = createAsyncThunk("loadSchema/fetchSchema", async (buType) => {
   // TODO: upload the lookout schema to the backend.
-  if (buType.buType === 'project_Lookout'){
+  if (buType.buType === "project_Lookout") {
     return isolateSchema(lookoutSchema[0]);
   }
 
@@ -48,6 +49,9 @@ const initialBuSchema = createSlice({
     },
     resetActiveIndex: (state, action) => {
       state.activeIndex = action.payload;
+    },
+    updateBu: (state, action) => {
+      state.selectedBu = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -70,5 +74,5 @@ const initialBuSchema = createSlice({
   }
 });
 
-export const { changeActiveIndex, resetActiveIndex } = initialBuSchema.actions;
+export const { changeActiveIndex, resetActiveIndex, updateBu } = initialBuSchema.actions;
 export default initialBuSchema.reducer;
