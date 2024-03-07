@@ -564,25 +564,25 @@
                            ],
                            "options":[
                               {
-                                 "value":"1",
+                                 "value":"0",
                                  "label":"Loop Integrity",
                                  "title":"Loop Integrity"
                               },
                               {
-                                 "value":"0",
+                                 "value":"1",
                                  "label":"Logging"
                               },
                               {
-                                 "value":"0",
+                                 "value":"2",
                                  "label":"Hot Backup"
                               },
                               {
-                                 "value":"0",
+                                 "value":"3",
                                  "label":"Sensor Drift"
                               },
                               {
-                                 "value":"0",
-                                 "label":"EvercConnect"
+                                 "value":"4",
+                                 "label":"EverConnect"
                               }
                            ],
                            "required":false,
@@ -604,15 +604,15 @@
                            ],
                            "options":[
                               {
-                                 "value":"1",
+                                 "value":"0",
                                  "label":"Bluetooth"
                               },
                               {
-                                 "value":"0",
+                                 "value":"1",
                                  "label":"Local Buttons"
                               },
                               {
-                                 "value":"0",
+                                 "value":"2",
                                  "label":"ReadyConnect"
                               }
                            ],
