@@ -1,14 +1,14 @@
 export const schemaValidations = (activeIndex, field, schema) => {
   let isError = false;
-
   field[0]?.fields?.forEach((itm) => {
     if (itm?.required && itm?.value?.length === 0) {
       isError = true;
       return;
     }
   });
+  let update_schema;
   if (isError) {
-    const update_schema = {
+    update_schema = {
       uiComponents: schema?.uiComponents?.map((itm) => {
         if (itm?.componentName === "DynamicForm") {
           return {
@@ -33,5 +33,46 @@ export const schemaValidations = (activeIndex, field, schema) => {
     };
     return { update_schema, isError };
   }
-  return { isError };
+  update_schema = {
+    uiComponents: schema?.uiComponents?.map((itm) => {
+      if (itm?.componentName === "NavigationMenu") {
+        return {
+          ...itm,
+          componentProps: {
+            schema: itm?.componentProps?.schema.map((field) => {
+              if (field.ne_id === activeIndex + 1) {
+                return {
+                  ...field,
+                  selected: true
+                };
+              } else return { ...field, selected: false };
+            })
+          }
+        };
+      } else return itm;
+    })
+  };
+  return { update_schema, isError };
+};
+
+export const changeAccordionStatus = (schema, activeIndex) => {
+  return {
+    uiComponents: schema?.uiComponents?.map((itm) => {
+      if (itm?.componentName === "NavigationMenu") {
+        return {
+          ...itm,
+          componentProps: {
+            schema: itm?.componentProps?.schema.map((field) => {
+              if (field.ne_id === activeIndex - 1) {
+                return {
+                  ...field,
+                  selected: true
+                };
+              } else return { ...field, selected: false };
+            })
+          }
+        };
+      } else return itm;
+    })
+  };
 };

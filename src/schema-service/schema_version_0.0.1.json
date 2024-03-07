@@ -159,7 +159,17 @@
                   "required": true,
                   "error": "",
                   "errorClass": "",
-                  "placeholder": "Pick One"
+                  "placeholder": "Pick One",
+                  "isApiOnEvent": {
+                    "isApiCall": true,
+                    "apiInfo": {
+                      "url": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingPipeSchedule?buCode=dpflow&lineSize=",
+                      "method": "GET",
+                      "payload": {}
+                    },
+                    "targetUiElement": "pipeschedule",
+                    "targetProperty": "options"
+                  }
                 },
                 {
                   "column": 3,
@@ -169,28 +179,7 @@
                   "labelClass": "app-content-label",
                   "disabled": false,
                   "value": "",
-                  "options": [
-                    {
-                      "value": "0",
-                      "label": "5",
-                      "id": "0"
-                    },
-                    {
-                      "value": "1",
-                      "label": "10",
-                      "id": "1"
-                    },
-                    {
-                      "value": "2",
-                      "label": "30",
-                      "id": "2"
-                    },
-                    {
-                      "value": "3",
-                      "label": "40",
-                      "id": "3"
-                    }
-                  ],
+                  "options": [],
                   "required": true,
                   "error": "",
                   "errorClass": ""

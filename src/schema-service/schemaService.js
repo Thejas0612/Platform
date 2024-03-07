@@ -1,5 +1,7 @@
 //import schema from "./schema_version_0.0.1.json";
 
+import { getApi } from "../api/dp-flow/dpFlowApis";
+
 export const getNavigationMenuSchema = (buCode, componentName, schema) => {
   const schema_data = [];
   if (buCode && componentName) {
@@ -30,36 +32,45 @@ export const getDynamicFormSchema = (buCode, componentName, activeIndex, schema)
   return schema_data;
 };
 
-export const updateSchema = (e, formObj, formData, name, isValid, activeIndex, buCode) => {
+export const updateSchema = async (e, formObj, formData, name, isValid, activeIndex, buCode) => {
   const field = formData[0]?.fields?.find((itm) => itm.name === name);
-
+  let response;
+  if (field?.isApiOnEvent) {
+    response = await getApi(field?.isApiOnEvent?.apiInfo, e?.id);
+    response.unshift({ id: "pick one", disabled: true, label: "Pick One", value: "pick one" });
+  }
   field["required"] = true;
   field["error"] = "";
   field["defaultIds"] = formObj[name];
-  const tileObj = field?.options?.filter((itm) => formObj[name]?.includes(itm.id));
+  let activeSchema;
   const badges = [];
-  if (field?.type === "TILE_THUMBNAIL") {
-    tileObj.forEach((itm) => {
-      if (itm) {
-        badges.push({ id: itm?.id, label: itm.title });
-      }
-    });
+  if (response?.length > 0) {
+    activeSchema = {
+      id: formData[0]?.id,
+      fields: formData[0]?.fields?.map((itm) => {
+        if (itm?.name === name) {
+          return field;
+        } else if (itm?.name === field?.isApiOnEvent?.targetUiElement) {
+          return {
+            ...itm,
+            [field?.isApiOnEvent?.targetProperty]: response,
+            placeholder: "Pick One",
+            value: "pick one"
+          };
+        } else return itm;
+      })
+    };
+    return { activeSchema, badges, activeIndex, buCode };
   }
-  if (field?.type === "SINGLE_SELECT") {
-    tileObj.forEach((itm) => {
-      if (itm) {
-        badges.push({ id: name, label: itm.label });
-      }
-    });
-  }
-  if (field?.type === "CUSTOM_BUTTON_GROUP" || field?.type === "RADIO_INPUT") {
-    tileObj.forEach((itm) => {
-      if (itm) {
-        badges.push({ id: name, label: itm.label });
-      }
-    });
-  }
-  return { field, badges, activeIndex, buCode };
+  activeSchema = {
+    id: formData[0]?.id,
+    fields: formData[0]?.fields?.map((itm) => {
+      if (itm?.name === name) {
+        return field;
+      } else return itm;
+    })
+  };
+  return { activeSchema, badges, activeIndex, buCode };
 };
 
 export const updateApiDataInSchema = async (res, schema) => {
