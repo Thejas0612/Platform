@@ -172,22 +172,6 @@
                      "fields":[
                         {
                            "column":12,
-                           "label":"LABEL_TEXT",
-                           "labelClass":"app-content-label",
-                           "name":"LABEL_TEXT",
-                           "showLabel":false,
-                           "subText":"",
-                           "tableClass":"",
-                           "text":"Measurment Type",
-                           "textClass":"ddl-typography--h5",
-                           "title":"this is title",
-                           "type":"LABEL_TEXT",
-                           "textStyles":{
-                              "textAlign":"center"
-                           }
-                        },
-                        {
-                           "column":12,
                            "type":"TILE_THUMBNAIL",
                            "name":"measurmenttype",
                            "label":"Test Thumbnail",
