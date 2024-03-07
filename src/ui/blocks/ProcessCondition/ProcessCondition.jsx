@@ -12,7 +12,6 @@ import Grid from "@mui/material/Grid";
 
 import processConditionJson from "./processCondition.json";
 
-
 export default function ProcessCondition() {
   const [lineSizeValue, setLineSizeValue] = useState("");
   const [lineSizeOptions, setLineSizeOptions] = useState(processConditionJson.lineSizeOptions);
@@ -32,7 +31,6 @@ export default function ProcessCondition() {
     <>
       <Grid container spacing={2}>
         <Grid item xs={12} lg={12}>
-          {/*  */}
 
           <LabelText
             labelClass="ddl-from-custom-label"
@@ -49,7 +47,6 @@ export default function ProcessCondition() {
             name="line_size"
             options={lineSizeOptions.map((ele) => {
               return {
-                // key: `${ele.value}`,
                 greyedOut: false,
                 label: `${ele.label}`,
                 title: `${ele.title}`,
@@ -136,8 +133,6 @@ export default function ProcessCondition() {
           />
         </Grid>
 
-        
-
         <Grid item xs={6} lg={6}>
           {showFluidDb ? (
             <SelectInput
@@ -161,7 +156,12 @@ export default function ProcessCondition() {
         </Grid>
 
         <Grid container item xs={12} lg={12}>
-          <ButtonInput btnType="textary" customClass="" label="Additional Options" onClick={() => {}} />
+          <ButtonInput
+            btnType="textary"
+            customClass=""
+            label="Additional Options"
+            onClick={() => {}}
+          />
         </Grid>
 
         <Grid item xs={12} ls={12}>

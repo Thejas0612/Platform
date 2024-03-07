@@ -6,7 +6,8 @@ import { Header } from "./ui/dynamic-ui/uiComponentsConfig";
 import Landing from "./ui/templates/Landing";
 import "@emerson/dynamic-ui-public/dist/emerson-ui.css";
 import UiLayout from "./ui/templates/Layout";
-import ProcessCondition from "./ui/templates/screens/ProcessCondition/ProcessCondition";
+import ProcessCondition from "./ui/blocks/ProcessCondition/ProcessCondition";
+
 //Hi
 const App = () => {
   const reduxStore = useSelector((state) => state);
