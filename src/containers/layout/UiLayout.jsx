@@ -12,8 +12,7 @@ export default function UiLayout() {
   if (status === STATUS.SUCCESSED)
     return (
       <Grid container>
-        {/* <div className="top_section"></div> */}
-        <Grid className="top_section" container>
+        <Grid sx={{ margin: "1rem" }} container>
           <Grid xs={12} md={7}>
             <TopLayout />
           </Grid>
