@@ -1,20 +1,38 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Msol Product Advisor - Frontend
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?logo=typescript&logoColor=white&style=for-the-badge)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?logo=javascript&logoColor=%23F7DF1E&style=for-the-badge)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?logo=css3&logoColor=white&style=for-the-badge)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?logo=html5&logoColor=white&style=for-the-badge)
+![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+This system helps customers or clients make informed decisions about products on https://emerson.com.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+## Setup
+See [Setup Local Environment](docs\setup-local-environment.md) 
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+## Usage  
+
+| Command            | Description                                                  |
+| ------------------ | ------------------------------------------------------------ |
+| `npm run start`    | Runs the frontend on http://localhost:3000.                  |
+| `npm run build`    | Builds the production frontend application into `~/dist` folder. |
+| `npm run test`     | Runs the unit tests.                                         |
+| `npm run test:ci`  | Runs the unit test and creates a JUnit report at `~/junit.xml`. |
+| `npm run lint`     | Runs the ESLint static code analyzer and generates a finding report on the console. |
+| `npm run lint:fix` | Runs the ESLint static code analyzer and automatically fixes findings. |
+| `npm run preview`  | Run the frontend a production build on http://localhost:3000/ |
+
+## Folder Structure
+
+```text
+.
+├── dist                    # The compiled files (alternatively `build`)
+├── docs                    # The documentation files (alternatively `doc`)
+├── src                     # The source files (alternatively `lib` or `app`)
+├── src/**/__test__         # The unit test files.
+├── unit.xml                # The unit test results.
+├── azure-pipeline-ui.yml   # The development environment CI and CD pipeline .
+└── README.md
+```

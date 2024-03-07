@@ -1,0 +1,14 @@
+.left_section {
+  margin: 1rem 1rem;
+}
+.top_section {
+  margin: 1rem 1rem;
+}
+
+.spinner_wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,88 @@
+trigger:
+  - iteration_24.2.4
+
+pool:
+  vmImage: "ubuntu-latest"
+  
+variables:
+  tag: '$(Build.BuildId)'
+steps:
+  - task: npmAuthenticate@0
+    inputs:
+      workingFile: '.npmrc'
+
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "16.20.2"
+    displayName: "Install Node.js"
+
+  - script: |
+      npm install
+    displayName: "Install"
+
+  - script: |
+      npm run test:ci
+    displayName: "Run Jest Unit Tests"
+
+  - task: PublishTestResults@2
+    displayName: 'Publish Jest Unit Tests report'
+    condition: succeededOrFailed()
+    inputs:
+      testResultsFiles: 'junit.xml'
+
+  - script: |
+      npm run build
+    displayName: "npm build"
+  - task: SonarCloudPrepare@1
+    displayName: "Prepare analysis on SonarCloud"
+    inputs:
+      SonarCloud: $(SONARCLOUD_ServiceConnection)
+      organization: $(organization_name)
+      scannerMode: "CLI"
+      configMode: "manual"
+      cliProjectKey: $(SonarCloudProjectKey)
+      cliProjectName: $(SonarCloudProjectName)
+      cliSources: "."
+
+  - task: SonarCloudAnalyze@1
+    displayName: "Analysis on SonarCloud"
+    continueOnError: true
+
+  - task: SonarCloudPublish@1
+    displayName: "Publish Quality Gate Report on SonarCloud"
+    continueOnError: true
+    inputs:
+      pollingTimeoutSec: "300"
+      
+
+  # - task: CopyFiles@2
+  #   inputs:
+  #     sourceFolder: "$(Build.SourcesDirectory)"
+  #     contents: |
+  #       src/*
+  #       public/*
+  #     targetFolder: "$(Build.ArtifactStagingDirectory)"
+  #   displayName: "Archive project files"
+
+  # - task: ArchiveFiles@2
+  #   inputs:
+  #     rootFolderOrFile: $(Build.ArtifactStagingDirectory)
+  #     archiveType: "zip"
+  #     archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
+  #     includeRootFolder: false
+
+  # - task: PublishPipelineArtifact@1
+  #   inputs:
+  #     artifactName: e2e-server
+  #     targetPath: "$(Build.ArtifactStagingDirectory)"
+  #     publishLocation: "pipeline"
+  #   displayName: "Publish npm artifact"
+  - script: |
+      docker login $(dockerId).azurecr.io -u $(dockerId) -p $pswd
+      docker build -f docker/dev/Dockerfile -t $(dockerId).azurecr.io/$(imageName):$(Build.BuildId) --build-arg ISSUER=$(ISSUER) --build-arg CLIENT=$(CLIENT) . 
+      docker push $(dockerId).azurecr.io/$(imageName):$(Build.BuildId)
+    env:
+      pswd: $(dockerPassword)
+    displayName: "Build and Push Docker Image for Digital Installed Base Application"
+
+

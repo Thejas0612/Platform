@@ -1,0 +1,10 @@
+.container {
+  text-align: center;
+  width: 100%;
+  height: auto;
+  padding-top: 240px;
+}
+
+.btn {
+  font-size: 25px;
+}

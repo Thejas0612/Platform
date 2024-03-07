@@ -1,0 +1,187 @@
+.ddl-button-cta {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  max-width: 280px;
+  height: 3rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1rem;
+  appearance: none;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  vertical-align: middle;
+  text-align: center;
+  hyphens: auto;
+  transition: color 0.4s ease-in-out, background 0.4s ease-in-out;
+  word-break: break-word;
+  letter-spacing: 0.08em;
+}
+.ddl-button-cta label,
+.ddl-button-cta .ddl-cta-icon {
+  color: var(--ddl-color--primary-white);
+  cursor: inherit;
+}
+.ddl-button-cta:focus:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--internal-link,
+.ddl-button-cta.ddl-button-cta--focus:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--internal-link,
+.ddl-button-cta:hover:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--internal-link,
+.ddl-button-cta.ddl-button-cta--hover:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--internal-link {
+  transform: translateX(0.125rem);
+}
+.ddl-button-cta:focus:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--external-link,
+.ddl-button-cta.ddl-button-cta--focus:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--external-link,
+.ddl-button-cta:hover:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--external-link,
+.ddl-button-cta.ddl-button-cta--hover:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--external-link {
+  transform: translate3d(0.1875rem, -0.1875rem, 0);
+}
+.ddl-button-cta:focus:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--download:before,
+.ddl-button-cta:focus:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--download:after,
+.ddl-button-cta.ddl-button-cta--focus:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--download:before,
+.ddl-button-cta.ddl-button-cta--focus:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--download:after,
+.ddl-button-cta:hover:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--download:before,
+.ddl-button-cta:hover:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--download:after,
+.ddl-button-cta.ddl-button-cta--hover:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--download:before,
+.ddl-button-cta.ddl-button-cta--hover:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--download:after {
+  top: 55%;
+}
+.ddl-button-cta:focus:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--video:before,
+.ddl-button-cta.ddl-button-cta--focus:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--video:before,
+.ddl-button-cta:hover:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--video:before,
+.ddl-button-cta.ddl-button-cta--hover:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--video:before {
+  border-width: 0.5rem;
+  transition: all 0.2s ease-in-out;
+}
+.ddl-button-cta:focus:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--video:after,
+.ddl-button-cta.ddl-button-cta--focus:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--video:after,
+.ddl-button-cta:hover:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--video:after,
+.ddl-button-cta.ddl-button-cta--hover:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--video:after {
+  transition: all 0.2s ease-in-out;
+  border-left-color: transparent;
+  border-top-color: inherit;
+  border-bottom-color: inherit;
+}
+.ddl-button-cta:focus,
+.ddl-button-cta.ddl-button-cta--focus {
+  outline: 2px solid var(--ddl-color--primary-emerson-green);
+  outline-offset: 0.25rem;
+}
+.ddl-button-cta--primary {
+  color: var(--ddl-color--primary-white);
+  background-color: var(--ddl-color--primary-emerson-green);
+  border: none;
+}
+.ddl-button-cta--primary:focus,
+.ddl-button-cta--primary.ddl-button-cta--focus,
+.ddl-button-cta--primary:hover,
+.ddl-button-cta--primary.ddl-button-cta--hover {
+  background-color: var(--ddl-color--primary-emerson-green-dark);
+}
+.ddl-button-cta--primary:focus:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--video:after,
+.ddl-button-cta--primary.ddl-button-cta--focus:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--video:after,
+.ddl-button-cta--primary:hover:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--video:after,
+.ddl-button-cta--primary.ddl-button-cta--hover:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--video:after {
+  background: var(--ddl-color--primary-emerson-green-dark);
+}
+.ddl-button-cta--secondary {
+  color: var(--ddl-color--rich-black);
+  background-color: var(--ddl-color--primary-white);
+  border: 1px solid var(--ddl-color--rich-black);
+}
+.ddl-button-cta--secondary .ddl-cta-icon,
+.ddl-button-cta--secondary label {
+  color: var(--ddl-color--rich-black);
+}
+.ddl-button-cta--secondary:focus,
+.ddl-button-cta--secondary.ddl-button-cta--focus,
+.ddl-button-cta--secondary:hover,
+.ddl-button-cta--secondary.ddl-button-cta--hover {
+  background-color: var(--ddl-color--cool-grey);
+}
+.ddl-button-cta--secondary:focus:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--video:after,
+.ddl-button-cta--secondary.ddl-button-cta--focus:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--video:after,
+.ddl-button-cta--secondary:hover:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--video:after,
+.ddl-button-cta--secondary.ddl-button-cta--hover:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--video:after {
+  background: var(--ddl-color--cool-grey);
+}
+.ddl-button-cta--tertiary {
+  color: var(--ddl-color--rich-black);
+  background-color: var(--ddl-color--cool-grey);
+  border: none;
+}
+.ddl-button-cta--tertiary label,
+.ddl-button-cta--tertiary .ddl-cta-icon {
+  color: var(--ddl-color--rich-black);
+  cursor: inherit;
+}
+.ddl-button-cta--tertiary:focus,
+.ddl-button-cta--tertiary.ddl-button-cta--focus,
+.ddl-button-cta--tertiary:hover,
+.ddl-button-cta--tertiary.ddl-button-cta--hover {
+  background-color: var(--ddl-color--cool-grey-dark);
+}
+.ddl-button-cta--tertiary:focus:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--video:after,
+.ddl-button-cta--tertiary.ddl-button-cta--focus:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--video:after,
+.ddl-button-cta--tertiary:hover:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--video:after,
+.ddl-button-cta--tertiary.ddl-button-cta--hover:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--video:after {
+  background: var(--ddl-color--cool-grey-dark);
+}
+.ddl-button-cta--disabled,
+.ddl-button-cta--disabled:focus,
+.ddl-button-cta--disabled.ddl-button-cta--focus,
+.ddl-button-cta--disabled:hover,
+.ddl-button-cta--disabled.ddl-button-cta--hover {
+  color: var(--ddl-color--disabled-button-text);
+  background-color: var(--ddl-color--warm-grey);
+  border: none;
+  cursor: not-allowed;
+}
+.ddl-button-cta--disabled .ddl-cta-icon,
+.ddl-button-cta--disabled:focus .ddl-cta-icon,
+.ddl-button-cta--disabled.ddl-button-cta--focus .ddl-cta-icon,
+.ddl-button-cta--disabled:hover .ddl-cta-icon,
+.ddl-button-cta--disabled.ddl-button-cta--hover .ddl-cta-icon {
+  transform: none;
+}
+.ddl-button-cta--reversed {
+  border: 1px solid var(--ddl-color--primary-white);
+}
+.ddl-button-cta--reversed:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--video:after,
+.ddl-button-cta--reversed:focus:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--video:after,
+.ddl-button-cta--reversed.ddl-button-cta--focus:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--video:after,
+.ddl-button-cta--reversed:hover:not([class*="ddl-button-cta--disabled"]) .ddl-cta-icon--video:after,
+.ddl-button-cta--reversed.ddl-button-cta--hover:not([class*="ddl-button-cta--disabled"])
+  .ddl-cta-icon--video:after {
+  background: var(--ddl-color--secondary-emerson-navy);
+}
+.ddl-button-cta--reversed.ddl-button-cta--disabled,
+.ddl-button-cta--reversed:focus.ddl-button-cta--disabled,
+.ddl-button-cta--reversed.ddl-button-cta--focus.ddl-button-cta--disabled,
+.ddl-button-cta--reversed:hover.ddl-button-cta--disabled,
+.ddl-button-cta--reversed.ddl-button-cta--hover.ddl-button-cta--disabled {
+  border: 1px solid var(--ddl-color--primary-white);
+}

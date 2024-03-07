@@ -1,0 +1,48 @@
+.labeltext {
+  font-size: 25px;
+  font-weight: bold;
+  display: flex;
+  margin: 1rem 0rem;
+}
+.text {
+  color: gray;
+  font-size: 16px;
+  width: 80%;
+}
+.SizingSelection {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+.SizingSelection .left-child {
+  flex: 0 0 70%; /* Takes up 50% width, equivalent to 6 columns in a 12-column grid */
+}
+
+.SizingSelection .right-child {
+  flex: 0 0 30%; /* Takes up 50% width, equivalent to 6 columns in a 12-column grid */
+}
+
+.topSizingButton {
+  display: flex;
+  gap: 10px;
+}
+
+/* Media Query for screens with a maximum width of 768 pixels */
+@media (max-width: 768px) {
+  .SizingSelection {
+    flex-direction: column; /* Change to a column layout on smaller screens */
+  }
+
+  .SizingSelection .left-child,
+  .SizingSelection .right-child {
+    flex: 0 0 100%; /* Full width for both children on smaller screens */
+  }
+}
+
+/* Media Query for screens with a maximum width of 768 pixels */
+@media (max-width: 768px) {
+  .topSizingButton {
+    flex-direction: column; /* Change to a column layout on smaller screens */
+    align-items: start; /* Center items in the column */
+  }
+}
