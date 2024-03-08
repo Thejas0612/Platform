@@ -17,10 +17,10 @@ export default function ProjectLookoutUiLayout() {
           <TopLayout />
         </div>
         <Grid className="left_section" container direction="row">
-          <Grid xs={12} md={3}>
+          <Grid item xs={12} md={3}>
             <ProjectLookoutLeftLayout />
           </Grid>
-          <Grid className="right_section" container xs={12} md={9}>
+          <Grid className="right_section" item xs={12} md={9}>
             <ProjectLookoutRightLayout />
           </Grid>
         </Grid>
