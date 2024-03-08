@@ -20,7 +20,7 @@ export const PRODUCT_ADVISOR_CARDS = [
     title1: "Temperature",
     title2: "Sizing & Selection",
     subtitle:
-      "The easiest way to size, configure, and order Rosemount DP Flow meters and primary elements.",
+      "The easiest way to size, configure, and order Temperature products.",
     iconName: "arrow_icon",
     buType: "tempPA"
   },
