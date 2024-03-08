@@ -1,17 +1,24 @@
 import { useSelector } from "react-redux";
 import { NavigationMenu } from "../../../../components/dynamic-ui/uiComponentsConfig";
-export default function ProjectLookoutLeftLayout() {
-  const leftNavData = useSelector((state) => state.initialBuData?.leftSection);
-  if (leftNavData?.length > 0) {
-    const { componentProps } = leftNavData[0];
+import { getNavigationMenuSchema } from "../../../../schema-service/schemaService";
+
+export default function ProjectLookoutLeftLayout({schema}) {
+
+  const buCode = useSelector((state) => state.initialBuData?.selectedBu);
+  const schema_data = getNavigationMenuSchema(buCode, "NavigationMenu", schema);
+  // document.title = "msol-dpflow-productadvisor";
+
+  if (schema_data?.length > 0) {
     return (
       <NavigationMenu
-        data={componentProps?.schema}
-        label="hello LeftNavigation"
+        data={schema_data}
+        label=""
         onDelete={() => {}}
-        onSelect={function noRefCheck() {}}
+        onSelect={function noRefCheck() {
+          console.log("left navigation");
+        }}
       />
     );
   }
-  return <></>;
+  return <></>;  
 }
