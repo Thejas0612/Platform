@@ -34,7 +34,6 @@ export default function ProcessCondition() {
 
           <LabelText
             labelClass="ddl-from-custom-label"
-            showLabel
             text="Process Piping"
             textClass="ddl-typography--h5"
           />
@@ -66,13 +65,12 @@ export default function ProcessCondition() {
             label="PIPE SCHEDULE"
             labelClass="app-content-label"
             name="pipe_schedule"
-            options={pipeScheduleOptions.map((ele) => {
+            options={pipeScheduleOptions.map((option) => {
               return {
-                // key: `${ele.value}`,
                 greyedOut: false,
-                label: `${ele.label}`,
-                title: `${ele.title}`,
-                value: `${ele.value}`
+                label: `${option.label}`,
+                title: `${option.title}`,
+                value: `${option.value}`
               };
             })}
             placeholder="PLEASE SELECT"
@@ -86,7 +84,6 @@ export default function ProcessCondition() {
         <Grid container item xs={12} lg={12}>
           <LabelText
             labelClass="ddl-from-custom-label"
-            showLabel
             text="Process Fluid"
             textClass="ddl-typography--h5"
           />
@@ -113,7 +110,6 @@ export default function ProcessCondition() {
         <Grid container item xs={2} lg={2}>
           <RadioInput
             label="FLUID SOURCE"
-            // onChange={(e)=>console.log(e.target.value)}
             onChange={(e) =>
               e.target.value === "1" ? setShowFluidDb(true) : setShowFluidDb(false)
             }
@@ -158,9 +154,7 @@ export default function ProcessCondition() {
         <Grid container item xs={12} lg={12}>
           <ButtonInput
             btnType="textary"
-            customClass=""
             label="Additional Options"
-            onClick={() => {}}
           />
         </Grid>
 
@@ -178,7 +172,6 @@ export default function ProcessCondition() {
                 value: "2"
               }
             ]}
-            title=""
           />
         </Grid>
       </Grid>
