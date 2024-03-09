@@ -1097,17 +1097,18 @@
                     "textAlign": "center"
                   }
                 },
+
                 {
                   "column": 12,
                   "type": "TILE_THUMBNAIL",
-                  "name": "measurmenttype",
-                  "label": "Test Thumbnail",
-                  "labelClass": "app-content-label",
-                  "description": "here is a toggle button",
+                  "name": "flow_tial_or_thumbnail",
+                  "buttonLabel": "btn lble",
                   "attribute_code_value": {
-                    "defaultIds": [],
+                    "description": "",
                     "defaultDirection": "tile"
                   },
+                  "showAlert": false,
+                  "defaultIds": [],
                   "options": [
                     {
                       "id": 1,
@@ -1128,12 +1129,230 @@
                       "imgUrl": "https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png"
                     }
                   ],
+                  "np_id": 7,
+                  "sn_id": 4347,
                   "required": true,
                   "error": "",
-                  "errorClass": ""
+                  "value": []
                 }
               ]
-            }
+            },
+            {
+              "id": 1,
+              "fields": [
+                  {
+                      "column": 12,
+                      "label": "LABEL_TEXT",
+                      "labelClass": "app-content-label",
+                      "name": "LABEL_TEXT",
+                      "showLabel": false,
+                      "subText": "",
+                      "tableClass": "",
+                      "text": "Process Piping",
+                      "textClass": "ddl-typography--h5",
+                      "title": "this is title",
+                      "type": "LABEL_TEXT",
+                      "textStyles": {
+                        "textAlign": "start"
+                      }
+                  },
+                  {
+                    "column": 4,
+                    "type": "SINGLE_SELECT",
+                    "name": "line_size",
+                    "label": "Line Size",
+                    "labelClass": "app-content-label",
+                    "disabled": false,
+                    "value": "",
+                    "options": [
+                      {
+                        "value": "0",
+                        "label": "15",
+                        "id": "0"
+                      },
+                      {
+                        "value": "1",
+                        "label": "20",
+                        "id": "1"
+                      },
+                      {
+                        "value": "2",
+                        "label": "25",
+                        "id": "2"
+                      },
+                      {
+                        "value": "3",
+                        "label": "30",
+                        "id": "3"
+                      }
+                    ],
+                    "required": true,
+                    "error": "",
+                    "errorClass": "",
+                    "placeholder": "Pick One",
+                    "isApiOnEvent": {
+                      "isApiCall": true,
+                      "apiInfo": {
+                        "url": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingPipeSchedule?buCode=dpflow&lineSize=",
+                        "method": "GET",
+                        "payload": {}
+                      },
+                      "targetUiElement": "pipeschedule",
+                      "targetProperty": "options"
+                    }
+                  },
+                  {
+                    "column": 4,
+                    "type": "SINGLE_SELECT",
+                    "name": "pipeschedule",
+                    "label": "Pipe Schedule",
+                    "labelClass": "app-content-label",
+                    "disabled": false,
+                    "value": "",
+                    "options": [],
+                    "required": true,
+                    "error": "",
+                    "errorClass": ""
+                  },
+                  {
+                    "column": 12,
+                    "label": "LABEL_TEXT",
+                    "labelClass": "app-content-label",
+                    "name": "LABEL_TEXT",
+                    "showLabel": false,
+                    "subText": "",
+                    "tableClass": "",
+                    "text": "Process Fluid",
+                    "textClass": "ddl-typography--h5",
+                    "title": "this is title",
+                    "type": "LABEL_TEXT",
+                    "textStyles": {
+                      "textAlign": "start"
+                    }
+                  },
+                  {
+                    "type": "CUSTOM_BUTTON_GROUP",
+                    "column": 12,
+                    "title": "Fluid Type",
+                    "label": "Fluid Type",
+                    "name": "fluidtype",
+                    "options": [
+                      {
+                        "id": "0",
+                        "label": "Liquid"
+                      },
+                      {
+                        "id": "1",
+                        "label": "Gas"
+                      },
+                      {
+                        "id": "2",
+                        "label": "Steam"
+                      },
+                      {
+                        "id": "3",
+                        "label": "Natural Gas"
+                      },
+                      {
+                        "id": "4",
+                        "label": "Slurry"
+                      }
+                    ],
+                    "defaultIds": ["0"],
+                    "showLabel": true,
+                    "wrapperId": "",
+                    "wrapperClass": "cutsom_class",
+                    "labelClass": "ddl-from-custom-label",
+                    "value": "0",
+                    "attribute_code_value": {
+                      "multiple": true,
+                      "size": "medium"
+                    }
+                  },
+                  {
+                    "column": 6,
+                    "type": "RADIO_INPUT",
+                    "name": "fluidsource",
+                    "label": "Fluid Source",
+                    "labelClass": "app-content-label",
+                    "selectedIds": ["0"],
+                    "disabledIds": ["1"],
+                    "options": [
+                      {
+                        "value": "0",
+                        "label": "Database",
+                        "id": "0"
+                      },
+                      {
+                        "value": "1",
+                        "label": "Custom",
+                        "id": "1"
+                      }
+                    ],
+                    "value": "0",
+                    "required": true,
+                    "error": "",
+                    "errorClass": ""
+                  },
+                  {
+                    "column": 6,
+                    "type": "SINGLE_SELECT",
+                    "name": "fluidsdatabase",
+                    "label": "Fluids Database",
+                    "labelClass": "app-content-label",
+                    "value": "0",
+                    "options": [
+                      {
+                        "value": "0",
+                        "label": "water",
+                        "id": "0"
+                      },
+                      {
+                        "value": "1",
+                        "label": "Air",
+                        "id": "1"
+                      }
+                    ],
+                    "required": true,
+                    "error": "",
+                    "errorClass": ""
+                  },
+                  {
+                    "column": 12,
+                    "align": "left",
+                    "btnType": "textary",
+                    "error": "",
+                    "errorClass": "",
+                    "label": "Additional Options",
+                    "required": true,
+                    "showBackIcon": false,
+                    "type": "BUTTON",
+                    "value": ""
+                  },
+                  {
+                    "column": 12,
+                    "disabledIds": [],
+                    "error": "",
+                    "errorClass": "",
+                    "labelClass": "app-content-label",
+                    "name": "CHECKBOX_INPUT",
+                    "options": [
+                      {
+                        "label": "Fluid Plugs or Clogs (High Viscosity, Slurry, Entrained Solids, Solidifies, Etc)",
+                        "value": "0"
+                      },
+                      {
+                        "label": "Fluid Causes Wear and Erosion ( Entrained Solids, Abrasive, Etc.)",
+                        "value": "1"
+                      }
+                    ],
+                    "required": true,
+                    "selectedIds": ["1"],
+                    "showAlert": false,
+                    "type": "CHECKBOX_INPUT"
+                  }
+              ]
+          }
           ]
         }
       }
