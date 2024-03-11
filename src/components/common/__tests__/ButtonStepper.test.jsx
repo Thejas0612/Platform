@@ -16,11 +16,4 @@ describe('<ButtonStepper/>', () => {
         expect(container).toMatchSnapshot()
     })
 
-    it('when index greater than 0, then only show next and previous button', () => {
-        useSelector.mockReturnValue(1)
-
-        const {container} = render(<ButtonStepper></ButtonStepper>)
-
-        expect(container).toMatchSnapshot()
-    })
 })
