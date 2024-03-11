@@ -19,7 +19,7 @@ export default function TempUiLayout() {
           <Grid xs={12} md={3}>
             <TempLeftLayout />
           </Grid>
-          <Grid className="right_section" container xs={12} md={9}>
+          <Grid className="right_section" item xs={12} md={9}>
             <TempRightLayout />
           </Grid>
         </Grid>
