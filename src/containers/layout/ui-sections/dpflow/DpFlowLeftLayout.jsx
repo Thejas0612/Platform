@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { NavigationMenu } from "../../../../components/dynamic-ui/uiComponentsConfig";
 import { getNavigationMenuSchema } from "../../../../schema-service/schemaService";
-import { useEffect } from "react";
 
 export default function DpFlowLeftLayout({ schema }) {
   const buCode = useSelector((state) => state.initialBuData?.selectedBu);
@@ -13,8 +12,8 @@ export default function DpFlowLeftLayout({ schema }) {
         data={schema_data}
         label=""
         onDelete={() => {}}
-        onSelect={function noRefCheck() {
-          console.log("left navigation");
+        onSelect={function noRefCheck(a, b, c, d) {
+          // console.log("left navigation", a, b, c, d);
         }}
       />
     );

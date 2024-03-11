@@ -2,7 +2,7 @@ import { CircularProgress, Grid } from "@mui/material";
 import "./uiLayout.css";
 import { useEffect, useState } from "react";
 import data from "../../../../schema-service/schema_version_0.0.1.json";
-import { getLineSizeValues } from "../../../../api/dp-flow/dpFlowApis";
+import { getFluidDatabaseValues, getLineSizeValues } from "../../../../api/dp-flow/dpFlowApis";
 import { updateApiDataInSchema } from "../../../../schema-service/schemaService";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
@@ -62,9 +62,15 @@ export default function DpFlowUiLayout() {
 
   const getSchema = async () => {
     const res = await getLineSizeValues();
-    if (Object.keys(res)?.length > 0 && res?.apiResponse?.length > 0) {
-      const updated_schema = await updateApiDataInSchema(res, data[buCode]);
-      setSchema({ ...data, [buCode]: updated_schema });
+    const liquidRes = await getFluidDatabaseValues();
+    if (
+      Object.keys(res)?.length > 0 &&
+      Object.keys(liquidRes)?.length > 0 &&
+      res?.apiResponse?.length > 0
+    ) {
+      const updated_schema = await updateApiDataInSchema(res, data.dpFlow);
+      const updated_liquidValues = await updateApiDataInSchema(liquidRes, updated_schema);
+      setSchema({ ...data, [buCode]: updated_liquidValues });
       setIsLoading(false);
       return;
     }
