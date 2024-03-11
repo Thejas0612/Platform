@@ -2,6 +2,7 @@ import { DynamicForm } from "../../../../components/dynamic-ui/uiComponentsConfi
 import { useSelector } from "react-redux";
 import ButtonStepper from "../../../../components/common/ButtonStepper";
 import { getDynamicFormSchema, updateSchema } from "../../../../schema-service/schemaService";
+import DynamicInput from "./DynamicInput";
 
 export default function DpFlowRightLayout({ schema, updateFieldsInSchema, updateValidations }) {
   const buCode = useSelector((state) => state.initialBuData?.selectedBu);
@@ -12,11 +13,16 @@ export default function DpFlowRightLayout({ schema, updateFieldsInSchema, update
     const obj = await updateSchema(e, formObj, formData, name, isValid, activeIndex, buCode);
     await updateFieldsInSchema(obj);
   };
+  console.log("data", data);
 
   if (data?.length > 0) {
     return (
       <div>
-        <DynamicForm
+        {data[0]?.fields?.map((itm) => {
+          console.log("Item", itm);
+          return <DynamicInput type={itm?.type} />;
+        })}
+        {/* <DynamicForm
           schema={data}
           handleChange={(e, formObj, formData, name, isValid) => {
             onUpdateSchema(e, formObj, formData, name, isValid);
@@ -32,7 +38,7 @@ export default function DpFlowRightLayout({ schema, updateFieldsInSchema, update
             updateValidations={updateValidations}
             buCode={buCode}
           />
-        </div>
+        </div> */}
       </div>
     );
   }
