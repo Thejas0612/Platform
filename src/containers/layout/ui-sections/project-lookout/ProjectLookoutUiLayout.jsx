@@ -9,10 +9,6 @@ import { useEffect } from "react";
 
 export default function ProjectLookoutUiLayout() {
   const status = useSelector((state) => state.initialBuData.status);
-  useEffect(() => {
-    document.title = "MSOL Product Advisor Flow";
-  });
-
   if (status === STATUS.SUCCESSED)
     return (
       <Grid container>

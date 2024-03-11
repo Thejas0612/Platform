@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { ButtonInput } from "../dynamic-ui/uiComponentsConfig";
 import "./buttonStepper.css";
-import { schemaValidations } from "../../schema-service/schemaValidations";
+import { changeAccordionStatus, schemaValidations } from "../../schema-service/schemaValidations";
 import { changeActiveIndex } from "../../redux/reducers/initialBuDataSlice";
 
 export default function ButtonStepper({ data, schema, updateValidations, buCode }) {
@@ -15,14 +15,20 @@ export default function ButtonStepper({ data, schema, updateValidations, buCode 
       return;
     }
     dispatch(changeActiveIndex(activeIndex + 1));
+    updateValidations(update_errors?.update_schema, buCode);
   };
+
   return (
     <div className="button_stepper_wrapper">
       {activeIndex > 0 ? (
         <ButtonInput
           label="Previous"
           showBackIcon={true}
-          onClick={() => dispatch(changeActiveIndex(activeIndex - 1))}
+          onClick={() => {
+            dispatch(changeActiveIndex(activeIndex - 1));
+            const navigation_changes = changeAccordionStatus(schema, activeIndex);
+            updateValidations(navigation_changes, buCode);
+          }}
         />
       ) : (
         <div></div>

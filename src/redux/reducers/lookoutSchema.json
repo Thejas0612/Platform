@@ -716,42 +716,6 @@
                     }
                   ],
                   "required": true
-                },
-                {
-                  "column": 12,
-                  "align": "left",
-                  "btnType": "textary",
-                  "error": "",
-                  "errorClass": "",
-                  "label": "Additional Options",
-                  "required": true,
-                  "showBackIcon": false,
-                  "type": "BUTTON",
-                  "value": ""
-                },
-                {
-                  "column": 12,
-                  "disabledIds": [],
-                  "error": "",
-                  "errorClass": "",
-                  "labelClass": "app-content-label",
-                  "name": "CHECKBOX_INPUT",
-                  "options": [
-                    {
-                      "label": "Fluid Plugs or Clogs (High Viscosity, Slurry, Entrained Solids, Solidifies, Etc)",
-                      "value": "0"
-                    },
-                    {
-                      "label": "Fluid Causes Wear and Erosion ( Entrained Solids, Abrasive, Etc.)",
-                      "value": "1"
-                    }
-                  ],
-                  "required": true,
-                  "selectedIds": [
-                    "1"
-                  ],
-                  "showAlert": false,
-                  "type": "CHECKBOX_INPUT"
                 }
               ]
             }

@@ -8,9 +8,9 @@ export default function DpFlowRightLayout({ schema, updateFieldsInSchema, update
   const activeIndex = useSelector((state) => state.initialBuData?.activeIndex);
   const data = getDynamicFormSchema(buCode, "DynamicForm", activeIndex, schema);
 
-  const onUpdateSchema = (e, formObj, formData, name, isValid) => {
-    const obj = updateSchema(e, formObj, formData, name, isValid, activeIndex, buCode);
-    updateFieldsInSchema(obj);
+  const onUpdateSchema = async (e, formObj, formData, name, isValid) => {
+    const obj = await updateSchema(e, formObj, formData, name, isValid, activeIndex, buCode);
+    await updateFieldsInSchema(obj);
   };
 
   if (data?.length > 0) {

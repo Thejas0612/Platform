@@ -94,9 +94,9 @@
                   "options": [
                     {
                       "id": "flow_1",
-                      "title": "Flow",
-                      "description": "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, Differential Pressure, Vortex, Magnetic, Ultrasonic, Turbine and positive displacement meters.",
-                      "imgUrl": "https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png"
+                      "title": "DP Flow",
+                      "description": "Innovative products enhance your flow measurement capabilities by expanding on time-tested and proven technology.",
+                      "imgUrl": "https://tools.emerson.com/OA_HTML/ibcGetAttachment.jsp?cItemId=454559"
                     }
                   ],
                   "np_id": 7,
@@ -159,7 +159,17 @@
                   "required": true,
                   "error": "",
                   "errorClass": "",
-                  "placeholder": "Pick One"
+                  "placeholder": "Pick One",
+                  "isApiOnEvent": {
+                    "isApiCall": true,
+                    "apiInfo": {
+                      "url": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingPipeSchedule?buCode=dpflow&lineSize=",
+                      "method": "GET",
+                      "payload": {}
+                    },
+                    "targetUiElement": "pipeschedule",
+                    "targetProperty": "options"
+                  }
                 },
                 {
                   "column": 3,
@@ -169,28 +179,7 @@
                   "labelClass": "app-content-label",
                   "disabled": false,
                   "value": "",
-                  "options": [
-                    {
-                      "value": "0",
-                      "label": "5",
-                      "id": "0"
-                    },
-                    {
-                      "value": "1",
-                      "label": "10",
-                      "id": "1"
-                    },
-                    {
-                      "value": "2",
-                      "label": "30",
-                      "id": "2"
-                    },
-                    {
-                      "value": "3",
-                      "label": "40",
-                      "id": "3"
-                    }
-                  ],
+                  "options": [],
                   "required": true,
                   "error": "",
                   "errorClass": ""

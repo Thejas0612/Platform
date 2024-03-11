@@ -10,10 +10,10 @@ export const PRODUCT_ADVISOR_CARDS = [
     id: "card1_dpflow",
     title1: "DP Flow",
     title2: "Sizing & Selection",
-    subtitle:
-      "The easiest way to size, configure, and order Rosemount DP Flow meters and primary elements.",
+    subtitle:"The easiest way to size, configure, and order Rosemount DP Flow meters and primary elements.",
     iconName: "arrow_icon",
-    buType: "dpFlow"
+    buType: "dpFlow",
+    buTitle: "MSOL Product Advisor DP Flow"
   },
   {
     id: "card2_temp",
@@ -21,7 +21,8 @@ export const PRODUCT_ADVISOR_CARDS = [
     title2: "Sizing & Selection",
     subtitle: "The easiest way to size, configure, and order Temperature products.",
     iconName: "arrow_icon",
-    buType: "tempPA"
+    buType: "tempPA",
+    buTitle: "MSOL Product Advisor Temperature"
   },
   {
     id: "card2_project_Lookout",
@@ -29,7 +30,8 @@ export const PRODUCT_ADVISOR_CARDS = [
     title2: "Sizing & Selection",
     subtitle: "The easiest way to size, configure, and order Flow products.",
     iconName: "arrow_icon",
-    buType: "project_Lookout"
+    buType: "project_Lookout",
+    buTitle: "MSOL Product Advisor Flow"
   }
 ];
 
@@ -37,10 +39,11 @@ export default function Landing() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const handleSelectedBu = (buType) => {
+  const handleSelectedBu = (buType, buTitle) => {
     dispatch(resetActiveIndex(0));
     dispatch(fetchSchema({ buType }));
     dispatch(updateBu(buType));
+    document.title = buTitle;
     history.push(`/platform_bucode=${buType}`, { bu_code: buType });
   };
 
@@ -50,7 +53,7 @@ export default function Landing() {
         <Grid
           key={bu.id}
           className="grid_card_1 grid_1_hover"
-          onClick={() => handleSelectedBu(bu.buType)}
+          onClick={() => handleSelectedBu(bu.buType, bu.buTitle)}
         >
           <div className="card_title_1">
             <h3 className="card_title_h3">

@@ -29,23 +29,11 @@ export default function DpFlowUiLayout() {
                 componentProps: {
                   schema: itm.componentProps?.schema?.map((field) => {
                     if (field?.ne_id === data?.activeIndex) {
-                      const findBadgeId = field?.badges?.find(
-                        (itm) => itm.id === data?.badges[0]?.id
-                      );
                       return {
                         ...field,
-                        badges: data?.badges
-                          ? //data?.badges
-                            findBadgeId === undefined
-                            ? [...field.badges, ...data?.badges]
-                            : field?.badges.map((ele) => {
-                                if (ele.id === data?.badges[0]?.id) {
-                                  return data?.badges[0];
-                                } else return ele;
-                              })
-                          : []
+                        selected: true
                       };
-                    } else return field;
+                    } else return { ...field, selected: false };
                   })
                 }
               };
@@ -55,14 +43,7 @@ export default function DpFlowUiLayout() {
                 componentProps: {
                   schema: itm.componentProps?.schema?.map((field) => {
                     if (field.id === data?.activeIndex) {
-                      return {
-                        ...field,
-                        fields: field?.fields?.map((itm) => {
-                          if (itm?.name === data?.field?.name) {
-                            return data?.field;
-                          } else return itm;
-                        })
-                      };
+                      return data?.activeSchema;
                     } else return field;
                   })
                 }
@@ -90,13 +71,10 @@ export default function DpFlowUiLayout() {
     setSchema(data);
     setIsLoading(false);
   };
-
   useEffect(async () => {
-    document.title = "MSOL Product Advisor DP Flow";
     dispatch(updateBu(use_location?.state?.bu_code));
     await getSchema();
   }, [buCode]);
-
   return (
     <Grid container>
       <div className="top_section">

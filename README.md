@@ -19,7 +19,20 @@ See [Setup Local Environment](docs\setup-local-environment.md)
 | `npm run start`    | Runs the frontend on http://localhost:3000.                  |
 | `npm run build`    | Builds the production frontend application into `~/dist` folder. |
 | `npm run test`     | Runs the unit tests.                                         |
-| `npm run lint`     | Runs the eslint static code analyzer and generates a finding report on the console. |
-| `npm run lint:fix` | Runs the eslint static code analyzer and automatically fixes findings. |
-| `npm run preview`  | Run the frontend a production build on http://localhost:3000. |
+| `npm run test:ci`  | Runs the unit test and creates a JUnit report at `~/junit.xml`. |
+| `npm run lint`     | Runs the ESLint static code analyzer and generates a finding report on the console. |
+| `npm run lint:fix` | Runs the ESLint static code analyzer and automatically fixes findings. |
+| `npm run preview`  | Run the frontend a production build on http://localhost:3000/ |
 
+## Folder Structure
+
+```text
+.
+├── dist                    # The compiled files (alternatively `build`)
+├── docs                    # The documentation files (alternatively `doc`)
+├── src                     # The source files (alternatively `lib` or `app`)
+├── src/**/__test__         # The unit test files.
+├── unit.xml                # The unit test results.
+├── azure-pipeline-ui.yml   # The development environment CI and CD pipeline .
+└── README.md
+```

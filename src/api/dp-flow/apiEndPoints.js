@@ -1,6 +1,6 @@
 const apiEndPoints = {
   lineSize: {
-    api: "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingData?buCode=dpFlow",
+    api: "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingLineSize?buCode=dpflow",
     target: {
       targetUiElementName: "line_size",
       targetProperty: "options",
