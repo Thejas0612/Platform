@@ -308,22 +308,12 @@
                   "name": "fluidsdatabase",
                   "label": "Fluids Database",
                   "labelClass": "app-content-label",
-                  "value": "0",
-                  "options": [
-                    {
-                      "value": "0",
-                      "label": "water",
-                      "id": "0"
-                    },
-                    {
-                      "value": "1",
-                      "label": "Air",
-                      "id": "1"
-                    }
-                  ],
+                  "value": "",
+                  "options": [],
                   "required": true,
                   "error": "",
-                  "errorClass": ""
+                  "errorClass": "",
+                  "placeholder": "Pick One"
                 },
                 {
                   "column": 12,

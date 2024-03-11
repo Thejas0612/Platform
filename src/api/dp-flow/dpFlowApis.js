@@ -20,3 +20,13 @@ export const getApi = async (apiInfo, id) => {
     return [];
   }
 };
+
+export const getFluidDatabaseValues = async () => {
+  try {
+    const res = await axios.get(apiEndPoints.fluidsdatabase.api);
+    return res?.data ? { apiResponse: res?.data, target: apiEndPoints.fluidsdatabase.target } : [];
+  } catch (err) {
+    console.log("err in fetching linesize data", err);
+    return {};
+  }
+};
