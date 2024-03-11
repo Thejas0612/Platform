@@ -185,44 +185,6 @@
                   "errorClass": ""
                 },
                 {
-                  "column": 3,
-                  "type": "TEXT_INPUT",
-                  "name": "pipeid",
-                  "label": "Pipe ID",
-                  "labelClass": "app-content-label",
-                  "inputClass": "app-content-text-width-custom",
-                  "value": "",
-                  "required": false,
-                  "error": "",
-                  "disabled": false,
-                  "errorClass": "",
-                  "showonUi": false
-                },
-                {
-                  "column": 3,
-                  "type": "SINGLE_SELECT",
-                  "name": "unit",
-                  "label": "Unit",
-                  "labelClass": "app-content-label",
-                  "disabled": false,
-                  "value": "",
-                  "options": [
-                    {
-                      "value": "0",
-                      "label": "INCH",
-                      "id": "0"
-                    },
-                    {
-                      "value": "1",
-                      "label": "MM",
-                      "id": "1"
-                    }
-                  ],
-                  "required": true,
-                  "error": "",
-                  "errorClass": ""
-                },
-                {
                   "column": 12,
                   "label": "LABEL_TEXT",
                   "labelClass": "app-content-label",
@@ -278,7 +240,7 @@
                   }
                 },
                 {
-                  "column": 6,
+                  "column": 3,
                   "type": "RADIO_INPUT",
                   "name": "fluidsource",
                   "label": "Fluid Source",
@@ -303,7 +265,7 @@
                   "errorClass": ""
                 },
                 {
-                  "column": 6,
+                  "column": 4,
                   "type": "SINGLE_SELECT",
                   "name": "fluidsdatabase",
                   "label": "Fluids Database",
