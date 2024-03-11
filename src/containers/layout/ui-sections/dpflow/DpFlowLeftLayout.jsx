@@ -6,7 +6,6 @@ import { useEffect } from "react";
 export default function DpFlowLeftLayout({ schema }) {
   const buCode = useSelector((state) => state.initialBuData?.selectedBu);
   const schema_data = getNavigationMenuSchema(buCode, "NavigationMenu", schema);
-  document.title = "msol-dpflow-productadvisor";
 
   if (schema_data?.length > 0) {
     return (

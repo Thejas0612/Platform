@@ -16,7 +16,6 @@ export default function DpFlowUiLayout() {
   const [isLoading, setIsLoading] = useState(true);
   const use_location = useLocation();
   const dispatch = useDispatch();
-
   const buCode = useSelector((state) => state.initialBuData?.selectedBu);
   const updateFieldsInSchema = (data) => {
     if (Object.keys(data)?.length > 0) {
@@ -72,12 +71,10 @@ export default function DpFlowUiLayout() {
     setSchema(data);
     setIsLoading(false);
   };
-
   useEffect(async () => {
     dispatch(updateBu(use_location?.state?.bu_code));
     await getSchema();
   }, [buCode]);
-
   return (
     <Grid container>
       <div className="top_section">

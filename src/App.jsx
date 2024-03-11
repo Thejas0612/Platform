@@ -10,12 +10,6 @@ import TempUiLayout from "./containers/layout/ui-sections/temperature/TempUiLayo
 const App = () => {
   return (
     <Router>
-      <Header
-        menuData={menuData}
-        isAuthenticated={false}
-        title="MSOL PA PLATFORM"
-        logo="https://www.emerson.com/resource/blob/emerson-logo-compressed--data-5576584.png"
-      />
       <Switch>
         <Route path="/" exact={true} component={Landing} />
         <Route path="/platform_bucode=dpFlow" exact={true} component={DpFlowUiLayout} />
