@@ -33,17 +33,13 @@ export default function ButtonStepper({ data, schema, updateValidations, buCode 
       ) : (
         <div></div>
       )}
-      {activeIndex === 1 ? (
-        <ButtonInput label="Next" disabled={true} />
-      ) : (
-        <ButtonInput
-          label="Next"
-          onClick={() => {
-            onNextChange();
-          }}
-          size="sm"
-        />
-      )}
+      <ButtonInput
+        disabled={activeIndex === 1 ? true : false}
+        label="Next"
+        onClick={() => {
+          onNextChange();
+        }}
+      />
     </div>
   );
 }
