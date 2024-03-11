@@ -19,8 +19,7 @@ export const PRODUCT_ADVISOR_CARDS = [
     id: "card2_temp",
     title1: "Temperature",
     title2: "Sizing & Selection",
-    subtitle:
-      "The easiest way to size, configure, and order Rosemount DP Flow meters and primary elements.",
+    subtitle: "The easiest way to size, configure, and order Temperature products.",
     iconName: "arrow_icon",
     buType: "tempPA"
   },
@@ -28,7 +27,7 @@ export const PRODUCT_ADVISOR_CARDS = [
     id: "card2_project_Lookout",
     title1: "Project Lookout",
     title2: "Sizing & Selection",
-    subtitle: "***** TBD ******",
+    subtitle: "The easiest way to size, configure, and order Flow products.",
     iconName: "arrow_icon",
     buType: "project_Lookout"
   }

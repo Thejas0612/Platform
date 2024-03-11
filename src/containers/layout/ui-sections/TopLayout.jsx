@@ -18,25 +18,27 @@ export default function TopLayout() {
           />
         </div>
         <div className="right-child">
-          <CustomTop
-            data={[
-              {
-                data: [
-                  {
-                    text: "Preferences",
-                    url: "/"
-                  },
-                  {
-                    text: "Search Sizing",
-                    url: "/"
-                  }
-                ],
-                labelClass: "ddl-typography--paragraph",
-                type: "BREAD_CRUMBS",
-                value: ""
-              }
-            ]}
-          />
+          <div className="custom-top">
+            <CustomTop
+              data={[
+                {
+                  data: [
+                    {
+                      text: "Preferences",
+                      url: "/"
+                    },
+                    {
+                      text: "Search Sizing",
+                      url: "/"
+                    }
+                  ],
+                  labelClass: "ddl-typography--paragraph",
+                  type: "BREAD_CRUMBS",
+                  value: ""
+                }
+              ]}
+            />
+          </div>
           <div className="topSizingButton">
             <ButtonInput
               btnType="secondary"

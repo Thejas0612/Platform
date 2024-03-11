@@ -5,10 +5,13 @@ import ProjectLookoutLeftLayout from "./ProjectLookoutLeftLayout";
 import ProjectLookoutRightLayout from "./ProjectLookoutRightLayout";
 import { STATUS } from "../../../../status";
 import TopLayout from "../TopLayout";
+import { useEffect } from "react";
 
 export default function ProjectLookoutUiLayout() {
   const status = useSelector((state) => state.initialBuData.status);
-  document.title = "msol-projectlookout-productadvisor";
+  useEffect(() => {
+    document.title = "MSOL Product Advisor Flow";
+  });
 
   if (status === STATUS.SUCCESSED)
     return (

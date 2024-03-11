@@ -16,7 +16,6 @@ export default function DpFlowUiLayout() {
   const [isLoading, setIsLoading] = useState(true);
   const use_location = useLocation();
   const dispatch = useDispatch();
-
   const buCode = useSelector((state) => state.initialBuData?.selectedBu);
   const updateFieldsInSchema = (data) => {
     if (Object.keys(data)?.length > 0) {
@@ -93,6 +92,7 @@ export default function DpFlowUiLayout() {
   };
 
   useEffect(async () => {
+    document.title = "MSOL Product Advisor DP Flow";
     dispatch(updateBu(use_location?.state?.bu_code));
     await getSchema();
   }, [buCode]);
