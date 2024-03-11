@@ -34,11 +34,11 @@ export default function ButtonStepper({ data, schema, updateValidations, buCode 
         <div></div>
       )}
       <ButtonInput
-        disabled={activeIndex === 1 ? true : false}
         label="Next"
         onClick={() => {
           onNextChange();
         }}
+        size="sm"
       />
     </div>
   );
