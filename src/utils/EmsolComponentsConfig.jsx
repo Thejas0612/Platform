@@ -1,6 +1,6 @@
 import React from "react";
 import HeaderSection from "../components/common/Header";
-import { TileOrThumbnail, NavigationMenu, PaBreadcrumbs, LabelText } from "@emerson/dynamic-ui-public";
+import {PaBreadcrumbs, LabelText } from "@emerson/dynamic-ui-public";
 import {
   getEmsolStepper,
   getEmsolDynamicForm,

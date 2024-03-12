@@ -56,9 +56,7 @@ const CustomTopSection = () => {
     ]
   };
   return (
-    <>
       <CustomTop {...CustomTopSchema} />
-    </>
   );
 };
 

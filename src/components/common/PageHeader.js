@@ -4,9 +4,7 @@ import PageHeaderSchema from "./../../JsonSchema/PageHeaderSchema";
 
 const PageHeader = () => {
   return (
-    <>
       <Header {...PageHeaderSchema} />
-    </>
   );
 };
 

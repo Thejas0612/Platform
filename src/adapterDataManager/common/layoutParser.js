@@ -1,14 +1,12 @@
 // Render the components based on the application type (contains only functions returning data).
 
 import { LEFT, TOP } from "../../utils/constants";
-import EmsolValidate from "./validations";
 
 export const parseLayoutType = (data) => {
   const layout = { Top: [], Left: [], Right: [] };
   if (data.length) {
     data.forEach((schema) => {
       if (schema.alignment === TOP) {
-        // const validateSchema = EmsolValidate(schema, "");
         layout.Top.push(schema);
       } else if (schema.alignment === LEFT) {
         layout.Left.push(schema);

@@ -1,7 +1,6 @@
-import React, { Fragment } from "react";
+import React  from "react";
 
 const HeaderSection = () => {
-  // const { data, title, userInfo, logo } = headerSchema;
   return (
     <>
       {/* <Header

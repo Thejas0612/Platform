@@ -17,7 +17,7 @@ const initialState = {
 };
 
 export const fetchSchema = createAsyncThunk("loadSchema/fetchSchema", async (buType) => {
-  // TODO: upload the lookout schema to the backend.
+  // upload the lookout schema to the backend.
   if (buType.buType === "project_Lookout") {
     return isolateSchema(lookoutSchema[0]);
   }
@@ -27,7 +27,7 @@ export const fetchSchema = createAsyncThunk("loadSchema/fetchSchema", async (buT
     if (Array.isArray(data)) {
        return isolateSchema(data[0]);
     } else {
-       throw(`Invalid JSON in /ui_schemas/'${buType.buType}'.json schema.`)
+      return `Invalid JSON in /ui_schemas/'${buType.buType}'.json schema.`;
     }
  } catch (localSchemaError) {
     try {

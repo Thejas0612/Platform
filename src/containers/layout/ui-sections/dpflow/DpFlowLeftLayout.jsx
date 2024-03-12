@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { NavigationMenu } from "../../../../components/dynamic-ui/uiComponentsConfig";
 import { getNavigationMenuSchema } from "../../../../schema-service/schemaService";
-import { useEffect } from "react";
 
 export default function DpFlowLeftLayout({ schema }) {
   const buCode = useSelector((state) => state.initialBuData?.selectedBu);

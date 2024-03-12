@@ -3,7 +3,6 @@ export const schemaValidations = (activeIndex, field, schema) => {
   field[0]?.fields?.forEach((itm) => {
     if (itm?.required && itm?.value?.length === 0) {
       isError = true;
-      return;
     }
   });
   let update_schema;

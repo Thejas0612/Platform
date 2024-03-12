@@ -1,10 +1,9 @@
 import { useOktaAuth } from "@okta/okta-react";
 import React, { useState, useEffect } from "react";
-import style from "./home.module.css";
 
 const Home = () => {
   const { authState, oktaAuth } = useOktaAuth();
-  const [userInfo, setUserInfo] = useState(null);
+  const [setUserInfo] = useState(null);
 
   useEffect(() => {
     if (!authState || !authState.isAuthenticated) {

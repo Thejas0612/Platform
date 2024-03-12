@@ -6,7 +6,6 @@ import {
 import "./TopLayout.css";
 export default function TopLayout() {
   return (
-    <>
       <div className="SizingSelection">
         <div className="left-child">
           <LabelText
@@ -48,6 +47,5 @@ export default function TopLayout() {
           </div>
         </div>
       </div>
-    </>
   );
 }

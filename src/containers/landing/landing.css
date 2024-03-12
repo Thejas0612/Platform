@@ -40,7 +40,6 @@
 }
 
 .subtitle_wrapper {
-  /* padding-bottom: 4rem; */
   padding-left: 0.4rem;
   padding-right: 0.4rem;
   width: auto;
@@ -84,7 +83,6 @@
   position: relative;
   transform: rotate(45deg);
   width: 23px;
-  /* margin-bottom: -9rem; */
 }
 
 .grid_1_hover:hover {

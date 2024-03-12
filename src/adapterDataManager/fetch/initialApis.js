@@ -1,7 +1,6 @@
 // auth API/Layout API's
 
 import { getApplicationSections, getLayoutApi } from ".";
-// import dynamicDpFlow from "../../JsonSchema/DynamicUi/DynamicSchema.json";
 const fetchData = async (getUiBuilderSchema) => {
   /// split the block, to be placed in another comp.
   try {

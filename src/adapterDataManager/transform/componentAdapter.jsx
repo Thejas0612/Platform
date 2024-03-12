@@ -1,10 +1,6 @@
 // File to have functions to handle component data  API to Component parser
 import React from "react";
-import { Grid } from "@mui/material";
-import { PaStepper } from "@emerson/dynamic-ui-public";
-import { DynamicForm, CustomTop, NavigationMenu } from "@emerson/dynamic-ui-public";
-import events from "../common/events";
-// import { DYNAMIC_FORM, NAVIGATION_MENU } from "../../utils/UtilConstants";
+import { PaStepper,DynamicForm, CustomTop, NavigationMenu  } from "@emerson/dynamic-ui-public";
 import { dynamicFormContent, getNavigationContent } from "../common/layoutParser";
 import { getDynamicFields } from "../fetch";
 
@@ -16,41 +12,32 @@ const getLayoutType = () => {
 };
 
 const getEmsolButton = ({ type, props }) => {
-  //return "EMSOL_BUTTON": <button {...props}>{props.text}</button>;
   return null;
 };
 const getEmsolInput = ({ type, props }) => {
-  //<input {...props} />;
   return null;
 };
 const getEmsolText = ({ type, props }) => {
-  // <p {...props}>{props.text}</p>;
   return null;
 };
 const getEmsolHeader = ({ type, props }) => {
-  // <HeaderSection {...props} />;
   return null;
 };
 const getEmsolCustomTop = ({ props }) => {
-  //<CustomTop {...props} />
   return (
-    <>
       <CustomTop {...props} />
-    </>
   );
 };
 const getEmsolTileOrThumbnail = ({ type, props }) => {
-  //<TileOrThumbnail {...props} />;
   return null;
 };
 
-const getEmsolDynamicForm = (schema, sourceData, updateLayoutContent) => {
+const getEmsolDynamicForm = (schema, sourceData, updateLayoutContent) => { //nesting 1
   const initData = sourceData.reduce((init, occurence) => {
     init[occurence.type] = occurence;
     return init;
   }, {});
-  //<DynamicForm {...props} />;
-  const eventHandler = async (event, a = {}, b, c, d) => {
+  const eventHandler = async (event, b, c, d, a = {}) => { //nesting 1
     let {
       props: { data = [] }
     } = initData["EMSOL_NAVIGATION_MENU"];
@@ -100,7 +87,7 @@ const getEmsolDynamicForm = (schema, sourceData, updateLayoutContent) => {
       });
       data = updatedNav;
     } else {
-      data.forEach((d) => {
+      data.forEach((d) => {   //nesting 1
         if (event?.target?.value) {
           if (d.label === c) {
             d.badges.push({ label: c, value: c });
@@ -108,7 +95,7 @@ const getEmsolDynamicForm = (schema, sourceData, updateLayoutContent) => {
         } else if (schemaOutput.navigationType === d.label) {
           if (d.label === schemaOutput.navigationType) {
             let badges = [];
-            schemaOutput.fields.forEach((field) => {
+            schemaOutput.fields.forEach((field) => { //nesting 1
               const typeIdentifier = Array.isArray(field.value);
               let badge = [];
               if (field.name === c) {
@@ -157,19 +144,16 @@ const getEmsolDynamicForm = (schema, sourceData, updateLayoutContent) => {
 };
 const getEmsolNavigationMenu = ({ type, props }) => {
   return <NavigationMenu {...props} />;
-  // return null;
 };
 const getEmsolStepper = (props, sourceData, updateLayoutContent) => {
   const eventhandler = (props, schema) => {
     const value = getNavigationContent(props, schema, NAVIGATION_MENU);
     const formData = dynamicFormContent(value, DYNAMIC_FORM, props);
     updateLayoutContent(Object.values(formData));
-    // events("onchange", props);
   };
   return <PaStepper onChange={(props) => eventhandler(props, sourceData)} {...props} />;
 };
 const getEmsolBreadCrumbs = ({ type, props }) => {
-  //<PaBreadcrumbs {...props} />;
   return null;
 };
 
