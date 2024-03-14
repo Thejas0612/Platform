@@ -9,7 +9,7 @@ export interface CardCheckboxGroupProps {
 export const CardCheckboxGroup: FunctionComponent<CardCheckboxGroupProps> = ({data}) => {
     return <Grid container>
         {data.map((cardCheckboxProps) => {
-            return <Grid item xs={4} sx={{ border: '1px solid #000'}}>
+            return <Grid item xs={4} sx={{ border: '1px solid var(--ddl-color--primary-grey)'}}>
                 <CardCheckbox key={cardCheckboxProps.name} {...cardCheckboxProps}/>
             </Grid>
         })}
