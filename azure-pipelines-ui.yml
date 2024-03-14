@@ -20,15 +20,15 @@ steps:
       npm install
     displayName: "Install"
 
-  # - script: |
-  #     npm run test:ci
-  #   displayName: "Run Jest Unit Tests"
+  - script: |
+      npm run test:ci
+    displayName: "Run Jest Unit Tests"
 
-  # - task: PublishTestResults@2
-  #   displayName: 'Publish Jest Unit Tests report'
-  #   condition: succeededOrFailed()
-  #   inputs:
-  #     testResultsFiles: 'junit.xml'
+  - task: PublishTestResults@2
+    displayName: 'Publish Jest Unit Tests report'
+    condition: succeededOrFailed()
+    inputs:
+      testResultsFiles: 'junit.xml'
 
   - script: |
       npm run build

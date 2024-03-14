@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ButtonStepper/> when index is 0, then only show next button 1`] = `
+<div>
+  <div
+    class="button_stepper_wrapper"
+  >
+    <div />
+    <a
+      class="ddl-button-cta ddl-button-cta--primary  "
+    >
+      <span>
+        Next
+      </span>
+      <i
+        class="ddl-cta-icon ddl-cta-icon--internal-link"
+      />
+    </a>
+  </div>
+</div>
+`;
