@@ -21,7 +21,7 @@ export const CardCheckbox: FunctionComponent<CardCheckboxProps> = ({name, title}
 
         {/* Image */}
         <Grid item>
-            <img src="https://placehold.co/150x114" alt={title} className="cardCheckbox__image"/>
+            <img src="https://placehold.co/150x114" alt={title} className="cardCheckbox__image —ddl-icon—size-xxl"/>
         </Grid>
 
         {/* Checkbox */}
