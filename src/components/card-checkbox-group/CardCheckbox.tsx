@@ -10,9 +10,10 @@ export interface CardCheckboxProps {
 export const CardCheckbox: FunctionComponent<CardCheckboxProps> = ({name, title}) => {
     return <Grid
         direction="column"
-        spacing={2}
+        spacing={.5}
         alignItems="center"
         container
+        sx={{padding: ".5rem"}}
     >
         {/* Title */}
         <Grid item>
@@ -21,14 +22,14 @@ export const CardCheckbox: FunctionComponent<CardCheckboxProps> = ({name, title}
 
         {/* Image */}
         <Grid item>
-            <img src="https://placehold.co/150x114" alt={title} className="cardCheckbox__image —ddl-icon—size-xxl"/>
+            <img src="https://placehold.co/150x150" alt={title} className="cardCheckbox__image"/>
         </Grid>
 
         {/* Checkbox */}
         <Grid item>
             <FormControlLabel sx={{textAlign: "center", color:'var(--ddl-color--warm-grey)'}}
                               control={<Checkbox sx={{color:'var(--ddl-color--warm-grey)'}} />}
-                              label="compare" />
+                              label="compare" name={name} />
         </Grid>
     </Grid>
 }
