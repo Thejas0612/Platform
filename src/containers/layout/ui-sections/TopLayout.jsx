@@ -1,3 +1,4 @@
+import React from "react";
 import {
   CustomTop,
   LabelText,
@@ -6,7 +7,7 @@ import {
 import "./TopLayout.css";
 export default function TopLayout() {
   return (
-    <>
+    <div>
       <div className="SizingSelection">
         <div className="left-child">
           <LabelText
@@ -50,6 +51,6 @@ export default function TopLayout() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
