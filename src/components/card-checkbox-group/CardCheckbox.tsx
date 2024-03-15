@@ -1,6 +1,6 @@
 import {FunctionComponent} from "react";
 import {Checkbox, FormControlLabel, Grid, Typography} from "@mui/material";
-import './CardCheckbox.css'
+import styles from './CardCheckbox.module.css'
 
 export interface CardCheckboxProps {
     name: string
@@ -22,12 +22,12 @@ export const CardCheckbox: FunctionComponent<CardCheckboxProps> = ({name, title}
 
         {/* Image */}
         <Grid item>
-            <img src="https://placehold.co/150x150" alt={title} className="cardCheckbox__image"/>
+            <img src="https://placehold.co/150x150" alt={title} className={styles.cardCheckbox__image}/>
         </Grid>
 
         {/* Checkbox */}
         <Grid item>
-            <FormControlLabel sx={{textAlign: "center", color:'var(--ddl-color--warm-grey)'}}
+            <FormControlLabel disabled={true} sx={{textAlign: "center", color:'var(--ddl-color--warm-grey)'}}
                               control={<Checkbox sx={{color:'var(--ddl-color--warm-grey)'}} />}
                               label="compare" name={name} />
         </Grid>

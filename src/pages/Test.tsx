@@ -7,7 +7,7 @@ const CARD_CHECKBOX_GROUP_DATA: CardCheckboxGroupProps['data'] = [
     {name:'3',title: "Magnetic"},
     {name:'4',title: "Vortex"},
     {name:'5',title: "Density"},
-    {name:'6',title: "Viscosity"},
+    // {name:'6',title: "Viscosity"},
 ]
 
 export const Test: FunctionComponent = () => {
