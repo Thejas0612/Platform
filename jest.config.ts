@@ -1,5 +1,6 @@
-/** @type {import('@jest/types').Config.InitialOptions} */
-module.exports = {
+import type {Config} from 'jest';
+
+const config: Config = {
     // The test environment that will be used for testing, jsdom for browser environment
     // https://jestjs.io/docs/configuration#testenvironment-string
     testEnvironment: "jsdom",
@@ -57,3 +58,5 @@ module.exports = {
     verbose: true,
     testTimeout: 30000,
 };
+
+export default config
