@@ -6,6 +6,7 @@ import "@emerson/dynamic-ui-public/dist/emerson-ui.css";
 import DpFlowUiLayout from "./containers/layout/ui-sections/dpflow/DpFlowUiLayout";
 import ProjectLookoutUiLayout from "./containers/layout/ui-sections/project-lookout/ProjectLookoutUiLayout";
 import TempUiLayout from "./containers/layout/ui-sections/temperature/TempUiLayout";
+import CustomLayout from "./containers/layout/custom/CustomLayout";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           component={ProjectLookoutUiLayout}
         />
         <Route path="/platform_bucode=tempPA" exact={true} component={TempUiLayout} />
+        <Route path="/custom" exact={true} component={CustomLayout} />
       </Switch>
     </Router>
   );
