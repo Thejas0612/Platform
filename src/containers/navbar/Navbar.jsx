@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <ul>
       <li>
-        <img src="../asset/emerson-logo.png" className={style.logo} width="100px" />
+        <img alt="" src="../asset/emerson-logo.png" className={style.logo} width="100px" />
       </li>
       {authState.isAuthenticated && (
         <li>
