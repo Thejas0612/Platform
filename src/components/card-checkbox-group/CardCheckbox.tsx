@@ -13,7 +13,7 @@ export interface CardCheckboxProps {
 export const CardCheckbox: FunctionComponent<CardCheckboxProps> = ({
                                                                        name,
                                                                        title,
-    imageUrl,
+                                                                       imageUrl,
                                                                        disabled = false,
                                                                        disabledTooltip,
                                                                    }) => {
