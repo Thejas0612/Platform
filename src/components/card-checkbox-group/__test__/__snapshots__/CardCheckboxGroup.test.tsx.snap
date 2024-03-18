@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CardCheckboxGroup /> when state is default, then show title, image and checkbox 1`] = `
+exports[`<CardCheckboxGroup /> when state is default, then 6 show checkbox 1`] = `
 <div>
   <div
     class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"

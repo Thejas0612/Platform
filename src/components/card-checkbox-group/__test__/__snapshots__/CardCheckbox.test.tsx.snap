@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardCheckbox /> when state is default, then show title, image and checkbox 1`] = `
+<div>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1r5j69-MuiGrid-root"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+    >
+      <p
+        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+      >
+        Test Title
+      </p>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+    >
+      <img
+        alt="Test Title"
+        class="cardCheckbox__image"
+        src="https://placehold.co/150x150"
+      />
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+    >
+      <label
+        class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-abeivz-MuiFormControlLabel-root"
+      >
+        <span
+          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+        >
+          <input
+            class="PrivateSwitchBase-input css-1m9pwf3"
+            data-indeterminate="false"
+            name="Test Name"
+            type="checkbox"
+          />
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CheckBoxOutlineBlankIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </span>
+        <span
+          class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-ahj2mt-MuiTypography-root"
+        >
+          compare
+        </span>
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<CardCheckbox /> when state is disabled, then show tooltip 1`] = `
+<div
+  class="base-Popper-root MuiTooltip-popper MuiTooltip-popperInteractive css-yem0l2-MuiPopper-root-MuiTooltip-popper"
+  data-popper-escaped=""
+  data-popper-placement="right"
+  data-popper-reference-hidden=""
+  id="mui-1"
+  role="tooltip"
+  style="position: absolute; top: 0px; left: 0px; margin: 0px; transform: translate(0px, 0px);"
+>
+  <div
+    class="MuiTooltip-tooltip MuiTooltip-tooltipPlacementRight css-ja5taz-MuiTooltip-tooltip"
+    style="opacity: 1; transform: scale(1, 1); transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 133ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+  >
+    test disabled tooltip
+  </div>
+</div>
+`;
+
+exports[`<CardCheckbox /> when state is disabled, then show tooltip 2`] = `
+<div>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1r5j69-MuiGrid-root"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+    >
+      <p
+        class="MuiTypography-root MuiTypography-body1 css-1qhoxxv-MuiTypography-root"
+      >
+        Test Title
+      </p>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+    >
+      <img
+        alt="Test Title"
+        aria-label="test disabled tooltip"
+        class="cardCheckbox__image"
+        data-mui-internal-clone-element="true"
+        src="https://placehold.co/150x150"
+      />
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+    >
+      <label
+        class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-abeivz-MuiFormControlLabel-root"
+      >
+        <span
+          aria-disabled="true"
+          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+          tabindex="-1"
+        >
+          <input
+            class="PrivateSwitchBase-input css-1m9pwf3"
+            data-indeterminate="false"
+            disabled=""
+            name="Test Name"
+            type="checkbox"
+          />
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CheckBoxOutlineBlankIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label Mui-disabled css-ahj2mt-MuiTypography-root"
+        >
+          compare
+        </span>
+      </label>
+    </div>
+  </div>
+</div>
+`;

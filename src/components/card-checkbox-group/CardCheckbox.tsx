@@ -5,6 +5,7 @@ import styles from './CardCheckbox.module.css'
 export interface CardCheckboxProps {
     name: string
     title: string
+    imageUrl: string
     disabledTooltip?: string,
     disabled?: boolean
 }
@@ -12,8 +13,9 @@ export interface CardCheckboxProps {
 export const CardCheckbox: FunctionComponent<CardCheckboxProps> = ({
                                                                        name,
                                                                        title,
+    imageUrl,
                                                                        disabled = false,
-                                                                       disabledTooltip
+                                                                       disabledTooltip,
                                                                    }) => {
     const theme = useTheme();
     const disabledColor = theme.palette.action.disabled
@@ -34,10 +36,10 @@ export const CardCheckbox: FunctionComponent<CardCheckboxProps> = ({
         <Grid item>
             {disabled ?
                 <Tooltip title={disabledTooltip} placement="right">
-                    <img src="https://placehold.co/150x150" alt={title} className={styles.cardCheckbox__image}/>
+                    <img src={imageUrl} alt={title} className={styles.cardCheckbox__image}/>
                 </Tooltip>
                 :
-                <img src="https://placehold.co/150x150" alt={title} className={styles.cardCheckbox__image}/>}
+                <img src={imageUrl} alt={title} className={styles.cardCheckbox__image}/>}
         </Grid>
 
         {/* Checkbox */}
