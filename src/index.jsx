@@ -7,6 +7,7 @@ import style from "./index.module.css";
 import registerServiceWorker from "./registerServiceWorker";
 import { Provider } from "react-redux";
 import store from "./redux/store/store";
+import './index.css'
 
 /* eslint-disable react/jsx-filename-extension */
 ReactDOM.render(
