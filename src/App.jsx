@@ -8,6 +8,7 @@ import DpFlowUiLayout from "./containers/layout/ui-sections/dpflow/DpFlowUiLayou
 import ProjectLookoutUiLayout from "./containers/layout/ui-sections/project-lookout/ProjectLookoutUiLayout";
 import TempUiLayout from "./containers/layout/ui-sections/temperature/TempUiLayout";
 import CustomLayout from "./containers/layout/custom/CustomLayout";
+import "../src/App.css";
 
 const App = () => {
   return (

@@ -1,0 +1,8 @@
+.layout_container {
+  display: grid;
+  padding-top: 30px;
+  grid-template-columns: 1fr 3fr;
+}
+.top_section {
+  padding: 0px 0px;
+}
