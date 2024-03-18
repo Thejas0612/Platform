@@ -15,7 +15,7 @@ exports[`<CardCheckboxGroup /> when state is default, then show title, image and
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1 css-1ic8pkz-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
           >
             Coriolis
           </p>
@@ -33,17 +33,14 @@ exports[`<CardCheckboxGroup /> when state is default, then show title, image and
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <label
-            class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-nl0l19-MuiFormControlLabel-root"
+            class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-abeivz-MuiFormControlLabel-root"
           >
             <span
-              aria-disabled="true"
-              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-nsz9im-MuiButtonBase-root-MuiCheckbox-root"
-              tabindex="-1"
+              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
             >
               <input
                 class="PrivateSwitchBase-input css-1m9pwf3"
                 data-indeterminate="false"
-                disabled=""
                 name="1"
                 type="checkbox"
               />
@@ -58,9 +55,12 @@ exports[`<CardCheckboxGroup /> when state is default, then show title, image and
                   d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                 />
               </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </span>
             <span
-              class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label Mui-disabled css-ahj2mt-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-ahj2mt-MuiTypography-root"
             >
               compare
             </span>
@@ -78,7 +78,7 @@ exports[`<CardCheckboxGroup /> when state is default, then show title, image and
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1 css-1ic8pkz-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
           >
             Differential Pressure Flow
           </p>
@@ -96,17 +96,14 @@ exports[`<CardCheckboxGroup /> when state is default, then show title, image and
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <label
-            class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-nl0l19-MuiFormControlLabel-root"
+            class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-abeivz-MuiFormControlLabel-root"
           >
             <span
-              aria-disabled="true"
-              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-nsz9im-MuiButtonBase-root-MuiCheckbox-root"
-              tabindex="-1"
+              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
             >
               <input
                 class="PrivateSwitchBase-input css-1m9pwf3"
                 data-indeterminate="false"
-                disabled=""
                 name="2"
                 type="checkbox"
               />
@@ -121,9 +118,12 @@ exports[`<CardCheckboxGroup /> when state is default, then show title, image and
                   d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                 />
               </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </span>
             <span
-              class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label Mui-disabled css-ahj2mt-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-ahj2mt-MuiTypography-root"
             >
               compare
             </span>
@@ -141,7 +141,7 @@ exports[`<CardCheckboxGroup /> when state is default, then show title, image and
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1 css-1ic8pkz-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
           >
             Magnetic
           </p>
@@ -159,17 +159,14 @@ exports[`<CardCheckboxGroup /> when state is default, then show title, image and
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <label
-            class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-nl0l19-MuiFormControlLabel-root"
+            class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-abeivz-MuiFormControlLabel-root"
           >
             <span
-              aria-disabled="true"
-              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-nsz9im-MuiButtonBase-root-MuiCheckbox-root"
-              tabindex="-1"
+              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
             >
               <input
                 class="PrivateSwitchBase-input css-1m9pwf3"
                 data-indeterminate="false"
-                disabled=""
                 name="3"
                 type="checkbox"
               />
@@ -184,9 +181,12 @@ exports[`<CardCheckboxGroup /> when state is default, then show title, image and
                   d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                 />
               </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </span>
             <span
-              class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label Mui-disabled css-ahj2mt-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-ahj2mt-MuiTypography-root"
             >
               compare
             </span>
@@ -204,7 +204,7 @@ exports[`<CardCheckboxGroup /> when state is default, then show title, image and
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1 css-1ic8pkz-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
           >
             Vortex
           </p>
@@ -222,17 +222,14 @@ exports[`<CardCheckboxGroup /> when state is default, then show title, image and
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <label
-            class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-nl0l19-MuiFormControlLabel-root"
+            class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-abeivz-MuiFormControlLabel-root"
           >
             <span
-              aria-disabled="true"
-              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-nsz9im-MuiButtonBase-root-MuiCheckbox-root"
-              tabindex="-1"
+              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
             >
               <input
                 class="PrivateSwitchBase-input css-1m9pwf3"
                 data-indeterminate="false"
-                disabled=""
                 name="4"
                 type="checkbox"
               />
@@ -247,9 +244,12 @@ exports[`<CardCheckboxGroup /> when state is default, then show title, image and
                   d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                 />
               </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </span>
             <span
-              class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label Mui-disabled css-ahj2mt-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-ahj2mt-MuiTypography-root"
             >
               compare
             </span>
@@ -267,7 +267,7 @@ exports[`<CardCheckboxGroup /> when state is default, then show title, image and
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1 css-1ic8pkz-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
           >
             Density
           </p>
@@ -285,17 +285,14 @@ exports[`<CardCheckboxGroup /> when state is default, then show title, image and
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <label
-            class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-nl0l19-MuiFormControlLabel-root"
+            class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-abeivz-MuiFormControlLabel-root"
           >
             <span
-              aria-disabled="true"
-              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-nsz9im-MuiButtonBase-root-MuiCheckbox-root"
-              tabindex="-1"
+              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
             >
               <input
                 class="PrivateSwitchBase-input css-1m9pwf3"
                 data-indeterminate="false"
-                disabled=""
                 name="5"
                 type="checkbox"
               />
@@ -310,9 +307,12 @@ exports[`<CardCheckboxGroup /> when state is default, then show title, image and
                   d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                 />
               </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </span>
             <span
-              class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label Mui-disabled css-ahj2mt-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-ahj2mt-MuiTypography-root"
             >
               compare
             </span>
@@ -330,7 +330,7 @@ exports[`<CardCheckboxGroup /> when state is default, then show title, image and
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1 css-1ic8pkz-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
           >
             Viscosity
           </p>
@@ -348,17 +348,14 @@ exports[`<CardCheckboxGroup /> when state is default, then show title, image and
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <label
-            class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-nl0l19-MuiFormControlLabel-root"
+            class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-abeivz-MuiFormControlLabel-root"
           >
             <span
-              aria-disabled="true"
-              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-nsz9im-MuiButtonBase-root-MuiCheckbox-root"
-              tabindex="-1"
+              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
             >
               <input
                 class="PrivateSwitchBase-input css-1m9pwf3"
                 data-indeterminate="false"
-                disabled=""
                 name="6"
                 type="checkbox"
               />
@@ -373,9 +370,12 @@ exports[`<CardCheckboxGroup /> when state is default, then show title, image and
                   d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                 />
               </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </span>
             <span
-              class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label Mui-disabled css-ahj2mt-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-ahj2mt-MuiTypography-root"
             >
               compare
             </span>
