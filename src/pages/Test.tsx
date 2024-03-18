@@ -5,7 +5,7 @@ const CARD_CHECKBOX_GROUP_DATA: CardCheckboxGroupProps['data'] = [
     {name: '1',title: "Coriolis"},
     {name:'2',title: "Differential Pressure Flow"},
     {name:'3',title: "Magnetic"},
-    {name:'4',title: "Vortex"},
+    {name:'4',title: "Vortex", disabled: true},
     {name:'5',title: "Density"},
     // {name:'6',title: "Viscosity"},
 ]
