@@ -3,11 +3,14 @@ import {Checkbox, FormControlLabel, Grid, Tooltip, Typography, useTheme} from "@
 import styles from './CardCheckbox.module.css'
 
 export interface CardCheckboxProps {
+    id: string,
     name: string
     title: string
     imageUrl: string
     disabledTooltip?: string,
-    disabled?: boolean
+    disabled?: boolean,
+    onChange?: () => void,
+    checked?: boolean,
 }
 
 export const CardCheckbox: FunctionComponent<CardCheckboxProps> = ({
@@ -16,6 +19,8 @@ export const CardCheckbox: FunctionComponent<CardCheckboxProps> = ({
                                                                        imageUrl,
                                                                        disabled = false,
                                                                        disabledTooltip,
+                                                                       onChange = () => {} ,
+                                                                       checked,
                                                                    }) => {
     const theme = useTheme();
     const disabledColor = theme.palette.action.disabled
@@ -32,7 +37,7 @@ export const CardCheckbox: FunctionComponent<CardCheckboxProps> = ({
             <Typography sx={{color: disabled ? disabledColor : undefined}}>{title}</Typography>
         </Grid>
 
-        {/* Image */}
+        {/* Image and Disabled Tooltip */}
         <Grid item>
             {disabled ?
                 <Tooltip title={disabledTooltip} placement="right">
@@ -46,7 +51,7 @@ export const CardCheckbox: FunctionComponent<CardCheckboxProps> = ({
         <Grid item>
             <FormControlLabel disabled={disabled}
                               sx={{textAlign: "center"}}
-                              control={<Checkbox/>}
+                              control={<Checkbox onChange={onChange} checked={checked}/>}
                               label="compare"
                               name={name}/>
         </Grid>

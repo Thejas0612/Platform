@@ -3,6 +3,7 @@ import {CardCheckbox, CardCheckboxProps} from "../CardCheckbox";
 import userEvent from '@testing-library/user-event';
 
 const PROPS: CardCheckboxProps = {
+    id: 'Test Id',
     name: 'Test Name',
     title: "Test Title",
     imageUrl: "https://placehold.co/150x150"
