@@ -17,5 +17,12 @@ const CARD_CHECKBOX_GROUP_DATA: CardCheckboxGroupProps['data'] = [
 ]
 
 export const Test: FunctionComponent = () => {
-    return <CardCheckboxGroup data={CARD_CHECKBOX_GROUP_DATA}/>
+    return <>
+        <h2>Normal</h2>
+        <CardCheckboxGroup data={CARD_CHECKBOX_GROUP_DATA}/>
+
+        <h2>Error</h2>
+        <CardCheckboxGroup data={CARD_CHECKBOX_GROUP_DATA.slice(0, 2)} error={"You must select 2 or more technologies to compare."}/>
+    </>
+
 }

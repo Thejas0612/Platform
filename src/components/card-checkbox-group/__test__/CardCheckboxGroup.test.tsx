@@ -18,4 +18,10 @@ describe("<CardCheckboxGroup />", () => {
 
         expect(container).toMatchSnapshot()
     });
+
+    it('when state is error, show error message.', () => {
+        const {container} = render(<CardCheckboxGroup {...PROPS} error="test error" />)
+
+        expect(container).toMatchSnapshot()
+    })
 })
