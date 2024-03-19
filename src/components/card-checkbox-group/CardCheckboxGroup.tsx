@@ -36,7 +36,9 @@ export const CardCheckboxGroup: FunctionComponent<CardCheckboxGroupProps> = ({
 
                 return <Grid key={cardCheckboxProps.name}
                              item
-                             xs={4}
+                             xs={6}
+                             md={4}
+                             lg={2}
                              sx={{border: '1px solid var(--ddl-color--primary-grey)'}}>
                     <CardCheckbox {...cardCheckboxProps} checked={checked} onChange={handleChange} />
                 </Grid>
