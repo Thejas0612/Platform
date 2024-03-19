@@ -5,11 +5,8 @@ const PROPS: CardCheckboxGroupProps = {
     selectedIds: [],
     data: [
         {id: '1', name: '1', title: "Coriolis", imageUrl: "https://placehold.co/150x150"},
-        {id: '1', name: '2', title: "Differential Pressure Flow", imageUrl: "https://placehold.co/150x150"},
-        {id: '1', name: '3', title: "Magnetic", imageUrl: "https://placehold.co/150x150"},
-        {id: '1', name: '4', title: "Vortex", imageUrl: "https://placehold.co/150x150"},
-        {id: '1', name: '5', title: "Density", imageUrl: "https://placehold.co/150x150"},
-        {id: '1', name: '6', title: "Viscosity", imageUrl: "https://placehold.co/150x150"}
+        {id: '2', name: '2', title: "Differential Pressure Flow", imageUrl: "https://placehold.co/150x150"},
+        {id: '3', name: '3', title: "Magnetic", imageUrl: "https://placehold.co/150x150"},
     ]
 }
 
@@ -20,7 +17,19 @@ describe("<CardCheckboxGroup />", () => {
         expect(container).toMatchSnapshot()
     });
 
-    it('when state is error, show error message.', () => {
+    it('when 2 options are selected, then 2 checked checkboxes', () => {
+        const {container} = render(<CardCheckboxGroup {...PROPS} selectedIds={["1", "3"]} />)
+
+        expect(container).toMatchSnapshot()
+    });
+
+    it('when state is error, then show error message.', () => {
+        const {container} = render(<CardCheckboxGroup {...PROPS} error="test error" />)
+
+        expect(container).toMatchSnapshot()
+    })
+
+    it('when vortex is selected, the fire onChange event.', () => {
         const {container} = render(<CardCheckboxGroup {...PROPS} error="test error" />)
 
         expect(container).toMatchSnapshot()
