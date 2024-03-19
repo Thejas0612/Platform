@@ -12,7 +12,7 @@
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "preview": "vite preview --host --port 3000",
     "start-app": "npm run build && npm run preview"
-  },
+  },  
   "dependencies": {
     "@emerson/dynamic-ui-public": "^0.0.1",
     "@emotion/react": "^11.11.1",
