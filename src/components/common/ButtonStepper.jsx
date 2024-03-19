@@ -1,10 +1,12 @@
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ButtonInput } from "../dynamic-ui/uiComponentsConfig";
 import "./buttonStepper.css";
 import { changeAccordionStatus, schemaValidations } from "../../schema-service/schemaValidations";
 import { changeActiveIndex } from "../../redux/reducers/initialBuDataSlice";
+import PropTypes from "prop-types";
 
-export default function ButtonStepper({ data, schema, updateValidations, buCode }) {
+const ButtonStepper = ({ data, schema, updateValidations, buCode }) => {
   const activeIndex = useSelector((state) => state.initialBuData?.activeIndex);
   const dispatch = useDispatch();
 
@@ -33,13 +35,27 @@ export default function ButtonStepper({ data, schema, updateValidations, buCode 
       ) : (
         <div></div>
       )}
-      <ButtonInput
-        label="Next"
-        onClick={() => {
-          onNextChange();
-        }}
-        size="sm"
-      />
+      {activeIndex >= 0 && (
+        <ButtonInput
+          disabled={activeIndex === 1 ? true : false}
+          label="Next"
+          onClick={() => {
+            onNextChange();
+          }}
+        />
+      )}
     </div>
   );
-}
+};
+
+ButtonStepper.PropTypes = {
+  schema: PropTypes.object.isRequired,
+  data: PropTypes.array.isRequired,
+  updateValidations: PropTypes.func,
+  buCode: PropTypes.string.isRequired
+};
+
+ButtonStepper.defaultProps = {
+  updateValidations: () => {}
+};
+export default ButtonStepper;

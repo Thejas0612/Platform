@@ -1,6 +1,6 @@
 [
   {
-    "bu_code": "dpFlow",
+    "bu_code": "project_Lookout",
     "uiComponents": [
       {
         "componentName": "NavigationMenu",
@@ -62,7 +62,7 @@
               "name": "fpa_lh_TechnologyType",
               "badges": [],
               "sn_id": 4347,
-              "ne_id": 2,
+              "ne_id": 3,
               "bu_code": "FLOW_PA_NEW",
               "np_id": 7,
               "element_label": "Technology Type",
@@ -79,7 +79,7 @@
               "name": "fpa_lh_SensorType",
               "badges": [],
               "sn_id": 4347,
-              "ne_id": 2,
+              "ne_id": 4,
               "bu_code": "FLOW_PA_NEW",
               "np_id": 7,
               "element_label": "Sensor Type",
@@ -96,7 +96,7 @@
               "name": "fpa_lh_SensorAdvisor",
               "badges": [],
               "sn_id": 4347,
-              "ne_id": 2,
+              "ne_id": 5,
               "bu_code": "FLOW_PA_NEW",
               "np_id": 7,
               "element_label": "Sensor Advisor",

@@ -76,13 +76,23 @@ export const updateSchema = async (e, formObj, formData, name, isValid, activeIn
 export const updateApiDataInSchema = async (res, schema) => {
   const transformApiData = [];
   if (res?.apiResponse && res?.target?.uiElementType === "SINGLE_SELECT") {
-    for (let [key, value] of Object.entries(res?.apiResponse[0])) {
-      const lineSize = value;
-      lineSize["label"] = value?.line_size;
-      lineSize["id"] = value?.lookup_code;
-      lineSize["value"] = value?.lookup_code;
-      lineSize["order"] = key;
-      transformApiData.push(lineSize);
+    if (res?.target?.targetUiElementName === "line_size") {
+      for (let [key, value] of Object.entries(res?.apiResponse[0])) {
+        const lineSize = value;
+        lineSize["label"] = value?.line_size;
+        lineSize["id"] = value?.lookup_code;
+        lineSize["value"] = value?.lookup_code;
+        lineSize["order"] = key;
+        transformApiData.push(lineSize);
+      }
+    } else {
+      res?.apiResponse.forEach((itm) => {
+        const liquidValue = {};
+        liquidValue["label"] = itm?.database_fluids;
+        liquidValue["id"] = itm?.lookup_code;
+        liquidValue["value"] = itm?.lookup_code;
+        transformApiData.push(liquidValue);
+      });
     }
   }
   if (Object.keys(schema).length > 0) {

@@ -5,11 +5,10 @@ import ProjectLookoutLeftLayout from "./ProjectLookoutLeftLayout";
 import ProjectLookoutRightLayout from "./ProjectLookoutRightLayout";
 import { STATUS } from "../../../../status";
 import TopLayout from "../TopLayout";
+import { useEffect } from "react";
 
 export default function ProjectLookoutUiLayout() {
   const status = useSelector((state) => state.initialBuData.status);
-  document.title = "msol-projectlookout-productadvisor";
-
   if (status === STATUS.SUCCESSED)
     return (
       <Grid container>
@@ -17,10 +16,10 @@ export default function ProjectLookoutUiLayout() {
           <TopLayout />
         </div>
         <Grid className="left_section" container direction="row">
-          <Grid xs={12} md={3}>
+          <Grid item xs={12} md={3}>
             <ProjectLookoutLeftLayout />
           </Grid>
-          <Grid className="right_section" container xs={12} md={9}>
+          <Grid className="right_section" item xs={12} md={9}>
             <ProjectLookoutRightLayout />
           </Grid>
         </Grid>

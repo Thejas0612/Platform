@@ -5,9 +5,10 @@ import { STATUS } from "../../../../status";
 import TempLeftLayout from "./TempLeftLayout";
 import TempRightLayout from "./TempRightLayout";
 import TopLayout from "../TopLayout";
+import { useEffect } from "react";
 export default function TempUiLayout() {
   const status = useSelector((state) => state.initialBuData.status);
-   document.title = "msol-tempPA-productadvisor";
+
   if (status === STATUS.SUCCESSED)
     return (
       <Grid container>
@@ -18,7 +19,7 @@ export default function TempUiLayout() {
           <Grid xs={12} md={3}>
             <TempLeftLayout />
           </Grid>
-          <Grid className="right_section" container xs={12} md={9}>
+          <Grid className="right_section" item xs={12} md={9}>
             <TempRightLayout />
           </Grid>
         </Grid>

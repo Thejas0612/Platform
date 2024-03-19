@@ -1,8 +1,6 @@
 // File to have functions to handle component data  API to Component parser
 import React from "react";
-import { Grid } from "@mui/material";
-import { PaStepper } from "@emerson/dynamic-ui-public";
-import { DynamicForm, CustomTop, NavigationMenu } from "@emerson/dynamic-ui-public";
+import { DynamicForm, CustomTop, NavigationMenu, PaStepper } from "@emerson/dynamic-ui-public";
 import events from "../common/events";
 // import { DYNAMIC_FORM, NAVIGATION_MENU } from "../../utils/UtilConstants";
 import { dynamicFormContent, getNavigationContent } from "../common/layoutParser";
@@ -98,7 +96,7 @@ const getEmsolDynamicForm = (schema, sourceData, updateLayoutContent) => {
         }
         return d;
       });
-      data = updatedNav;
+      // data = updatedNav;
     } else {
       data.forEach((d) => {
         if (event?.target?.value) {
