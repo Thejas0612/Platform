@@ -25,7 +25,6 @@ export const CardCheckboxGroup: FunctionComponent<CardCheckboxGroupProps> = ({
                 const checked = selectedIds.includes(cardCheckboxProps.id)
 
                 function handleChange() {
-                    debugger;
                     if (checked) {
                         const newSelectedIds = selectedIds.filter(_ => _ !== cardCheckboxProps.id)
                         onChange(newSelectedIds)

@@ -11,7 +11,7 @@ const PROPS: CardCheckboxGroupProps = {
 }
 
 describe("<CardCheckboxGroup />", () => {
-    it('when state is default, then 6 show checkbox', () => {
+    it('when state is default, then 3 show checkbox', () => {
         const {container} = render(<CardCheckboxGroup {...PROPS} />)
 
         expect(container).toMatchSnapshot()
