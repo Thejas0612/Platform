@@ -68,14 +68,14 @@ exports[`<CardCheckbox /> when state is disabled, then show tooltip 1`] = `
 <div
   class="base-Popper-root MuiTooltip-popper MuiTooltip-popperInteractive css-yem0l2-MuiPopper-root-MuiTooltip-popper"
   data-popper-escaped=""
-  data-popper-placement="right"
+  data-popper-placement="bottom"
   data-popper-reference-hidden=""
   id="mui-1"
   role="tooltip"
-  style="position: absolute; top: 0px; left: 0px; margin: 0px; transform: translate(0px, 0px);"
+  style="position: absolute; top: 0px; left: 0px; margin: 0px; transform: translate(0px, -90px);"
 >
   <div
-    class="MuiTooltip-tooltip MuiTooltip-tooltipPlacementRight css-ja5taz-MuiTooltip-tooltip"
+    class="MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-ja5taz-MuiTooltip-tooltip"
     style="opacity: 1; transform: scale(1, 1); transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 133ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
   >
     test disabled tooltip

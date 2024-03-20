@@ -13,13 +13,28 @@ export interface CardCheckboxProps {
     checked?: boolean,
 }
 
+const HORIZONTAL_CENTER_TOOLTIP: Parameters<typeof Tooltip>[0]['slotProps'] = {
+    popper: {
+        modifiers: [
+            {
+                name: 'offset',
+                options: {
+                    offset: [0, -90],
+                },
+            },
+        ],
+    }
+}
+
+
 export const CardCheckbox: FunctionComponent<CardCheckboxProps> = ({
                                                                        name,
                                                                        title,
                                                                        imageUrl,
                                                                        disabled = false,
                                                                        disabledTooltip,
-                                                                       onChange = () => {} ,
+                                                                       onChange = () => {
+                                                                       },
                                                                        checked,
                                                                    }) => {
     const theme = useTheme();
@@ -40,7 +55,7 @@ export const CardCheckbox: FunctionComponent<CardCheckboxProps> = ({
         {/* Image and Disabled Tooltip */}
         <Grid item>
             {disabled ?
-                <Tooltip title={disabledTooltip} placement="right">
+                <Tooltip title={disabledTooltip} placement="bottom" slotProps={HORIZONTAL_CENTER_TOOLTIP}>
                     <img src={imageUrl} alt={title} className={styles.cardCheckbox__image}/>
                 </Tooltip>
                 :
