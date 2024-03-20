@@ -1,0 +1,7 @@
+.cardCheckbox__image{
+    width: 8rem;
+    height: 8rem;
+    max-width: 100%;
+    display: block;
+    vertical-align: middle;
+}
