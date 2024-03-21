@@ -48,7 +48,7 @@ const ButtonStepper = ({ data, schema, updateValidations, buCode }) => {
   );
 };
 
-ButtonStepper.PropTypes = {
+ButtonStepper.propTypes = {
   schema: PropTypes.object.isRequired,
   data: PropTypes.array.isRequired,
   updateValidations: PropTypes.func,
