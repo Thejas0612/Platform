@@ -56,7 +56,7 @@ export const Test: FunctionComponent = () => {
   };
 
   return (
-    <>{console.log(selectedOptions)}
+    <>
       <p style={{ marginLeft: '15px' }}>Filter By:</p>
       <DropdownMenuGroup dropdownsData={dropdownData} onChange={handleDropdownChange} />
       <h2>Normal</h2>
