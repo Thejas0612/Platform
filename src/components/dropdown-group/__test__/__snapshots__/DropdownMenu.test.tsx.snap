@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropdownMenu renders DropdownMenu correctly with options 1`] = `
+<div
+  aria-hidden="true"
+>
+  <div
+    class="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
+  >
+    <label
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-focused MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+      data-shrink="false"
+    >
+      Dropdown
+    </label>
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-focused MuiInputBase-formControl  css-1kd47wj-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+    >
+      <div
+        aria-controls="mui-2"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+        role="combobox"
+        tabindex="0"
+      >
+        <span
+          class="notranslate"
+        >
+          ​
+        </span>
+      </div>
+      <input
+        aria-hidden="true"
+        aria-invalid="false"
+        class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+        tabindex="-1"
+        value=""
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined MuiSelect-iconOpen css-bpeome-MuiSvgIcon-root-MuiSelect-icon"
+        data-testid="KeyboardArrowDownIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
+        />
+      </svg>
+      <fieldset
+        aria-hidden="true"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="css-14lo706"
+        >
+          <span>
+            Dropdown
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
