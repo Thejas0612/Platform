@@ -1,0 +1,12 @@
+.clearButton > i::before{
+    display: none;
+  }
+  
+.clearButton > i::after{
+    content: "X";
+    font-weight: 700;
+     margin-left: -5.75px;
+     font-family: Arial, sans-serif;
+     font-style: normal;
+     font-size: 105%;
+  }

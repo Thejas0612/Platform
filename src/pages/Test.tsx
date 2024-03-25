@@ -1,3 +1,4 @@
+import { ClearButton } from "../components/clearButton/ClearButton";
 import {
   CardCheckboxGroup,
   CardCheckboxGroupProps
@@ -55,6 +56,9 @@ export const Test: FunctionComponent = () => {
     }));
   };
 
+  const handleClearButton = () => {
+    setSelectedId([])
+  }
   return (
     <>
       <p style={{ marginLeft: '15px' }}>Filter By:</p>
@@ -67,8 +71,7 @@ export const Test: FunctionComponent = () => {
           setSelectedId(newSelectedId);
         }}
       />
-      <div>selectedIds = {selectedIds.toSorted().join(", ")}</div>
-
+      <div><ClearButton selectedIds={selectedIds} handleClearButton={handleClearButton}></ClearButton></div>
       <h2>Error</h2>
       <CardCheckboxGroup
         data={CARD_CHECKBOX_GROUP_DATA.slice(0, 2)}
