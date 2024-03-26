@@ -1,47 +1,38 @@
-import {
-  CardCheckboxGroup,
-  CardCheckboxGroupProps
-} from "../components/card-checkbox-group/CardCheckboxGroup";
-import DropdownMenuGroup from "../components/dropdown-group/DropdownMenuGroup";
-import { DropdownData } from "../components/dropdown-group/DropdownMenuGroup";
+import { CardCheckboxGroup, CardCheckboxGroupProps } from "../components/card-checkbox-group/CardCheckboxGroup";
 import { FunctionComponent, useState } from "react";
+import { Paper } from "@mui/material";
+import DropdownMenuGroup, { DropdownData } from "../components/dropdown-group/DropdownMenuGroup";
+
+const dropdownData: DropdownData[] = [
+  { id: "high", label: "HIGH ACCURACY", options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }] },
+  {
+    id: "hygienic",
+    label: "HYGIENIC / SANITARY",
+    options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
+  },
+  { id: "certified", label: "SIL CERTIFIED", options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }] }
+];
 
 const CARD_CHECKBOX_GROUP_DATA: CardCheckboxGroupProps["data"] = [
-  { id: "1", name: "1", title: "Coriolis", imageUrl: "https://placehold.co/150x150" },
-  {
-    id: "2",
-    name: "2",
-    title: "Differential Pressure Flow",
-    imageUrl: "https://placehold.co/150x150", 
-  },
-  { id: "3", name: "3", title: "Magnetic", imageUrl: "https://placehold.co/150x150" },
+  { id: "1", name: "1", title: "Coriolis", imageUrl: "flow__coriolis-product.png" },
+  { id: "2", name: "2", title: "Differential Pressure Flow", imageUrl: "https://placehold.co/150x150" },
+  { id: "3", name: "3", title: "Magnetic", imageUrl: "flow__magnetic-product.png" },
   {
     id: "4",
     name: "4",
     title: "Vortex",
-    imageUrl: "https://placehold.co/150x150",
+    imageUrl: "flow__vortex-product.jpg",
     disabled: true,
     disabledTooltip: "This vertex technology is incompatible with your temperature range."
   },
   {
     id: "5",
-    name: "5",
-    title: "Density",
-    imageUrl: "https://placehold.co/150x150"
+    name: "5", title: "Density", imageUrl: "flow__density-product.png"
   },
   { id: "6", name: "6", title: "Viscosity", imageUrl: "https://placehold.co/150x150" }
 ];
 
-
-const dropdownData: DropdownData[] =  [
-  { id: "high", label: "HIGH ACCURACY", options: [{ value: 'yes', label: 'Yes' },{ value: 'no', label: 'No' }]},
-  { id: "hygienic", label: "HYGIENIC / SANITARY", options: [{ value: 'yes', label: 'Yes' },{ value: 'no', label: 'No' }]},
-  { id: "certified", label: "SIL CERTIFIED", options: [{ value: 'yes', label: 'Yes' },{ value: 'no', label: 'No' }]}
-];
-
-
 export const Test: FunctionComponent = () => {
-  const [selectedIds, setSelectedId] = useState<string[]>([]);
   const [selectedOptions, setSelectedOptions] = useState<{ [key: string]: string }>({
     high: "",
     hygienic: "",
@@ -55,25 +46,32 @@ export const Test: FunctionComponent = () => {
     }));
   };
 
-  return (
-    <>
-      <p style={{ marginLeft: '15px' }}>Filter By:</p>
+  const [comparedIds, setComparedIds] = useState<string[]>([]);
+  const [selectedId, setSelectedId] = useState<string | undefined>("2");
+  return <>
+    <h2>Dropdown Menu Group</h2>
+    <Paper elevation={4} sx={{ padding: "1rem" }}>
+      <p style={{ marginLeft: "15px" }}>Filter By:</p>
       <DropdownMenuGroup dropdownsData={dropdownData} onChange={handleDropdownChange} />
-      <h2>Normal</h2>
-      <CardCheckboxGroup
-        selectedIds={selectedIds}
-        data={CARD_CHECKBOX_GROUP_DATA}
-        onChange={(newSelectedId) => {
-          setSelectedId(newSelectedId);
-        }}
-      />
-      <div>selectedIds = {selectedIds.toSorted().join(", ")}</div>
+    </Paper>
 
-      <h2>Error</h2>
+
+    <h2>Card Checkbox Group</h2>
+    <Paper elevation={4} sx={{ padding: "1rem" }}>
+      <h3>Normal</h3>
+      <CardCheckboxGroup selectedId={selectedId} comparedIds={comparedIds} data={CARD_CHECKBOX_GROUP_DATA}
+                         onChange={(newComparedIds, newSelectedId) => {
+                           setComparedIds(newComparedIds);
+                           setSelectedId(newSelectedId);
+                         }} />
+      <div>comparedIds = {comparedIds.toSorted().join(", ")}</div>
+      <div>selectedId = {selectedId}</div>
+      <h3>Error</h3>
       <CardCheckboxGroup
         data={CARD_CHECKBOX_GROUP_DATA.slice(0, 2)}
         error={"You must select 2 or more technologies to compare."}
       />
-    </>
-  );
+    </Paper>
+  </>;
+
 };

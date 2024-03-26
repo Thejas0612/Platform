@@ -1,49 +1,60 @@
-import {FunctionComponent} from "react";
-import {CardCheckbox, CardCheckboxProps} from "./CardCheckbox";
-import {Grid} from "@mui/material";
-import {FormHelperText} from '@mui/material';
+import { FunctionComponent } from "react";
+import { CardCheckbox, CardCheckboxProps } from "./CardCheckbox";
+import { FormHelperText, Grid } from "@mui/material";
+import { environment } from "../../config/environment";
 
-type DataRow = Omit<CardCheckboxProps, 'checked' | 'onChange'>
+type DataRow = Omit<CardCheckboxProps, "selectChecked" | "onCompareChange">
 
 export interface CardCheckboxGroupProps {
-    selectedIds?: string[]
-    data: DataRow[]
-    error?: string
-    onChange?: (selectedIds: string[]) => void
+  comparedIds?: string[];
+  selectedId?: string;
+  data: DataRow[];
+  error?: string;
+  onChange?: (compareIds: string[], selectId?: string) => void;
 }
+
 
 export const CardCheckboxGroup: FunctionComponent<CardCheckboxGroupProps> = ({
-                                                                                 selectedIds = [],
-                                                                                 data,
-                                                                                 error,
-                                                                                 onChange = () => {
-                                                                                 }
+                                                                               comparedIds = [],
+                                                                               selectedId,
+                                                                               data,
+                                                                               error,
+                                                                               onChange = () => {
+                                                                               }
                                                                              }) => {
-    return <>
-        <Grid container>
-            {data.map((cardCheckboxProps) => {
-                const checked = selectedIds.includes(cardCheckboxProps.id)
+  return <>
+    <Grid container
+          sx={{ border: environment.VITE_OUTLINE_MSOL_COMPONENTS ? ".0625rem solid var(--ddl-color--secondary-ridgid-orange)" : undefined }}>
 
-                function handleChange() {
-                    if (checked) {
-                        const newSelectedIds = selectedIds.filter(_ => _ !== cardCheckboxProps.id)
-                        onChange(newSelectedIds)
-                    } else {
-                        const newSelectedIds = [...selectedIds, cardCheckboxProps.id]
-                        onChange(newSelectedIds)
-                    }
-                }
+      {data.map((cardCheckboxProps) => {
+        const comparedChecked = comparedIds.includes(cardCheckboxProps.id);
+        const selectedChecked = cardCheckboxProps.id === selectedId;
 
-                return <Grid key={cardCheckboxProps.name}
-                             item
-                             xs={6}
-                             md={4}
-                             lg={2}
-                             sx={{border: '1px solid var(--ddl-color--primary-grey)'}}>
-                    <CardCheckbox {...cardCheckboxProps} checked={checked} onChange={handleChange} />
-                </Grid>
-            })}
-        </Grid>
-        {!error || <FormHelperText error={true}>{error}</FormHelperText>}
-    </>
-}
+        function handleCompareChange() {
+          if (comparedChecked) {
+            const newCompareIds = comparedIds.filter(_ => _ !== cardCheckboxProps.id);
+            onChange(newCompareIds, selectedId);
+          } else {
+            const newCompareIds = [...comparedIds, cardCheckboxProps.id];
+            onChange(newCompareIds, selectedId);
+          }
+        }
+
+        function handleSelectChange() {
+          onChange(comparedIds, cardCheckboxProps.id);
+        }
+
+        return <Grid key={cardCheckboxProps.name}
+                     item
+                     xs={6}
+                     md={4}
+                     lg={2}>
+          <CardCheckbox {...cardCheckboxProps} comparedChecked={comparedChecked}
+                        selectedChecked={selectedChecked} onCompareChange={handleCompareChange}
+                        onSelectChange={handleSelectChange} />
+        </Grid>;
+      })}
+    </Grid>
+    {!error || <FormHelperText error={true}>{error}</FormHelperText>}
+  </>;
+};
