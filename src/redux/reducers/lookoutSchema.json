@@ -567,9 +567,7 @@
                   "wrapperId": "",
                   "wrapperClass": "cutsom_class",
                   "labelClass": "ddl-from-custom-label",
-                  "value": [
-                    "1"
-                  ],
+                  "value": "1",
                   "attribute_code_value": {
                     "multiple": false,
                     "size": "medium"
