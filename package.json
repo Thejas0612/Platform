@@ -20,6 +20,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.11",
+    "@mui/styles": "^5.15.14",
     "@okta/okta-auth-js": "6.6.1",
     "@okta/okta-react": "^6.4.3",
     "@reduxjs/toolkit": "^1.8.4",

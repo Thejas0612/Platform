@@ -1,5 +1,6 @@
 import { CardCheckboxGroup, CardCheckboxGroupProps } from "../components/card-checkbox-group/CardCheckboxGroup";
 import { FunctionComponent, useState } from "react";
+import {TechnologyTypeFilter} from "../components/technology-type-filter/TechnologyTypeFilter";
 import { Paper } from "@mui/material";
 import DropdownMenuGroup, { DropdownData } from "../components/dropdown-group/DropdownMenuGroup";
 
@@ -45,7 +46,9 @@ export const Test: FunctionComponent = () => {
       [id]: value
     }));
   };
-
+  const technologyTypeFilterSortOptions =[
+    { label: "RECOMMENDED", value: "recommended"},
+  ]
   const [comparedIds, setComparedIds] = useState<string[]>([]);
   const [selectedId, setSelectedId] = useState<string | undefined>("2");
   return <>
@@ -54,7 +57,11 @@ export const Test: FunctionComponent = () => {
       <p style={{ marginLeft: "15px" }}>Filter By:</p>
       <DropdownMenuGroup dropdownsData={dropdownData} onChange={handleDropdownChange} />
     </Paper>
-
+    <h2>Technology Type Filter</h2>
+    <TechnologyTypeFilter
+      sortOptions={technologyTypeFilterSortOptions}
+      onClose={(sortByValue)=> {console.log(sortByValue)}}
+    />
 
     <h2>Card Checkbox Group</h2>
     <Paper elevation={4} sx={{ padding: "1rem" }}>
