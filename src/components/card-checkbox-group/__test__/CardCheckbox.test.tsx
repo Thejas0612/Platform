@@ -16,6 +16,18 @@ describe("<CardCheckbox />", () => {
     expect(container).toMatchSnapshot();
   });
 
+  it("when compare label is clicked, then fire compare event.", async () => {
+    const handleCompareChange = jest.fn();
+    const handleSelectChange = jest.fn();
+    render(<CardCheckbox {...PROPS} onSelectChange={handleSelectChange} onCompareChange={handleCompareChange} />);
+
+    const compareLabel = screen.getByText("compare");
+    await userEvent.click(compareLabel);
+
+    expect(handleCompareChange).toHaveBeenCalledWith();
+    expect(handleSelectChange).not.toHaveBeenCalledWith();
+  });
+
   describe("when state is disabled", () => {
     it("then show tooltip", async () => {
       const props: CardCheckboxProps = { ...PROPS, disabled: true, disabledTooltip: "test disabled tooltip" };

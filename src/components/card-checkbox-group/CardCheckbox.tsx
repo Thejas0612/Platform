@@ -60,7 +60,7 @@ export const CardCheckbox: FunctionComponent<CardCheckboxProps> = ({
   return <Box onClick={handleSelectChange}
               sx={{
                 padding: ".5rem",
-                border: selectedChecked ? ".0625rem solid var(--ddl-color--primary-emerson-green)" : ".0625rem solid var(--ddl-color--primary-grey)"
+                border: selectedChecked ? ".0625rem solid var(--ddl-color--primary-emerson-green-dark)" : ".0625rem solid var(--ddl-color--primary-grey)"
               }}>
     <Grid direction="column"
           spacing={.5}
@@ -85,6 +85,7 @@ export const CardCheckbox: FunctionComponent<CardCheckboxProps> = ({
       {/* Checkbox */}
       <Grid item>
         <FormControlLabel disabled={disabled}
+                          onClick={(event) => { event.stopPropagation() }}
                           sx={{ textAlign: "center" }}
                           control={<Checkbox onChange={handleCompareChange} checked={comparedChecked} />}
                           label="compare"

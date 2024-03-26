@@ -563,7 +563,7 @@ exports[`<CardCheckboxGroup /> when Magnetic selected, then check Magnetic and f
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2 css-9zgma0-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1fk3y8"
+        class="MuiBox-root css-t31bj4"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1yfb971-MuiGrid-root"

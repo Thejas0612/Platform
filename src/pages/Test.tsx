@@ -55,7 +55,8 @@ export const Test: FunctionComponent = () => {
     <h2>Dropdown Menu Group</h2>
     <Paper elevation={4} sx={{ padding: "1rem" }}>
       <p style={{ marginLeft: "15px" }}>Filter By:</p>
-      <DropdownMenuGroup dropdownsData={dropdownData} onChange={handleDropdownChange} />
+      <DropdownMenuGroup dropdownsData={dropdownData}
+                         onChange={handleDropdownChange} />
     </Paper>
     <h2>Technology Type Filter</h2>
     <TechnologyTypeFilter
@@ -66,7 +67,9 @@ export const Test: FunctionComponent = () => {
     <h2>Card Checkbox Group</h2>
     <Paper elevation={4} sx={{ padding: "1rem" }}>
       <h3>Normal</h3>
-      <CardCheckboxGroup selectedId={selectedId} comparedIds={comparedIds} data={CARD_CHECKBOX_GROUP_DATA}
+      <CardCheckboxGroup selectedId={selectedId}
+                         comparedIds={comparedIds}
+                         data={CARD_CHECKBOX_GROUP_DATA}
                          onChange={(newComparedIds, newSelectedId) => {
                            setComparedIds(newComparedIds);
                            setSelectedId(newSelectedId);
