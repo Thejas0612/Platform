@@ -7,3 +7,11 @@ body {
 .fiels-required-span {
   display: none !important;
 }
+
+.fiels-table-required-span {
+  display: none !important; 
+}
+
+.selectinput {
+  margin: 12px;
+}

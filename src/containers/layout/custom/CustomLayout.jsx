@@ -1,310 +1,418 @@
-import React from 'react'
-import MSOLDynamicForm from '../../../components/shared/DynamicFrom/MSOLDynamicForm'
-
-const schema = [
-  {
-    "group": "Process Variables",
-    "fields": [
-      {
-        "type": "TABLE_INPUT",
-        "name": "TABLE_INPUT",
-        "data": [
-          [
-            {
-              "type": "TEXT",
-              "label": "",
-              "name": "",
-              "align": "center",
-              "textStyles": {
-                "fontSize": "0.8rem"
-              }
-            },
-            {
-              "type": "TEXT",
-              "label": "MIN",
-              "align": "center",
-              "name": "r1min",
-              "textStyles": {
-                "fontSize": "0.8rem"
-              }
-            },
-            {
-              "type": "TEXT",
-              "label": "NORMAL",
-              "align": "center",
-              "name": "r1min",
-              "textStyles": {
-                "fontSize": "0.8rem"
-              }
-            },
-            {
-              "type": "TEXT",
-              "label": "MAX",
-              "name": "r1max",
-              "align": "center",
-              "textStyles": {
-                "fontSize": "0.8rem"
-              }
-            },
-            {
-              "type": "TEXT",
-              "label": "UNITS",
-              "name": "r1units",
-              "align": "center",
-              "textStyles": {
-                "fontSize": "0.8rem"
-              }
-            }
-          ],
-          [
-            {
-              "type": "TEXT",
-              "label": "FLOW RATE",
-              "name": "lbl_flow_rate",
-              "align": "right",
-            },
-            {
-              "type": "TEXT_INPUT",
-              "label": "",
-              "name": "flow_rate_min",
-              "required": true,
-              "validations": [
-                {
-                  "type": 'number',
-                  "validationKey": "\\S",
-                  "validationMessage": "This is required",
-                  "checks": [
-                    {
-                      "key": "minLength",
-                      "val": 3,
-                    },
-                    {
-                      "key": "maxLength",
-                      "val": 10,
-                    },
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "TEXT_INPUT",
-              "label": "",
-              "name": "flow_rate_normal",
-              "required": true,
-              "validations": [
-                {
-                  "type": 'number',
-                  "validationKey": "\\S",
-                  "validationMessage": "This is required",
-                  "checks": [
-                    {
-                      "key": "minLength",
-                      "val": 3,
-                    },
-                    {
-                      "key": "maxLength",
-                      "val": 10,
-                    },
-                  ],
-                  "target": {
-                    "id": ""
-                  },
-                  "disabled": false
-                }
-              ]
-            },
-            {
-              "type": "TEXT_INPUT",
-              "label": "",
-              "name": "flow_rate_max",
-              "required": true,
-              "validations": [
-                {
-                  "type": 'number',
-                  "validationKey": "\\S",
-                  "validationMessage": "This is required",
-                  "checks": [
-                    {
-                      "key": "minLength",
-                      "val": 3,
-                    },
-                    {
-                      "key": "maxLength",
-                      "val": 10,
-                    },
-                  ],
-                  "target": {
-                    "id": ""
-                  },
-                  "disabled": false
-                },
-              ]
-            },
-            {
-              "type": "SINGLE_SELECT",
-              "label": "",
-              "name": "flow_rate_units",
-              "options": [
-                {
-                  "value": "USGPH",
-                  "label": "Gallons(US)/hr"
-                },
-                {
-                  "value": "Gallons",
-                  "label": "Gallons"
-                }
-              ]
-            }
-          ],
-        ],
-        "value": {
-          "vessel_dimension_unit": "Meter"
-        },
-        "column": 12,
-        "title": "",
-        "tableClass": "",
-        "labelClass": "app-content-label",
-      },
-    ]
-  },
-  {
-    "group": "Project Owner Details",
-    "fields": [
-      {
-        "type": "TEXT_INPUT",
-        "name": "designation",
-        "label": "Designation",
-        "title": "Designation",
-        "error": "Please enter value",
-        "inputClass": "",
-        "labelClass": "app-content-label",
-        "value": ""
-      },
-      {
-        "type": "TEXT_INPUT",
-        "name": "email",
-        "label": "Email",
-        "title": "Email",
-        "inputClass": "",
-        "labelClass": "app-content-label",
-        "value": ""
-      },
-      {
-        "type": "CHECKBOX_INPUT",
-        "name": "CHECKBOX_INPUT",
-        "label": "Diagnostics",
-        "title": "Helo",
-        "labelClass": "app-content-label",
-        "selectedIds": [
-          "1"
-        ],
-        "disabledIds": [],
-        "options": [
-          {
-            "value": "1",
-            "label": "Temperature",
-            "info": 'This is Tooltip'
-          },
-          {
-            "value": "0",
-            "label": "Pressure"
-          },
-          {
-            "value": "0",
-            "label": "Yes",
-          },
-          {
-            "value": "0",
-            "label": "No"
-          }
-        ],
-        "required": true,
-        "error": "",
-        "errorClass": "",
-        "showAlert": false
-      },
-      {
-        "type": "CHECKBOX_INPUT",
-        "name": "CHECKBOX_INPUT",
-        "label": "Configuration",
-        "title": "Helo",
-        "labelClass": "app-content-label",
-        "selectedIds": [
-          "1"
-        ],
-        "disabledIds": [],
-        "options": [
-          {
-            "value": "1",
-            "label": "Temperature",
-          },
-          {
-            "value": "0",
-            "label": "Pressure",
-            "info": 'This is Tooltip'
-          },
-        ],
-        "required": true,
-        "error": "",
-        "errorClass": "",
-        "showAlert": false
-      },
-    ]
-  },
-  {
-    "group": "Models",
-    "fields": [
-      {
-        "column": 12,
-        "type": "TILE_THUMBNAIL",
-        "name": "tile_thumb",
-        "buttonLabel": "btn lble",
-        "imgUrl": "7bd555544cf68071bafa.png",
-        "attribute_code_value": {
-          "description": "",
-          "defaultDirection": "tile"
-        },
-        "showAlert": false,
-        "defaultIds": [],
-        "options": [
-          {
-            "id": 1,
-            "title": "Viscocity",
-            "description": "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, Differential Pressure, Vortex, Magnetic, Ultrasonic, Turbine and positive displacement meters.",
-            "imgUrl": "https://www.emerson.com/resource/image/5479482/portrait_ratio3x4/375/500/e5da71aac7befa95b2df7405b801dd99/D913FCE7B8C5C551A52F2C933CA352AA/1905-coriolis-meter-micro-motion-4200.jpg",
-            "buttonLabel": "SHOW FULL SPECS"
-          },
-          {
-            "id": 2,
-            "title": "Flow",
-            "description": "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, Differential Pressure, Vortex, Magnetic, Ultrasonic, Turbine and positive displacement meters.",
-            "imgUrl": "https://www.emerson.com/resource/image/5479482/portrait_ratio3x4/375/500/e5da71aac7befa95b2df7405b801dd99/D913FCE7B8C5C551A52F2C933CA352AA/1905-coriolis-meter-micro-motion-4200.jpg",
-            "buttonLabel": "SHOW FULL SPECS"
-          },
-          {
-            "id": 3,
-            "title": "Dencity",
-            "description": "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, Differential Pressure, Vortex, Magnetic, Ultrasonic, Turbine and positive displacement meters.",
-            "imgUrl": "https://www.emerson.com/resource/image/5479482/portrait_ratio3x4/375/500/e5da71aac7befa95b2df7405b801dd99/D913FCE7B8C5C551A52F2C933CA352AA/1905-coriolis-meter-micro-motion-4200.jpg",
-            "buttonLabel": "SHOW FULL SPECS"
-          }
-        ]
-      },
-    ]
-  }
-]
-
-const handleInput = (event, a, b, c) => {
-   console.log({ a, b, c });
-}
+import React, { useState } from 'react'
+import MSOLDynamicForm from '../../../components/shared/dynamicform'
+import { Grid } from '@mui/material';
 
 function CustomLayout() {
+
+  const [schema, setSchema] = React.useState([
+    {
+      "group": "Process Variables",
+      "fields": [
+        {
+          "type": "TABLE_INPUT",
+          "name": "process_variables",
+          "data": [
+            [
+              // {
+              //   "type": "TEXT",
+              //   "label": "",
+              //   "name": "",
+              //   "align": "center",
+              //   "textStyles": {
+              //     "fontSize": "0.8rem"
+              //   }
+              // },
+              {
+                "type": "TEXT",
+                "label": "Line Size",
+                "align": "center",
+                "name": "r1min",
+                "title": "Line Size",
+                "textStyles": {
+                  "fontSize": "0.8rem"
+                }
+              },
+              {
+                "type": "TEXT",
+                "label": "Pipe Schedule",
+                "align": "center",
+                "name": "r1min",
+                "title": "Pipe Schedule",
+                "textStyles": {
+                  "fontSize": "0.8rem"
+                }
+              },
+              {
+                "type": "TEXT",
+                "label": "Pipe ID",
+                "name": "r1max",
+                "title": "Pipe ID",
+                "align": "center",
+                "textStyles": {
+                  "fontSize": "0.8rem"
+                }
+              },
+              {
+                "type": "TEXT",
+                "label": "UNITS",
+                "name": "r1units",
+                "align": "center",
+                "textStyles": {
+                  "fontSize": "0.8rem"
+                }
+              }
+            ],
+            [
+              // {
+              //   "type": "TEXT",
+              //   "label": "",
+              //   "name": "lbl_flow_rate",
+              //   "align": "right",
+              // },
+              {
+                "type": "SINGLE_SELECT",
+                "label": "Line Size",
+                "name": "line_size",
+                "inputclass": "selectinput",
+                "options": [
+                  {
+                    "value": "1",
+                    "label": "Option-1",
+                    "title": "Yestitle",
+                    "greyedOut": true
+                  },
+                  {
+                    "value": "2",
+                    "label": "Option-2",
+                    "title": "Yestitle",
+                    "greyedOut": false
+                  }
+                ],
+                "required": true,
+                "error": "Please select",
+                "validations": []
+              },
+              {
+                "type": "SINGLE_SELECT",
+                "label": "",
+                "name": "pipe_schedule",
+                "inputclass": "selectinput",
+                "options": [
+                  {
+                    "value": "1",
+                    "label": "Option-1",
+                    "title": "Yestitle",
+                    "greyedOut": true
+                  },
+                  {
+                    "value": "2",
+                    "label": "Option-2",
+                    "title": "Yestitle",
+                    "greyedOut": false
+                  }
+                ],
+                "validations": []
+              },
+              {
+                "type": "TEXT_INPUT",
+                "label": "",
+                "name": "pipe_id",
+                "required": true,
+                "inputclass": "selectinput",
+                "required": true,
+                "disabled": true,
+                "validations": [
+                  {
+                    "type": 'number',
+                    "validationKey": "\\S",
+                    "validationMessage": "This is required",
+                    "checks": [
+                      {
+                        "key": "minLength",
+                        "val": 3,
+                      },
+                      {
+                        "key": "maxLength",
+                        "val": 10,
+                      },
+                    ],
+                    "target": {
+                      "id": ""
+                    },
+                    "disabled": false
+                  },
+                ]
+              },
+              {
+                "type": "SINGLE_SELECT",
+                "label": "",
+                "name": "units",
+                "inputclass": "selectinput",
+                "options": []
+              }
+            ],
+          ],
+          "value": {
+            "vessel_dimension_unit": "Meter"
+          },
+          "column": 12,
+          "title": "",
+          "tableClass": "",
+          "labelClass": "app-content-label",
+        },
+      ]
+    },
+    {
+      "group": "Project Owner Details",
+      "fields": [
+        {
+          "id": "project_type",
+          "type": "SINGLE_SELECT",
+          "name": "projectType",
+          "label": "Project Type",
+          "options": [
+            {
+              "name": "Testing1",
+              "label": "Test 1",
+              "value": "testing_1",
+              "greyedOut": false
+            },
+            {
+              "name": "Testing2",
+              "label": "Test 2",
+              "value": "testing_2",
+              "greyedOut": true
+            }
+          ],
+          "column": "6",
+          "validations": {
+            "target": {
+              "id": "email"
+            }
+          }
+        },
+        {
+          "id": "email",
+          "type": "TEXT_INPUT",
+          "name": "email",
+          "label": "Email",
+          "title": "Email",
+          "error": "",
+          "inputclass": "",
+          "labelClass": "app-content-label",
+          "value": "Default Value",
+          "column": "6",
+          "validations": {
+            "target": {
+              "id": "project_type",
+              "value": "1"
+            }
+          }
+        },
+        {
+          "type": "RADIO_INPUT",
+          "name": "fluid",
+          "label": "Fluid",
+          "title": "Helo",
+          "labelClass": "app-content-label",
+          "selectedIds": [
+            "2"
+          ],
+          "disabledIds": [],
+          "options": [
+            {
+              "value": "Liquid",
+              "label": "Liquid"
+            },
+            {
+              "value": "Gas",
+              "label": "Gas"
+            },
+            {
+              "value": "Steam",
+              "label": "Steam"
+            }
+          ],
+          "column": "6",
+          "required": true,
+          "error": "",
+          "errorClass": "",
+          "showAlert": false
+        },
+        {
+          "type": "CUSTOM_TOGGLE_BUTTON",
+          "name": "metric",
+          "label": "Metric",
+          "title": "Helo",
+          "labelClass": "app-content-label",
+          "selectedIds": [
+            "2"
+          ],
+          "disabledIds": [],
+          "data": [
+            {
+              "value": "METRIC",
+              "label": "METRIC"
+            },
+            {
+              "value": "IMPERIAL",
+              "label": "IMPERIAL"
+            }
+          ],
+          "column": "6",
+          "required": true,
+          "error": "",
+          "errorClass": "",
+          "showAlert": false
+        },
+      ]
+    },
+    {
+      "group": "Selection",
+      "fields": [
+        {
+          "type": "CHECKBOX_INPUT",
+          "name": "Diagnostics",
+          "label": "Diagnostics",
+          "title": "Helo",
+          "labelClass": "app-content-label",
+          "selectedIds": [
+            "1"
+          ],
+          "disabledIds": [],
+          "options": [
+            {
+              "value": "1",
+              "label": "Temperature",
+              "info": 'This is Tooltip'
+            },
+            {
+              "value": "2",
+              "label": "Pressure"
+            },
+            {
+              "value": "3",
+              "label": "Density",
+            }
+          ],
+          "column": "6",
+          "required": true,
+          "error": "",
+          "errorClass": "",
+          "showAlert": false,
+        },
+        {
+          "type": "CHECKBOX_INPUT",
+          "name": "Configuration",
+          "label": "Configuration",
+          "title": "Helo",
+          "labelClass": "app-content-label",
+          "selectedIds": [
+            "2"
+          ],
+          "disabledIds": [],
+          "options": [
+            {
+              "value": "1",
+              "label": "Temperature",
+            },
+            {
+              "value": "2",
+              "label": "Pressure",
+              "info": 'This is Tooltip'
+            },
+          ],
+          "column": "6",
+          "required": true,
+          "error": "",
+          "errorClass": "",
+          "showAlert": false
+        },
+        {
+          "type": "CUSTOM",
+          "component": "Component",
+          "name": "component",
+          "value": "",
+          "column": 12
+        },
+      ]
+    },
+    {
+      "group": "Models",
+      "fields": [
+        {
+          "column": 12,
+          "type": "TILE_THUMBNAIL",
+          "name": "models",
+          "buttonLabel": "btn lble",
+          "imgUrl": "7bd555544cf68071bafa.png",
+          "attribute_code_value": {
+            "description": "",
+            "defaultDirection": "tile"
+          },
+          "error": "This is required",
+          "showAlert": false,
+          "defaultIds": [],
+          // "dataSourceUrl": "https://jsonplaceholder.typicode.com/users",
+          "options": []
+        },
+        {
+          "type": "CUSTOM",
+          "component": "Component",
+          "name": "component",
+          "value": "",
+          "column": 12
+        },
+      ]
+    }
+  ])
+
+  const generateFeilds = (inputFeilds) => {
+
+    if (!inputFeilds.length) {
+      return []
+    }
+    return inputFeilds
+    //find the datasource url and make the api call
+  }
+
+  const handleInput = (e, formData, schemaData, fieldName) => {
+
+    console.log({e,  formData, schemaData, fieldName });
+
+    const newSchema = schemaData.slice();
+
+    // const latestSchema = newSchema.map((group, i) => {
+    //   group.fields.map(field => {
+    //     if (field.id === "email") {
+    //       field.value = "hello@gmail.com"
+    //     }
+    //     return field 
+    //   })
+    //   return group
+    // })
+
+    // console.log(latestSchema);
+
+    // setSchema(JSON.parse(JSON.stringify(latestSchema)))
+
+    // const currentFeild = schema.reduce((prev, curr, i) => {
+    //     const field = prev || curr.fields.find(field => field.name === fieldName);
+    //     if(field !== 'undefined') return field
+    // }, undefined)
+
+  }
+
   return (
     <>
-      <MSOLDynamicForm
-        schema={schema}
-        handleChange={(event, a, b, c) => handleInput(event, a, b, c)}
-      />
+      <Grid container>
+        <Grid item xs={6}>
+          <MSOLDynamicForm
+            schema={() => generateFeilds(schema)}
+            handleChange={(event, a, b, c) => handleInput(event, a, b, c)}
+          />
+        </Grid>
+      </Grid>
     </>
   )
 }

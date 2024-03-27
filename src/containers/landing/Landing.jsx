@@ -4,7 +4,7 @@ import "./landing.css";
 import { fetchSchema, resetActiveIndex, updateBu } from "../../redux/reducers/initialBuDataSlice";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import InputFeild from "../../components/shared/InputFeild/InputFeild";
+
 //Hello
 export const PRODUCT_ADVISOR_CARDS = [
   {
@@ -48,7 +48,6 @@ export default function Landing() {
 
   return (
     <Grid container className="container_dash_board">
-      <InputFeild />
       {PRODUCT_ADVISOR_CARDS.map((bu) => (
         <Grid
           key={bu.id}

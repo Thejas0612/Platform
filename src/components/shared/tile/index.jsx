@@ -2,21 +2,27 @@ import React from 'react';
 import { Checkbox, Grid, Stack, Box } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import styled from '@emotion/styled';
 
-function TileorThumbnail({ options, defaultIds }) {
+const StyledCheckBoxInput = styled(Checkbox)(() => ({
+    '& .MuiSvgIcon-root': {
+        fontSize: 20
+    }
+}))
 
-    const [data, setData] = React.useState([])
+function TileorThumbnail({ name, options, defaultIds, onChange, error, ...props }) {
+
+    let [data, setData] = React.useState([])
 
     //defaut Ids    
     const [selectedIds, setSelectedIds] = React.useState([])
 
     //handling select and unselect of data
-    const handleSelect = (id) => {
+    const handleSelect = (e, id) => {
         if (!selectedIds.includes(id)) {
             setSelectedIds([...selectedIds, id]);
-            onChange(e, props.othAttr?.type, props.othAttr?.name, [
+            onChange(e, props.othAttr?.type, name, [
                 ...selectedIds,
                 id,
             ]);
@@ -25,33 +31,55 @@ function TileorThumbnail({ options, defaultIds }) {
             onChange(
                 e,
                 props.othAttr?.type,
-                props.othAttr?.name,
+                name,
                 selectedIds.filter((value, index) => value !== id)
             );
         }
     }
 
+    React.useEffect(() => {
+        if (props.dataSourceUrl) {
+            fetchTileData()
+        } else {
+            setData(options)
+        }
+    }, [props.dataSourceUrl])
+
     //Store Schema and defaultIds in local state
     React.useEffect(() => {
         setSelectedIds(defaultIds ? defaultIds : [])
-    }, selectedIds)
+    }, [defaultIds])
 
     React.useEffect(() => {
         setData(options)
-    }, selectedIds)
+    }, [options])
+
+    const fetchTileData = async () => {
+        if (props.dataSourceUrl) {
+            let res = await fetch(props.dataSourceUrl)
+                                .catch((error) => {
+                                    console.log(error);
+                                    setError('API Fetch Error')
+                                });
+            if (res) {
+              data = await res.json();
+            }
+            setData(data)
+        }
+    }
 
     return (
         <>
-            <Stack spacing={4}>
-                {data.map(item => (
-                    <>
+            <Stack spacing={2}>
+                {data.map((item, i) => (
+                    <div key={i}>
                         <Card
-                            sx={{ cursor: 'pointer', border: selectedIds.includes(item.id) ? '1px solid green' : '' }}
-                            onClick={() => handleSelect(item.id)}
+                            sx={{ cursor: 'pointer', border: selectedIds.includes(item.id) ? '1px solid #00805a' : '' }}
+                            onClick={(e) => handleSelect(e, item.id)}
                         >
                             <Grid container spacing={2}>
                                 <Grid item xs={2} display={'flex'} justifyContent={'center'} alignItems={'center'}>
-                                    <Checkbox checked={selectedIds.includes(item.id) ? true : false} color='success' />
+                                    <StyledCheckBoxInput checked={selectedIds.includes(item.id) ? true : false} color='primary' />
                                 </Grid>
                                 <Grid item xs={3} display={'flex'} justifyContent={'center'}>
                                     <Box
@@ -61,7 +89,7 @@ function TileorThumbnail({ options, defaultIds }) {
                                         sx={{
                                             maxWidth: 120,
                                         }}
-                                        />
+                                    />
                                 </Grid>
                                 <Grid item xs={7}>
                                     <CardContent sx={{ m: 2 }}>
@@ -75,7 +103,7 @@ function TileorThumbnail({ options, defaultIds }) {
                                 </Grid>
                             </Grid>
                         </Card>
-                    </>
+                    </div>
                 ))}
             </Stack>
         </>

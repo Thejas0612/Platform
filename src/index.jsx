@@ -7,13 +7,17 @@ import style from "./index.module.css";
 import registerServiceWorker from "./registerServiceWorker";
 import { Provider } from "react-redux";
 import store from "./redux/store/store";
+import theme from './theme';
+import { ThemeProvider } from '@mui/material/styles'
 import './index.css'
 
 /* eslint-disable react/jsx-filename-extension */
 ReactDOM.render(
   <Router>
     <Provider store={store}>
-      <App className={style.app} />
+      <ThemeProvider theme={theme}>
+        <App className={style.app} />
+      </ThemeProvider>
     </Provider>
   </Router>,
   document.getElementById("root")
