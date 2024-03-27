@@ -3,3 +3,15 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.fiels-required-span {
+  display: none !important;
+}
+
+.fiels-table-required-span {
+  display: none !important; 
+}
+
+.selectinput {
+  margin: 12px;
+}
