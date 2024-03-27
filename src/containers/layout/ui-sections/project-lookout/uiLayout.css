@@ -9,3 +9,24 @@
   justify-content: center;
   align-items: center;
 }
+
+.clearButton > i::before {
+  content: "X";
+  border: 0;
+  font-weight: 700;
+  transform: none;
+  top: 0;
+  font-style: normal;
+}
+
+label.camelCase {
+  text-transform: capitalize !important;
+}
+
+.customRequired {
+  border: .125rem solid var(--ddl-color--primary-emerson-green);
+}
+
+div.unitClass {
+  width: 178px !important;
+}
