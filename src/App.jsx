@@ -1,10 +1,10 @@
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Landing from "./containers/landing/Landing";
 import "@emerson/dynamic-ui-public/dist/emerson-ui.css";
 import DpFlowUiLayout from "./containers/layout/ui-sections/dpflow/DpFlowUiLayout";
 import ProjectLookoutUiLayout from "./containers/layout/ui-sections/project-lookout/ProjectLookoutUiLayout";
 import TempUiLayout from "./containers/layout/ui-sections/temperature/TempUiLayout";
-import {Test} from "./pages/Test";
+import { Test } from "./pages/Test";
 
 const App = () => {
   return (
@@ -18,7 +18,7 @@ const App = () => {
           component={ProjectLookoutUiLayout}
         />
         <Route path="/platform_bucode=tempPA" exact={true} component={TempUiLayout} />
-          <Route paht="/test" exact={true} component={Test}/>
+        <Route path="/test" exact={true} component={Test} />
       </Switch>
     </Router>
   );
