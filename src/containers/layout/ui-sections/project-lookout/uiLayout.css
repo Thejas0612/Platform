@@ -19,14 +19,14 @@
   font-style: normal;
 }
 
-.camelCase {
+label.camelCase {
   text-transform: capitalize !important;
 }
 
 .customRequired {
-  border: 1.5px solid green;
+  border: .125rem solid var(--ddl-color--primary-emerson-green);
 }
 
-.unitClass {
+div.unitClass {
   width: 178px !important;
 }
