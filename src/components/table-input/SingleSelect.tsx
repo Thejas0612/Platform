@@ -2,14 +2,17 @@ import { FormControl, MenuItem, Select } from "@mui/material"
 
 const SingleSelect = (props) => {
 
+    const selectedValue = props.schemaProps?.options?.find(option => option.selected)?.value || '';
+
     return (
-        <FormControl size={props.size} style={{minWidth: "6rem"}}>
+        <FormControl size={props.size} style={{minWidth: "7rem"}}>
             <Select
                 label={props.label}
                 name={props.name}
                 onChange={props.handleChange}
                 fullWidth={true}
                 style={{borderRadius: 0}}
+                defaultValue={selectedValue}
             >
                 {props.schemaProps.options.map((menu, menuIndex) => {
                     return (
