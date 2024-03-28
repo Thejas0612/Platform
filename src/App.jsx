@@ -5,6 +5,7 @@ import DpFlowUiLayout from "./containers/layout/ui-sections/dpflow/DpFlowUiLayou
 import ProjectLookoutUiLayout from "./containers/layout/ui-sections/project-lookout/ProjectLookoutUiLayout";
 import TempUiLayout from "./containers/layout/ui-sections/temperature/TempUiLayout";
 import { Test } from "./pages/Test";
+import TemperaturePlayground from "./pages/TemperaturePlayground";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         />
         <Route path="/platform_bucode=tempPA" exact={true} component={TempUiLayout} />
         <Route path="/test" exact={true} component={Test} />
+        <Route path="/temperature-playground" exact={true} component={TemperaturePlayground}/>
       </Switch>
     </Router>
   );
