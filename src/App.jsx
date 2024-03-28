@@ -5,6 +5,7 @@ import DpFlowUiLayout from "./containers/layout/ui-sections/dpflow/DpFlowUiLayou
 import ProjectLookoutUiLayout from "./containers/layout/ui-sections/project-lookout/ProjectLookoutUiLayout";
 import TempUiLayout from "./containers/layout/ui-sections/temperature/TempUiLayout";
 import {Test} from "./pages/Test";
+import tileAndThumbnail from "./components/tileAndThumbnail/tileAndThumbnail";
 
 const App = () => {
   return (
@@ -18,7 +19,9 @@ const App = () => {
           component={ProjectLookoutUiLayout}
         />
         <Route path="/platform_bucode=tempPA" exact={true} component={TempUiLayout} />
-          <Route paht="/test" exact={true} component={Test}/>
+          <Route path="/test" exact={true} component={Test}/>
+          <Route path="/my" exact={true} component={tileAndThumbnail}/>
+          
       </Switch>
     </Router>
   );
