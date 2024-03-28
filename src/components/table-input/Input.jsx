@@ -3,6 +3,7 @@ import { TextField } from "@mui/material";
 const InputProps = {
     style: {
         borderRadius: 0,
+        minWidth: "5rem"
     },
 }
 

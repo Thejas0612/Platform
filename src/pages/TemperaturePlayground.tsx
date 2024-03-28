@@ -16,7 +16,7 @@ const schema = {
           },
           {
              "type":"TEXT",
-             "label":"Min 123",
+             "label":"Min",
              "align":"center",
              "name":"r1min",
              "variant": "body2",
@@ -26,7 +26,7 @@ const schema = {
           },
           {
              "type":"TEXT",
-             "label":"NORMAL",
+             "label":"Normal",
              "align":"center",
              "name":"r1min",
              "variant": "body2",
@@ -36,7 +36,7 @@ const schema = {
           },
           {
              "type":"TEXT",
-             "label":"MAX",
+             "label":"Max",
              "name":"r1max",
              "variant": "body2",
              "align":"center",
@@ -46,7 +46,7 @@ const schema = {
           },
           {
              "type":"TEXT",
-             "label":"UNITS",
+             "label":"Units",
              "name":"r1units",
              "variant": "body2",
              "align":"center",
@@ -69,7 +69,7 @@ const schema = {
              "type":"TEXT_INPUT",
              "label":"",
              "name":"flow_rate_min",
-             "required":false,
+             "required":true,
              "validations":[
                 {
                    "validationKey":"\\S",
@@ -108,11 +108,13 @@ const schema = {
              "options":[
                 {
                    "value":"C",
-                   "label":"C"
+                   "label":"C",
+                   "selected": true
+
                 },
                 {
                    "value":"F",
-                   "label":"F"
+                   "label":"F",
                 }
              ]
           }
@@ -151,7 +153,8 @@ const schema = {
              "options":[
                 {
                    "value":"C",
-                   "label":"C"
+                   "label":"C",
+                   "selected": true
                 },
                 {
                    "value":"F",
