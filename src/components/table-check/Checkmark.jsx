@@ -9,9 +9,9 @@ const Checkmark = (props) => {
         {schema.options.map((option) => (
           <span key={option.id}>
              {option.type === "tick" ? (
-              <CheckIcon sx={{ fontSize: 50 }} style ={{ color: 'green' }} />
+              <CheckIcon sx={{ fontSize: 50, color: 'green' }} />
             ) : (
-              <RemoveIcon sx={{ fontSize: 50 }}style={{ color: 'gray' }} />
+              <RemoveIcon sx={{ fontSize: 50, color: 'gray' }} />
             )}
           </span>
         ))}
