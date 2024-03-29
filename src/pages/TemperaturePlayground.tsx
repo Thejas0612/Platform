@@ -1,8 +1,8 @@
-import TableInput from "../components/table-input/TableInput";
-
+import TableInput from "../components/table-input/TableInput"
 import Checkmark from "../components/table-check/Checkmark"
 import TileAndThumbnail from "../components/tile-thumbnail/TileAndThumbnail";
 import tileAndThumbnail from "../components/tile-thumbnail/TileAndThumbnail"
+
 
 const schema = {
    "type": "TABLE_INPUT",
@@ -223,7 +223,7 @@ const schema_Checkmark_dash = {
            {
               "id":2,
               "title":"X-well",
-              "description":"Rosemount™ X-well Technology measures process temperature accurately and reliably without a thermowell",
+              "description":"Rosemountï¿½ X-well Technology measures process temperature accurately and reliably without a thermowell",
               "imgUrl":"https://www.emerson.com/resource/image/184154/portrait_ratio3x4/768/1024/6723fff039465ea8da39ab5c7b7978a2/EC9A2B6CF9DCB16E366CB86F03486544/prod-rmt-en-learn_about-x-well_with_shadows_lcd_rotated-c010.jpg",
               "tootTipEnable":true,
               "tootTipMessage":"X-Well",
