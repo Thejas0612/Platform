@@ -1,5 +1,5 @@
 import TableInput from "../components/table-input/TableInput";
-
+import MyTable from "../components/table-check/tick-and-dash"
 const schema = {
     "type":"TABLE_INPUT",
     "name":"TABLE_INPUT",
@@ -176,6 +176,7 @@ const TemperaturePlayground = () => {
     return (
         <>
             <div style={{width: "40%"}}><TableInput schema={schema}/></div>
+            <MyTable/>
         </>
     )
 }
