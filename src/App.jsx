@@ -8,6 +8,7 @@ import { Test } from "./pages/Test";
 import TemperaturePlayground from "./pages/TemperaturePlayground";
 import tileAndThumbnail from "./components/tile-thumbnail/TileAndThumbnail";
 
+
 const App = () => {
   return (
     <Router>

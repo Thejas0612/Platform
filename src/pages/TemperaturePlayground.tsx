@@ -1,175 +1,193 @@
 import TableInput from "../components/table-input/TableInput";
+
+import Checkmark from "../components/table-check/Checkmark"
 import TileAndThumbnail from "../components/tile-thumbnail/TileAndThumbnail";
 import tileAndThumbnail from "../components/tile-thumbnail/TileAndThumbnail"
-const schema = {
-    "type":"TABLE_INPUT",
-    "name":"TABLE_INPUT",
-    "options":[
-       [
-          {
-             "type":"TEXT",
-             "label":"",
-             "name":"",
-             "align":"center",
-             "textStyles":{
-                "fontSize":"0.8rem"
-             }
-          },
-          {
-             "type":"TEXT",
-             "label":"Min",
-             "align":"center",
-             "name":"r1min",
-             "variant": "body2",
-             "textStyles":{
-                "fontSize":"0.8rem"
-             },
-          },
-          {
-             "type":"TEXT",
-             "label":"Normal",
-             "align":"center",
-             "name":"r1min",
-             "variant": "body2",
-             "textStyles":{
-                "fontSize":"0.8rem"
-             },
-          },
-          {
-             "type":"TEXT",
-             "label":"Max",
-             "name":"r1max",
-             "variant": "body2",
-             "align":"center",
-             "textStyles":{
-                "fontSize":"0.8rem"
-             },
-          },
-          {
-             "type":"TEXT",
-             "label":"Units",
-             "name":"r1units",
-             "variant": "body2",
-             "align":"center",
-             "textStyles":{
-                "fontSize":"0.8rem"
-             },
-          }
-       ],
-       [
-          {
-             "type":"TEXT",
-             "label":"Process Temperature",
-             "name":"lbl_process_temperature",
-             "align":"right",
-             "textStyles":{
-                "fontSize":"0.8rem"
-             }
-          },
-          {
-             "type":"TEXT_INPUT",
-             "label":"",
-             "name":"flow_rate_min",
-             "required":true,
-             "validations":[
-                {
-                   "validationKey":"\\S",
-                   "validationMessage":"This is required"
-                }
-             ]
-          },
-          {
-             "type":"TEXT_INPUT",
-             "label":"",
-             "name":"flow_rate_normal",
-             "required":true,
-             "validations":[
-                {
-                   "validationKey":"\\S",
-                   "validationMessage":"This is required"
-                }
-             ]
-          },
-          {
-             "type":"TEXT_INPUT",
-             "label":"",
-             "name":"flow_rate_max",
-             "required":true,
-             "validations":[
-                {
-                   "validationKey":"\\S",
-                   "validationMessage":"This is required"
-                }
-             ]
-          },
-          {
-             "type":"SINGLE_SELECT",
-             "label":"",
-             "name":"flow_rate_units",
-             "options":[
-                {
-                   "value":"C",
-                   "label":"C",
-                   "selected": true
 
-                },
-                {
-                   "value":"F",
-                   "label":"F",
-                }
-             ]
-          }
-       ],
-       [
-          {
-             "type":"TEXT",
-             "label":"Ambient Temperature",
-             "name":"lbe_ambient Temperature",
-             "align":"right",
-             "textStyles":{
-                "fontSize":"0.8rem"
-             }
-          },
-          {
-             "type":"TEXT_INPUT",
-             "label":"",
-             "name":"line_pressure_min",
-             "required": false,
-          },
-          {
-             "type":"TEXT_INPUT",
-             "label":"",
-             "name":"line_pressure_normal",
-             "required":true,
-          },
-          {
-             "type":"TEXT_INPUT",
-             "label":"",
-             "name":"line_pressure_max"
-          },
-          {
-             "type":"SINGLE_SELECT",
-             "label":"",
-             "name":"line_pressure_unit",
-             "options":[
-                {
-                   "value":"C",
-                   "label":"C",
-                   "selected": true
-                },
-                {
-                   "value":"F",
-                   "label":"F"
-                }
-             ]
-          }
-       ]
-    ],
-    "title":"",
-    "tableClass":"",
-    "labelClass":"",//"app-content-label",
-    "label":""
-  };
+const schema = {
+   "type": "TABLE_INPUT",
+   "name": "TABLE_INPUT",
+   "options": [
+      [
+         {
+            "type": "TEXT",
+            "label": "",
+            "name": "",
+            "align": "center",
+            "textStyles": {
+               "fontSize": "0.8rem"
+            }
+         },
+         {
+            "type": "TEXT",
+            "label": "Min",
+            "align": "center",
+            "name": "r1min",
+            "variant": "body2",
+            "textStyles": {
+               "fontSize": "0.8rem"
+            },
+         },
+         {
+            "type": "TEXT",
+            "label": "Normal",
+            "align": "center",
+            "name": "r1min",
+            "variant": "body2",
+            "textStyles": {
+               "fontSize": "0.8rem"
+            },
+         },
+         {
+            "type": "TEXT",
+            "label": "Max",
+            "name": "r1max",
+            "variant": "body2",
+            "align": "center",
+            "textStyles": {
+               "fontSize": "0.8rem"
+            },
+         },
+         {
+            "type": "TEXT",
+            "label": "Units",
+            "name": "r1units",
+            "variant": "body2",
+            "align": "center",
+            "textStyles": {
+               "fontSize": "0.8rem"
+            },
+         }
+      ],
+      [
+         {
+            "type": "TEXT",
+            "label": "Process Temperature",
+            "name": "lbl_process_temperature",
+            "align": "right",
+            "textStyles": {
+               "fontSize": "0.8rem"
+            }
+         },
+         {
+            "type": "TEXT_INPUT",
+            "label": "",
+            "name": "flow_rate_min",
+            "required": true,
+            "validations": [
+               {
+                  "validationKey": "\\S",
+                  "validationMessage": "This is required"
+               }
+            ]
+         },
+         {
+            "type": "TEXT_INPUT",
+            "label": "",
+            "name": "flow_rate_normal",
+            "required": true,
+            "validations": [
+               {
+                  "validationKey": "\\S",
+                  "validationMessage": "This is required"
+               }
+            ]
+         },
+         {
+            "type": "TEXT_INPUT",
+            "label": "",
+            "name": "flow_rate_max",
+            "required": true,
+            "validations": [
+               {
+                  "validationKey": "\\S",
+                  "validationMessage": "This is required"
+               }
+            ]
+         },
+         {
+            "type": "SINGLE_SELECT",
+            "label": "",
+            "name": "flow_rate_units",
+            "options": [
+               {
+                  "value": "C",
+                  "label": "C",
+                  "selected": true
+
+               },
+               {
+                  "value": "F",
+                  "label": "F",
+               }
+            ]
+         }
+      ],
+      [
+         {
+            "type": "TEXT",
+            "label": "Ambient Temperature",
+            "name": "lbe_ambient Temperature",
+            "align": "right",
+            "textStyles": {
+               "fontSize": "0.8rem"
+            }
+         },
+         {
+            "type": "TEXT_INPUT",
+            "label": "",
+            "name": "line_pressure_min",
+            "required": false,
+         },
+         {
+            "type": "TEXT_INPUT",
+            "label": "",
+            "name": "line_pressure_normal",
+            "required": true,
+         },
+         {
+            "type": "TEXT_INPUT",
+            "label": "",
+            "name": "line_pressure_max"
+         },
+         {
+            "type": "SINGLE_SELECT",
+            "label": "",
+            "name": "line_pressure_unit",
+            "options": [
+               {
+                  "value": "C",
+                  "label": "C",
+                  "selected": true
+               },
+               {
+                  "value": "F",
+                  "label": "F"
+               }
+            ]
+         }
+      ]
+   ],
+   "title": "",
+   "tableClass": "",
+   "labelClass": "",//"app-content-label",
+   "label": ""
+};
+
+const schema_Checkmark_dash = {
+   "options": [{
+      "id": 0,
+      "type": "tick",
+
+   },
+   {
+      "id": 1,
+      "type": "dash",
+   }
+   ]
+
+}
+
 
   const schema_Tile_Thumbnail={
    "type":"TILE_THUMBNAIL",
@@ -205,7 +223,7 @@ const schema = {
            {
               "id":2,
               "title":"X-well",
-              "description":"Rosemountâ„¢ X-well Technology measures process temperature accurately and reliably without a thermowell",
+              "description":"Rosemount™ X-well Technology measures process temperature accurately and reliably without a thermowell",
               "imgUrl":"https://www.emerson.com/resource/image/184154/portrait_ratio3x4/768/1024/6723fff039465ea8da39ab5c7b7978a2/EC9A2B6CF9DCB16E366CB86F03486544/prod-rmt-en-learn_about-x-well_with_shadows_lcd_rotated-c010.jpg",
               "tootTipEnable":true,
               "tootTipMessage":"X-Well",
@@ -218,7 +236,9 @@ const TemperaturePlayground = () => (
    <>
       <div style={{ width: "40%" }}><TableInput schema={schema} /></div>
       <TileAndThumbnail schema={schema_Tile_Thumbnail} />
+      <Checkmark schema={schema_Checkmark_dash} />
    </>
 )
+
 
 export default TemperaturePlayground;
