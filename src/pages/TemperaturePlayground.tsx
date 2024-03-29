@@ -1,5 +1,6 @@
 import TableInput from "../components/table-input/TableInput";
-import Checkmark from "../components/table-check/Checkmark"
+import Checkmark from "../components/table-check/Checkmark";
+
 
 const schema = {
    "type": "TABLE_INPUT",
@@ -190,6 +191,7 @@ const TemperaturePlayground = () => {
       <>
          <div style={{ width: "40%" }}><TableInput schema={schema} /></div>
          <Checkmark schema={schema_Checkmark_dash} />
+         
 
       </>
    )
