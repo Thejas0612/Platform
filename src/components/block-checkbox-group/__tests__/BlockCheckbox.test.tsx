@@ -10,7 +10,7 @@ const PROPS: BlockCheckboxProps = {
 };
 
 describe("<BlockCheckbox {...PROPS} />", () => {
-  it("when disabled anc clicked, then prevent onChange event", async () => {
+  test("when disabled anc clicked, then prevent onChange event", async () => {
     const handleChange = jest.fn();
     render(<BlockCheckbox {...PROPS} disabled={true} onChange={handleChange} />);
 

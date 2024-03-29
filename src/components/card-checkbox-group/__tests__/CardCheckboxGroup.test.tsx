@@ -16,25 +16,25 @@ const PROPS: CardCheckboxGroupProps = {
 };
 
 describe("<CardCheckboxGroup />", () => {
-  it("when state is default, then 3 show checkbox", () => {
+  test("when state is default, then 3 show checkbox", () => {
     const { container } = render(<CardCheckboxGroup {...PROPS} />);
 
     expect(container).toMatchSnapshot();
   });
 
-  it("when 2 options are selected, then 2 checked checkboxes", () => {
+  test("when 2 options are selected, then 2 checked checkboxes", () => {
     const { container } = render(<CardCheckboxGroup {...PROPS} comparedIds={["1", "3"]} />);
 
     expect(container).toMatchSnapshot();
   });
 
-  it("when state is error, then show error message.", () => {
+  test("when state is error, then show error message.", () => {
     const { container } = render(<CardCheckboxGroup {...PROPS} error="test error" />);
 
     expect(container).toMatchSnapshot();
   });
 
-  it("when Coriolis compare is selected, then check Coriolis compare and fire onChange event.", async () => {
+  test("when Coriolis compare is selected, then check Coriolis compare and fire onChange event.", async () => {
     const onChange = jest.fn();
     const { container } = render(<CardCheckboxGroup {...PROPS} onChange={onChange} />);
 
@@ -46,7 +46,7 @@ describe("<CardCheckboxGroup />", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("when Magnetic selected, then check Magnetic and fire onChange event.", async () => {
+  test("when Magnetic selected, then check Magnetic and fire onChange event.", async () => {
     const onChange = jest.fn();
     const { container, rerender } = render(<CardCheckboxGroup {...PROPS} onChange={onChange} />);
 

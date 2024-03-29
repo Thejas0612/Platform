@@ -28,13 +28,13 @@ const PROPS: BlockCheckboxGroupProps = {
 };
 
 describe("<BlockCheckboxGroup />", () => {
-  it("when state is default, then show 1 unchecked checkbox, 1 checked checkbox and 1 disabled checkbox", () => {
+  test("when state is default, then show 1 unchecked checkbox, 1 checked checkbox and 1 disabled checkbox", () => {
     const { container } = render(<BlockCheckboxGroup {...PROPS} />);
 
     expect(container).toMatchSnapshot();
   });
 
-  it("when first checkbox is check, then fire onChange event.", async () => {
+  test("when first checkbox is check, then fire onChange event.", async () => {
     const handleChange = jest.fn();
 
     render(<BlockCheckboxGroup {...PROPS} onChange={handleChange} />);
@@ -46,7 +46,7 @@ describe("<BlockCheckboxGroup />", () => {
     expect(handleChange).toHaveBeenCalledWith(["2", "1"]);
   });
 
-  it("when state is error, then show error message.", () => {
+  test("when state is error, then show error message.", () => {
     const { container } = render(<BlockCheckboxGroup {...PROPS} error="test error" />);
 
     expect(container).toMatchSnapshot();

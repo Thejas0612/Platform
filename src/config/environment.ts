@@ -1,5 +1,5 @@
 const DEFAULT = {
-    VITE_OUTLINE_MSOL_COMPONENTS: false
+    VITE_HIGHLIGHT_MSOL_COMPONENTS: false
 }
 
 export const environment = {

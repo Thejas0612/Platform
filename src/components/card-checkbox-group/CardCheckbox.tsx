@@ -60,7 +60,7 @@ export const CardCheckbox: FunctionComponent<CardCheckboxProps> = ({
   return <Box onClick={handleSelectChange}
               sx={{
                 padding: ".5rem",
-                border: selectedChecked ? ".0625rem solid var(--ddl-color--primary-emerson-green-dark)" : ".0625rem solid var(--ddl-color--primary-grey)"
+                border: selectedChecked ? ".125rem solid var(--ddl-color--primary-emerson-green-dark)" : ".0625rem solid var(--ddl-color--primary-grey)"
               }}>
     <Grid direction="column"
           spacing={.5}

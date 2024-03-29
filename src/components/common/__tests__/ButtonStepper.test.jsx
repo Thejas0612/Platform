@@ -17,7 +17,7 @@ describe('<ButtonStepper/>', () => {
         useSelector.mockReturnValue(0)
     })
 
-    it('when index is 0, then only show next button', () => {
+    test('when index is 0, then only show next button', () => {
         const {container} = render(<ButtonStepper { ...PROPS}></ButtonStepper>)
 
         expect(container).toMatchSnapshot()

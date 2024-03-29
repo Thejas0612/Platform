@@ -1,18 +1,68 @@
 import { CardCheckboxGroup, CardCheckboxGroupProps } from "../components/card-checkbox-group/CardCheckboxGroup";
 import { FunctionComponent, useState } from "react";
-import {TechnologyTypeFilter} from "../components/technology-type-filter/TechnologyTypeFilter";
-import { Paper } from "@mui/material";
-import DropdownMenuGroup, { DropdownData } from "../components/dropdown-group/DropdownMenuGroup";
+import { FilterButton } from "../components/filter-button/FilterButton";
+import { Box, Paper, Stack } from "@mui/material";
+import { Dropdown, DropdownMenuGroup } from "../components/dropdown-menu-group/DropdownMenuGroup";
 import { BlockCheckboxGroup, BlockCheckboxGroupRow } from "../components/block-checkbox-group/BlockCheckboxGroup";
 
-const dropdownData: DropdownData[] = [
-  { id: "high", label: "HIGH ACCURACY", options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }] },
+const DROPDOWNS: Dropdown[] = [
   {
-    id: "hygienic",
-    label: "HYGIENIC / SANITARY",
-    options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
+    id: "APPROVALS",
+    placeholder: "APPROVALS",
+    options: [{
+      label: "Class 1 Division 1",
+      title: "Class 1 Division 1",
+      value: "CLASS_1_DIVISION_1"
+    },
+      {
+        label: "Class 1 Division 2",
+        title: "Class 1 Division 2",
+        value: "CLASS_1_DIVISION_2"
+      },
+      {
+        label: "Zone 1",
+        title: "Zone 1",
+        value: "ZONE_1"
+      },
+      {
+        label: "Zone 2",
+        title: "Zone 2",
+        value: "ZONE_2"
+      }
+    ]
   },
-  { id: "certified", label: "SIL CERTIFIED", options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }] }
+
+  {
+    id: "OPERATING_TEMPERATURE",
+    placeholder: "OPERATING TEMPERATURE",
+    options: [
+      {
+        label: "Greater Than 400 F (204 C)",
+        title: "Greater Than 400 F (204 C)",
+        value: "GREATER_THAN_400_F"
+      }, {
+        label: "Less Than 400 F (204 C)",
+        title: "Less Than 400 F (204 C)",
+        value: "LESS_THAN_400_F"
+      }
+    ]
+  },
+
+  {
+    id: "OPERATING_PRESSURE",
+    placeholder: "OPERATING PRESSURE",
+    options: [
+      {
+        label: "Greater Than 1960psi (135 bar)",
+        title: "Greater Than 1960psi (135 bar)",
+        value: "GREATER_THAN_1960-PSI"
+      }, {
+        label: "Less Than 1960psi (135 bar)",
+        title: "Less Than 1960psi (135 bar)",
+        value: "LESS_THAN_1960_PSI"
+      }
+    ]
+  }
 ];
 
 const CARD_CHECKBOX_GROUP_DATA: CardCheckboxGroupProps["data"] = [
@@ -59,39 +109,49 @@ const BLOCK_CHECKBOX_GROUP_DATA: BlockCheckboxGroupRow[] = [
 
 
 export const Test: FunctionComponent = () => {
+  const [showDropdownMenuGroup, setShowDropdownMenuGroup] = useState(false);
+  const [selectedOptions, setSelectedOptions] = useState<{ [key: string]: string[] }>({
+    APPROVALS: [],
+    OPERATING_TEMPERATURE: [],
+    OPERATING_PRESSURE: []})
   const [cardCheckboxGroupSelectedId, setCardCheckboxGroupSelectedId] = useState<string | undefined>();
   const [cardCheckboxGroupCompareIds, setCardCheckboxGroupCompareIds] = useState<string[]>([]);
   const [blockCheckboxGroupSelectedIds, setBlockCheckboxGroupSelectedIds] = useState<string[]>([]);
-  const [selectedOptions, setSelectedOptions] = useState<{ [key: string]: string }>({
-    high: "",
-    hygienic: "",
-    certified: ""
-  });
 
-  const handleDropdownChange = (id: string, value: string) => {
+  const handleDropdownChange = (id: string, value: string[]) => {
     setSelectedOptions((prevState) => ({
       ...prevState,
       [id]: value
     }));
   };
 
-  const technologyTypeFilterSortOptions =[
-    { label: "RECOMMENDED", value: "recommended"},
-  ]
-  const [comparedIds, setComparedIds] = useState<string[]>([]);
-  const [selectedId, setSelectedId] = useState<string | undefined>("2");
   return <>
     <h2>Dropdown Menu Group</h2>
     <Paper elevation={4} sx={{ padding: "1rem" }}>
-      <p style={{ marginLeft: "15px" }}>Filter By:</p>
-      <DropdownMenuGroup dropdownsData={dropdownData}
-                         onChange={handleDropdownChange} />
+      <>
+        <Stack direction="row-reverse">
+          <FilterButton
+            label="Filters"
+            onClick={() => {
+              setShowDropdownMenuGroup(!showDropdownMenuGroup);
+            }}
+          />
+        </Stack>
+
+        {showDropdownMenuGroup && <DropdownMenuGroup dropdowns={DROPDOWNS}
+                                                     onChange={handleDropdownChange} />}
+
+        <Box sx={{ paddingTop: 2 }}>
+          <>
+            {
+              Object.keys(selectedOptions).map((key) => {
+                return <div key={key}>{key.toLowerCase()} = {selectedOptions[key].toSorted().join(", ")}</div>;
+              })
+            }
+          </>
+        </Box>
+      </>
     </Paper>
-    <h2>Technology Type Filter</h2>
-    <TechnologyTypeFilter
-      sortOptions={technologyTypeFilterSortOptions}
-      onClose={(sortByValue)=> {console.log(sortByValue)}}
-    />
 
     <h2>Card Checkbox Group</h2>
     <Paper elevation={4} sx={{ padding: "1rem" }}>
@@ -130,5 +190,4 @@ export const Test: FunctionComponent = () => {
         selectedIds={[]} />
     </Paper>
   </>;
-
 };

@@ -32,7 +32,8 @@ export const BlockCheckbox: FunctionComponent<BlockCheckboxProps> = ({
     sx={{
       cursor: "pointer",
       padding: ".5rem",
-      border: checked ? "1px solid var(--ddl-color--primary-emerson-green-dark)" : "1px solid var(--ddl-color--primary-grey)"
+      border: checked ? 2 : 1,
+      borderColor: checked ? "var(--ddl-color--primary-emerson-green-dark)" : "var(--ddl-color--primary-grey)"
     }}
   >
     <Stack direction="row"

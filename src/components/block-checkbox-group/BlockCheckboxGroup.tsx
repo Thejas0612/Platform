@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
-import { Box, FormHelperText, Stack } from "@mui/material";
+import { FormHelperText, Stack } from "@mui/material";
 import { BlockCheckbox, BlockCheckboxProps } from "./BlockCheckbox";
-import { environment } from "../../config/environment";
+import { MsolComponentHighlighter } from "../msol-component-highlighter/MsolComponentHighlighter";
 
 export interface BlockCheckboxGroupRow extends Omit<BlockCheckboxProps, "checked" | "onChange"> {
   id: string;
@@ -21,8 +21,7 @@ export const BlockCheckboxGroup: FunctionComponent<BlockCheckboxGroupProps> = ({
                                                                                  onChange = () => {
                                                                                  }
                                                                                }) => {
-  return <Box
-    sx={{ border: environment.VITE_OUTLINE_MSOL_COMPONENTS ? ".0625rem solid var(--ddl-color--secondary-ridgid-orange)" : undefined }}>
+  return <MsolComponentHighlighter>
     <>
       <Stack spacing={4}>
         {
@@ -48,5 +47,5 @@ export const BlockCheckboxGroup: FunctionComponent<BlockCheckboxGroupProps> = ({
         !error || <FormHelperText error={true}>{error}</FormHelperText>
       }
     </>
-  </Box>;
+  </MsolComponentHighlighter>;
 };

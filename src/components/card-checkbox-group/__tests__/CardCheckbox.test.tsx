@@ -10,13 +10,13 @@ const PROPS: CardCheckboxProps = {
 };
 
 describe("<CardCheckbox />", () => {
-  it("when state is default, then show title, image and checkbox", () => {
+  test("when state is default, then show title, image and checkbox", () => {
     const { container } = render(<CardCheckbox {...PROPS} />);
 
     expect(container).toMatchSnapshot();
   });
 
-  it("when compare label is clicked, then fire compare event.", async () => {
+  test("when compare label is clicked, then fire compare event.", async () => {
     const handleCompareChange = jest.fn();
     const handleSelectChange = jest.fn();
     render(<CardCheckbox {...PROPS} onSelectChange={handleSelectChange} onCompareChange={handleCompareChange} />);
@@ -29,7 +29,7 @@ describe("<CardCheckbox />", () => {
   });
 
   describe("when state is disabled", () => {
-    it("then show tooltip", async () => {
+    test("then show tooltip", async () => {
       const props: CardCheckboxProps = { ...PROPS, disabled: true, disabledTooltip: "test disabled tooltip" };
 
       const { container } = render(<CardCheckbox {...props} />);
@@ -43,7 +43,7 @@ describe("<CardCheckbox />", () => {
       expect(container).toMatchSnapshot();
     });
 
-    it("then prevent select", async () => {
+    test("then prevent select", async () => {
       const onSelectChange = jest.fn();
       const props: CardCheckboxProps = {
         ...PROPS,

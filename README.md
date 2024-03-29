@@ -24,11 +24,11 @@ See [Setup Local Environment](docs\setup-local-environment.md)
 | `npm run lint:fix` | Runs the ESLint static code analyzer and automatically fixes findings. |
 | `npm run preview`  | Run the frontend a production build on http://localhost:3000/ |
 
-## Environment  Variables
+## Environment Variables
 
-| Name                           | Description                                                  |
-| ------------------------------ | ------------------------------------------------------------ |
-| `VITE_OUTLINE_MSOL_COMPONENTS` | `false | default` - nothing. <br />`true` - shows all MSOL component with yellow border. |
+| Name                             | Description                                                                                 |
+|----------------------------------|---------------------------------------------------------------------------------------------|
+| `VITE_HIGHLIGHT_MSOL_COMPONENTS` | `false` (default) - do nothing. <br />`true` - shows all MSOL component with yellow border. |
 
 ## Folder Structure
 

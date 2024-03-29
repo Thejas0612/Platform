@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import { CardCheckbox, CardCheckboxProps } from "./CardCheckbox";
-import { Box, FormHelperText, Grid } from "@mui/material";
-import { environment } from "../../config/environment";
+import { FormHelperText, Grid } from "@mui/material";
+import { MsolComponentHighlighter } from "../msol-component-highlighter/MsolComponentHighlighter";
 
 interface CardCheckboxGroupRow extends Omit<CardCheckboxProps, "selectChecked" | "onCompareChange"> {
   id: string;
@@ -24,11 +24,8 @@ export const CardCheckboxGroup: FunctionComponent<CardCheckboxGroupProps> = ({
                                                                                onChange = () => {
                                                                                }
                                                                              }) => {
-  return <Box
-    sx={{ border: environment.VITE_OUTLINE_MSOL_COMPONENTS ? ".0625rem solid var(--ddl-color--secondary-ridgid-orange)" : undefined }}
-  >
+  return <MsolComponentHighlighter>
     <>
-
       <Grid container>
         {data.map((cardCheckboxProps) => {
           const comparedChecked = comparedIds.includes(cardCheckboxProps.id);
@@ -61,5 +58,5 @@ export const CardCheckboxGroup: FunctionComponent<CardCheckboxGroupProps> = ({
       </Grid>
       {!error || <FormHelperText error={true}>{error}</FormHelperText>}
     </>
-  </Box>;
+  </MsolComponentHighlighter>;
 };
