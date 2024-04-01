@@ -2,7 +2,7 @@ import TableInput from "../components/table-input/TableInput"
 import Checkmark from "../components/table-check/Checkmark"
 import TileAndThumbnail from "../components/tile-thumbnail/TileAndThumbnail";
 import HorizontalLine from "../components/horizonatal-line/HorizontalLine";
-
+import LineChart from "../components/LineChart";
 
 const schema = {
    "type": "TABLE_INPUT",
@@ -236,12 +236,17 @@ const schema_Horizontal_Line = {
    "horizontalLine":true,
 }
 
+
+
 const TemperaturePlayground = () => (
    <>
       <div style={{ width: "40%" }}><TableInput schema={schema} /></div>
       <TileAndThumbnail schema={schema_Tile_Thumbnail} />
       <HorizontalLine  schema={schema_Horizontal_Line}/>
       <Checkmark schema={schema_Checkmark_dash} />
+      <div style={{width:"55%"}}>
+         <LineChart/>
+         </div>
    </>
 )
 
