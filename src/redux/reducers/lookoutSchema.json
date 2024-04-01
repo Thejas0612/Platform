@@ -916,7 +916,7 @@
                         "name": "process_temp_min",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -924,14 +924,14 @@
                         "inputClass":"customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "process_temp_max",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -959,7 +959,7 @@
                         "name": "amb_temp_min",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -967,14 +967,14 @@
                         "inputClass":"customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "amb_temp_max",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -1065,7 +1065,7 @@
                         "name": "density_min",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -1073,14 +1073,14 @@
                         "inputClass":"customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "density_max",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -1112,7 +1112,7 @@
                         "name": "viscosity_min",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -1120,14 +1120,14 @@
                         "inputClass":"customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "viscosity_max",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -1151,7 +1151,7 @@
                     [
                       {
                         "type": "TEXT",
-                        "label": "Vapour Pressure",
+                        "label": "Vapor pressure",
                         "align": "center"
                       },
                       {
@@ -1159,7 +1159,7 @@
                         "name": "vapour_pressure_min",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         
