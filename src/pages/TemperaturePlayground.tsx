@@ -240,8 +240,8 @@ const TemperaturePlayground = () => (
    <>
       <div style={{ width: "40%" }}><TableInput schema={schema} /></div>
       <TileAndThumbnail schema={schema_Tile_Thumbnail} />
-      <Checkmark schema={schema_Checkmark_dash} />
       <HorizontalLine  schema={schema_Horizontal_Line}/>
+      <Checkmark schema={schema_Checkmark_dash} />
    </>
 )
 
