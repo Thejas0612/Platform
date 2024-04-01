@@ -2,6 +2,7 @@ import TableInput from "../components/table-input/TableInput"
 import Checkmark from "../components/table-check/Checkmark"
 import TileAndThumbnail from "../components/tile-thumbnail/TileAndThumbnail";
 import HorizontalLine from "../components/horizonatal-line/HorizontalLine";
+import DropdownMenu from "../components/dropdown-menu/DropdownMenu";
 
 
 const schema = {
@@ -230,6 +231,144 @@ const schema_Checkmark_dash = {
            }
         ], 
         
+     };
+
+     const schema_DropdownMenu = {
+        data:[
+         {
+             "column":6,
+             "type":"SINGLE_SELECT",
+             "name":"communicationProtocol",
+             "label":"Communication Protocol",
+             "labelClass":"app-content-label",
+             "disabled":false,
+             "value":"",
+             "options":[
+                {
+                   "value":"4-20 mA with HART® Protocol",
+                   "label":"4-20 mA with HART® Protocol",
+                   "id":"0"
+                },
+                {
+                   "value":"FOUNDATION Fieldbus",
+                   "label":"FOUNDATION Fieldbus",
+                   "id":"1"
+                },
+                {
+                   "value":"WirelessHART",
+                   "label":"WirelessHART",
+                   "id":"2"
+                }
+              ],
+              "tooltipEnable":false,
+              "tooltipMessage":"",
+              "nextLine":false,
+             "required":false,
+             "error":"",
+             "errorClass":""
+          },
+          {
+            "column":6,
+             "type":"SINGLE_SELECT",
+             "name":"formfactor",
+             "label":"Form Factor",
+             "labelClass":"app-content-label",
+             "disabled":false,
+             "value":"",
+             "options":[
+                {
+                   "value":"Field Mount",
+                   "label":"Field Mount",
+                   "id":"0"
+                },
+                {
+                   "value":"Head Mount",
+                   "label":"Head Mount",
+                   "id":"1"
+                },
+                {
+                   "value":"Rail Mount",
+                   "label":"Rail Mount",
+                   "id":"2"
+                }
+             ],
+             "tooltipEnable":true,
+              "tooltipMessage":"Form Factor",
+              "nextLine":true,
+             "required":false,
+             "error":"",
+             "errorClass":""
+          },
+          {
+            "column":6,
+             "type":"SINGLE_SELECT",
+             "name":"noOfInputs",
+             "label":"Number of Inputs",
+             "labelClass":"app-content-label",
+             "disabled":false,
+             "value":"",
+             "options":[
+                {
+                   "value":"Single input",
+                   "label":"Single input",
+                   "id":"0"
+                },
+                {
+                   "value":"Dual Input",
+                   "label":"Dual Input",
+                   "id":"1"
+                },
+                {
+                   "value":"4 Inputs",
+                   "label":"4 Inputs",
+                   "id":"2"
+                },
+                {
+                   "value":"8 Inputs",
+                   "label":"8 Inputs",
+                   "id":"3"
+                }
+             ],
+             "tooltipEnable":false,
+              "tooltipMessage":"",
+              "nextLine":false,
+             "required":false,
+             "error":"",
+             "errorClass":""
+          },
+          {
+            "column":6,
+             "type":"SINGLE_SELECT",
+             "name":"performance",
+             "label":"Performance",
+             "labelClass":"app-content-label",
+             "disabled":false,
+             "value":"",
+             "options":[
+                {
+                   "value":"Basic",
+                   "label":"Basic",
+                   "id":"0"
+                },
+                {
+                   "value":"Industry Standard",
+                   "label":"Industry Standard",
+                   "id":"1"
+                },
+                {
+                   "value":"Industry Leading",
+                   "label":"Industry Leading",
+                   "id":"2"
+                }
+               ],
+               "tooltipEnable":true,
+              "tooltipMessage":"Performance",
+              "nextLine":false,
+             "required":false,
+             "error":"",
+             "errorClass":""
+          },
+         ]
      }
 
 const schema_Horizontal_Line = {
@@ -242,6 +381,7 @@ const TemperaturePlayground = () => (
       <TileAndThumbnail schema={schema_Tile_Thumbnail} />
       <HorizontalLine  schema={schema_Horizontal_Line}/>
       <Checkmark schema={schema_Checkmark_dash} />
+      <DropdownMenu schema={schema_DropdownMenu} />
    </>
 )
 
