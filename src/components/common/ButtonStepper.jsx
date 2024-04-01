@@ -37,7 +37,6 @@ const ButtonStepper = ({ data, schema, updateValidations, buCode }) => {
       )}
       {activeIndex >= 0 && (
         <ButtonInput
-          disabled={activeIndex === 1 ? true : false}
           label="Next"
           onClick={() => {
             onNextChange();
