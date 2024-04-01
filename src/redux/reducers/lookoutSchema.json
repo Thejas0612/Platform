@@ -196,6 +196,8 @@
                   "name": "nominalpipesize",
                   "showLabel": true,
                   "label": "Line Size",
+                  "labelClass":"camelCase",
+                  "title":"Line Size",
                   "disabled": false,
                   "value": "",
                   "inputClass":"customRequired",
@@ -406,7 +408,6 @@
                       "id": "39"
                     }
                   ],
-                  "required": true,
                   "error": "",
                   "errorClass": ""
                 },
@@ -415,7 +416,7 @@
                   "type": "SINGLE_SELECT",
                   "name": "pipeschedule",
                   "label": "Pipe Schedule",
-                  "labelClass": "app-content-label",
+                  "labelClass": "app-content-label camelCase",
                   "disabled": false,
                   "value": "",
                   "options": [
@@ -538,7 +539,6 @@
                 {
                   "type": "CUSTOM_BUTTON_GROUP",
                   "column": 12,
-                  "title": "Fluid Type",
                   "label": "Fluid Type",
                   "name": "fluidtype",
                   "options": [
@@ -566,7 +566,7 @@
                   "showLabel": true,
                   "wrapperId": "",
                   "wrapperClass": "cutsom_class",
-                  "labelClass": "ddl-from-custom-label",
+                  "labelClass": "app-content-label camelCase",
                   "value": "1",
                   "attribute_code_value": {
                     "multiple": false,
@@ -578,7 +578,7 @@
                   "type": "RADIO_INPUT",
                   "name": "fluidsource",
                   "label": "Fluid Source",
-                  "labelClass": "app-content-label",
+                  "labelClass":"app-content-label camelCase",
                   "value": "0",
                   "options": [
                     {
@@ -590,16 +590,15 @@
                       "label": "Custom"
                     }
                   ],
-                  "required": true,
                   "error": "",
                   "errorClass": ""
                 },
                 {
-                  "column": 4,
+                  "column": 6,
                   "type": "SINGLE_SELECT",
                   "name": "fluidsdatabase",
                   "label": "Fluids Database",
-                  "labelClass": "app-content-label",
+                  "labelClass": "app-content-label camelCase",
                   "inputClass":"customRequired",
                   "value": "",
                   "options": [
@@ -713,8 +712,7 @@
                       "label": "1-PENTADECANOL",
                       "id": "20"
                     }
-                  ],
-                  "required": true
+                  ]
                 }
               ]
             },
@@ -722,11 +720,13 @@
               "id": 2,
               "fields": [
                 {
+                  "column": 12,
                   "type": "LABEL_TEXT",
-                  "name": "LABEL_TEXT",
-                  "title": "Process Variables",
                   "text": "Process Variables",
-                  "column": 12
+                  "textClass": "ddl-typography--h5",
+                  "textStyles": {
+                    "textAlign": "start"
+                  }
                 },
                 {
                   "type": "TABLE_INPUT",
@@ -773,7 +773,7 @@
                         "inputClass":"customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -781,7 +781,7 @@
                         "inputClass":"customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -789,7 +789,7 @@
                         "inputClass":"customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -854,7 +854,7 @@
                         "name": "line_pressure_min",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -862,14 +862,14 @@
                         "inputClass":"customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "line_pressure_max",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -908,7 +908,7 @@
                     [
                       {
                         "type": "TEXT",
-                        "label": "Process Temparature",
+                        "label": "Process Temperature",
                         "align": "center"
                       },
                       {
@@ -916,7 +916,7 @@
                         "name": "process_temp_min",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -924,14 +924,14 @@
                         "inputClass":"customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "process_temp_max",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -951,7 +951,7 @@
                     [
                       {
                         "type": "TEXT",
-                        "label": "Ambient Temparature",
+                        "label": "Ambient Temperature",
                         "align": "center"
                       },
                       {
@@ -959,7 +959,7 @@
                         "name": "amb_temp_min",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -967,14 +967,14 @@
                         "inputClass":"customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "amb_temp_max",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -991,10 +991,7 @@
                         ]
                       }   
                     ]
-                  ],
-                  "title": "",
-                  "tableClass": "",
-                  "labelClass": "app-content-label"
+                  ]
                 },
                 {
                   "type":"CHECKBOX_INPUT",
@@ -1009,19 +1006,18 @@
                 },
                 {
                   "type": "CUSTOM_BUTTON_GROUP",
-                  "column": 2,
-                  "title": "Fluid Proporties",
-                  "label": "Fluid Proporties",
-                  "name": "fluid_proporties",
+                  "column": 3,
+                  "title": "Fluid Properties",
+                  "label": "Fluid Properties",
                   "showLabel": true,
                   "labelClass": "camelCase"
                 },
                 {
                   "type": "LABEL_TEXT",
-                  "column": 10,
-                  "title": "Fluid Proporties",
-                  "text": "Based on your previuos fluid selection",
-                  "name": "fluid_proporties",
+                  "column": 9,
+                  "title": "Fluid Properties",
+                  "text": "Based on your previous fluid selection",
+                  "name": "fluid_properties",
                   "showLabel": true,
                   "labelClass": "camelCase"
                 },
@@ -1069,7 +1065,7 @@
                         "name": "density_min",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -1077,14 +1073,14 @@
                         "inputClass":"customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "density_max",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -1116,7 +1112,7 @@
                         "name": "viscosity_min",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -1124,14 +1120,14 @@
                         "inputClass":"customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "viscosity_max",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -1155,7 +1151,7 @@
                     [
                       {
                         "type": "TEXT",
-                        "label": "Vapour Pressure",
+                        "label": "Vapor pressure",
                         "align": "center"
                       },
                       {
@@ -1163,7 +1159,7 @@
                         "name": "vapour_pressure_min",
                         "disabled": false,
                         "align": "center",
-                        "precision": 1
+                        "precision": 4
                       },
                       {
                         
