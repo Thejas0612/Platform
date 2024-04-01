@@ -1,17 +1,23 @@
-const ColoredLine = ({ color }) => (
-  <hr
-    style={{
-      color: color,
-      backgroundColor: color,
-      height: 2,
-      margin: "1rem",
-      borderRadius: "1rem"
-    }}
-  />
-);
 const HorizontalLine = (props) => {
   const { schema } = props;
-  return <div>{schema.horizontalLine ? <ColoredLine color="#E5E4E2" /> : <div></div>}</div>;
+  return (
+    <div>
+      {schema.horizontalLine ? (
+        <hr
+          style={{
+            border: "none",
+            height: "2px",
+            backgroundColor: "#DEDFE0",
+            color: "#DEDFE0",
+            borderRadius: "1rem",
+            margin: "2rem"
+          }}
+        />
+      ) : (
+        <div></div>
+      )}
+    </div>
+  );
 };
 
 export default HorizontalLine;
