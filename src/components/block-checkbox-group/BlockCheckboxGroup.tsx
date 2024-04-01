@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import React from "react";
 import { FormHelperText, Stack } from "@mui/material";
 import { BlockCheckbox, BlockCheckboxProps } from "./BlockCheckbox";
 import { MsolComponentHighlighter } from "../msol-component-highlighter/MsolComponentHighlighter";
@@ -14,7 +14,7 @@ export interface BlockCheckboxGroupProps {
   onChange?: (selectedId: string[]) => void;
 }
 
-export const BlockCheckboxGroup: FunctionComponent<BlockCheckboxGroupProps> = ({
+export const BlockCheckboxGroup: React.FC<BlockCheckboxGroupProps> = ({
                                                                                  data,
                                                                                  selectedIds,
                                                                                  error = "",
