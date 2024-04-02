@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FC } from "react";
 import { CardCheckbox, CardCheckboxProps } from "./CardCheckbox";
 import { FormHelperText, Grid } from "@mui/material";
 import { MsolComponentHighlighter } from "../msol-component-highlighter/MsolComponentHighlighter";
@@ -16,7 +16,7 @@ export interface CardCheckboxGroupProps {
 }
 
 
-export const CardCheckboxGroup: FunctionComponent<CardCheckboxGroupProps> = ({
+export const CardCheckboxGroup: FC<CardCheckboxGroupProps> = ({
                                                                                comparedIds = [],
                                                                                selectedId,
                                                                                data,
