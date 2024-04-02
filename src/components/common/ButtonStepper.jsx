@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ButtonInput } from "../dynamic-ui/uiComponentsConfig";
-import "./buttonStepper.css";
+import { button_stepper_wrapper } from "./buttonStepper.module.css";
 import { changeAccordionStatus, schemaValidations } from "../../schema-service/schemaValidations";
 import { changeActiveIndex } from "../../redux/reducers/initialBuDataSlice";
 import PropTypes from "prop-types";
@@ -16,12 +16,13 @@ const ButtonStepper = ({ data, schema, updateValidations, buCode }) => {
       updateValidations(update_errors?.update_schema, buCode);
       return;
     }
+    if (activeIndex + 1 === 2) return;
     dispatch(changeActiveIndex(activeIndex + 1));
     updateValidations(update_errors?.update_schema, buCode);
   };
 
   return (
-    <div className="button_stepper_wrapper">
+    <div className={button_stepper_wrapper}>
       {activeIndex > 0 ? (
         <ButtonInput
           label="Previous"
@@ -37,7 +38,6 @@ const ButtonStepper = ({ data, schema, updateValidations, buCode }) => {
       )}
       {activeIndex >= 0 && (
         <ButtonInput
-          disabled={activeIndex === 1 ? true : false}
           label="Next"
           onClick={() => {
             onNextChange();
@@ -48,7 +48,7 @@ const ButtonStepper = ({ data, schema, updateValidations, buCode }) => {
   );
 };
 
-ButtonStepper.PropTypes = {
+ButtonStepper.propTypes = {
   schema: PropTypes.object.isRequired,
   data: PropTypes.array.isRequired,
   updateValidations: PropTypes.func,

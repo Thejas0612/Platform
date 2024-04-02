@@ -1,11 +1,13 @@
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import { menuData } from "./containers/landing/landingPageCards";
-import { Header } from "./components/dynamic-ui/uiComponentsConfig";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Landing from "./containers/landing/Landing";
 import "@emerson/dynamic-ui-public/dist/emerson-ui.css";
 import DpFlowUiLayout from "./containers/layout/ui-sections/dpflow/DpFlowUiLayout";
 import ProjectLookoutUiLayout from "./containers/layout/ui-sections/project-lookout/ProjectLookoutUiLayout";
 import TempUiLayout from "./containers/layout/ui-sections/temperature/TempUiLayout";
+import CustomLayout from "./containers/layout/custom/CustomLayout";
+import { Test } from "./pages/Test";
+import TemperaturePlayground from "./pages/TemperaturePlayground";
+import tileAndThumbnail from "./components/tile-thumbnail/TileAndThumbnail";
 
 const App = () => {
   return (
@@ -19,6 +21,10 @@ const App = () => {
           component={ProjectLookoutUiLayout}
         />
         <Route path="/platform_bucode=tempPA" exact={true} component={TempUiLayout} />
+        <Route path="/custom" exact={true} component={CustomLayout} />
+        <Route path="/test" exact={true} component={Test} />
+        <Route path="/temperature-playground" exact={true} component={TemperaturePlayground} />
+        <Route path="/my" exact={true} component={tileAndThumbnail} />
       </Switch>
     </Router>
   );

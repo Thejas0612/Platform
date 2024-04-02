@@ -5,7 +5,6 @@ import { STATUS } from "../../../../status";
 import TempLeftLayout from "./TempLeftLayout";
 import TempRightLayout from "./TempRightLayout";
 import TopLayout from "../TopLayout";
-import { useEffect } from "react";
 export default function TempUiLayout() {
   const status = useSelector((state) => state.initialBuData.status);
 

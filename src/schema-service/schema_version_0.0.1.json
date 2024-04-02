@@ -134,28 +134,7 @@
                   "labelClass": "app-content-label",
                   "disabled": false,
                   "value": "",
-                  "options": [
-                    {
-                      "value": "0",
-                      "label": "15",
-                      "id": "0"
-                    },
-                    {
-                      "value": "1",
-                      "label": "20",
-                      "id": "1"
-                    },
-                    {
-                      "value": "2",
-                      "label": "25",
-                      "id": "2"
-                    },
-                    {
-                      "value": "3",
-                      "label": "30",
-                      "id": "3"
-                    }
-                  ],
+                  "options": [],
                   "required": true,
                   "error": "",
                   "errorClass": "",
@@ -169,7 +148,8 @@
                     },
                     "targetUiElement": "pipeschedule",
                     "targetProperty": "options"
-                  }
+                  },
+                  "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingLineSize?buCode=dpflow"
                 },
                 {
                   "column": 3,
@@ -206,7 +186,7 @@
                   "title": "Fluid Type",
                   "label": "Fluid Type",
                   "name": "fluidtype",
-                  "options": [
+                  "data": [
                     {
                       "id": "0",
                       "label": "Liquid"
@@ -275,7 +255,8 @@
                   "required": true,
                   "error": "",
                   "errorClass": "",
-                  "placeholder": "Pick One"
+                  "placeholder": "Pick One",
+                  "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID"
                 },
                 {
                   "column": 12,

@@ -60,26 +60,10 @@ export default function DpFlowUiLayout() {
     setSchema({ ...schema, [buCode]: field });
   };
 
-  const getSchema = async () => {
-    const res = await getLineSizeValues();
-    const liquidRes = await getFluidDatabaseValues();
-    if (
-      Object.keys(res)?.length > 0 &&
-      Object.keys(liquidRes)?.length > 0 &&
-      res?.apiResponse?.length > 0
-    ) {
-      const updated_schema = await updateApiDataInSchema(res, data.dpFlow);
-      const updated_liquidValues = await updateApiDataInSchema(liquidRes, updated_schema);
-      setSchema({ ...data, [buCode]: updated_liquidValues });
-      setIsLoading(false);
-      return;
-    }
-    setSchema(data);
-    setIsLoading(false);
-  };
   useEffect(async () => {
     dispatch(updateBu(use_location?.state?.bu_code));
-    await getSchema();
+    setSchema(data);
+    setIsLoading(false);
   }, [buCode]);
   return (
     <Grid container>

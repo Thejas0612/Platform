@@ -1,6 +1,6 @@
 const apiEndPoints = {
   lineSize: {
-    api: "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingLineSize?buCode=dpflow",
+    api: process.env.LINE_SIZE_API,
     target: {
       targetUiElementName: "line_size",
       targetProperty: "options",
@@ -10,7 +10,7 @@ const apiEndPoints = {
     }
   },
   fluidsdatabase: {
-    api: "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID",
+    api: process.env.FLUID_DATABASE_LIST,
     target: {
       targetUiElementName: "fluidsdatabase",
       targetProperty: "options",

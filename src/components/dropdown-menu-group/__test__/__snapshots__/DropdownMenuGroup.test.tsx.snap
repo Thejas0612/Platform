@@ -1,0 +1,353 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DropdownMenuGroup /> when dropdown is open, then show checkboxes 1`] = `
+<div
+  aria-hidden="true"
+>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-mhc70k-MuiGrid-root"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+    >
+      <h6
+        class="MuiTypography-root MuiTypography-subtitle2 css-ati914-MuiTypography-root"
+      >
+        Filter By:
+      </h6>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-xl-3 css-9vv5x2-MuiGrid-root"
+    >
+      <div
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth Mui-focused MuiInputBase-sizeSmall css-xt1mbp-MuiInputBase-root-MuiOutlinedInput-root"
+      >
+        <div
+          aria-controls="mui-3"
+          aria-expanded="true"
+          aria-haspopup="listbox"
+          class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+          role="combobox"
+          tabindex="0"
+        >
+          OPERATING TEMPERATURE
+        </div>
+        <input
+          aria-hidden="true"
+          aria-invalid="false"
+          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+          tabindex="-1"
+          value=""
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined MuiSelect-iconOpen css-bpeome-MuiSvgIcon-root-MuiSelect-icon"
+          data-testid="ArrowDropDownIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7 10l5 5 5-5z"
+          />
+        </svg>
+        <fieldset
+          aria-hidden="true"
+          class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+        >
+          <legend
+            class="css-ihdtdm"
+          >
+            <span
+              class="notranslate"
+            >
+              ​
+            </span>
+          </legend>
+        </fieldset>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-xl-3 css-9vv5x2-MuiGrid-root"
+    >
+      <div
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-sizeSmall css-xt1mbp-MuiInputBase-root-MuiOutlinedInput-root"
+      >
+        <div
+          aria-controls="mui-4"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+          role="combobox"
+          tabindex="0"
+        >
+          OPERATING PRESSURE
+        </div>
+        <input
+          aria-hidden="true"
+          aria-invalid="false"
+          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+          tabindex="-1"
+          value=""
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
+          data-testid="ArrowDropDownIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7 10l5 5 5-5z"
+          />
+        </svg>
+        <fieldset
+          aria-hidden="true"
+          class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+        >
+          <legend
+            class="css-ihdtdm"
+          >
+            <span
+              class="notranslate"
+            >
+              ​
+            </span>
+          </legend>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<DropdownMenuGroup /> when dropdown is open, then show checkboxes 2`] = `
+<div
+  class="MuiPopover-root MuiMenu-root MuiModal-root css-10nakn3-MuiModal-root-MuiPopover-root-MuiMenu-root"
+  id="menu-"
+  role="presentation"
+>
+  <div
+    aria-hidden="true"
+    class="MuiBackdrop-root MuiBackdrop-invisible MuiModal-backdrop css-g3hgs1-MuiBackdrop-root-MuiModal-backdrop"
+    style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+  />
+  <div
+    data-testid="sentinelStart"
+    tabindex="0"
+  />
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation8 MuiPopover-paper MuiMenu-paper MuiMenu-paper css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper"
+    style="opacity: 1; transform: none; min-width: 0; transition: opacity 0ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 0ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; top: 16px; left: 16px; transform-origin: -16px -16px;"
+    tabindex="-1"
+  >
+    <ul
+      aria-multiselectable="true"
+      class="MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list"
+      id="mui-3"
+      role="listbox"
+      tabindex="-1"
+    >
+      <li
+        aria-selected="false"
+        class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-dense Mui-focusVisible MuiMenuItem-root MuiMenuItem-dense css-1djjkxs-MuiButtonBase-root-MuiMenuItem-root"
+        data-value="GREATER_THAN_400_F"
+        role="option"
+        tabindex="0"
+      >
+        <span
+          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+        >
+          <input
+            class="PrivateSwitchBase-input css-1m9pwf3"
+            data-indeterminate="false"
+            type="checkbox"
+          />
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+            data-testid="CheckBoxOutlineBlankIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </span>
+        <h6
+          class="MuiTypography-root MuiTypography-subtitle2 css-ati914-MuiTypography-root"
+        >
+          Greater Than 400 F (204 C)
+        </h6>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </li>
+      <li
+        aria-selected="false"
+        class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-dense MuiMenuItem-root MuiMenuItem-dense css-1djjkxs-MuiButtonBase-root-MuiMenuItem-root"
+        data-value="LESS_THAN_400_F"
+        role="option"
+        tabindex="-1"
+      >
+        <span
+          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+        >
+          <input
+            class="PrivateSwitchBase-input css-1m9pwf3"
+            data-indeterminate="false"
+            type="checkbox"
+          />
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+            data-testid="CheckBoxOutlineBlankIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </span>
+        <h6
+          class="MuiTypography-root MuiTypography-subtitle2 css-ati914-MuiTypography-root"
+        >
+          Less Than 400 F (204 C)
+        </h6>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </li>
+    </ul>
+  </div>
+  <div
+    data-testid="sentinelEnd"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`<DropdownMenuGroup /> when state is default, then show 2 dropdowns 1`] = `
+<div>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-mhc70k-MuiGrid-root"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+    >
+      <h6
+        class="MuiTypography-root MuiTypography-subtitle2 css-ati914-MuiTypography-root"
+      >
+        Filter By:
+      </h6>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-xl-3 css-9vv5x2-MuiGrid-root"
+    >
+      <div
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-sizeSmall css-xt1mbp-MuiInputBase-root-MuiOutlinedInput-root"
+      >
+        <div
+          aria-controls="mui-1"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+          role="combobox"
+          tabindex="0"
+        >
+          OPERATING TEMPERATURE
+        </div>
+        <input
+          aria-hidden="true"
+          aria-invalid="false"
+          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+          tabindex="-1"
+          value=""
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
+          data-testid="ArrowDropDownIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7 10l5 5 5-5z"
+          />
+        </svg>
+        <fieldset
+          aria-hidden="true"
+          class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+        >
+          <legend
+            class="css-ihdtdm"
+          >
+            <span
+              class="notranslate"
+            >
+              ​
+            </span>
+          </legend>
+        </fieldset>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-xl-3 css-9vv5x2-MuiGrid-root"
+    >
+      <div
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-sizeSmall css-xt1mbp-MuiInputBase-root-MuiOutlinedInput-root"
+      >
+        <div
+          aria-controls="mui-2"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+          role="combobox"
+          tabindex="0"
+        >
+          OPERATING PRESSURE
+        </div>
+        <input
+          aria-hidden="true"
+          aria-invalid="false"
+          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+          tabindex="-1"
+          value=""
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
+          data-testid="ArrowDropDownIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7 10l5 5 5-5z"
+          />
+        </svg>
+        <fieldset
+          aria-hidden="true"
+          class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+        >
+          <legend
+            class="css-ihdtdm"
+          >
+            <span
+              class="notranslate"
+            >
+              ​
+            </span>
+          </legend>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>
+`;
