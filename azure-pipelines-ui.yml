@@ -1,5 +1,5 @@
 trigger:
-  - iteration_24.2.5
+  - iteration_24.3.1
 
 pool:
   vmImage: "ubuntu-latest"
