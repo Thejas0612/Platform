@@ -1,5 +1,5 @@
 import { CardCheckboxGroup, CardCheckboxGroupProps } from "../components/card-checkbox-group/CardCheckboxGroup";
-import { FunctionComponent, useState } from "react";
+import { FC, useState } from "react";
 import { FilterButton } from "../components/filter-button/FilterButton";
 import { Box, Paper, Stack } from "@mui/material";
 import { Dropdown, DropdownMenuGroup } from "../components/dropdown-menu-group/DropdownMenuGroup";
@@ -79,9 +79,9 @@ const CARD_CHECKBOX_GROUP_DATA: CardCheckboxGroupProps["data"] = [
   },
   {
     id: "5",
-    name: "5", title: "Density", imageUrl: "flow__density-product.png"
+    name: "5", title: "Density", imageUrl: "https://placehold.co/150x150"
   },
-  { id: "6", name: "6", title: "Viscosity", imageUrl: "https://placehold.co/150x150" }
+  { id: "6", name: "6", title: "Viscosity", imageUrl: "flow__viscosity-product.png" }
 ];
 
 
@@ -108,7 +108,7 @@ const BLOCK_CHECKBOX_GROUP_DATA: BlockCheckboxGroupRow[] = [
 ];
 
 
-export const Test: FunctionComponent = () => {
+export const Test: FC = () => {
   const [showDropdownMenuGroup, setShowDropdownMenuGroup] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<{ [key: string]: string[] }>({
     APPROVALS: [],

@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FC } from "react";
 import { Box, Checkbox, Stack, Typography } from "@mui/material";
 import styles from "./BlockCheckbox.module.css";
 
@@ -11,7 +11,7 @@ export interface BlockCheckboxProps {
   description: string
 }
 
-export const BlockCheckbox: FunctionComponent<BlockCheckboxProps> = ({
+export const BlockCheckbox: FC<BlockCheckboxProps> = ({
                                                                        checked,
                                                                        onChange = () => {
                                                                        },
