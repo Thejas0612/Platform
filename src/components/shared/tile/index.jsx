@@ -57,12 +57,12 @@ function TileorThumbnail({ name, options, defaultIds, onChange, error, ...props 
     const fetchTileData = async () => {
         if (props.dataSourceUrl) {
             let res = await fetch(props.dataSourceUrl)
-                                .catch((error) => {
-                                    console.log(error);
-                                    setError('API Fetch Error')
-                                });
+                .catch((error) => {
+                    console.log(error);
+                    setError('API Fetch Error')
+                });
             if (res) {
-              data = await res.json();
+                data = await res.json();
             }
             setData(data)
         }
@@ -76,12 +76,13 @@ function TileorThumbnail({ name, options, defaultIds, onChange, error, ...props 
                         <Card
                             sx={{ cursor: 'pointer', border: selectedIds.includes(item.id) ? '1px solid #00805a' : '' }}
                             onClick={(e) => handleSelect(e, item.id)}
+                            className={error ? 'img-button-item-error' : ""}
                         >
-                            <Grid container spacing={2}>
-                                <Grid item xs={2} display={'flex'} justifyContent={'center'} alignItems={'center'}>
+                            <Grid container display={'flex'} alignItems={'center'} justifyContent={'center'} sx={{ minHeight: '25vh' }} spacing={2}>
+                                <Grid item xs={2} display={'flex'} alignItems={'center'} justifyContent={'center'}>
                                     <StyledCheckBoxInput checked={selectedIds.includes(item.id) ? true : false} color='primary' />
                                 </Grid>
-                                <Grid item xs={3} display={'flex'} justifyContent={'center'}>
+                                <Grid item xs={3} >
                                     <Box
                                         component="img"
                                         alt="auth"
@@ -93,18 +94,21 @@ function TileorThumbnail({ name, options, defaultIds, onChange, error, ...props 
                                 </Grid>
                                 <Grid item xs={7}>
                                     <CardContent sx={{ m: 2 }}>
-                                        <Typography gutterBottom variant="h5" component="div">
+                                        <Typography gutterBottom variant="h6" component="div">
                                             {item.name}
                                         </Typography>
                                         <Typography variant="body2" color="text.secondary">
                                             {item.description}
                                         </Typography>
                                     </CardContent>
-                                </Grid>
+                                </Grid> 
                             </Grid>
                         </Card>
                     </div>
                 ))}
+                <Box sx={{ mt: 2 }}>
+                    {error && <Typography variant='subtitle1' error={error}>{ error }</Typography>}
+                </Box>
             </Stack>
         </>
     )

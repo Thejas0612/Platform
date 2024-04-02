@@ -350,10 +350,10 @@ function CustomLayout() {
             "description": "",
             "defaultDirection": "tile"
           },
-          "error": "This is required",
+          "error": "",
           "showAlert": false,
           "defaultIds": [],
-          // "dataSourceUrl": "https://jsonplaceholder.typicode.com/users",
+          "dataSourceUrl": "https://jsonplaceholder.typicode.com/users",
           "options": []
         },
         {
@@ -367,6 +367,8 @@ function CustomLayout() {
     }
   ])
 
+  //create a function to loop throug the above schema array
+  
   const generateFeilds = (inputFeilds) => {
 
     if (!inputFeilds.length) {
@@ -378,9 +380,7 @@ function CustomLayout() {
 
   const handleInput = (e, formData, schemaData, fieldName) => {
 
-    console.log({e,  formData, schemaData, fieldName });
-
-    const newSchema = schemaData.slice();
+    // const newSchema = schemaData.slice();
 
     // const latestSchema = newSchema.map((group, i) => {
     //   group.fields.map(field => {
@@ -408,8 +408,11 @@ function CustomLayout() {
       <Grid container>
         <Grid item xs={6}>
           <MSOLDynamicForm
-            schema={() => generateFeilds(schema)}
+            schema={schema}
             handleChange={(event, a, b, c) => handleInput(event, a, b, c)}
+            handleKeyPress={function noRefCheck() { }}
+            handleSubmit={function noRefCheck() { }}
+            updateData={function noRefCheck() { }}
           />
         </Grid>
       </Grid>
