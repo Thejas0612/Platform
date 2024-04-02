@@ -79,9 +79,9 @@ const CARD_CHECKBOX_GROUP_DATA: CardCheckboxGroupProps["data"] = [
   },
   {
     id: "5",
-    name: "5", title: "Density", imageUrl: "flow__density-product.png"
+    name: "5", title: "Density", imageUrl: "https://placehold.co/150x150"
   },
-  { id: "6", name: "6", title: "Viscosity", imageUrl: "https://placehold.co/150x150" }
+  { id: "6", name: "6", title: "Viscosity", imageUrl: "flow__viscosity-product.png" }
 ];
 
 
