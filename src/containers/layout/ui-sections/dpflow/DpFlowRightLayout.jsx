@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import ButtonStepper from "../../../../components/common/ButtonStepper";
 import { getDynamicFormSchema, updateSchema } from "../../../../schema-service/schemaService";
 import PropTypes from "prop-types";
+import MSOLDynamicForm from "../../../../components/shared/dynamicform";
 
 const DpFlowRightLayout = ({ schema, updateFieldsInSchema, updateValidations }) => {
   const buCode = useSelector((state) => state.initialBuData?.selectedBu);
@@ -18,14 +19,11 @@ const DpFlowRightLayout = ({ schema, updateFieldsInSchema, updateValidations }) 
   if (data?.length > 0) {
     return (
       <div>
-        <DynamicForm
+        <MSOLDynamicForm
           schema={data}
-          handleChange={(e, formObj, formData, name, isValid) => {
-            onUpdateSchema(e, formObj, formData, name, isValid);
-          }}
-          handleKeyPress={(a, b, c) => console.log("a,b,c handleKeyPress", a, b, c)}
-          handleSubmit={() => {}}
-          updateData={(a, b, c, d) => console.log("a,b,c,d updateData", a, b, c, d)}
+          handleChange={(e, formObj, formData, name, isValid) =>
+            onUpdateSchema(e, formObj, formData, name, isValid)
+          }
         />
         <div>
           <ButtonStepper

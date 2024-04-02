@@ -4,21 +4,25 @@ import { ButtonInput } from "../dynamic-ui/uiComponentsConfig";
 import { changeActiveIndex } from "../../redux/reducers/initialBuDataSlice";
 import "./buttonStepper.css";
 
-export default function ButtonStepperCommon() {
+export default function ButtonStepperCommon({ updateSchemaIndex }) {
   const activeIndex = useSelector((state) => state.initialBuData?.activeIndex);
   const dispatch = useDispatch();
+  const changeIndex = (i) => {
+    dispatch(changeActiveIndex(i));
+    updateSchemaIndex(i);
+  }
   return (
     <div className="button_stepper_wrapper">
       {activeIndex > 0 ? (
         <ButtonInput
           label="Previous"
           showBackIcon={true}
-          onClick={() => dispatch(changeActiveIndex(activeIndex - 1))}
+          onClick={() => changeIndex(activeIndex - 1)}
         />
       ) : (
         <div></div>
       )}
-      <ButtonInput label="Next" onClick={() => dispatch(changeActiveIndex(activeIndex + 1))} />
+      <ButtonInput label="Next" onClick={() => changeIndex(activeIndex + 1)} />
     </div>
   );
 }
