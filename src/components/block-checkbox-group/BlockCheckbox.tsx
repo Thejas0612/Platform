@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Box, Checkbox, Stack, Typography } from "@mui/material";
+import { Box, Checkbox, Stack, Typography, useTheme } from "@mui/material";
 import styles from "./BlockCheckbox.module.css";
 
 export interface BlockCheckboxProps {
@@ -12,14 +12,16 @@ export interface BlockCheckboxProps {
 }
 
 export const BlockCheckbox: FC<BlockCheckboxProps> = ({
-                                                                       checked,
-                                                                       onChange = () => {
-                                                                       },
-                                                                       imgUrl,
-                                                                       disabled = false,
-                                                                       title,
-                                                                       description
-                                                                     }) => {
+                                                        checked,
+                                                        onChange = () => {
+                                                        },
+                                                        imgUrl,
+                                                        disabled = false,
+                                                        title,
+                                                        description
+                                                      }) => {
+  const theme = useTheme();
+
   const handleChange = () => {
     if (disabled) {
       return;
@@ -27,6 +29,7 @@ export const BlockCheckbox: FC<BlockCheckboxProps> = ({
 
     onChange();
   };
+
   return <Box
     onClick={handleChange}
     sx={{
@@ -45,11 +48,11 @@ export const BlockCheckbox: FC<BlockCheckboxProps> = ({
 
       <Box sx={{ margin: 2 }}>
         <>
-          <Typography gutterBottom variant="h5">
+          <Typography gutterBottom variant="h5" sx={{ color: disabled ? theme.palette.text.disabled : undefined }}>
             {title}
           </Typography>
 
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" sx={{ color: disabled ? theme.palette.text.disabled : undefined }}>
             {description}
           </Typography>
         </>

@@ -15,12 +15,13 @@ export interface BlockCheckboxGroupProps {
 }
 
 export const BlockCheckboxGroup: FC<BlockCheckboxGroupProps> = ({
-                                                                                 data,
-                                                                                 selectedIds,
-                                                                                 error = "",
-                                                                                 onChange = () => {
-                                                                                 }
-                                                                               }) => {
+                                                                  data,
+                                                                  selectedIds,
+                                                                  error = "",
+                                                                  onChange = () => {
+                                                                  }
+                                                                }) => {
+
   return <MsolComponentHighlighter>
     <>
       <Stack spacing={4}>
