@@ -1,16 +1,26 @@
 import { DynamicForm } from "../../../../components/dynamic-ui/uiComponentsConfig";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ButtonStepperCommon from "../../../../components/button/ButtonStepperCommon";
 import getSchemaForDynamicForm from "../../../../adapterDataManager/schema/getSchema";
+import { changeStepperIndex } from "../schemaMutations";
+import { updateLeftSection } from "../../../../redux/reducers/initialBuDataSlice";
 
 export default function TempRightLayout() {
   const rightSecSchema = useSelector((state) => state.initialBuData?.rightSection);
   const activeIndex = useSelector((state) => state.initialBuData?.activeIndex);
+  const leftSecSchema = useSelector((state) => state.initialBuData?.leftSection);
+
+  const dispatch = useDispatch();
 
   if (rightSecSchema?.length > 0) {
     const { componentProps } = rightSecSchema[0];
     const activeIndxSchema = getSchemaForDynamicForm(activeIndex, componentProps?.schema);
     const activeIndexCopy = JSON.parse( JSON.stringify( activeIndxSchema ) );
+
+    const updateSchemaIndex = (i) => {
+      const leftSchema = changeStepperIndex(leftSecSchema, i);
+      dispatch(updateLeftSection(leftSchema))
+    }
 
     return (
       <div>
@@ -23,7 +33,7 @@ export default function TempRightLayout() {
 
           updateData={(a, b, c, d) => console.log("a,b,c,d updateData", a, b, c, d)}/>
         <div>
-          <ButtonStepperCommon />
+          <ButtonStepperCommon updateSchemaIndex={updateSchemaIndex}/>
         </div>
       </div>
     );
