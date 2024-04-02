@@ -14,7 +14,7 @@
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "preview": "vite preview --host --port 3000",
     "start-app": "npm run build && npm run preview"
-  },  
+  },
   "dependencies": {
     "@emerson/dynamic-ui-public": "^0.0.1",
     "@emotion/react": "^11.11.1",
@@ -32,6 +32,7 @@
     "mathjs": "^11.11.2",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^17.0.2",
     "react-i18next": "^13.3.1",
     "react-redux": "^8.0.2",

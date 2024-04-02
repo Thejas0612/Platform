@@ -1,4 +1,4 @@
-import { FunctionComponent, MouseEventHandler } from "react";
+import { FC, MouseEventHandler } from "react";
 import { Box, Checkbox, FormControlLabel, Grid, Tooltip, Typography, useTheme } from "@mui/material";
 import styles from "./CardCheckbox.module.css";
 
@@ -28,7 +28,7 @@ const HORIZONTAL_CENTER_TOOLTIP: Parameters<typeof Tooltip>[0]["slotProps"] = {
   }
 };
 
-export const CardCheckbox: FunctionComponent<CardCheckboxProps> = ({
+export const CardCheckbox: FC<CardCheckboxProps> = ({
                                                                      name,
                                                                      title,
                                                                      imageUrl,
