@@ -16,6 +16,7 @@ const ButtonStepper = ({ data, schema, updateValidations, buCode }) => {
       updateValidations(update_errors?.update_schema, buCode);
       return;
     }
+    if (activeIndex + 1 === 2) return;
     dispatch(changeActiveIndex(activeIndex + 1));
     updateValidations(update_errors?.update_schema, buCode);
   };
