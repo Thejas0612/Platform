@@ -48,7 +48,7 @@ exports[`<BlockCheckboxGroup /> when state is default, then show 1 unchecked che
             1 - Unchecked
           </h5>
           <p
-            class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-e784if-MuiTypography-root"
           >
             Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, differential pressure, vortex, magnetic, ultrasonic, turbine and positive displacement meters.
           </p>
@@ -99,7 +99,7 @@ exports[`<BlockCheckboxGroup /> when state is default, then show 1 unchecked che
             2 - Checked
           </h5>
           <p
-            class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-e784if-MuiTypography-root"
           >
             Our density measurement devices offer reliable performance for applications such as concentration, API, Brix, and more.
           </p>
@@ -144,12 +144,12 @@ exports[`<BlockCheckboxGroup /> when state is default, then show 1 unchecked che
           class="MuiBox-root css-1c5ij41"
         >
           <h5
-            class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-h93ljk-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-1wbh7rs-MuiTypography-root"
           >
             3 - Disabled
           </h5>
           <p
-            class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-16fcjk7-MuiTypography-root"
           >
             Our inline viscosity meter offers accurate, repeatable measurement in industries such as refining, chemical, life sciences, and more.
           </p>
@@ -208,7 +208,7 @@ exports[`<BlockCheckboxGroup /> when state is error, then show error message. 1`
             1 - Unchecked
           </h5>
           <p
-            class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-e784if-MuiTypography-root"
           >
             Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, differential pressure, vortex, magnetic, ultrasonic, turbine and positive displacement meters.
           </p>
@@ -259,7 +259,7 @@ exports[`<BlockCheckboxGroup /> when state is error, then show error message. 1`
             2 - Checked
           </h5>
           <p
-            class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-e784if-MuiTypography-root"
           >
             Our density measurement devices offer reliable performance for applications such as concentration, API, Brix, and more.
           </p>
@@ -304,12 +304,12 @@ exports[`<BlockCheckboxGroup /> when state is error, then show error message. 1`
           class="MuiBox-root css-1c5ij41"
         >
           <h5
-            class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-h93ljk-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-1wbh7rs-MuiTypography-root"
           >
             3 - Disabled
           </h5>
           <p
-            class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-16fcjk7-MuiTypography-root"
           >
             Our inline viscosity meter offers accurate, repeatable measurement in industries such as refining, chemical, life sciences, and more.
           </p>
