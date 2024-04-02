@@ -9,6 +9,9 @@ const theme = createTheme({
     },
     secondary: {
       main: "#f3f3f3"
+    },
+    error: {
+      main: "#D31245"
     }
   },
   components: {
@@ -23,9 +26,20 @@ const theme = createTheme({
     },
     MuiTypography: {
       styleOverrides: {
+        root: ({ ownerState, theme }) => ({
+          color: ownerState.error && theme.palette.error.main
+        }),
         h1: {
           fontSize: 14,
           fontWeight: "bold"
+        },
+        h2: {},
+        h3: {},
+        h4: {},
+        h5: {},
+        h6: {},
+        subtitle1: {
+          fontSize: 18
         }
       }
     },
@@ -60,5 +74,4 @@ const theme = createTheme({
     }
   }
 });
-
 export default theme;

@@ -7,7 +7,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import InfoIcon from '@mui/icons-material/Info'
-
 import SelectInput from './SelectInput';
 import TextInput from './TextInput';
 import styled from '@emotion/styled';
@@ -66,7 +65,7 @@ function TableInput({ value, data, onChange, ...props }) {
                            {ele.label}
                            {ele.title && (
                               <IconButton>
-                                 <InfoIcon color='primary' fontSize='small' />
+                                 <InfoIcon htmlColor='#00573d' fontSize='small' />
                               </IconButton>
                            )}
                         </TableCell>

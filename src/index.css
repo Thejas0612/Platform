@@ -12,6 +12,10 @@ body {
   display: none !important; 
 }
 
+.img-button-item-error {
+  border: 1px solid #D31245 !important;
+}
+
 .selectinput {
   margin: 12px;
 }

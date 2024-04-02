@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useImperativeHandle } from 'react';
 import {
     SelectInput,
     TextInput,
@@ -15,7 +15,8 @@ import {
     ImageCard,
     DataTable,
     ImageThumbnail,
-    ImageButtonInput
+    ImageButtonInput,
+    DragAndDrop
 } from '@emerson/dynamic-ui-public';
 import CardContent from '@mui/material/CardContent';
 import { Grid, Stack, Typography } from '@mui/material';
@@ -41,10 +42,11 @@ const FORM_FEILDS = {
     "IMAGE_CARD": ImageCard,
     "DATA_TABLE": DataTable,
     "IMAGE_THUMBNAIL": ImageThumbnail,
-    "IMAGE_BUTTON": ImageButtonInput
+    "IMAGE_BUTTON": ImageButtonInput,
+    "DRAG_AND_DROP": DragAndDrop
 }
 
-function MSOLDynamicForm({ schema, handleChange }) {
+const MSOLDynamicForm = (({ schema, handleChange, updateData, handleKeyPress, formKey, dataSourceUrl, components, ...props }) => {
 
     //initial state of formData
     const [formData, setFormData] = React.useState([])
@@ -67,12 +69,27 @@ function MSOLDynamicForm({ schema, handleChange }) {
         });
         setFormData(formData);
         setFormDataObj({ ...formDataObj, [field]: value });
+        //validate the feild
+        let message =  feildValidation(e, type, name, value);
         handleChange(
             e,
             { ...formDataObj, [field]: value },
             formData,
             name,
         );
+    }
+
+    const feildValidation = (e, type, name, value) => {
+        console.log(type, name, value);
+        let error = null;
+
+        //Finding the current field
+        
+        //Check the validation rules based on the validation object and assign the error message 
+
+        //return the error message
+
+        return error;
     }
 
     const generateForm = (
@@ -110,6 +127,6 @@ function MSOLDynamicForm({ schema, handleChange }) {
             </div>
         </>
     )
-}
+})
 
 export default MSOLDynamicForm

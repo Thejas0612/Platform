@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Alert from '@mui/material/Alert';
 import styled from '@emotion/styled';
+import { useTheme } from '@mui/material/styles';
 
 const StyledFormControlLabel = styled(FormControlLabel)(({ theme }) => ({
     margin: 0,
@@ -70,7 +71,7 @@ function CheckboxInput({ name, label, options, selectedIds, onChange, error, ...
                         {option.info &&
                             <Tooltip title={option.info} placement='top' arrow>
                                 <IconButton>
-                                    <InfoIcon color='primary' />
+                                    <InfoIcon htmlColor='#00573d' />
                                 </IconButton>
                             </Tooltip>
                         }
@@ -79,7 +80,7 @@ function CheckboxInput({ name, label, options, selectedIds, onChange, error, ...
             ))
             }
             <Box sx={{ mt: 2 }}>
-                {error && <Alert severity="error">{error}</Alert>}
+                {error && <Typography variant='subtitle1' error={error}>{error}</Typography>}
             </Box>
         </>
     )
