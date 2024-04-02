@@ -1,8 +1,8 @@
-import React from "react";
+import { FC } from "react";
 import { environment } from "../../config/environment";
 import { Box } from "@mui/material";
 
-export const MsolComponentHighlighter: React.FC = ({ children }) => {
+export const MsolComponentHighlighter: FC = ({ children }) => {
   const showBorder = environment.VITE_HIGHLIGHT_MSOL_COMPONENTS;
 
   if (showBorder) {

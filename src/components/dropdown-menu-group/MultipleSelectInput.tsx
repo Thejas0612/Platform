@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { FC, useState } from "react";
 import { Checkbox, MenuItem, OutlinedInput, Select, SelectChangeEvent, Typography } from "@mui/material";
 import isString from "lodash/isString";
 
@@ -36,7 +36,7 @@ function renderValueWithPlaceholder(value: string | string[], placeholder: strin
   }
 }
 
-export const MultipleSelectInput: React.FC<MultipleSelectInputProps> = ({
+export const MultipleSelectInput: FC<MultipleSelectInputProps> = ({
                                                                                    placeholder,
                                                                                    options,
                                                                                    onChange = () => {
