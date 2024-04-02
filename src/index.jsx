@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store/store";
 import { ThemeProvider } from "@mui/material";
 import theme from "./theme";
+import "./index.css";
 
 render(
   <ThemeProvider theme={theme}>
