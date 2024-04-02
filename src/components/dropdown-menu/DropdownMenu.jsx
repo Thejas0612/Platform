@@ -10,34 +10,34 @@ import { Grid, } from "@mui/material";
 function DropdownMenu(props) {
     const { schema } = props;
     const [defaultValue, setDefaultValue] = React.useState('');
-    const handleChange = (e) => {};
+    const handleChange = (e) => { };
     return (
-        <div style={{ margin: '4rem' }}>
-            {schema.data.map((item) => (
-                <span>
-                    <FormControl sx={{ m: 1, width: 300, mt: 3, margin: '1rem' }} style={{ width: '300px', height: '60px', margin: '' }} size='small' color='success'>
-                        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                            <Grid item xs={12} >
-                                <label >{item.label}</label>
-                                {item.tooltipEnable ? <Tooltip title={item.tooltipMessage} placement="top" arrow>
-                                    <IconButton>
-                                        <InfoIcon color="primary" fontSize="small" />
+        <Grid item xs={schema.column}>
+            <div style={{ margin: '1rem' }}>
+                <FormControl sx={{ m: 1, mt: 3, margin: '1rem', width: "100%" }} size='small' color='success'>
+                    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                        <Grid item xs={12} >
+                            <div style={{ minHeight: "2rem" }}>
+                                <label >{schema.label}</label>
+                                {schema.tooltipEnable ? <Tooltip title={schema.tooltipMessage} placement="top" arrow>
+                                    <IconButton sx={{ padding: 0, paddingLeft: '.5rem' }}>
+                                        <InfoIcon sx={{ color: '#00573d' }} fontSize="small" />
                                     </IconButton>
-                                </Tooltip> : <div style={{ padding: "9px" }}> </div>}
-                                <Select sx={{ borderRadius: "4px", width: '100%' }} autoWidth={true} value={defaultValue} onChange={handleChange}>
-                                    {item.options.length > 0 && item.options.map((opt, i) => (
-                                        <MenuItem key={i} value={opt.label}>
-                                            {opt.label}
-                                        </MenuItem>
-                                    ))}
-                                </Select>
-                            </Grid>
+                                </Tooltip> : <></>}
+                            </div>
+                            <Select sx={{ width: '100%' }} value={defaultValue} onChange={handleChange}>
+                                {schema.options.length > 0 && schema.options.map((opt, i) => (
+                                    <MenuItem key={i} value={opt.label}>
+                                        {opt.label} {schema.column}
+                                    </MenuItem>
+                                ))}
+                            </Select>
                         </Grid>
-                    </FormControl>
-                    {item.nextLine ? <br></br> : ""}
-                </span>
-            ))}
-        </div>
+                    </Grid>
+                </FormControl>
+                {schema.nextLine ? <br></br> : ""}
+            </div>
+        </Grid>
     )
 }
 
