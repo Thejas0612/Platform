@@ -225,7 +225,7 @@ const schema_Checkmark_dash = {
            {
               "id":1,
               "title":"X-well",
-              "description":"Rosemount� X-well Technology measures process temperature accurately and reliably without a thermowell",
+              "description":"Rosemount™ X-well Technology measures process temperature accurately and reliably without a thermowell",
               "imgUrl":"https://www.emerson.com/resource/image/184154/portrait_ratio3x4/768/1024/6723fff039465ea8da39ab5c7b7978a2/EC9A2B6CF9DCB16E366CB86F03486544/prod-rmt-en-learn_about-x-well_with_shadows_lcd_rotated-c010.jpg",
               "tootTipEnable":true,
               "tootTipMessage":"X-Well",
@@ -244,8 +244,8 @@ const schema_Checkmark_dash = {
       "value":"",
       "options":[
          {
-            "value":"4-20 mA with HART� Protocol",
-            "label":"4-20 mA with HART� Protocol",
+            "value":"4-20 mA with HART® Protocol",
+            "label":"4-20 mA with HART® Protocol",
             "id":"0"
          },
          {
@@ -399,7 +399,7 @@ const schema_chart_Data = {
         x: {
           title: {
             display: false,
-            text: 'Ambient Temperature (�C)',
+            text: 'Ambient Temperature (°C)',
    
           },
           display: true,
@@ -414,7 +414,7 @@ const schema_chart_Data = {
         y: {
           title: {
             display: false,
-            text: 'Total Probable Error (�C)'
+            text: 'Total Probable Error (°C)'
           },
           position: "center",
           min: -3.5000,
