@@ -4,12 +4,11 @@ import SingleSelect from "./SingleSelect";
 import Label from "./Label";
 
 const TableInput = (props) => {
-   const {schema} = props;
 
    return (
       <>
          <table>
-            {schema.options.map((row, rowIndex) => (
+            {props.options.map((row, rowIndex) => (
                <tr key={rowIndex}>
                   {row.map((cell, cellIndex) => (
                      <td key={cellIndex} style={{ whiteSpace: "nowrap" }}>

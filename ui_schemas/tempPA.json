@@ -280,7 +280,8 @@
                                 {
                                    "type":"TEXT_INPUT",
                                    "label":"",
-                                   "name":"line_pressure_normal"
+                                   "name":"line_pressure_normal",
+                                   "required": true
                                 },
                                 {
                                    "type":"TEXT_INPUT",

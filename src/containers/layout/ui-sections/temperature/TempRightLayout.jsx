@@ -4,6 +4,12 @@ import ButtonStepperCommon from "../../../../components/button/ButtonStepperComm
 import getSchemaForDynamicForm from "../../../../adapterDataManager/schema/getSchema";
 import { changeStepperIndex } from "../schemaMutations";
 import { updateLeftSection } from "../../../../redux/reducers/initialBuDataSlice";
+import MSOLDynamicForm from "../../../../components/shared/dynamicform";
+import TableInput from "../../../../components/table-input/TableInput";
+
+const overrideComponents = {
+  "TABLE_INPUT": TableInput,
+};
 
 export default function TempRightLayout() {
   const rightSecSchema = useSelector((state) => state.initialBuData?.rightSection);
@@ -24,14 +30,13 @@ export default function TempRightLayout() {
 
     return (
       <div>
-         <DynamicForm
-          schema={activeIndexCopy}
-          handleChange={(e, formObj, formData, name, isValid) => {
-            console.log("e,formObj,formData, name, isValid: ",e, formObj, formData, name, isValid)
-          }}
-          handleKeyPress={(a, b, c) => console.log("a,b,c handleKeyPress", a, b, c)}
-
-          updateData={(a, b, c, d) => console.log("a,b,c,d updateData", a, b, c, d)}/>
+         <MSOLDynamicForm
+            schema={activeIndexCopy}
+            overrideComponents={overrideComponents}
+            handleChange={(e, formObj, formData, name, isValid) => {
+              //To-Do event handeling
+            }}
+          />
         <div>
           <ButtonStepperCommon updateSchemaIndex={updateSchemaIndex}/>
         </div>
