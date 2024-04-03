@@ -50,9 +50,6 @@ export const MultipleSelectInput: FC<MultipleSelectInputProps> = ({
     onChange(newValue);
   };
 
- 
-
-
   return <>
 
     <Select
