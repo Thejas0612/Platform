@@ -11,6 +11,7 @@ export interface DropDownOption {
 export interface MultipleSelectInputProps {
   placeholder: string;
   options: DropDownOption[];
+  value: string[];
   onChange: (value: string[]) => void;
 }
 
@@ -39,16 +40,18 @@ function renderValueWithPlaceholder(value: string | string[], placeholder: strin
 export const MultipleSelectInput: FC<MultipleSelectInputProps> = ({
                                                                                    placeholder,
                                                                                    options,
+                                                                                   value,
                                                                                    onChange = () => {
                                                                                    }
                                                                                  }) => {
-  const [value, setValue] = useState<string[]>([]);
 
   const handleChange = (event: SelectChangeEvent<typeof value | string>) => {
     const newValue = isString(event.target.value) ? event.target.value.split(",") : event.target.value;
-    setValue(newValue);
     onChange(newValue);
   };
+
+ 
+
 
   return <>
 

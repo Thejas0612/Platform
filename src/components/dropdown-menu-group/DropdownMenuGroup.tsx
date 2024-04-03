@@ -1,19 +1,21 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Grid, Typography } from "@mui/material";
 import { MultipleSelectInput, MultipleSelectInputProps } from "./MultipleSelectInput";
 import { MsolComponentHighlighter } from "../msol-component-highlighter/MsolComponentHighlighter";
 
-export interface Dropdown extends Omit<MultipleSelectInputProps, "onChange"> {
+export interface Dropdown extends Omit<MultipleSelectInputProps, "onChange"|"value"> {
   id: string;
 }
 
 export interface DropdownMenuGroupProps {
   dropdowns: Dropdown [];
+  selectedOptions:{ [key: string]: string[] };
   onChange?: (dropdownId: string, value: string[]) => void;
 }
 
-export const DropdownMenuGroup: FC<DropdownMenuGroupProps> = ({
+export const DropdownMenuGroup: FC<DropdownMenuGroupProps> = memo(({
                                                                       dropdowns,
+                                                                      selectedOptions,
                                                                       onChange = () => {
                                                                       }
                                                                     }) => {
@@ -27,6 +29,7 @@ export const DropdownMenuGroup: FC<DropdownMenuGroupProps> = ({
         <Grid key={dropdown.id} item xs={6} md={4} xl={3}>
           <MultipleSelectInput
             {...dropdown}
+            value={selectedOptions[dropdown.id]}
             onChange={(value) => {
               onChange(dropdown.id, value);
             }} />
@@ -34,4 +37,4 @@ export const DropdownMenuGroup: FC<DropdownMenuGroupProps> = ({
       ))}
     </Grid>
   </MsolComponentHighlighter>;
-};
+});
