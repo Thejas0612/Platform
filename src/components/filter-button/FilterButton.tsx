@@ -1,15 +1,16 @@
-import { FC, useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { Button } from "@mui/material";
 import TuneIcon from "@mui/icons-material/Tune";
 import CloseIcon from "@mui/icons-material/Close";
 import { MsolComponentHighlighter } from "../msol-component-highlighter/MsolComponentHighlighter";
+import { grey } from "@mui/material/colors";
 
 export interface FilterButtonProps {
   label: string;
   onClick?: () => void;
 }
 
-export const FilterButton: FC<FilterButtonProps> = ({
+export const FilterButton: FunctionComponent<FilterButtonProps> = ({
                                                                      label,
                                                                      onClick = () => {
                                                                      }
@@ -29,7 +30,7 @@ export const FilterButton: FC<FilterButtonProps> = ({
       onClick={handleButtonClick()}
       sx={{
         textTransform: "none",
-        color: "secondary.main"
+        color: grey[900]
       }}
     >
       {label}
