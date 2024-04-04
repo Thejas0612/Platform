@@ -21,6 +21,9 @@
 
 label.camelCase {
   text-transform: capitalize !important;
+  font-size: 1rem !important;
+  font-weight: normal !important;
+  margin-right: 1rem;
 }
 
 .customRequired {
@@ -28,5 +31,5 @@ label.camelCase {
 }
 
 div.unitClass {
-  width: 178px !important;
+  width: 10rem !important;
 }
