@@ -107,7 +107,7 @@ exports[`<BlockCheckboxGroup /> when state is default, then show 1 unchecked che
       </div>
     </div>
     <div
-      class="MuiBox-root css-mx2uwd"
+      class="MuiBox-root css-57zwe8"
     >
       <div
         class="MuiStack-root css-1d9cypr-MuiStack-root"
@@ -267,7 +267,7 @@ exports[`<BlockCheckboxGroup /> when state is error, then show error message. 1`
       </div>
     </div>
     <div
-      class="MuiBox-root css-mx2uwd"
+      class="MuiBox-root css-57zwe8"
     >
       <div
         class="MuiStack-root css-1d9cypr-MuiStack-root"
