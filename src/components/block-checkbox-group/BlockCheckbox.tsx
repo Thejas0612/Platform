@@ -33,7 +33,7 @@ export const BlockCheckbox: FC<BlockCheckboxProps> = ({
   return <Box
     onClick={handleChange}
     sx={{
-      cursor: "pointer",
+      cursor: !disabled ? "pointer" : undefined,
       padding: ".5rem",
       border: checked ? 2 : 1,
       borderColor: checked ? "var(--ddl-color--primary-emerson-green-dark)" : "var(--ddl-color--primary-grey)"
