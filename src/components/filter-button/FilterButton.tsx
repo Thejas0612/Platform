@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FC, useState } from "react";
 import { Button } from "@mui/material";
 import TuneIcon from "@mui/icons-material/Tune";
 import CloseIcon from "@mui/icons-material/Close";
@@ -10,11 +10,11 @@ export interface FilterButtonProps {
   onClick?: () => void;
 }
 
-export const FilterButton: FunctionComponent<FilterButtonProps> = ({
-                                                                     label,
-                                                                     onClick = () => {
-                                                                     }
-                                                                   }) => {
+export const FilterButton: FC<FilterButtonProps> = ({
+                                                      label,
+                                                      onClick = () => {
+                                                      }
+                                                    }) => {
   const [expanded, setExpanded] = useState<boolean>(false);
 
   const handleButtonClick = () => () => {
