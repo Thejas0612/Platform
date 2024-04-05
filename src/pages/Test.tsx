@@ -176,8 +176,8 @@ export const Test: FC = () => {
     <Paper elevation={4} sx={{ padding: "1rem" }}>
       <h3>Normal</h3>
       <BlockCheckboxGroup
-        data={BLOCK_CHECKBOX_GROUP_DATA}
-        selectedIds={blockCheckboxGroupSelectedIds}
+        options={BLOCK_CHECKBOX_GROUP_DATA}
+        defaultIds={blockCheckboxGroupSelectedIds}
         onChange={(selectedIds) => {
           setBlockCheckboxGroupSelectedIds(selectedIds);
         }}
@@ -186,9 +186,9 @@ export const Test: FC = () => {
 
       <h3>Error</h3>
       <BlockCheckboxGroup
-        data={BLOCK_CHECKBOX_GROUP_DATA}
+        options={BLOCK_CHECKBOX_GROUP_DATA}
         error={"Required"}
-        selectedIds={[]} />
+        defaultIds={[]} />
     </Paper>
   </>;
 };

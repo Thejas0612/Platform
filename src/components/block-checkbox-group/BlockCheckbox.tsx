@@ -25,6 +25,7 @@ export const BlockCheckbox: FC<BlockCheckboxProps> = ({
                                                         description,
                                                         tooltip
                                                       }) => {
+  // const [checked, setChecked] = useState(checked);
   const theme = useTheme();
   const colorOverride = disabled ? theme.palette.text.disabled : undefined
 

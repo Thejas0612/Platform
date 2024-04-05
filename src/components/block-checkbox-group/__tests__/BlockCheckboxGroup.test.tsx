@@ -2,8 +2,8 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { BlockCheckboxGroup, BlockCheckboxGroupProps } from "../BlockCheckboxGroup";
 
 const PROPS: BlockCheckboxGroupProps = {
-  selectedIds: ["2"],
-  data: [
+  defaultIds: ["2"],
+  options: [
     {
       id: "1",
       title: "1 - Unchecked",
