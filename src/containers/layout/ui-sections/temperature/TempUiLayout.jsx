@@ -1,5 +1,5 @@
 import { CircularProgress, Grid } from "@mui/material";
-import "./uiLayout.css";
+import "./uiLayout.scss";
 import { useSelector } from "react-redux";
 import { STATUS } from "../../../../status";
 import TempLeftLayout from "./TempLeftLayout";
@@ -10,16 +10,18 @@ export default function TempUiLayout() {
 
   if (status === STATUS.SUCCESSED)
     return (
-      <Grid container>
-        <div className="top_section">
+      <Grid container className="temperature_pa">
+        <Grid item className="top_section">
           <TopLayout />
-        </div>
-        <Grid className="left_section" container direction="row">
-          <Grid xs={12} md={3}>
-            <TempLeftLayout />
-          </Grid>
-          <Grid className="right_section" item xs={12} md={9}>
-            <TempRightLayout />
+        </Grid>
+        <Grid item sx={{width: "100%"}}>
+          <Grid container direction="row">
+            <Grid item className="left_section" xs={12} md={3}>
+              <TempLeftLayout />
+            </Grid>
+            <Grid item className="right_section" xs={12} md={9}>
+              <TempRightLayout />
+            </Grid>
           </Grid>
         </Grid>
       </Grid>

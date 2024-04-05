@@ -1,14 +1,13 @@
-import { TextField, Typography } from "@mui/material";
+import { Grid, TextField, Typography } from "@mui/material";
 import Input from "./Input";
 import SingleSelect from "./SingleSelect";
 import Label from "./Label";
 
-const TableInput = (props) => {
-
+const TableInput = ({options, column = 12, ...props}) => {
    return (
-      <>
+      <Grid item xs={column}>
          <table>
-            {props.options.map((row, rowIndex) => (
+            {options.map((row, rowIndex) => (
                <tr key={rowIndex}>
                   {row.map((cell, cellIndex) => (
                      <td key={cellIndex} style={{ whiteSpace: "nowrap" }}>
@@ -33,7 +32,7 @@ const TableInput = (props) => {
                </tr>
             ))}
          </table>
-      </>
+      </Grid>
     )
 }
 
