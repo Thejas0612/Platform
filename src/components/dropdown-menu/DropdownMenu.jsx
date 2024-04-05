@@ -6,9 +6,11 @@ import InfoIcon from '@mui/icons-material/Info';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import { Grid, } from "@mui/material";
+import { log } from 'mathjs';
 
 function DropdownMenu(schema) {
     const [defaultValue, setDefaultValue] = React.useState('');
+    console.log(schema)
     const handleChange = (e) => { };
     return (
             <div >

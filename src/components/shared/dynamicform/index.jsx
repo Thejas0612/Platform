@@ -47,6 +47,7 @@ const FORM_FEILDS = {
 }
 
 const MSOLDynamicForm = (({ schema, handleChange, updateData, handleKeyPress, formKey, dataSourceUrl, components, overrideComponents = {}, ...props }) => {
+    console.log('sccc',schema)
 
     //initial state of formData
     const [formData, setFormData] = React.useState([])
