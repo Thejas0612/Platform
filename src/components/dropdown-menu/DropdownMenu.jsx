@@ -6,8 +6,30 @@ import InfoIcon from '@mui/icons-material/Info';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import { Grid, } from "@mui/material";
+import axios from 'axios';
+import  { useState, useEffect } from 'react';
+
 
 function DropdownMenu(schema) {
+    const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(schema.dataSourceUrl);
+        setData(response.data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
     const [defaultValue, setDefaultValue] = React.useState('');
     const handleChange = (e) => { };
     return (
@@ -24,6 +46,17 @@ function DropdownMenu(schema) {
                                 </Tooltip> : <></>}
                             </div>
                             <Select sx={{ width: '100%' }} value={defaultValue} onChange={handleChange}>
+                            {isLoading ? (
+    <option>Loading...</option>
+  ) : error ? (
+    <option>Error: {error.message}</option>
+  ) : (
+    data.map((option) => (
+        <MenuItem key={option.id} value={option.value}>
+        {option.label}
+        </MenuItem>
+    ))
+  )}
                                 {schema.options.length > 0 && schema.options.map((opt, i) => (
                                     <MenuItem key={i} value={opt.label}>
                                         {opt.label}
