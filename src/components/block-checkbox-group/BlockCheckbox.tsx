@@ -1,18 +1,31 @@
-import React, { FC } from "react";
+import React, { FC, MouseEventHandler } from "react";
 import { Box, Checkbox, Stack, Typography, useTheme } from "@mui/material";
 import { Info } from "@mui/icons-material";
 import styles from "./BlockCheckbox.module.css";
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
 
+function findBorderColor(checked: boolean, error: boolean): string {
+  if (error) {
+    return "red";
+  }
+  if (checked) {
+    return "var(--ddl-colorOverride--primary-emerson-green-dark)";
+  }
+
+  return "var(--ddl-colorOverride--primary-grey)";
+}
+
+
 export interface BlockCheckboxProps {
   checked: boolean
-  onChange?: () => void
+  onChange?: MouseEventHandler<HTMLDivElement>
   imgUrl: string,
   disabled?: boolean
   title: string
   description: string,
   tooltip?: string,
+  error: true,
 }
 
 export const BlockCheckbox: FC<BlockCheckboxProps> = ({
@@ -23,18 +36,18 @@ export const BlockCheckbox: FC<BlockCheckboxProps> = ({
                                                         disabled = false,
                                                         title,
                                                         description,
+                                                        error = false,
                                                         tooltip
                                                       }) => {
-  // const [checked, setChecked] = useState(checked);
   const theme = useTheme();
-  const colorOverride = disabled ? theme.palette.text.disabled : undefined
+  const colorOverride = disabled ? theme.palette.text.disabled : undefined;
 
-  const handleChange = () => {
+  const handleChange: MouseEventHandler<HTMLDivElement> = (event) => {
     if (disabled) {
       return;
     }
 
-    onChange();
+    onChange(event);
   };
 
   return <Box
@@ -43,7 +56,7 @@ export const BlockCheckbox: FC<BlockCheckboxProps> = ({
       cursor: !disabled ? "pointer" : undefined,
       padding: ".5rem",
       border: checked ? 2 : 1,
-      borderColor: checked ? "var(--ddl-colorOverride--primary-emerson-green-dark)" : "var(--ddl-colorOverride--primary-grey)"
+      borderColor: findBorderColor(checked, error)
     }}
   >
     <Stack direction="row"
@@ -60,13 +73,13 @@ export const BlockCheckbox: FC<BlockCheckboxProps> = ({
             {
               tooltip != null && <Tooltip title={tooltip} placement="top" arrow>
                 <IconButton>
-                  <Info sx={{ color:colorOverride || 'primary' }} />
+                  <Info sx={{ color: colorOverride || "primary" }} />
                 </IconButton>
               </Tooltip>
             }
           </Typography>
 
-          <Typography variant="body2" sx={{ color:colorOverride }}>
+          <Typography variant="body2" sx={{ color: colorOverride }}>
             {description}
           </Typography>
         </>

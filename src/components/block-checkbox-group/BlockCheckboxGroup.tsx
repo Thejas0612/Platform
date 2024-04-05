@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, MouseEvent, MouseEventHandler, useState } from "react";
 import { FormHelperText, Stack } from "@mui/material";
 import { BlockCheckbox, BlockCheckboxProps } from "./BlockCheckbox";
 import { MsolComponentHighlighter } from "../msol-component-highlighter/MsolComponentHighlighter";
@@ -12,7 +12,9 @@ export interface BlockCheckboxGroupProps {
   options: BlockCheckboxGroupRow[];
   defaultIds?: string[];
   error?: string;
-  onChange?: (selectedId: string[]) => void;
+  onChange?: (event: MouseEvent, type?: string, name?: string, value?: string[]) => void;
+  othAttr?: { type: string };
+  name: string;
 }
 
 export const BlockCheckboxGroup: FC<BlockCheckboxGroupProps> = ({
@@ -21,8 +23,11 @@ export const BlockCheckboxGroup: FC<BlockCheckboxGroupProps> = ({
                                                                   defaultIds = [],
                                                                   error = "",
                                                                   onChange = () => {
-                                                                  }
+                                                                  },
+                                                                  othAttr,
+                                                                  name
                                                                 }) => {
+  const errorText = error.trim();
   const [value, setValue] = useState(defaultIds);
 
   return <MsolComponentHighlighter>
@@ -30,27 +35,21 @@ export const BlockCheckboxGroup: FC<BlockCheckboxGroupProps> = ({
       <Stack spacing={4}>
         {
           options.map(item => {
-            const selected = value.includes(item.id);
+            const checked = value.includes(item.id);
 
-            const handleChange = () => {
-              const newSelected = !selected;
-              if (newSelected) {
-                const newValue = [...value, item.id];
-                setValue(newValue);
-                onChange(newValue);
-              } else {
-                const newValue = value.filter(id => id !== item.id);
-                setValue(newValue);
-                onChange(newValue);
-              }
+            const handleChange: MouseEventHandler<HTMLDivElement> = (event) => {
+              const newChecked = !checked;
+              const newValue = newChecked ? [...value, item.id] : value.filter(id => id !== item.id);
+              setValue(newValue);
+              onChange(event, othAttr?.type, name, newValue);
             };
 
-            return <BlockCheckbox key={item.id} {...item} onChange={handleChange} checked={selected} />;
+            return <BlockCheckbox key={item.id} {...item} onChange={handleChange} checked={checked} error={error != "" } />;
           })
         }
       </Stack>
       {
-        !error || <FormHelperText error={true}>{error}</FormHelperText>
+        !errorText || <FormHelperText error={true}>{errorText}</FormHelperText>
       }
     </>
   </MsolComponentHighlighter>;
