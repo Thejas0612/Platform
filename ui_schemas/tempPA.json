@@ -335,21 +335,6 @@
                           "disabled":false,
                           "value":"",
                           "options":[
-                             {
-                                "value":"4-20 mA with HART® Protocol",
-                                "label":"4-20 mA with HART® Protocol",
-                                "id":"0"
-                             },
-                             {
-                                "value":"FOUNDATION Fieldbus",
-                                "label":"FOUNDATION Fieldbus",
-                                "id":"1"
-                             },
-                             {
-                                "value":"WirelessHART",
-                                "label":"WirelessHART",
-                                "id":"2"
-                             }
                            ],
                            "tooltipEnable":false,
                            "tooltipMessage":"",
@@ -357,7 +342,7 @@
                           "required":false,
                           "error":"",
                           "errorClass":"",
-                          "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingLineSize?buCode=dpflow"
+                          "dataSourceUrl":"https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/temp/communication-protocol"
                        },
                        {
                           "column":6,
@@ -389,7 +374,8 @@
                           "nextLine":true,
                           "required":false,
                           "error":"",
-                          "errorClass":""
+                          "errorClass":"",
+                          "dataSourceUrl":"localhost:5000/api/temp/communication-protocol"
                        },
                        {
                           "column":6,
