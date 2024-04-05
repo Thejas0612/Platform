@@ -7,14 +7,12 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import { Grid, } from "@mui/material";
 
-function DropdownMenu(props) {
-    const { schema } = props;
+function DropdownMenu(schema) {
     const [defaultValue, setDefaultValue] = React.useState('');
     const handleChange = (e) => { };
     return (
-        <Grid item xs={schema.column}>
-            <div style={{ margin: '1rem' }}>
-                <FormControl sx={{ m: 1, mt: 3, margin: '1rem', width: "100%" }} size='small' color='success'>
+            <div >
+                <FormControl sx={{ m: 1, mt: 3, margin: '1rem', width: "100%" , display:"flex"}} size='small' color='success'>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                         <Grid item xs={12} >
                             <div style={{ minHeight: "2rem" }}>
@@ -28,7 +26,7 @@ function DropdownMenu(props) {
                             <Select sx={{ width: '100%' }} value={defaultValue} onChange={handleChange}>
                                 {schema.options.length > 0 && schema.options.map((opt, i) => (
                                     <MenuItem key={i} value={opt.label}>
-                                        {opt.label} {schema.column}
+                                        {opt.label}
                                     </MenuItem>
                                 ))}
                             </Select>
@@ -37,7 +35,6 @@ function DropdownMenu(props) {
                 </FormControl>
                 {schema.nextLine ? <br></br> : ""}
             </div>
-        </Grid>
     )
 }
 

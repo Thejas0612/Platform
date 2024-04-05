@@ -6,9 +6,11 @@ import { changeStepperIndex } from "../schemaMutations";
 import { updateLeftSection } from "../../../../redux/reducers/initialBuDataSlice";
 import MSOLDynamicForm from "../../../../components/shared/dynamicform";
 import TableInput from "../../../../components/table-input/TableInput";
+import DropdownMenu from "../../../../components/dropdown-menu/DropdownMenu";
 
 const overrideComponents = {
   "TABLE_INPUT": TableInput,
+  "SINGLE_SELECT": DropdownMenu
 };
 
 export default function TempRightLayout() {

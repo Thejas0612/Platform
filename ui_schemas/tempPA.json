@@ -351,6 +351,9 @@
                                 "id":"2"
                              }
                            ],
+                           "tooltipEnable":false,
+                           "tooltipMessage":"",
+                           "nextLine":false,
                           "required":false,
                           "error":"",
                           "errorClass":""
@@ -380,6 +383,9 @@
                                 "id":"2"
                              }
                           ],
+                          "tooltipEnable":true,
+                          "tooltipMessage":"Form Factor",
+                          "nextLine":true,
                           "required":false,
                           "error":"",
                           "errorClass":""
@@ -414,6 +420,9 @@
                                 "id":"3"
                              }
                           ],
+                          "tooltipEnable":false,
+                          "tooltipMessage":"",
+                          "nextLine":false,
                           "required":false,
                           "error":"",
                           "errorClass":""
@@ -443,6 +452,9 @@
                                 "id":"2"
                              }
                             ],
+                          "tooltipEnable":true,
+                          "tooltipMessage":"Performance",
+                          "nextLine":false,
                           "required":false,
                           "error":"",
                           "errorClass":""
