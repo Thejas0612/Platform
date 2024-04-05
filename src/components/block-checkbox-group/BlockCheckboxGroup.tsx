@@ -9,14 +9,14 @@ export interface BlockCheckboxGroupRow extends Omit<BlockCheckboxProps, "checked
 
 export interface BlockCheckboxGroupProps {
   data: BlockCheckboxGroupRow[];
-  selectedIds: string[];
+  selectedIds?: string[];
   error?: string;
   onChange?: (selectedId: string[]) => void;
 }
 
 export const BlockCheckboxGroup: FC<BlockCheckboxGroupProps> = ({
                                                                   data,
-                                                                  selectedIds,
+                                                                  selectedIds = [],
                                                                   error = "",
                                                                   onChange = () => {
                                                                   }

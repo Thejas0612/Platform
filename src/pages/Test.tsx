@@ -90,7 +90,8 @@ const BLOCK_CHECKBOX_GROUP_DATA: BlockCheckboxGroupRow[] = [
     id: "1",
     title: "Flow",
     description: "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, differential pressure, vortex, magnetic, ultrasonic, turbine and positive displacement meters.",
-    imgUrl: "https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png"
+    imgUrl: "https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png",
+    tooltip: "test"
   },
   {
     id: "2",

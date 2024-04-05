@@ -1,6 +1,9 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { Box, Checkbox, Stack, Typography, useTheme } from "@mui/material";
+import { Info } from "@mui/icons-material";
 import styles from "./BlockCheckbox.module.css";
+import Tooltip from "@mui/material/Tooltip";
+import IconButton from "@mui/material/IconButton";
 
 export interface BlockCheckboxProps {
   checked: boolean
@@ -8,7 +11,8 @@ export interface BlockCheckboxProps {
   imgUrl: string,
   disabled?: boolean
   title: string
-  description: string
+  description: string,
+  tooltip?: string,
 }
 
 export const BlockCheckbox: FC<BlockCheckboxProps> = ({
@@ -18,9 +22,11 @@ export const BlockCheckbox: FC<BlockCheckboxProps> = ({
                                                         imgUrl,
                                                         disabled = false,
                                                         title,
-                                                        description
+                                                        description,
+                                                        tooltip
                                                       }) => {
   const theme = useTheme();
+  const colorOverride = disabled ? theme.palette.text.disabled : undefined
 
   const handleChange = () => {
     if (disabled) {
@@ -36,7 +42,7 @@ export const BlockCheckbox: FC<BlockCheckboxProps> = ({
       cursor: !disabled ? "pointer" : undefined,
       padding: ".5rem",
       border: checked ? 2 : 1,
-      borderColor: checked ? "var(--ddl-color--primary-emerson-green-dark)" : "var(--ddl-color--primary-grey)"
+      borderColor: checked ? "var(--ddl-colorOverride--primary-emerson-green-dark)" : "var(--ddl-colorOverride--primary-grey)"
     }}
   >
     <Stack direction="row"
@@ -48,11 +54,18 @@ export const BlockCheckbox: FC<BlockCheckboxProps> = ({
 
       <Box sx={{ margin: 2 }}>
         <>
-          <Typography gutterBottom variant="h5" sx={{ color: disabled ? theme.palette.text.disabled : undefined }}>
+          <Typography gutterBottom variant="h5" sx={{ color: colorOverride }}>
             {title}
+            {
+              tooltip != null && <Tooltip title={tooltip} placement="top" arrow>
+                <IconButton>
+                  <Info sx={{ color:colorOverride || 'primary' }} />
+                </IconButton>
+              </Tooltip>
+            }
           </Typography>
 
-          <Typography variant="body2" sx={{ color: disabled ? theme.palette.text.disabled : undefined }}>
+          <Typography variant="body2" sx={{ color:colorOverride }}>
             {description}
           </Typography>
         </>
