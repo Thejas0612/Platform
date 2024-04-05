@@ -1,7 +1,7 @@
-import { DynamicForm } from "../../../../components/dynamic-ui/uiComponentsConfig";
 import { useSelector, useDispatch } from "react-redux";
 import ButtonStepperCommon from "../../../../components/button/ButtonStepperCommon";
 import getSchemaForDynamicForm from "../../../../adapterDataManager/schema/getSchema";
+import MSOLDynamicForm from "../../../../components/shared/dynamicform";
 import { updateNavigationStatus } from "./schema-services/schemaMutations";
 import { updateLeftSection } from "../../../../redux/reducers/initialBuDataSlice";
 
@@ -22,7 +22,7 @@ export default function ProjectLookoutRightLayout() {
     }
     return (
       <div>
-        <DynamicForm
+        <MSOLDynamicForm
           schema={activeIndexCopy}
           handleChange={(e, formObj, formData, name, isValid) => {
             console.log("e,formObj,formData, name, isValid: ",e, formObj, formData, name, isValid)

@@ -103,7 +103,7 @@ const MSOLDynamicForm = (({ schema, handleChange, updateData, handleKeyPress, fo
                                 const FieldComponent = {...FORM_FEILDS, ...overrideComponents}[field.type]
                                 return (
                                     <>
-                                        <Grid item xs={field.column ? field.column : '12'}>
+                                        <Grid item key={field.name} xs={field.column ? field.column : 12}>
                                             {FieldComponent ?
                                                 <FieldComponent
                                                     {...field}
