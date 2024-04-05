@@ -2,8 +2,8 @@ import { DynamicForm } from "../../../../components/dynamic-ui/uiComponentsConfi
 import { useSelector, useDispatch } from "react-redux";
 import ButtonStepperCommon from "../../../../components/button/ButtonStepperCommon";
 import getSchemaForDynamicForm from "../../../../adapterDataManager/schema/getSchema";
-import { updateNavigationStatus } from "./schema-services/schemaMutations";
-import { updateLeftSection } from "../../../../redux/reducers/initialBuDataSlice";
+import { updateNavigationStatus, saveValuesInSchema } from "./schema-services/schemaMutations";
+import { updateLeftSection, updateRightSection } from "../../../../redux/reducers/initialBuDataSlice";
 
 export default function ProjectLookoutRightLayout() {
   const rightSecSchema = useSelector((state) => state.initialBuData?.rightSection);
@@ -20,12 +20,17 @@ export default function ProjectLookoutRightLayout() {
       const leftSchema = updateNavigationStatus(leftSectionSchema, screenId);
       dispatch(updateLeftSection(leftSchema))
     }
+    const updateValuesInSchema = (formData) =>{
+      let result = saveValuesInSchema(formData, rightSecSchema, activeIndex);
+      dispatch(updateRightSection(result));
+    }
     return (
       <div>
         <DynamicForm
           schema={activeIndexCopy}
           handleChange={(e, formObj, formData, name, isValid) => {
             console.log("e,formObj,formData, name, isValid: ",e, formObj, formData, name, isValid)
+            updateValuesInSchema(formData);
           }}
           handleKeyPress={(a, b, c) => console.log("a,b,c handleKeyPress", a, b, c)}
           updateData={(a, b, c, d) => console.log("a,b,c,d updateData", a, b, c, d)}/>
