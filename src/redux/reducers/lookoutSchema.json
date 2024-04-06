@@ -997,9 +997,7 @@
                         ]
                       }   
                     ]
-                  ],
-                  "label":" ",
-                  "title":"Flow rate is the amount of fluid passing through a pipe segment. It can be presented as either mass flow or volumetric flow."
+                  ]
                 },
                 {
                   "type":"CHECKBOX_INPUT",

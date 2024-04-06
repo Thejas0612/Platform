@@ -21,7 +21,7 @@ export default function ProjectLookoutRightLayout() {
       dispatch(updateLeftSection(leftSchema))
     }
     const updateValuesInSchema = (formData) =>{
-      let result = saveValuesInSchema(formData, rightSecSchema, activeIndex);
+      const result = saveValuesInSchema(formData, rightSecSchema, activeIndex);
       dispatch(updateRightSection(result));
     }
     return (
