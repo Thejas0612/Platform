@@ -139,7 +139,7 @@
                   "name": "measurmenttype",
                   "label": "Test Thumbnail",
                   "defaultIds": [],
-                  "options": [
+                  "data": [
                     {
                       "id": 1,
                       "title": "Flow",

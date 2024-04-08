@@ -31,6 +31,7 @@ export const MsolTileOrThumbnail: FC<MsolTileOrThumbnailProps> = ({
                                                                   name,
                                                                   hideCheckboxes = false
                                                                 }) => {
+  // TODO: This is temporary to support backwards compatibility. This will be removed in the future.
   const dataOverride = data ? data : options;
   if (dataOverride == null) {
     throw Error("`data` property is required.");
