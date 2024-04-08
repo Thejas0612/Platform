@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { BlockCheckboxGroup, BlockCheckboxGroupProps } from "../BlockCheckboxGroup";
+import { MsolTileOrThumbnail, MsolTileOrThumbnailProps } from "../MsolTileOrThumbnail";
 
-const PROPS: BlockCheckboxGroupProps = {
+const PROPS: MsolTileOrThumbnailProps = {
   name: "test name",
   defaultIds: ["2"],
   data: [
@@ -29,13 +29,13 @@ const PROPS: BlockCheckboxGroupProps = {
 
 describe("<BlockCheckboxGroup />", () => {
   test("when state is default, then show 1 unchecked checkbox, 1 checked checkbox and 1 disabled checkbox.", () => {
-    const { container } = render(<BlockCheckboxGroup {...PROPS} />);
+    const { container } = render(<MsolTileOrThumbnail {...PROPS} />);
 
     expect(container).toMatchSnapshot();
   });
 
   test("when hideCheckboxes is true, then do not show checkboxes.", () => {
-    const { container } = render(<BlockCheckboxGroup {...PROPS} />);
+    const { container } = render(<MsolTileOrThumbnail {...PROPS} />);
 
     expect(container).toMatchSnapshot();
   });
@@ -43,7 +43,7 @@ describe("<BlockCheckboxGroup />", () => {
   test("when first checkbox is check, then fire onChange event.", async () => {
     const handleChange = jest.fn();
 
-    render(<BlockCheckboxGroup {...PROPS} onChange={handleChange} />);
+    render(<MsolTileOrThumbnail {...PROPS} onChange={handleChange} />);
 
     const checkboxes = await screen.findAllByRole("checkbox");
     const firstCheckbox = checkboxes[0];
@@ -53,7 +53,7 @@ describe("<BlockCheckboxGroup />", () => {
   });
 
   test("when state is error, then show error message.", () => {
-    const { container } = render(<BlockCheckboxGroup {...PROPS} error="test error" />);
+    const { container } = render(<MsolTileOrThumbnail {...PROPS} error="test error" />);
 
     expect(container).toMatchSnapshot();
   });

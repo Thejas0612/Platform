@@ -3,7 +3,7 @@ import { FC, useState } from "react";
 import { FilterButton } from "../components/filter-button/FilterButton";
 import { Box, Paper, Stack } from "@mui/material";
 import { Dropdown, DropdownMenuGroup } from "../components/dropdown-menu-group/DropdownMenuGroup";
-import { BlockCheckboxGroup, BlockCheckboxGroupRow } from "../components/shared/block-checkbox-group/BlockCheckboxGroup";
+import { MsolTileOrThumbnail, MsolTileOrThumbnailItem } from "../components/shared/msol-tile-or-thumbnail/MsolTileOrThumbnail";
 
 const DROPDOWNS: Dropdown[] = [
   {
@@ -85,7 +85,7 @@ const CARD_CHECKBOX_GROUP_DATA: CardCheckboxGroupProps["data"] = [
 ];
 
 
-const BLOCK_CHECKBOX_GROUP_DATA: BlockCheckboxGroupRow[] = [
+const BLOCK_CHECKBOX_GROUP_DATA: MsolTileOrThumbnailItem[] = [
   {
     id: "1",
     title: "Flow",
@@ -175,7 +175,7 @@ export const Test: FC = () => {
     <h2>Block Checkbox Group</h2>
     <Paper elevation={4} sx={{ padding: "1rem" }}>
       <h3>Normal</h3>
-      <BlockCheckboxGroup
+      <MsolTileOrThumbnail
         name="selectedIds"
         options={BLOCK_CHECKBOX_GROUP_DATA}
         defaultIds={blockCheckboxGroupSelectedIds}
@@ -186,7 +186,7 @@ export const Test: FC = () => {
       <div>selectedIds = {blockCheckboxGroupSelectedIds.toSorted().join(", ")}</div>
 
       <h3>Error</h3>
-      <BlockCheckboxGroup
+      <MsolTileOrThumbnail
         name="selectedIds"
         options={BLOCK_CHECKBOX_GROUP_DATA}
         error={"Required"}

@@ -16,7 +16,6 @@ function findBorderColor(checked: boolean, error: boolean): string {
   return grey[200];
 }
 
-
 export interface BlockCheckboxProps {
   checked: boolean
   onChange?: MouseEventHandler<HTMLDivElement>

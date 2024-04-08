@@ -3,14 +3,14 @@ import { FormHelperText, Stack } from "@mui/material";
 import { BlockCheckbox, BlockCheckboxProps } from "./BlockCheckbox";
 import { MsolComponentHighlighter } from "../../msol-component-highlighter/MsolComponentHighlighter";
 
-export interface BlockCheckboxGroupRow extends Omit<BlockCheckboxProps, "checked" | "onChange" | "showError"> {
+export interface MsolTileOrThumbnailItem extends Omit<BlockCheckboxProps, "checked" | "onChange" | "showError"> {
   id: string;
 }
 
-export interface BlockCheckboxGroupProps {
+export interface MsolTileOrThumbnailProps {
   required?: boolean;
-  options?: BlockCheckboxGroupRow[];
-  data?: BlockCheckboxGroupRow[];
+  options?: MsolTileOrThumbnailItem[];
+  data?: MsolTileOrThumbnailItem[];
   defaultIds?: string[];
   error?: string;
   onChange?: (event: MouseEvent, type?: string, name?: string, value?: string[]) => void;
@@ -19,7 +19,7 @@ export interface BlockCheckboxGroupProps {
   hideCheckboxes?: boolean;
 }
 
-export const BlockCheckboxGroup: FC<BlockCheckboxGroupProps> = ({
+export const MsolTileOrThumbnail: FC<MsolTileOrThumbnailProps> = ({
                                                                   required = false,
                                                                   data,
                                                                   options,

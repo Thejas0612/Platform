@@ -4,7 +4,7 @@ import HorizontalLine from "../components/horizonatal-line/HorizontalLine";
 import DropdownMenu from "../components/dropdown-menu/DropdownMenu";
 import { Grid, } from "@mui/material";
 import LineChart from "../components/LineChart";
-import { BlockCheckboxGroup } from "../components/shared/block-checkbox-group/BlockCheckboxGroup";
+import { MsolTileOrThumbnail } from "../components/shared/msol-tile-or-thumbnail/MsolTileOrThumbnail";
 
 const schema = {
    "type": "TABLE_INPUT",
@@ -457,7 +457,7 @@ const TemperaturePlayground = () => (
    <>
          <div style={{width:"55%"}}><LineChart schema={schema_chart_Data} /></div>
       <div style={{ width: "40%" }}><TableInput {...schema} /></div>
-         <BlockCheckboxGroup {...schema_Tile_Thumbnail} />
+         <MsolTileOrThumbnail {...schema_Tile_Thumbnail} />
          <HorizontalLine  schema={schema_Horizontal_Line}/>
          <Checkmark schema={schema_Checkmark_dash} />
       <Grid container sx = {{width:'50%'}}>
