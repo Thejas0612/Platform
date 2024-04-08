@@ -3,23 +3,25 @@ import { FormHelperText, Stack } from "@mui/material";
 import { BlockCheckbox, BlockCheckboxProps } from "./BlockCheckbox";
 import { MsolComponentHighlighter } from "../msol-component-highlighter/MsolComponentHighlighter";
 
-export interface BlockCheckboxGroupRow extends Omit<BlockCheckboxProps, "checked" | "onChange"> {
+export interface BlockCheckboxGroupRow extends Omit<BlockCheckboxProps, "checked" | "onChange" | "showError"> {
   id: string;
 }
 
 export interface BlockCheckboxGroupProps {
   required?: boolean;
-  options: BlockCheckboxGroupRow[];
+  options?: BlockCheckboxGroupRow[];
+  data?: BlockCheckboxGroupRow[];
   defaultIds?: string[];
   error?: string;
   onChange?: (event: MouseEvent, type?: string, name?: string, value?: string[]) => void;
   othAttr?: { type: string };
   name: string;
-  hideCheckboxes: boolean;
+  hideCheckboxes?: boolean;
 }
 
 export const BlockCheckboxGroup: FC<BlockCheckboxGroupProps> = ({
                                                                   required = false,
+                                                                  data,
                                                                   options,
                                                                   defaultIds = [],
                                                                   error = "",
@@ -29,6 +31,11 @@ export const BlockCheckboxGroup: FC<BlockCheckboxGroupProps> = ({
                                                                   name,
                                                                   hideCheckboxes = false
                                                                 }) => {
+  const dataOverride = data ? data : options;
+  if(dataOverride == null){
+    throw Error("`data` property is required.")
+  }
+
   const errorText = error.trim();
   const [value, setValue] = useState(defaultIds);
 
@@ -36,7 +43,7 @@ export const BlockCheckboxGroup: FC<BlockCheckboxGroupProps> = ({
     <>
       <Stack spacing={4}>
         {
-          options.map(item => {
+          dataOverride.map(item => {
             const checked = value.includes(item.id);
 
             const handleChange: MouseEventHandler<HTMLDivElement> = (event) => {

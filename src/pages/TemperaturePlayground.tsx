@@ -200,6 +200,7 @@ const schema_Checkmark_dash = {
         "error":"",
         "errorClass":"",
         "column":12,
+        "hideCheckboxes": true,
         "defaultIds": [
         ],
         "data":[
