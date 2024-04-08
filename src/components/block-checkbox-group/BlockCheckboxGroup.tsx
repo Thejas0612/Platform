@@ -15,6 +15,7 @@ export interface BlockCheckboxGroupProps {
   onChange?: (event: MouseEvent, type?: string, name?: string, value?: string[]) => void;
   othAttr?: { type: string };
   name: string;
+  hideCheckboxes: boolean;
 }
 
 export const BlockCheckboxGroup: FC<BlockCheckboxGroupProps> = ({
@@ -25,7 +26,8 @@ export const BlockCheckboxGroup: FC<BlockCheckboxGroupProps> = ({
                                                                   onChange = () => {
                                                                   },
                                                                   othAttr,
-                                                                  name
+                                                                  name,
+                                                                  hideCheckboxes = false
                                                                 }) => {
   const errorText = error.trim();
   const [value, setValue] = useState(defaultIds);
@@ -44,7 +46,12 @@ export const BlockCheckboxGroup: FC<BlockCheckboxGroupProps> = ({
               onChange(event, othAttr?.type, name, newValue);
             };
 
-            return <BlockCheckbox key={item.id} {...item} onChange={handleChange} checked={checked} error={error != "" } />;
+            return <BlockCheckbox key={item.id}
+                                  onChange={handleChange}
+                                  checked={checked}
+                                  hideCheckbox={hideCheckboxes}
+                                  showError={error !== ""}
+                                  {...item} />;
           })
         }
       </Stack>

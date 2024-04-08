@@ -1,19 +1,19 @@
 import React, { FC, MouseEventHandler } from "react";
 import { Box, Checkbox, Stack, Typography, useTheme } from "@mui/material";
+import {grey} from "@mui/material/colors"
 import { Info } from "@mui/icons-material";
-import styles from "./BlockCheckbox.module.css";
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
 
 function findBorderColor(checked: boolean, error: boolean): string {
   if (error) {
-    return "red";
+    return "var(--ddl-color--primary-red)";
   }
   if (checked) {
-    return "var(--ddl-colorOverride--primary-emerson-green-dark)";
+    return "var(--ddl-color--primary-emerson-green)";
   }
 
-  return "var(--ddl-colorOverride--primary-grey)";
+  return grey[500];
 }
 
 
@@ -25,7 +25,8 @@ export interface BlockCheckboxProps {
   title: string
   description: string,
   tooltip?: string,
-  error: true,
+  hideCheckbox?: boolean
+  showError: boolean,
 }
 
 export const BlockCheckbox: FC<BlockCheckboxProps> = ({
@@ -36,8 +37,9 @@ export const BlockCheckbox: FC<BlockCheckboxProps> = ({
                                                         disabled = false,
                                                         title,
                                                         description,
-                                                        error = false,
-                                                        tooltip
+                                                        showError = false,
+                                                        tooltip,
+                                                        hideCheckbox = false
                                                       }) => {
   const theme = useTheme();
   const colorOverride = disabled ? theme.palette.text.disabled : undefined;
@@ -55,16 +57,24 @@ export const BlockCheckbox: FC<BlockCheckboxProps> = ({
     sx={{
       cursor: !disabled ? "pointer" : undefined,
       padding: ".5rem",
-      border: checked ? 2 : 1,
-      borderColor: findBorderColor(checked, error)
+      border: 1,
+      borderColor: findBorderColor(checked, showError)
     }}
   >
     <Stack direction="row"
            alignItems="center">
 
-      <Checkbox checked={checked} disabled={disabled} />
+      { !hideCheckbox && <Checkbox checked={checked} disabled={disabled} /> }
 
-      <img src={imgUrl} alt={title} className={styles.blockCheckbox__image} />
+      <Box
+        component="img"
+        sx={{
+          height: { xs: "6rem", md: "9rem;" },
+          width: "auto"
+        }}
+        src={imgUrl}
+        alt={title}
+      />
 
       <Box sx={{ margin: 2 }}>
         <>
