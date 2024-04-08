@@ -1,6 +1,6 @@
 import React, { FC, MouseEventHandler } from "react";
 import { Box, Checkbox, Stack, Typography, useTheme } from "@mui/material";
-import {grey} from "@mui/material/colors"
+import { grey } from "@mui/material/colors";
 import { Info } from "@mui/icons-material";
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
@@ -16,7 +16,7 @@ function findBorderColor(checked: boolean, error: boolean): string {
   return grey[200];
 }
 
-export interface BlockCheckboxProps {
+export interface MsolTitleOrThumbnailItemProps {
   checked: boolean
   onChange?: MouseEventHandler<HTMLDivElement>
   imgUrl: string,
@@ -28,18 +28,18 @@ export interface BlockCheckboxProps {
   showError: boolean,
 }
 
-export const BlockCheckbox: FC<BlockCheckboxProps> = ({
-                                                        checked,
-                                                        onChange = () => {
-                                                        },
-                                                        imgUrl,
-                                                        disabled = false,
-                                                        title,
-                                                        description,
-                                                        showError = false,
-                                                        tooltip,
-                                                        hideCheckbox = false
-                                                      }) => {
+export const MsolTitleOrThumbnailItem: FC<MsolTitleOrThumbnailItemProps> = ({
+                                                                              checked,
+                                                                              onChange = () => {
+                                                                              },
+                                                                              imgUrl,
+                                                                              disabled = false,
+                                                                              title,
+                                                                              description,
+                                                                              showError = false,
+                                                                              tooltip,
+                                                                              hideCheckbox = false
+                                                                            }) => {
   const theme = useTheme();
   const colorOverride = disabled ? theme.palette.text.disabled : undefined;
 
@@ -63,7 +63,7 @@ export const BlockCheckbox: FC<BlockCheckboxProps> = ({
     <Stack direction="row"
            alignItems="center">
 
-      { !hideCheckbox && <Checkbox checked={checked} disabled={disabled} /> }
+      {!hideCheckbox && <Checkbox checked={checked} disabled={disabled} />}
 
       <Box
         component="img"

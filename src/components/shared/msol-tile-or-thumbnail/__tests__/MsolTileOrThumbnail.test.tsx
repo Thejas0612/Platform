@@ -27,7 +27,7 @@ const PROPS: MsolTileOrThumbnailProps = {
   ]
 };
 
-describe("<BlockCheckboxGroup />", () => {
+describe("<MsolTileOrThumbnail />", () => {
   test("when state is default, then show 1 unchecked checkbox, 1 checked checkbox and 1 disabled checkbox.", () => {
     const { container } = render(<MsolTileOrThumbnail {...PROPS} />);
 

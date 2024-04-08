@@ -1,9 +1,9 @@
 import { FC, MouseEvent, MouseEventHandler, useState } from "react";
 import { FormHelperText, Stack } from "@mui/material";
-import { BlockCheckbox, BlockCheckboxProps } from "./BlockCheckbox";
+import { MsolTitleOrThumbnailItem, MsolTitleOrThumbnailItemProps } from "./MsolTitleOrThumbnailItem";
 import { MsolComponentHighlighter } from "../../msol-component-highlighter/MsolComponentHighlighter";
 
-export interface MsolTileOrThumbnailItem extends Omit<BlockCheckboxProps, "checked" | "onChange" | "showError"> {
+export interface MsolTileOrThumbnailItem extends Omit<MsolTitleOrThumbnailItemProps, "checked" | "onChange" | "showError"> {
   id: string;
 }
 
@@ -53,12 +53,12 @@ export const MsolTileOrThumbnail: FC<MsolTileOrThumbnailProps> = ({
               onChange(event, othAttr?.type, name, newValue);
             };
 
-            return <BlockCheckbox key={item.id}
-                                  onChange={handleChange}
-                                  checked={checked}
-                                  hideCheckbox={hideCheckboxes}
-                                  showError={error !== ""}
-                                  {...item} />;
+            return <MsolTitleOrThumbnailItem key={item.id}
+                                             onChange={handleChange}
+                                             checked={checked}
+                                             hideCheckbox={hideCheckboxes}
+                                             showError={error !== ""}
+                                             {...item} />;
           })
         }
       </Stack>

@@ -1,8 +1,8 @@
-import { BlockCheckbox, BlockCheckboxProps } from "../BlockCheckbox";
+import { MsolTitleOrThumbnailItem, MsolTitleOrThumbnailItemProps } from "../MsolTitleOrThumbnailItem";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-const PROPS: BlockCheckboxProps = {
+const PROPS: MsolTitleOrThumbnailItemProps = {
   checked: false,
   imgUrl: "test url",
   title: "test title",
@@ -10,10 +10,10 @@ const PROPS: BlockCheckboxProps = {
   showError: false
 };
 
-describe("<BlockCheckbox {...PROPS} />", () => {
+describe("<MsolTitleOrThumbnailItem {...PROPS} />", () => {
   test("when disabled anc clicked, then prevent onChange event", async () => {
     const handleChange = jest.fn();
-    render(<BlockCheckbox {...PROPS} disabled={true} onChange={handleChange} />);
+    render(<MsolTitleOrThumbnailItem {...PROPS} disabled={true} onChange={handleChange} />);
 
     const title = screen.getByText("test title");
     await userEvent.click(title);
