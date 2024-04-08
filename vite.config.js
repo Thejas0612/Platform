@@ -1,30 +1,29 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path from "path";
-import getEnvModule from "./env";
-
-getEnvModule().setEnvironmentVarsFromTestEnv(__dirname);
-
+// import getEnvModule from "./env";
+import dotenv from "dotenv";
+dotenv.config();
+ 
+// getEnvModule().setEnvironmentVarsFromTestEnv(__dirname);
+ 
 process.env.CLIENT_ID = process.env.SPA_CLIENT_ID || process.env.CLIENT_ID;
-
-const env = {};
-
-// List of environment variables made available to the app
+ 
+// const env = {};
 // [
-//   'ISSUER',
-//   'CLIENT_ID'
+//   // List of environment variables made available to the app
+//   ("ISSUER", "CLIENT_ID")
 // ].forEach((key) => {
 //   if (!process.env[key]) {
 //     throw new Error(`Environment variable ${key} must be set. See README.md`);
 //   }
 //   env[key] = process.env[key];
 // });
-
+ 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   define: {
-    "process.env": env
+    "process.env": process.env
   },
   resolve: {
     // alias: {
@@ -57,3 +56,4 @@ export default defineConfig({
     }
   }
 });
+ 
