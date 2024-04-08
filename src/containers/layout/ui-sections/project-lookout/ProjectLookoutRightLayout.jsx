@@ -23,7 +23,7 @@ export default function ProjectLookoutRightLayout() {
     }
 
     const updateValuesInSchema = (formData) =>{
-      let result = saveValuesInSchema(formData, rightSecSchema, activeIndex);
+      const result = saveValuesInSchema(formData, rightSecSchema, activeIndex);
       dispatch(updateRightSection(result));
     }
 
