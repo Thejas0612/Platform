@@ -2,10 +2,11 @@ import { Grid, TextField, Typography } from "@mui/material";
 import Input from "./Input";
 import SingleSelect from "./SingleSelect";
 import Label from "./Label";
+import "./table-input.scss"
 
 const TableInput = ({options, column = 12, ...props}) => {
    return (
-      <Grid item xs={column}>
+      <Grid item xs={column} className="msol-table-input">
          <table>
             {options.map((row, rowIndex) => (
                <tr key={rowIndex}>
