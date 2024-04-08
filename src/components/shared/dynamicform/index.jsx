@@ -22,7 +22,7 @@ import CardContent from '@mui/material/CardContent';
 import { Grid, Stack, Typography } from '@mui/material';
 import CheckboxInput from '../checkbox'
 import TableInput from '../table'
-import { BlockCheckboxGroup } from "../../block-checkbox-group/BlockCheckboxGroup";
+import { BlockCheckboxGroup } from "../block-checkbox-group/BlockCheckboxGroup";
 
 const FORM_FEILDS = {
     "SINGLE_SELECT": SelectInput,

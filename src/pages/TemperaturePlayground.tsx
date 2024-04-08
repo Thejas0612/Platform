@@ -1,10 +1,10 @@
 import TableInput from "../components/table-input/TableInput"
 import Checkmark from "../components/table-check/Checkmark"
-import { BlockCheckboxGroup } from "../components/block-checkbox-group/BlockCheckboxGroup";
 import HorizontalLine from "../components/horizonatal-line/HorizontalLine";
 import DropdownMenu from "../components/dropdown-menu/DropdownMenu";
 import { Grid, } from "@mui/material";
 import LineChart from "../components/LineChart";
+import { BlockCheckboxGroup } from "../components/shared/block-checkbox-group/BlockCheckboxGroup";
 
 const schema = {
    "type": "TABLE_INPUT",

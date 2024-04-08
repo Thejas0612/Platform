@@ -3,7 +3,7 @@ import { FC, useState } from "react";
 import { FilterButton } from "../components/filter-button/FilterButton";
 import { Box, Paper, Stack } from "@mui/material";
 import { Dropdown, DropdownMenuGroup } from "../components/dropdown-menu-group/DropdownMenuGroup";
-import { BlockCheckboxGroup, BlockCheckboxGroupRow } from "../components/block-checkbox-group/BlockCheckboxGroup";
+import { BlockCheckboxGroup, BlockCheckboxGroupRow } from "../components/shared/block-checkbox-group/BlockCheckboxGroup";
 
 const DROPDOWNS: Dropdown[] = [
   {
@@ -176,16 +176,18 @@ export const Test: FC = () => {
     <Paper elevation={4} sx={{ padding: "1rem" }}>
       <h3>Normal</h3>
       <BlockCheckboxGroup
+        name="selectedIds"
         options={BLOCK_CHECKBOX_GROUP_DATA}
         defaultIds={blockCheckboxGroupSelectedIds}
-        onChange={(selectedIds) => {
-          setBlockCheckboxGroupSelectedIds(selectedIds);
+        onChange={(_event, _type, _name, selectedIds) => {
+          setBlockCheckboxGroupSelectedIds(selectedIds || []);
         }}
       />
       <div>selectedIds = {blockCheckboxGroupSelectedIds.toSorted().join(", ")}</div>
 
       <h3>Error</h3>
       <BlockCheckboxGroup
+        name="selectedIds"
         options={BLOCK_CHECKBOX_GROUP_DATA}
         error={"Required"}
         defaultIds={[]} />

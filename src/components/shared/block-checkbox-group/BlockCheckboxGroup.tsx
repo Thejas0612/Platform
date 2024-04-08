@@ -1,7 +1,7 @@
 import { FC, MouseEvent, MouseEventHandler, useState } from "react";
 import { FormHelperText, Stack } from "@mui/material";
 import { BlockCheckbox, BlockCheckboxProps } from "./BlockCheckbox";
-import { MsolComponentHighlighter } from "../msol-component-highlighter/MsolComponentHighlighter";
+import { MsolComponentHighlighter } from "../../msol-component-highlighter/MsolComponentHighlighter";
 
 export interface BlockCheckboxGroupRow extends Omit<BlockCheckboxProps, "checked" | "onChange" | "showError"> {
   id: string;
@@ -32,8 +32,8 @@ export const BlockCheckboxGroup: FC<BlockCheckboxGroupProps> = ({
                                                                   hideCheckboxes = false
                                                                 }) => {
   const dataOverride = data ? data : options;
-  if(dataOverride == null){
-    throw Error("`data` property is required.")
+  if (dataOverride == null) {
+    throw Error("`data` property is required.");
   }
 
   const errorText = error.trim();
