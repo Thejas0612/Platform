@@ -2,8 +2,9 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { BlockCheckboxGroup, BlockCheckboxGroupProps } from "../BlockCheckboxGroup";
 
 const PROPS: BlockCheckboxGroupProps = {
+  name: "test name",
   defaultIds: ["2"],
-  options: [
+  data: [
     {
       id: "1",
       title: "1 - Unchecked",
@@ -22,13 +23,18 @@ const PROPS: BlockCheckboxGroupProps = {
       description: "Our inline viscosity meter offers accurate, repeatable measurement in industries such as refining, chemical, life sciences, and more.",
       imgUrl: "https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png",
       disabled: true
-
     }
   ]
 };
 
 describe("<BlockCheckboxGroup />", () => {
-  test("when state is default, then show 1 unchecked checkbox, 1 checked checkbox and 1 disabled checkbox", () => {
+  test("when state is default, then show 1 unchecked checkbox, 1 checked checkbox and 1 disabled checkbox.", () => {
+    const { container } = render(<BlockCheckboxGroup {...PROPS} />);
+
+    expect(container).toMatchSnapshot();
+  });
+
+  test("when hideCheckboxes is true, then do not show checkboxes.", () => {
     const { container } = render(<BlockCheckboxGroup {...PROPS} />);
 
     expect(container).toMatchSnapshot();
@@ -43,7 +49,7 @@ describe("<BlockCheckboxGroup />", () => {
     const firstCheckbox = checkboxes[0];
     fireEvent.click(firstCheckbox);
 
-    expect(handleChange).toHaveBeenCalledWith(["2", "1"]);
+    expect(handleChange).toHaveBeenCalledWith(expect.any(Object), undefined, "test name", ["2", "1"]);
   });
 
   test("when state is error, then show error message.", () => {

@@ -13,7 +13,7 @@ function findBorderColor(checked: boolean, error: boolean): string {
     return "var(--ddl-color--primary-emerson-green)";
   }
 
-  return grey[500];
+  return grey[200];
 }
 
 

@@ -6,7 +6,8 @@ const PROPS: BlockCheckboxProps = {
   checked: false,
   imgUrl: "test url",
   title: "test title",
-  description: "test description"
+  description: "test description",
+  showError: false
 };
 
 describe("<BlockCheckbox {...PROPS} />", () => {
