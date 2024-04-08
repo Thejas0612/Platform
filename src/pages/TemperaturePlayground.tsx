@@ -209,6 +209,7 @@ const schema_Checkmark_dash = {
               "title":"Transmitter",
               "description":"Rosemount Temperature Transmitters offer innovative, industry-leading technologies engineered to accomadate tough environments and challenging applications.",
               "imgUrl":"https://www.emerson.com/resource/image/9241128/portrait_ratio1x1/207/207/4e379d0bdfecdc9dc9a162dabd1f254c/011724DEF921FFF3F2CA1BA57134EC32/updated%20family%20image%20transmitter.jpg",
+              "tooltip": "Rosemount Temperature Transmitters are the best."
            },
            {
               "id": "1",

@@ -82,7 +82,7 @@ export const MsolTitleOrThumbnailItem: FC<MsolTitleOrThumbnailItemProps> = ({
             {
               tooltip != null && <Tooltip title={tooltip} placement="top" arrow>
                 <IconButton>
-                  <Info sx={{ color: colorOverride || "primary" }} />
+                  <Info sx={{ color: colorOverride || "var(--ddl-color--primary-emerson-green)" }} />
                 </IconButton>
               </Tooltip>
             }
