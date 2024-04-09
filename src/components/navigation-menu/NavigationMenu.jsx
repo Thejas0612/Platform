@@ -1,7 +1,7 @@
 import "./navigation-menu.scss";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-const NavigationMenu = ({data, onLabelClick = () => {}, ...props}) => {
+const NavigationMenu = ({data, onLabelClick = () => {}}) => {
 
     return (
         <div className={"left-nav"}>
