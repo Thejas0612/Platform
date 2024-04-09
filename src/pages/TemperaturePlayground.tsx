@@ -24,6 +24,7 @@ const schema = {
          {
             "type": "TEXT",
             "label": "Min",
+            "title": "This is a Title",
             "align": "center",
             "name": "r1min",
             "variant": "body2",
@@ -141,6 +142,7 @@ const schema = {
             "label": "",
             "name": "line_pressure_min",
             "required": false,
+            "disabled": true
          },
          {
             "type": "TEXT_INPUT",
@@ -149,9 +151,7 @@ const schema = {
             "required": true,
          },
          {
-            "type": "TEXT_INPUT",
-            "label": "",
-            "name": "line_pressure_max"
+            
          },
          {
             "type": "SINGLE_SELECT",
