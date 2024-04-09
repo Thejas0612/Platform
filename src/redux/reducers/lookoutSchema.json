@@ -190,13 +190,13 @@
                   }
                 },
                 {
-                  "column": 3,
+                  "column": 4,
                   "type": "SINGLE_SELECT",
                   "name": "nominalpipesize",
                   "showLabel": true,
                   "label": "Line Size",
-                  "labelClass": "camelCase",
-                  "title": "Line Size",
+                  "labelClass":"camelCase",
+                  "title":"Line Size is the diameter of the piping or tubing where the meter will be installed. Knowing line size helps this tool validate that the calculated meter size is correct.",
                   "disabled": false,
                   "value": "",
                   "inputClass": "customRequired",
@@ -411,7 +411,7 @@
                   "errorClass": ""
                 },
                 {
-                  "column": 3,
+                  "column": 4,
                   "type": "SINGLE_SELECT",
                   "name": "pipeschedule",
                   "label": "Pipe Schedule",
@@ -764,7 +764,9 @@
                         "inputClass": "customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "min":0,
+                        "max":10000000000
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -772,7 +774,9 @@
                         "inputClass": "customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "min":0,
+                        "max":10000000000
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -780,7 +784,9 @@
                         "inputClass": "customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "min":0,
+                        "max":10000000000
                       },
                       {
                         "type": "SINGLE_SELECT",
