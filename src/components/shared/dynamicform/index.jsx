@@ -4,7 +4,6 @@ import {
     TextInput,
     NumberInput,
     ButtonInput,
-    // TableInput,
     RadioInput,
     CustomToggleButton,
     CustomButtonGroup,
@@ -22,7 +21,7 @@ import CardContent from '@mui/material/CardContent';
 import { Grid, Stack, Typography } from '@mui/material';
 import TileOrThumbnail from '../tile';
 import CheckboxInput from '../checkbox'
-import TableInput from '../table'
+import TableInput from '../../table-input/TableInput'
 
 const FORM_FEILDS = {
     "SINGLE_SELECT": SelectInput,
