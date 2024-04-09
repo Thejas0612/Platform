@@ -1,0 +1,36 @@
+
+.msol_navigation_item {
+    border-bottom: 1.5px solid #ebebeb;
+    color: var(--ddl-color--primary-black);
+    cursor: pointer;
+    padding: 0.7em 0;
+    width: 80%;
+    
+    &:hover {
+        border-bottom: 1.5px solid var(--ddl-color--primary-emerson-green-dark);
+        color: var(--ddl-color--primary-emerson-green-dark);
+        transition: width .1s;
+        width: 80%;
+    }
+    
+    &.selected {
+        border-bottom: 1.5px solid var(--ddl-color--primary-emerson-green);
+        color: var(--ddl-color--primary-emerson-green);
+        transition: width .1s;
+        width: 80%;
+        font-weight: bolder;
+    }
+    
+    &_arrow {
+        color: #46444470;
+        left: 0;
+        position: relative;
+        float: right;
+    }
+    
+    &.selected &_arrow,&:hover &_arrow {
+        color: var(--ddl-color--primary-emerson-green);
+        left: 0.3em;
+        transition: width .1s;
+    }
+}
