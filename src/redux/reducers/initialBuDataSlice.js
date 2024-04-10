@@ -55,6 +55,9 @@ const initialBuSchema = createSlice({
     },
     updateLeftSection: (state, action) => {
       state.leftSection = action.payload;
+    },
+    updateRightSection: (state, action) => {
+      state.rightSection = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -77,5 +80,5 @@ const initialBuSchema = createSlice({
   }
 });
 
-export const { changeActiveIndex, resetActiveIndex, updateBu, updateLeftSection } = initialBuSchema.actions;
+export const { changeActiveIndex, resetActiveIndex, updateBu, updateLeftSection,updateRightSection } = initialBuSchema.actions;
 export default initialBuSchema.reducer;

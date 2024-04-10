@@ -8,38 +8,58 @@ import Tooltip from "@mui/material/Tooltip";
 import { Grid } from "@mui/material";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+//import { updateRightSection } from "../../../../redux/reducers/initialBuDataSlice";
+
 
 function DropdownMenu(schema) {
+    const dataOptions = useSelector((state) => state.initialBuData?.rightSection[0]?.componentProps?.schema[1]?.fields[4]?.options);
+    const dispatch = useDispatch();
+    console.log('2',dataOptions)
     const [selectValue, setSelectValue] = React.useState("");
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
-      useEffect(() => {
+    console.log('1',schema);
+
+    useEffect(() => {
         const fetchData = async () => {
-          try {
-            const response = await axios.get(schema.dataSourceUrl);
-            setData(response.data);
-          } catch (error) {
-            setError(error);
-          } finally {
-            setIsLoading(false);
-          }
+            try {
+                const response = await axios.get(schema.dataSourceUrl);
+                setData(response.data);
+            } catch (error) {
+                setError(error);
+            } finally {
+                setIsLoading(false);
+            }
         };
 
         fetchData();
-      }, []);
+    }, []);
 
     const [defaultValue, setDefaultValue] = React.useState("");
     const handleChange = async (e) => {
         const value = e.target.value;
         console.log(value)
         setSelectValue(value);
-        
-        
+
+
         if (schema.isApiOnEvent?.isApiCall && schema.isApiOnEvent.apiInfo?.url && value) {
+            try {
             const apiData = await axios.get(schema.isApiOnEvent.apiInfo.url + value);
+            console.log('3',apiData);
+            options.push(apiData.data)
+
+            dispatch(updateRightSection(options))
+            //setData(apiData.data);
+           
+        } catch (error) {
+            setError(error);
+        }
             //const response = fetchData();
+
         }
         setDefaultValue(e.target.value)
     };
