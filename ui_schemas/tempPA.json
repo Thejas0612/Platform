@@ -342,7 +342,17 @@
                           "required":false,
                           "error":"",
                           "errorClass":"",
-                          "dataSourceUrl":"https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/temp/communication-protocol"
+                          "isApiOnEvent": {
+                           "isApiCall": true,
+                           "apiInfo": {
+                             "url": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingPipeSchedule?buCode=dpflow&lineSize=",
+                             "method": "GET",
+                             "payload": {}
+                           },
+                           "targetUiElement": "formfactor",
+                           "targetProperty": "options"
+                         },
+                          "dataSourceUrl":"https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingLineSize?buCode=dpflow"
                        },
                        {
                           "column":6,
@@ -375,7 +385,7 @@
                           "required":false,
                           "error":"",
                           "errorClass":"",
-                          "dataSourceUrl":"localhost:5000/api/temp/communication-protocol"
+                          "dataSourceUrl":""
                        },
                        {
                           "column":6,
