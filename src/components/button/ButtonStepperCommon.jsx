@@ -18,6 +18,7 @@ export default function ButtonStepperCommon({ updateSchemaIndex }) {
           label="Previous"
           showBackIcon={true}
           onClick={() => changeIndex(activeIndex - 1)}
+          btnType="secondary"
         />
       ) : (
         <div></div>

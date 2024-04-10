@@ -14,6 +14,9 @@ const theme = createTheme({
       main: "#D31245"
     }
   },
+  shape: {
+    borderRadius: 0,
+  },
   components: {
     MuiCheckbox: {
       styleOverrides: {
@@ -23,6 +26,11 @@ const theme = createTheme({
           }
         })
       }
+    },
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
     },
     MuiTypography: {
       styleOverrides: {

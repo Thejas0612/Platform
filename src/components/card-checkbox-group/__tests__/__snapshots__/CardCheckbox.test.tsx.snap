@@ -3,7 +3,7 @@
 exports[`<CardCheckbox /> when state is default, then show title, image and checkbox 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1mzl7qx"
+    class="MuiBox-root css-mpnfp0"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1yfb971-MuiGrid-root"
