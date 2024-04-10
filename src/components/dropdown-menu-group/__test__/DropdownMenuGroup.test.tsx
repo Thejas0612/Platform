@@ -35,7 +35,11 @@ const PROPS: DropdownMenuGroupProps = {
         }
       ]
     }
-  ]
+  ],
+  selectedOptions: {
+    OPERATING_PRESSURE: [],
+    OPERATING_TEMPERATURE: []
+  }
 };
 describe("<DropdownMenuGroup />", () => {
   test("when state is default, then show 2 dropdowns", () => {
