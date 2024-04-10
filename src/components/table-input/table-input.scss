@@ -3,5 +3,9 @@
     .dui-circle-info {
         line-height: inherit;
         margin-left: .5rem;
-    }
+    }  
 }
+
+.errorClass > input[type="text"] {
+    background-color: rgb(232, 211, 211);
+  }

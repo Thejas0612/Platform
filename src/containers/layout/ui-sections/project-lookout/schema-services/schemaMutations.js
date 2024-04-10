@@ -23,14 +23,25 @@ export const saveValuesInSchema = (formData, rightSectionSchema, activeIndex) =>
             return {
               id: id,
               fields: fields?.map((element, key) => {
-                if (new RegExp("TABLE_INPUT*").test(element?.name)) {
-                  let tempVar = fields[key]?.value;
-                  delete tempVar?.exclude_model;
-                  element.value = { ...element?.value, ...tempVar };
-                  return element;
-                } else {
-                  return element;
+
+                switch (element?.type) {
+                  case 'TILE_THUMBNAIL':{
+                    element.defaultIds = element?.value;
+                    return element
+                  }
+
+                  case 'TABLE_INPUT':{
+                    let tempVar = fields[key]?.value;
+                    delete tempVar?.exclude_model;
+                    element.value = { ...element?.value, ...tempVar };
+                    return element;
+                  }
+                  default:
+                    return element;
                 }
+                
+
+
               })
             };
           } else {
