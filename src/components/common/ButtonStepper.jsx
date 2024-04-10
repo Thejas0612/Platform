@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ButtonInput } from "../dynamic-ui/uiComponentsConfig";
 import { button_stepper_wrapper } from "./buttonStepper.module.css";
