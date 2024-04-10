@@ -138,13 +138,8 @@
                   "type": "TILE_THUMBNAIL",
                   "name": "measurmenttype",
                   "label": "Test Thumbnail",
-                  "labelClass": "app-content-label",
-                  "description": "here is a toggle button",
-                  "attribute_code_value": {
-                    "defaultIds": [],
-                    "defaultDirection": "tile"
-                  },
-                  "options": [
+                  "defaultIds": [],
+                  "data": [
                     {
                       "id": 1,
                       "title": "Flow",

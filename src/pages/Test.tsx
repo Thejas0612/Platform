@@ -3,7 +3,7 @@ import { FC, useState } from "react";
 import { FilterButton } from "../components/filter-button/FilterButton";
 import { Box, Paper, Stack } from "@mui/material";
 import { Dropdown, DropdownMenuGroup } from "../components/dropdown-menu-group/DropdownMenuGroup";
-import { BlockCheckboxGroup, BlockCheckboxGroupRow } from "../components/block-checkbox-group/BlockCheckboxGroup";
+import { MsolTileOrThumbnail, MsolTileOrThumbnailItem } from "../components/shared/msol-tile-or-thumbnail/MsolTileOrThumbnail";
 
 const DROPDOWNS: Dropdown[] = [
   {
@@ -85,12 +85,13 @@ const CARD_CHECKBOX_GROUP_DATA: CardCheckboxGroupProps["data"] = [
 ];
 
 
-const BLOCK_CHECKBOX_GROUP_DATA: BlockCheckboxGroupRow[] = [
+const BLOCK_CHECKBOX_GROUP_DATA: MsolTileOrThumbnailItem[] = [
   {
     id: "1",
     title: "Flow",
     description: "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, differential pressure, vortex, magnetic, ultrasonic, turbine and positive displacement meters.",
-    imgUrl: "https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png"
+    imgUrl: "https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png",
+    tooltip: "test"
   },
   {
     id: "2",
@@ -174,20 +175,22 @@ export const Test: FC = () => {
     <h2>Block Checkbox Group</h2>
     <Paper elevation={4} sx={{ padding: "1rem" }}>
       <h3>Normal</h3>
-      <BlockCheckboxGroup
-        data={BLOCK_CHECKBOX_GROUP_DATA}
-        selectedIds={blockCheckboxGroupSelectedIds}
-        onChange={(selectedIds) => {
-          setBlockCheckboxGroupSelectedIds(selectedIds);
+      <MsolTileOrThumbnail
+        name="selectedIds"
+        options={BLOCK_CHECKBOX_GROUP_DATA}
+        defaultIds={blockCheckboxGroupSelectedIds}
+        onChange={(_event, _type, _name, selectedIds) => {
+          setBlockCheckboxGroupSelectedIds(selectedIds || []);
         }}
       />
       <div>selectedIds = {blockCheckboxGroupSelectedIds.toSorted().join(", ")}</div>
 
       <h3>Error</h3>
-      <BlockCheckboxGroup
-        data={BLOCK_CHECKBOX_GROUP_DATA}
+      <MsolTileOrThumbnail
+        name="selectedIds"
+        options={BLOCK_CHECKBOX_GROUP_DATA}
         error={"Required"}
-        selectedIds={[]} />
+        defaultIds={[]} />
     </Paper>
   </>;
 };

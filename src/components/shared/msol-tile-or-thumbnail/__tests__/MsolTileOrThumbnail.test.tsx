@@ -1,8 +1,9 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { BlockCheckboxGroup, BlockCheckboxGroupProps } from "../BlockCheckboxGroup";
+import { MsolTileOrThumbnail, MsolTileOrThumbnailProps } from "../MsolTileOrThumbnail";
 
-const PROPS: BlockCheckboxGroupProps = {
-  selectedIds: ["2"],
+const PROPS: MsolTileOrThumbnailProps = {
+  name: "test name",
+  defaultIds: ["2"],
   data: [
     {
       id: "1",
@@ -22,14 +23,19 @@ const PROPS: BlockCheckboxGroupProps = {
       description: "Our inline viscosity meter offers accurate, repeatable measurement in industries such as refining, chemical, life sciences, and more.",
       imgUrl: "https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png",
       disabled: true
-
     }
   ]
 };
 
-describe("<BlockCheckboxGroup />", () => {
-  test("when state is default, then show 1 unchecked checkbox, 1 checked checkbox and 1 disabled checkbox", () => {
-    const { container } = render(<BlockCheckboxGroup {...PROPS} />);
+describe("<MsolTileOrThumbnail />", () => {
+  test("when state is default, then show 1 unchecked checkbox, 1 checked checkbox and 1 disabled checkbox.", () => {
+    const { container } = render(<MsolTileOrThumbnail {...PROPS} />);
+
+    expect(container).toMatchSnapshot();
+  });
+
+  test("when hideCheckboxes is true, then do not show checkboxes.", () => {
+    const { container } = render(<MsolTileOrThumbnail {...PROPS} />);
 
     expect(container).toMatchSnapshot();
   });
@@ -37,17 +43,17 @@ describe("<BlockCheckboxGroup />", () => {
   test("when first checkbox is check, then fire onChange event.", async () => {
     const handleChange = jest.fn();
 
-    render(<BlockCheckboxGroup {...PROPS} onChange={handleChange} />);
+    render(<MsolTileOrThumbnail {...PROPS} onChange={handleChange} />);
 
     const checkboxes = await screen.findAllByRole("checkbox");
     const firstCheckbox = checkboxes[0];
     fireEvent.click(firstCheckbox);
 
-    expect(handleChange).toHaveBeenCalledWith(["2", "1"]);
+    expect(handleChange).toHaveBeenCalledWith(expect.any(Object), undefined, "test name", ["2", "1"]);
   });
 
   test("when state is error, then show error message.", () => {
-    const { container } = render(<BlockCheckboxGroup {...PROPS} error="test error" />);
+    const { container } = render(<MsolTileOrThumbnail {...PROPS} error="test error" />);
 
     expect(container).toMatchSnapshot();
   });
