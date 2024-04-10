@@ -19,7 +19,6 @@
     "@emerson/dynamic-ui-public": "^0.0.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.15.15",
     "@material/tooltip": "^14.0.0",
     "@mui/material": "^5.15.11",
     "@okta/okta-auth-js": "6.6.1",
