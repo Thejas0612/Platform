@@ -30,7 +30,6 @@ const DpFlowRightLayout = ({ schema, updateFieldsInSchema, updateValidations }) 
       buCode,
       invisibleElements
     );
-    console.log("obj", obj);
     await updateFieldsInSchema(obj);
   };
 

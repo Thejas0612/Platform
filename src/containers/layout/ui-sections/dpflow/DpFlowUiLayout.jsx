@@ -1,6 +1,6 @@
 import { CircularProgress, Grid } from "@mui/material";
 import "./uiLayout.css";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import data from "../../../../schema-service/schema_version_0.0.1.json";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
