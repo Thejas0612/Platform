@@ -96,10 +96,11 @@ const MSOLDynamicForm = (({ schema, handleChange, updateData, handleKeyPress, fo
                         <Typography fontWeight={'bold'}>{formgroup.group}</Typography>
                         <Grid container spacing={2}>
                             {formgroup.fields.map(field => {
-                                const FieldComponent = FORM_FEILDS[field.type]
+                                const FieldComponent = {...FORM_FEILDS, ...overrideComponents}[field.type];
+                                console.log(FieldComponent);
                                 return (
                                     <>
-                                        <Grid key={field.name} item xs={field.column ? field.column : '12'}>
+                                        <Grid item key={field.name} xs={field.column ? field.column : 12}>
                                             {FieldComponent ?
                                                 <FieldComponent
                                                     {...field}
