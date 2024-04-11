@@ -22,6 +22,7 @@ import { Grid, Stack, Typography } from '@mui/material';
 import CheckboxInput from '../checkbox'
 import TableInput from '../../table-input/TableInput'
 import { MsolTileOrThumbnail } from "../msol-tile-or-thumbnail/MsolTileOrThumbnail";
+import { checkValidations } from '../../../utils/validation.service';
 
 const FORM_FEILDS = {
     "SINGLE_SELECT": SelectInput,
@@ -50,6 +51,7 @@ const MSOLDynamicForm = (({ schema, handleChange, updateData, handleKeyPress, fo
     //initial state of formData
     const [formData, setFormData] = React.useState([])
     const [formDataObj, setFormDataObj] = React.useState({});
+    const [formError, setFormError] = React.useState({});
 
     //updating the initial state
     React.useEffect(() => {
@@ -69,26 +71,31 @@ const MSOLDynamicForm = (({ schema, handleChange, updateData, handleKeyPress, fo
         setFormData(formData);
         setFormDataObj({ ...formDataObj, [field]: value });
         //validate the feild
-        let message =  feildValidation(e, type, name, value);
-        handleChange(
-            e,
-            { ...formDataObj, [field]: value },
-            formData,
-            name,
-        );
+        let message = feildValidation(e, type, name, value);
+        setFormError({...formError, [name]: message});
+        if(!message){
+            handleChange(
+                e,
+                { ...formDataObj, [field]: value },
+                formData,
+                name,
+                {...formError, [name]: message},
+            );
+        } 
     }
 
     const feildValidation = (e, type, name, value) => {
-        console.log(type, name, value);
-        let error = null;
-
+        let currentField;
+        let validations;
         //Finding the current field
-        
+        const foundField = formData.find(group => {
+            const foundIndex = group.fields.findIndex(field => field.name ? field.name.toUpperCase() === name.toUpperCase() : null);
+            return foundIndex !== -1;
+        });
+        currentField = foundField ? foundField.fields.find(field => field.name ? field.name.toUpperCase() === name.toUpperCase() : null) : null;
         //Check the validation rules based on the validation object and assign the error message 
-
-        //return the error message
-
-        return error;
+        validations = currentField.validations ? currentField.validations : [];
+        return checkValidations(validations, value, name);
     }
 
     const generateForm = (
@@ -106,6 +113,7 @@ const MSOLDynamicForm = (({ schema, handleChange, updateData, handleKeyPress, fo
                                             {FieldComponent ?
                                                 <FieldComponent
                                                     {...field}
+                                                    error={formError[field.name]}
                                                     onChange={onChange}
                                                 /> : null}
                                         </Grid>
