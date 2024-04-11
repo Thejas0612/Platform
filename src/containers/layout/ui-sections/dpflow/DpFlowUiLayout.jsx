@@ -2,8 +2,8 @@ import { CircularProgress, Grid } from "@mui/material";
 import "./uiLayout.css";
 import React, { useEffect, useState } from "react";
 import data from "../../../../schema-service/schema_version_0.0.1.json";
-import { getFluidDatabaseValues, getLineSizeValues } from "../../../../api/dp-flow/dpFlowApis";
-import { updateApiDataInSchema } from "../../../../schema-service/schemaService";
+// import { getFluidDatabaseValues, getLineSizeValues } from "../../../../api/dp-flow/dpFlowApis";
+// import { updateApiDataInSchema } from "../../../../schema-service/schemaService";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { updateBu } from "../../../../redux/reducers/initialBuDataSlice";
@@ -43,7 +43,7 @@ export default function DpFlowUiLayout() {
                 componentProps: {
                   schema: itm.componentProps?.schema?.map((field) => {
                     if (field.id === data?.activeIndex) {
-                      return data?.activeSchema;
+                      return data?.updatedSchema;
                     } else return field;
                   })
                 }

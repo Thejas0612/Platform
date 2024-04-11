@@ -77,7 +77,10 @@
                   "textClass": "ddl-typography--h5",
                   "title": "this is title",
                   "type": "LABEL_TEXT",
-                  "textStyles": {}
+                  "textStyles": {},
+                  "display": true,
+                  "order": 0,
+                  "value": "measurement_type_label"
                 },
                 {
                   "column": 12,
@@ -103,7 +106,9 @@
                   "sn_id": 4347,
                   "required": true,
                   "error": "",
-                  "value": []
+                  "value": [],
+                  "display": true,
+                  "order": 1
                 }
               ]
             },
@@ -114,7 +119,7 @@
                   "column": 12,
                   "label": "LABEL_TEXT",
                   "labelClass": "app-content-label",
-                  "name": "LABEL_TEXT",
+                  "name": "process_piping_label",
                   "showLabel": false,
                   "subText": "",
                   "tableClass": "",
@@ -124,7 +129,10 @@
                   "type": "LABEL_TEXT",
                   "textStyles": {
                     "textAlign": "start"
-                  }
+                  },
+                  "display": true,
+                  "value": "process_piping_label",
+                  "order": 0
                 },
                 {
                   "column": 3,
@@ -149,7 +157,9 @@
                     "targetUiElement": "pipeschedule",
                     "targetProperty": "options"
                   },
-                  "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingLineSize?buCode=dpflow"
+                  "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingLineSize?buCode=dpflow",
+                  "display": true,
+                  "order": 1
                 },
                 {
                   "column": 3,
@@ -162,13 +172,47 @@
                   "options": [],
                   "required": true,
                   "error": "",
-                  "errorClass": ""
+                  "errorClass": "",
+                  "display": true,
+                  "order": 2
+                },
+                {
+                  "column": 3,
+                  "type": "NUMBER_INPUT",
+                  "name": "Pipe Id",
+                  "label": "Pipe Id",
+                  "labelClass": "app-content-label",
+                  "disabled": false,
+                  "value": "",
+                  "required": true,
+                  "error": "",
+                  "errorClass": "",
+                  "display": false,
+                  "order": 3
+                },
+                {
+                  "column": 3,
+                  "type": "SINGLE_SELECT",
+                  "name": "units",
+                  "label": "Units",
+                  "labelClass": "app-content-label",
+                  "disabled": false,
+                  "value": "Inch",
+                  "options": [
+                    { "id": "Inch", "label": "Inch", "value": "Inch" },
+                    { "id": "mm", "label": "mm", "value": "mm" }
+                  ],
+                  "required": true,
+                  "error": "",
+                  "errorClass": "",
+                  "display": false,
+                  "order": 4
                 },
                 {
                   "column": 12,
                   "label": "LABEL_TEXT",
                   "labelClass": "app-content-label",
-                  "name": "LABEL_TEXT",
+                  "name": "process_fluid",
                   "showLabel": false,
                   "subText": "",
                   "tableClass": "",
@@ -178,7 +222,9 @@
                   "type": "LABEL_TEXT",
                   "textStyles": {
                     "textAlign": "start"
-                  }
+                  },
+                  "display": true,
+                  "order": 5
                 },
                 {
                   "type": "CUSTOM_BUTTON_GROUP",
@@ -209,6 +255,7 @@
                     }
                   ],
                   "defaultIds": ["0"],
+                  "multiple": true,
                   "showLabel": true,
                   "wrapperId": "",
                   "wrapperClass": "cutsom_class",
@@ -217,7 +264,10 @@
                   "attribute_code_value": {
                     "multiple": true,
                     "size": "medium"
-                  }
+                  },
+                  "required": true,
+                  "display": true,
+                  "order": 6
                 },
                 {
                   "column": 3,
@@ -242,7 +292,9 @@
                   "value": "0",
                   "required": true,
                   "error": "",
-                  "errorClass": ""
+                  "errorClass": "",
+                  "display": true,
+                  "order": 7
                 },
                 {
                   "column": 4,
@@ -256,7 +308,9 @@
                   "error": "",
                   "errorClass": "",
                   "placeholder": "Pick One",
-                  "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID"
+                  "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID",
+                  "display": true,
+                  "order": 8
                 },
                 {
                   "column": 12,
@@ -268,7 +322,10 @@
                   "required": true,
                   "showBackIcon": false,
                   "type": "BUTTON",
-                  "value": ""
+                  "value": "",
+                  "display": true,
+                  "order": 9,
+                  "name": "additional_options_label"
                 },
                 {
                   "column": 12,
@@ -276,7 +333,7 @@
                   "error": "",
                   "errorClass": "",
                   "labelClass": "app-content-label",
-                  "name": "CHECKBOX_INPUT",
+                  "name": "additional_options",
                   "options": [
                     {
                       "label": "Fluid Plugs or Clogs (High Viscosity, Slurry, Entrained Solids, Solidifies, Etc)",
@@ -290,7 +347,9 @@
                   "required": true,
                   "selectedIds": ["1"],
                   "showAlert": false,
-                  "type": "CHECKBOX_INPUT"
+                  "type": "CHECKBOX_INPUT",
+                  "display": true,
+                  "order": 10
                 }
               ]
             },
