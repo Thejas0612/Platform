@@ -1,6 +1,7 @@
 import TableInput from "../components/table-input/TableInput"
 import Checkmark from "../components/table-check/Checkmark"
 import HorizontalLine from "../components/horizonatal-line/HorizontalLine";
+import NavigationMenu from "../components/navigation-menu/NavigationMenu";
 import DropdownMenu from "../components/dropdown-menu/DropdownMenu";
 import { Grid, } from "@mui/material";
 import LineChart from "../components/LineChart";
@@ -355,6 +356,75 @@ const schema_Checkmark_dash = {
        "errorClass":""
     }
 
+    const nav_schema = [
+      {
+          "label": "Instrument Type",
+          "enabled": true,
+          "selected": true,
+          "name": "fpa_InstrumentType",
+          "ne_id": 0,
+          "np_id": 7,
+          "sn_id": 4347,
+          "step_order": 0,
+          "bu_code": "FLOW_PA_NEW",
+          "gui_type_code": "TEXT",
+          "attribute_code_json": "N/A",
+          "html_field_name": "fpa_InstrumentType",
+          "badges": []
+      },
+      {
+          "label": "Transmitter Requirements",
+          "enabled": true,
+          "selected": false,
+          "name": "fpa_transmitterRequirements",
+          "sn_id": 4347,
+          "ne_id": 1,
+          "bu_code": "FLOW_PA_NEW",
+          "np_id": 7,
+          "element_label": "Transmitter Requirements",
+          "step_order": 1,
+          "gui_type_code": "TEXT",
+          "attribute_code_json": "N/A",
+          "html_field_name": "fpa_transmitterRequirements",
+          "badges": []
+      },
+      {
+          "label": "Transmitter Selection",
+          "enabled": true,
+          "selected": false,
+          "name": "fpa_lh_transmitterSelection",
+          "badges": [],
+          "sn_id": 4347,
+          "ne_id": 2,
+          "bu_code": "FLOW_PA_NEW",
+          "np_id": 7,
+          "element_label": "Transmitter Selection",
+          "step_order": 2,
+          "left_right_anchor_flag": "L",
+          "gui_type_code": "TEXT",
+          "attribute_code_json": "N/A",
+          "html_field_name": "fpa_lh_transmitterSelection"
+      },
+      {
+          "label": "Results Summary",
+          "enabled": true,
+          "selected": false,
+          "name": "fpa_resultsSummary",
+          "badges": [],
+          "sn_id": 4347,
+          "ne_id": 3,
+          "bu_code": "FLOW_PA_NEW",
+          "np_id": 7,
+          "element_label": "Results Summary",
+          "step_order": 3,
+          "left_right_anchor_flag": "L",
+          "gui_type_code": "TEXT",
+          "attribute_code_json": "N/A",
+          "html_field_name": "fpa_resultsSummary"
+      }
+   ];
+   
+
 const schema_Horizontal_Line = {
    "horizontalLine":true,
 }
@@ -455,9 +525,14 @@ const schema_chart_Data = {
 
 const TemperaturePlayground = () => (
    <>
-         <div style={{width:"55%"}}><LineChart schema={schema_chart_Data} /></div>
+      <div style={{width:"55%"}}><LineChart schema={schema_chart_Data} /></div>
       <div style={{ width: "40%" }}><TableInput {...schema} /></div>
-         <MsolTileOrThumbnail {...schema_Tile_Thumbnail} />
+      <div style={{ width: "30%" }}>
+         <NavigationMenu
+            data={nav_schema}
+         />
+      </div>
+      <MsolTileOrThumbnail {...schema_Tile_Thumbnail} />
          <HorizontalLine  schema={schema_Horizontal_Line}/>
          <Checkmark schema={schema_Checkmark_dash} />
       <Grid container sx = {{width:'50%'}}>
