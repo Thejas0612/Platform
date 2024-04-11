@@ -1,6 +1,7 @@
 import { TextField } from "@mui/material";
 import { useState } from "react";
 import CustomTooltip from "./CustomTooltip";
+import { TEN_THOUSAND_PLACE_DECIMAL_MATCHER } from "../../utils/constants";
 
 const InputProps = {
     style: {
@@ -13,8 +14,7 @@ const Input = (props) => {
   const [error, setError] = useState(false);
   const handleChange = (e) => {
     const value = e.target.value;
-    const regex = /^[-+]?[0-9]*\.?[0-9]{0,4}$/;
-    const isValid = value.match(regex);
+    const isValid = value.match(TEN_THOUSAND_PLACE_DECIMAL_MATCHER);
 
     if (isValid) {
       setDefaultvalue(value);
@@ -31,7 +31,6 @@ const Input = (props) => {
       placement="top"
     >
       <TextField
-        // {...props.schemaProps}
         value={defaultValue}
         onChange={handleChange}
         onBlur={e => setDefaultvalue( defaultValue !== "" ? String(Number(defaultValue).toFixed(4)) : ""  )}

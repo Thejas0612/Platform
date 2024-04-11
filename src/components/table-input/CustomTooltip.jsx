@@ -14,10 +14,8 @@ const LightTooltip = styled(({ className, ...props }) => (
 
 export default function CustomTooltip(props) {
   return (
-    <>
       <LightTooltip title={props.title} placement="top">
         {props.children}
       </LightTooltip>
-    </>
   );
 }
