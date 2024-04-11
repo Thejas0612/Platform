@@ -4,7 +4,6 @@ import {
     TextInput,
     NumberInput,
     ButtonInput,
-    // TableInput,
     RadioInput,
     CustomToggleButton,
     CustomButtonGroup,
@@ -20,16 +19,16 @@ import {
 } from '@emerson/dynamic-ui-public';
 import CardContent from '@mui/material/CardContent';
 import { Grid, Stack, Typography } from '@mui/material';
-import TileOrThumbnail from '../tile';
 import CheckboxInput from '../checkbox'
-import TableInput from '../table'
+import TableInput from '../../table-input/TableInput'
+import { MsolTileOrThumbnail } from "../msol-tile-or-thumbnail/MsolTileOrThumbnail";
 
 const FORM_FEILDS = {
     "SINGLE_SELECT": SelectInput,
     "TEXT_INPUT": TextInput,
     "NUMBER_INPUT": NumberInput,
     "BUTTON": ButtonInput,
-    'TILE_THUMBNAIL': TileOrThumbnail,
+    'TILE_THUMBNAIL': MsolTileOrThumbnail,
     "CHECKBOX_INPUT": CheckboxInput,
     "TABLE_INPUT": TableInput,
     "RADIO_INPUT": RadioInput,
