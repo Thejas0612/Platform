@@ -45,7 +45,7 @@ const FORM_FEILDS = {
     "DRAG_AND_DROP": DragAndDrop
 }
 
-const MSOLDynamicForm = (({ schema, handleChange, updateData, handleKeyPress, formKey, dataSourceUrl, components, ...props }) => {
+const MSOLDynamicForm = (({ schema, handleChange, updateData, handleKeyPress, formKey, dataSourceUrl, components, overrideComponents = {}, ...props }) => {
 
     //initial state of formData
     const [formData, setFormData] = React.useState([])
@@ -99,7 +99,7 @@ const MSOLDynamicForm = (({ schema, handleChange, updateData, handleKeyPress, fo
                                 const FieldComponent = FORM_FEILDS[field.type]
                                 return (
                                     <>
-                                        <Grid item xs={field.column ? field.column : '12'}>
+                                        <Grid key={field.name} item xs={field.column ? field.column : '12'}>
                                             {FieldComponent ?
                                                 <FieldComponent
                                                     {...field}
@@ -125,4 +125,4 @@ const MSOLDynamicForm = (({ schema, handleChange, updateData, handleKeyPress, fo
     )
 })
 
-export default MSOLDynamicForm;
+export default MSOLDynamicForm
