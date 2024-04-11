@@ -1,6 +1,6 @@
 import { TextField } from "@mui/material";
 import { useState } from "react";
-import Tooltip from "@mui/material/Tooltip";
+import CustomTooltip from "./CustomTooltip";
 
 const InputProps = {
     style: {
@@ -10,37 +10,39 @@ const InputProps = {
 
 const Input = (props) => {
   const [defaultValue, setDefaultvalue] = useState("");
-  const [errorClass, setErrorClass] = useState("");
+  const [error, setError] = useState(false);
   const handleChange = (e) => {
     const value = e.target.value;
     const regex = /^[-+]?[0-9]*\.?[0-9]{0,4}$/;
-    const validated = value.match(regex);
-    if (validated) {
-      setDefaultvalue(value);
+    const isValid = value.match(regex);
 
+    if (isValid) {
+      setDefaultvalue(value);
       if (value < 0) {
-        setErrorClass("errorClass");
-      } else {
-        setErrorClass("");
+        setError(true);
+      } else if (value > 0 || value == "") {
+        setError(false);
       }
     }
   };
   return (
-    <Tooltip
-      title={errorClass ? "Entered " + props.schemaProps.name + " is below 0" : ""}
+    <CustomTooltip
+      title={error ? "Entered " + props.schemaProps.name.replace(/_/g, " ") + " is below 0" : ""}
       placement="top"
     >
       <TextField
         // {...props.schemaProps}
         value={defaultValue}
         onChange={handleChange}
+        onBlur={e => setDefaultvalue( defaultValue !== '' ? String(Number(defaultValue).toFixed(4)) : ''  )}
         size={props.size}
+        error={error}
         InputProps={{
           ...InputProps,
-          className: props.schemaProps.required ? "Mui-focused " + errorClass : " " + errorClass
+          className: props.schemaProps.required ? "Mui-focused " : ""
         }}
       />
-    </Tooltip>
+    </CustomTooltip>
   );
 };
 

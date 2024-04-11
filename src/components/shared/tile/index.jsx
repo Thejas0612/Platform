@@ -95,7 +95,7 @@ function TileorThumbnail({ name, options, defaultIds, onChange, error, ...props 
                                 <Grid item xs={7}>
                                     <CardContent sx={{ m: 2 }}>
                                         <Typography gutterBottom variant="h6" component="div">
-                                            {item.name ? item.name : item.title}
+                                            {item.name}
                                         </Typography>
                                         <Typography variant="body2" color="text.secondary">
                                             {item.description}
