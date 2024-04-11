@@ -4,7 +4,7 @@ import HorizontalLine from "../components/horizonatal-line/HorizontalLine";
 import NavigationMenu from "../components/navigation-menu/NavigationMenu";
 import DropdownMenu from "../components/dropdown-menu/DropdownMenu";
 import { Grid, } from "@mui/material";
-import LineChart from "../components/chart/LineChart";
+import LineChart from "../components/line-chart/LineChart";
 import { MsolTileOrThumbnail } from "../components/shared/msol-tile-or-thumbnail/MsolTileOrThumbnail";
 
 const schema = {
