@@ -4,7 +4,7 @@ import HorizontalLine from "../components/horizonatal-line/HorizontalLine";
 import NavigationMenu from "../components/navigation-menu/NavigationMenu";
 import DropdownMenu from "../components/dropdown-menu/DropdownMenu";
 import { Grid, } from "@mui/material";
-import LineChart from "../components/LineChart";
+import LineChart from "../components/chart/LineChart";
 import { MsolTileOrThumbnail } from "../components/shared/msol-tile-or-thumbnail/MsolTileOrThumbnail";
 
 const schema = {
@@ -428,104 +428,113 @@ const schema_Checkmark_dash = {
 const schema_Horizontal_Line = {
    "horizontalLine":true,
 }
+function percentage(num: number, per: number)
+{
+  return (num/100)*per;
+}     
+/*chart data related code*/ 
+var minYVal =-2.14 + percentage(-2.14, 15);//added demo data for now
+var maxYVal = 2.14 + percentage(2.14, 15);
 const schema_chart_Data = {
-    "options":  {
-
+   "options": {
       plugins: {
-        "legend": {
-          "display": true,
-          "position": "bottom",
-          "align": "center"
-        },
-        title: {
-          display: true,
-          text: '248R CVD',
-          font: {
-            size: 16,
-            family: 'sans-serif',
-            weight: '10',
-            style: 'bold'
-          },
-          padding: {
-            bottom: 10
-          }
-        },
+         legend: {
+            display: false,
+            position: "bottom",
+            align: "center",
+            padding: {
+               bottom: 100
+            }
+         },
+         title: {
+            display: true,
+            text: '248R CVD',
+            font: {
+               size: 16,
+               family: 'sans-serif',
+               weight: '10',
+               style: 'bold'
+            },
+            padding: {
+               bottom: '20'
+            }
+         },
       },
-   
       scales: {
-        x: {
-          title: {
-            display: false,
-            text: 'Ambient Temperature (°C)',
-   
-          },
-          display: true,
-          position: 'center',
-          ticks: {
-            beginAtZero: false,
-            padding: 20,
-            align: 'center', // Center the x-axis labels
-          },
-   
-        },
-        y: {
-          title: {
-            display: false,
-            text: 'Total Probable Error (°C)'
-          },
-          position: "center",
-          min: -3.5000,
-          max: 3.5000,
-        },
-   
+         x: {
+            title: {
+               display: true,
+               text: 'Ambient Temperature (°C)',
+               padding: { top: 400, left: 0, right: 0, bottom: 0 }
+            },
+            display: true,
+            position: 'center',
+            ticks: {
+               beginAtZero: false,
+               padding: 50,
+               align: 'center',
+            },
+            min: -50,
+            max: 150,
+         },
+         y: {
+            title: {
+               display: true,
+               text: 'Total Probable Error (+/- °C)',
+               padding: { top: 400, left: 0, right: 0, bottom: 0 }
+            },
+            position: "center",
+            ticks: {
+               beginAtZero: false,
+               padding: 50,
+               align: 'center',
+            },
+            min: minYVal,
+            max: maxYVal,
+         },
       },
-    },
-  
-"data":[
-   {
-      labels: [-40,-30,-20,10,0,10,20,30,40],
-   
-      datasets: [
-        {
-          position: "bottom",
-          label: '248H HART(tpe -ve)',
-          data: [-2.14,-1.97,-1.8,-1.6,-1.59,-1.53,-1.51,-1.53,-1.59],
-          fill: false,
-          borderColor: 'blue',
-          cubicInterpolationMode: 'monotone',
-        },
-        {
-          label: '248H CVD(tpes -ve)',
-          data: [-1.68,-1.44,-1.25,-1.06,-0.89,-0.78,-0.74,-0.78,-0.89],
-          fill: false,
-          borderColor: 'orange',
-          cubicInterpolationMode: 'monotone',
-        },
-        {
-          label: '248H HART(tpe +ve)',
-          data: [2.14,1.97,1.81,1.69,1.59,1.53,1.51,1.53,1.59],
-          fill: false,
-          borderColor: 'blue',
-          cubicInterpolationMode: 'monotone',
-        },
-   
-        {
-          label: '248H CVD(tpes +ve)',
-          data: [1.68,1.46,1.25,1.06,0.89,0.78,0.74,0.78,0.89],
-          fill: false,
-          borderColor: 'orange',
-          cubicInterpolationMode: 'monotone',
-        },
-      ],
-    }
-]
+   },
+   data: [
+      {
+         labels: [-50, -40, -30, -20, 10, 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+         datasets: [
+            {
+               position: "bottom",
+               label: '248H HART(tpe -ve)',
+               data: [-2.14, -1.97, -1.8, -1.6, -1.59, -1.53, -1.51, -1.53, -1.59],
+               fill: false,
+               borderColor: '#004b8d',
+            },
+            {
+               label: '248H CVD(tpes -ve)',
+               data: [-1.68, -1.44, -1.25, -1.06, -0.89, -0.78, -0.74, -0.78, -0.89],
+               fill: false,
+               borderColor: '#00805a',
+            },
+            {
+               label: '248H HART(tpe +ve)',
+               data: [2.14, 1.97, 1.81, 1.69, 1.59, 1.53, 1.51, 1.53, 1.59],
+               fill: false,
+               borderColor: '#004b8d',
+            },
+            {
+               label: '248H CVD(tpes +ve)',
+               data: [1.68, 1.46, 1.25, 1.06, 0.89, 0.78, 0.74, 0.78, 0.89],
+               fill: false,
+               borderColor: '#00805a',
+            },
+         ],
+      }
+   ],
+   labels: {
+      'tpeLabel': '248R CVD TPE',
+      'tpesLabel': '248R CVD TPS'
+   }
 };
-
-
 
 const TemperaturePlayground = () => (
    <>
-      <div style={{width:"55%"}}><LineChart schema={schema_chart_Data} /></div>
+      <div style={{width:"60%",height:'500px',padding:'10px'}}><LineChart schema={schema_chart_Data} /></div>
       <div style={{ width: "40%" }}><TableInput {...schema} /></div>
       <div style={{ width: "30%" }}>
          <NavigationMenu

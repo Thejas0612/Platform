@@ -1,0 +1,9 @@
+.center{
+    display: flex;
+    justify-content: center;
+}
+.text{
+    font-family: "sans-serif";
+    font-size: small;
+    fill: currentColor;
+}
