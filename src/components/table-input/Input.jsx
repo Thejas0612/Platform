@@ -20,21 +20,21 @@ const Input = (props) => {
       setDefaultvalue(value);
       if (value < 0) {
         setError(true);
-      } else if (value > 0 || value == "") {
+      } else if (value > 0 || value === "") {
         setError(false);
       }
     }
   };
   return (
     <CustomTooltip
-      title={error ? "Entered " + props.schemaProps.name.replace(/_/g, " ") + " is below 0" : ""}
+      title={error ? "Entered " + props.schemaProps.name.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) + " is below 0" : ""}
       placement="top"
     >
       <TextField
         // {...props.schemaProps}
         value={defaultValue}
         onChange={handleChange}
-        onBlur={e => setDefaultvalue( defaultValue !== '' ? String(Number(defaultValue).toFixed(4)) : ''  )}
+        onBlur={e => setDefaultvalue( defaultValue !== "" ? String(Number(defaultValue).toFixed(4)) : ""  )}
         size={props.size}
         error={error}
         InputProps={{

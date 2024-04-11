@@ -25,12 +25,12 @@ export const saveValuesInSchema = (formData, rightSectionSchema, activeIndex) =>
               fields: fields?.map((element, key) => {
 
                 switch (element?.type) {
-                  case 'TILE_THUMBNAIL':{
+                  case "TILE_THUMBNAIL":{
                     element.defaultIds = element?.value;
                     return element
                   }
 
-                  case 'TABLE_INPUT':{
+                  case "TABLE_INPUT":{
                     let tempVar = fields[key]?.value;
                     delete tempVar?.exclude_model;
                     element.value = { ...element?.value, ...tempVar };
