@@ -2,8 +2,6 @@ import { CircularProgress, Grid } from "@mui/material";
 import "./uiLayout.css";
 import React, { useEffect, useState } from "react";
 import data from "../../../../schema-service/schema_version_0.0.1.json";
-// import { getFluidDatabaseValues, getLineSizeValues } from "../../../../api/dp-flow/dpFlowApis";
-// import { updateApiDataInSchema } from "../../../../schema-service/schemaService";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { updateBu } from "../../../../redux/reducers/initialBuDataSlice";
