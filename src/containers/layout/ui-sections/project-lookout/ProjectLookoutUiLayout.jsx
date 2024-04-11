@@ -24,8 +24,6 @@ export default function ProjectLookoutUiLayout() {
       <Grid container>
         <div className="top_section">
           <TopLayout />
-
-        {/*  change */}
         </div>
         <Grid className="left_section" container direction="row">
           <Grid item xs={12} md={3}>
