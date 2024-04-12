@@ -29,6 +29,7 @@ See [Setup Local Environment](docs\setup-local-environment.md)
 | Name                             | Description                                                                                 |
 |----------------------------------|---------------------------------------------------------------------------------------------|
 | `VITE_HIGHLIGHT_MSOL_COMPONENTS` | `false` (default) - do nothing. <br />`true` - shows all MSOL component with yellow border. |
+| `VITE_API_URL` | `http://localhost:5000` (example) -  <br />`true` - Backend API url. |
 
 ## Folder Structure
 
