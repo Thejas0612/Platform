@@ -436,8 +436,15 @@ function percentage(num: number, per: number)
 var minYVal =-2.14 + percentage(-2.14, 15);//added demo data for now
 var maxYVal = 2.14 + percentage(2.14, 15);
 const schema_chart_Data = {
-   "options": {
+   options: {
       plugins: {
+         title: {
+            display: true,
+            text: '248R CVD',
+            padding: {
+               bottom: '20'
+            }
+         },
          legend: {
             display: false,
             position: "bottom",
@@ -446,53 +453,48 @@ const schema_chart_Data = {
                bottom: 100
             }
          },
-         title: {
-            display: true,
-            text: '248R CVD',
-            font: {
-               size: 16,
-               family: 'sans-serif',
-               weight: '10',
-               style: 'bold'
-            },
-            padding: {
-               bottom: '20'
-            }
-         },
       },
+      layout: {
+         padding: 10
+      },
+      responsive: true,
       scales: {
          x: {
+            ticks: {
+               beginAtZero: false,
+               padding: 50,
+               align: 'center',
+            },
+            position: 'center',
+            display: true,
             title: {
                display: true,
                text: 'Ambient Temperature (°C)',
-               padding: { top: 400, left: 0, right: 0, bottom: 0 }
-            },
-            display: true,
-            position: 'center',
+               padding: { top: 180, left: 0, right: 0, bottom: 0 },
+               font: {
+                  family: 'sans-serif',
+                  size: 12,
+                  lineHeight: 1.2,
+               },
+            }
+         },
+         y: {
             ticks: {
                beginAtZero: false,
                padding: 50,
                align: 'center',
             },
-            min: -50,
-            max: 150,
-         },
-         y: {
+            position: 'center',
+            display: true,
             title: {
                display: true,
                text: 'Total Probable Error (+/- °C)',
-               padding: { top: 400, left: 0, right: 0, bottom: 0 }
-            },
-            position: "center",
-            ticks: {
-               beginAtZero: false,
-               padding: 50,
-               align: 'center',
+               padding: { top: 650, left: 0, right: 0, bottom: 0 }
             },
             min: minYVal,
             max: maxYVal,
-         },
-      },
+         }
+      }
    },
    data: [
       {
@@ -527,14 +529,14 @@ const schema_chart_Data = {
       }
    ],
    labels: {
-      'tpeLabel': '248R CVD TPE',
-      'tpesLabel': '248R CVD TPS'
+      'tpeLabel': '248R TPE',
+      'tpesLabel': '248R w/CVD TPS'
    }
 };
 
 const TemperaturePlayground = () => (
    <>
-      <div style={{width:"60%",height:'500px',padding:'10px'}}><LineChart schema={schema_chart_Data} /></div>
+      <div style={{width:"60%",padding:'20px'}}><LineChart schema={schema_chart_Data} /></div>
       <div style={{ width: "40%" }}><TableInput {...schema} /></div>
       <div style={{ width: "30%" }}>
          <NavigationMenu
