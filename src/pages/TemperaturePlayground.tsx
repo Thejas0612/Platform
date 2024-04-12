@@ -530,7 +530,7 @@ const schema_chart_Data = {
    ],
    labels: {
       'tpeLabel': '248R TPE',
-      'tpesLabel': '248R w/CVD TPS'
+      'tpesLabel': '248R w/CVD TPE',
    }
 };
 
