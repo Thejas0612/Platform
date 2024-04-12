@@ -442,7 +442,7 @@ const schema_chart_Data = {
             display: true,
             text: '248R CVD',
             padding: {
-               bottom: '20'
+               bottom: '0'
             }
          },
          legend: {
@@ -470,9 +470,9 @@ const schema_chart_Data = {
             title: {
                display: true,
                text: 'Ambient Temperature (°C)',
-               padding: { top: 180, left: 0, right: 0, bottom: 0 },
+               padding: { top: 50, left: 0, right: 0, bottom: 0 },
                font: {
-                  family: 'sans-serif',
+                  family: 'Noto Sans',
                   size: 12,
                   lineHeight: 1.2,
                },
@@ -489,7 +489,12 @@ const schema_chart_Data = {
             title: {
                display: true,
                text: 'Total Probable Error (+/- °C)',
-               padding: { top: 650, left: 0, right: 0, bottom: 0 }
+               padding: { top: 650, left: 0, right: 0, bottom: 0 },
+               font: {
+                  family: 'Noto Sans',
+                  size: 12,
+                  lineHeight: 1.2,
+               },
             },
             min: minYVal,
             max: maxYVal,
