@@ -1287,6 +1287,7 @@
                   "type": "CHECKBOX_INPUT",
                   "column": 12,
                   "name": "CHECKBOX_INPUT",
+                  "hide": true,
                   "options": [
                     {
                       "label": "Calculate Density Variation",
@@ -1346,14 +1347,26 @@
                     ],
                     [
                       {
-                        "type": "TEXT",
-                        "label": "Density",
-                        "align": "center"
+                        "type": "SINGLE_SELECT",
+                        "name": "density_options",
+                        "value": "",
+                        "disabled": true,
+                        "options": [
+                          {
+                            "value": "Density",
+                            "label": "Density",
+                            "selected": true
+                          },
+                          {
+                            "value": "specific_gravity",
+                            "label": "Specific Gravity"
+                          }
+                        ]
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "density_min",
-                        "disabled": false,
+                        "disabled": true,
                         "align": "center",
                         "precision": 4
                       },
@@ -1361,14 +1374,15 @@
                         "type": "TEXT_INPUT",
                         "name": "density_norm",
                         "inputClass": "customRequired",
-                        "disabled": false,
+                        "disabled": true,
+                        "required": false,
                         "align": "center",
                         "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "density_max",
-                        "disabled": false,
+                        "disabled": true,
                         "align": "center",
                         "precision": 4
                       },
@@ -1381,12 +1395,21 @@
                         "inputClass": "unitClass",
                         "options": [
                           {
-                            "value": "Meter",
-                            "label": "Meter"
+                            "value": "kg/m3",
+                            "label": "kg/m3"
                           },
                           {
-                            "value": "Feet",
-                            "label": "Feet"
+                            "value": "g/cm3",
+                            "label": "g/cm3",
+                            "selected": true
+                          },
+                          {
+                            "value": "lb/ft3",
+                            "label": "lb/ft3"
+                          },
+                          {
+                            "value": "lb/gallon(US)",
+                            "label": "lb/gallon(US)"
                           }
                         ]
                       }
@@ -1400,7 +1423,7 @@
                       {
                         "type": "TEXT_INPUT",
                         "name": "viscosity_min",
-                        "disabled": false,
+                        "disabled": true,
                         "align": "center",
                         "precision": 4
                       },
@@ -1408,14 +1431,15 @@
                         "type": "TEXT_INPUT",
                         "name": "viscosity_norm",
                         "inputClass": "customRequired",
-                        "disabled": false,
+                        "disabled": true,
+                        "required": false,
                         "align": "center",
                         "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "viscosity_max",
-                        "disabled": false,
+                        "disabled": true,
                         "align": "center",
                         "precision": 4
                       },
@@ -1447,7 +1471,7 @@
                       {
                         "type": "TEXT_INPUT",
                         "name": "vapour_pressure_min",
-                        "disabled": false,
+                        "disabled": true,
                         "align": "center",
                         "precision": 4
                       },
