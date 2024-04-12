@@ -9,8 +9,8 @@ const DpFlowRightLayout = ({ schema, updateFieldsInSchema, updateValidations }) 
   const activeIndex = useSelector((state) => state.initialBuData?.activeIndex);
   const data = getDynamicFormSchema(buCode, "DynamicForm", activeIndex, schema);
 
-  const invisibleElements = [];
-  const visibleElements = { id: data[0]?.id, fields: [] };
+  let invisibleElements = [];
+  let visibleElements = { id: data[0]?.id, fields: [] };
   if (data.length > 0)
     data[0]?.fields?.forEach((ele) => {
       if (ele.display) {
