@@ -24,33 +24,48 @@ export const saveValuesInSchema = (formData, rightSectionSchema, activeIndex) =>
               id: id,
               fields: fields?.map((element, key) => {
 
-                
                 switch (element?.type) {
-                  case "TILE_THUMBNAIL":{
+                  case "TILE_THUMBNAIL": {
                     element.defaultIds = element?.value;
+                    return element
                   }
 
-                  case "TABLE_INPUT":{
-                    let tempVar = fields[key]?.value;
+                  case "TABLE_INPUT": {
+                    const tempVar = fields[key]?.value;
                     delete tempVar?.exclude_model;
                     element.value = { ...element?.value, ...tempVar };
+                    return element;
                   }
-                }
-                
 
-                if (element.name === "fluidsDatabaseDropdown") {
-                  element.hide = !(
-                    fields.find((source) => source.name === "fluidSource").value === "0" &&
-                    element.type === "SINGLE_SELECT"
-                  );
-                  return element;
-                } else if (element.name === "fluidsDatabaseInput") {
-                  element.hide = !(
-                    fields.find((source) => source.name === "fluidSource").value === "1" &&
-                    element.type === "TEXT_INPUT"
-                  );
-                
-                  return element;
+                  case "SINGLE_SELECT": {
+                    if (element.name === "fluidsDatabaseDropdown") {
+                      element.hide = !(
+                        fields.find((source) => source.name === "fluidSource").value === "0"
+                      );
+                      return element;
+                    }
+
+                    return element;
+                  }
+
+                  case "TEXT_INPUT": {
+                    if (element.name === "fluidsDatabaseInput") {
+                      element.hide = !(
+                        fields.find((source) => source.name === "fluidSource").value === "1"
+                      );
+                      return element;
+                    }
+
+                    return element;
+
+                  }
+
+                  default:
+                    return element;
+                }
+
+
+
               })
             };
           } else {
