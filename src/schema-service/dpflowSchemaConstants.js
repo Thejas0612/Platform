@@ -1,4 +1,4 @@
-const schemaConstants = {
+const SCHEMA_CONSTANTS = {
   PIPE_ID: "Pipe Id",
   PIPE_SCHEDULE: "pipeschedule",
   UNITS: "units",
@@ -18,4 +18,4 @@ const schemaConstants = {
   CUSTOM_FLUID_NAME: "custom_fluid_name",
   FLUID_DATABASE_NAME: "fluidsdatabase"
 };
-export default schemaConstants;
+export default SCHEMA_CONSTANTS;

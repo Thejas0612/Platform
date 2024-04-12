@@ -11,7 +11,7 @@ const DpFlowRightLayout = ({ schema, updateFieldsInSchema, updateValidations }) 
 
   let invisibleElements = [];
   let visibleElements = { id: data[0]?.id, fields: [] };
-  if (data.length > 0)
+  if (data?.length > 0)
     data[0]?.fields?.forEach((ele) => {
       if (ele.display) {
         visibleElements.fields.push(ele);
@@ -37,7 +37,7 @@ const DpFlowRightLayout = ({ schema, updateFieldsInSchema, updateValidations }) 
     return (
       <div>
         <MSOLDynamicForm
-          schema={visibleElements.fields?.length > 0 ? [visibleElements] : []}
+          schema={[visibleElements]}
           handleChange={(e, formObj, formData, name) => onUpdateSchema(e, formObj, formData, name)}
         />
         <div>
