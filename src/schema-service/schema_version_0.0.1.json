@@ -276,7 +276,7 @@
                   "label": "Fluid Source",
                   "labelClass": "app-content-label",
                   "selectedIds": ["0"],
-                  "disabledIds": ["1"],
+                  "disabledIds": [],
                   "options": [
                     {
                       "value": "0",
@@ -313,6 +313,21 @@
                   "order": 8
                 },
                 {
+                  "column": 4,
+                  "type": "TEXT_INPUT",
+                  "name": "custom_fluid_name",
+                  "label": "Custom Fluid Name",
+                  "labelClass": "app-content-label",
+                  "value": "",
+                  "required": true,
+                  "error": "",
+                  "errorClass": "",
+                  "placeholder": "Enter Text",
+                  "display": false,
+                  "order": 9,
+                  "maxLength": 40
+                },
+                {
                   "column": 12,
                   "align": "left",
                   "btnType": "textary",
@@ -324,7 +339,7 @@
                   "type": "BUTTON",
                   "value": "",
                   "display": true,
-                  "order": 9,
+                  "order": 10,
                   "name": "additional_options_label"
                 },
                 {
@@ -349,7 +364,7 @@
                   "showAlert": false,
                   "type": "CHECKBOX_INPUT",
                   "display": true,
-                  "order": 10
+                  "order": 11
                 }
               ]
             },

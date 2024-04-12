@@ -1,5 +1,6 @@
 import { getApi } from "../api/dp-flow/dpFlowApis";
 import schemaConstants from "./dpflowSchemaConstants";
+import { orderSchemaFields } from "./schemaServiceHelper";
 
 export const getNavigationMenuSchema = (buCode, componentName, schema) => {
   const schema_data = [];
@@ -93,6 +94,19 @@ export const updateSchema = async (
     }
   }
 
+  if (name === schemaConstants.FLUID_SOURCE) {
+    const selectedId = mappedFields[name].value;
+    if (mappedFields[name][schemaConstants.OPTIONS][selectedId]?.label === schemaConstants.CUSTOM) {
+      mappedFields[schemaConstants.FLUID_DATABASE_NAME][schemaConstants.DISPLAY] = false;
+      mappedFields[schemaConstants.FLUID_DATABASE_NAME][schemaConstants.VALUE] = "";
+      mappedFields[schemaConstants.CUSTOM_FLUID_NAME][schemaConstants.DISPLAY] = true;
+    } else {
+      mappedFields[schemaConstants.FLUID_DATABASE_NAME][schemaConstants.DISPLAY] = true;
+      mappedFields[schemaConstants.CUSTOM_FLUID_NAME][schemaConstants.DISPLAY] = false;
+      mappedFields[schemaConstants.CUSTOM_FLUID_NAME][schemaConstants.VALUE] = "";
+    }
+  }
+
   if (response?.length > 0) {
     mappedFields[field?.isApiOnEvent?.targetUiElement] = {
       ...mappedFields[field?.isApiOnEvent?.targetUiElement],
@@ -102,14 +116,14 @@ export const updateSchema = async (
     };
     const updatedSchema = {
       id: formData[0]?.id,
-      fields: Object.values(mappedFields).sort((a, b) => a.order - b.order)
+      fields: orderSchemaFields(mappedFields)
     };
 
     return { updatedSchema, activeIndex, buCode };
   }
   const updatedSchema = {
     id: formData[0]?.id,
-    fields: Object.values(mappedFields).sort((a, b) => a.order - b.order)
+    fields: orderSchemaFields(mappedFields)
   };
   return { updatedSchema, activeIndex, buCode };
 };

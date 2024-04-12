@@ -9,6 +9,13 @@ const schemaConstants = {
   VALUE: "value",
   DEFAULT_DROPDOWN_VALUE: "pick one",
   DEFAULT_DROPDOWN_LABEL: "Pick One",
-  DEFAULT_DROPDOWN_ID: "pick one"
+  DEFAULT_DROPDOWN_ID: "pick one",
+  FLUID_SOURCE: "fluidsource",
+  OPTIONS: "options",
+  CUSTOM: "Custom",
+  DATABASE: "Database",
+  ID: "id",
+  CUSTOM_FLUID_NAME: "custom_fluid_name",
+  FLUID_DATABASE_NAME: "fluidsdatabase"
 };
 export default schemaConstants;
