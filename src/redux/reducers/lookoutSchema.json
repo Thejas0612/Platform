@@ -138,13 +138,8 @@
                   "type": "TILE_THUMBNAIL",
                   "name": "measurmenttype",
                   "label": "Test Thumbnail",
-                  "labelClass": "app-content-label",
-                  "description": "here is a toggle button",
-                  "attribute_code_value": {
-                    "defaultIds": [],
-                    "defaultDirection": "tile"
-                  },
-                  "options": [
+                  "defaultIds": [],
+                  "data": [
                     {
                       "id": 1,
                       "title": "Flow",
@@ -568,7 +563,7 @@
                 {
                   "column": 2,
                   "type": "RADIO_INPUT",
-                  "name": "fluidsource",
+                  "name": "fluidSource",
                   "label": "Fluid Source",
                   "labelClass": "app-content-label camelCase",
                   "value": "0",
@@ -588,11 +583,12 @@
                 {
                   "column": 6,
                   "type": "SINGLE_SELECT",
-                  "name": "fluidsdatabase",
+                  "name": "fluidsDatabaseDropdown",
                   "label": "Fluids Database",
                   "labelClass": "app-content-label camelCase",
                   "inputClass": "customRequired",
                   "value": "",
+                  "hide": false,
                   "options": [
                     {
                       "value": "0",
@@ -705,6 +701,15 @@
                       "id": "20"
                     }
                   ]
+                },
+                {
+                  "label": "Enter Custom Fluid Name",
+                  "labelClass": "app-content-label camelCase",
+                  "type": "TEXT_INPUT",
+                  "name": "fluidsDatabaseInput",
+                  "column": 4,
+                  "value" : "",
+                  "hide": true
                 }
               ]
             },
