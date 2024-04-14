@@ -330,6 +330,7 @@
                           "column":6,
                           "type":"SINGLE_SELECT",
                           "name":"communicationProtocol",
+                          "URL" : "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/temp/form-factor?communication_protocol=",
                           "label":"Communication Protocol",
                           "labelClass":"app-content-label",
                           "disabled":false,
@@ -357,6 +358,7 @@
                        {
                           "column":6,
                           "type":"SINGLE_SELECT",
+                          "URL" : "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/temp/number-of-inputs?",
                           "name":"formfactor",
                           "label":"Form Factor",
                           "labelClass":"app-content-label",
@@ -370,44 +372,43 @@
                           "required":false,
                           "error":"",
                           "errorClass":"",
-                          "dataSourceUrl":""
+                          "isApiOnEvent": {
+                           "isApiCall": true,
+                           "apiInfo": {
+                             "url": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/temp/number-of-inputs?",
+                             "method": "GET",
+                             "payload": {}
+                           },
+                           "targetUiElement": "numberofinputs",
+                           "targetProperty": "options"
+                         }                                 
+         
                        },
                        {
                           "column":6,
                           "type":"SINGLE_SELECT",
-                          "name":"noOfInputs",
-                          "label":"Number of Inputs",
+                          "name":"numberofinputs",
+                          "label":"Number Of Inputs",
                           "labelClass":"app-content-label",
                           "disabled":false,
                           "value":"",
-                          "options":[
-                             {
-                                "value":"Single input",
-                                "label":"Single input",
-                                "id":"0"
-                             },
-                             {
-                                "value":"Dual Input",
-                                "label":"Dual Input",
-                                "id":"1"
-                             },
-                             {
-                                "value":"4 Inputs",
-                                "label":"4 Inputs",
-                                "id":"2"
-                             },
-                             {
-                                "value":"8 Inputs",
-                                "label":"8 Inputs",
-                                "id":"3"
-                             }
-                          ],
+                          "options":[],
                           "tooltipEnable":false,
                           "tooltipMessage":"",
                           "nextLine":false,
                           "required":false,
                           "error":"",
-                          "errorClass":""
+                          "errorClass":"",
+                          "isApiOnEvent": {
+                           "isApiCall": true,
+                           "apiInfo": {
+                             "url": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/temp/performance?",
+                             "method": "GET",
+                             "payload": {}
+                           },
+                           "targetUiElement": "performance",
+                           "targetProperty": "options"
+                         }
                        },
                        {
                           "column":6,
@@ -418,28 +419,25 @@
                           "disabled":false,
                           "value":"",
                           "options":[
-                             {
-                                "value":"Basic",
-                                "label":"Basic",
-                                "id":"0"
-                             },
-                             {
-                                "value":"Industry Standard",
-                                "label":"Industry Standard",
-                                "id":"1"
-                             },
-                             {
-                                "value":"Industry Leading",
-                                "label":"Industry Leading",
-                                "id":"2"
-                             }
+                        
                             ],
                           "tooltipEnable":true,
                           "tooltipMessage":"Performance",
                           "nextLine":false,
                           "required":false,
                           "error":"",
-                          "errorClass":""
+                          "errorClass":"",
+                          "isApiOnEvent": {
+                           "isApiCall": true,
+                           "apiInfo": {
+                             "url": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/temp/performance?",
+                             "method": "GET",
+                             "payload": {}
+                           },
+                           "targetUiElement": "",
+                           "targetProperty": "options"
+                         }
+                          
                        },
                        {
                           "type":"CHECKBOX_INPUT",
