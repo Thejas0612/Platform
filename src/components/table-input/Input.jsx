@@ -21,7 +21,7 @@ const Input = (props) => {
     const isFlowRow = ["flow_rate_min", "flow_rate_norm", "flow_rate_max"];
     const isDensityRow = ["density_min", "density_norm", "density_max"];
 
-    const isViscosityRow = [];
+    const isViscosityRow = ["viscosity_min", "viscosity_norm", "viscosity_max"];
 
     if (isValid) {
       setDefaultvalue(value);
@@ -40,7 +40,15 @@ const Input = (props) => {
             props.schemaProps.name.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) +
             " is below or equal to 0"
         );
-      } else if (value >= 0 || value === "") {
+      } else if (isViscosityRow.includes(props.schemaProps.name) && value < 0.01) {
+        setError(true);
+        setErrorMessage(
+          "Entered " +
+          props.schemaProps.name.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) +
+          " is below or equal to 0.01"
+        );
+      }
+      else if (value >= 0 || value === "") {
         setError(false);
         setErrorMessage("");
       }

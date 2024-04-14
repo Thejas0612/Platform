@@ -1456,12 +1456,77 @@
                         "align": "right",
                         "options": [
                           {
-                            "value": "Meter",
-                            "label": "Meter"
+                            "value": "centistokes",
+                            "label": "centistokes"
                           },
                           {
-                            "value": "Feet",
-                            "label": "Feet"
+                            "value": "cm2/sec",
+                            "label": "cm2/sec"
+                          },
+                          {
+                            "value": "cP",
+                            "label": "cP",
+                            "selected": true
+                          },
+                          {
+                            "value": "ft2/sec",
+                            "label": "ft2/sec"
+                          },
+                          {
+                            "value": "gram/cm.sec",
+                            "label": "gram/cm.sec"
+                          },
+                          {
+                            "value": "gramf.sec/cm2",
+                            "label": "gramf.sec/cm2"
+                          },
+                          {
+                            "value": "kg/m.hr",
+                            "label": "kg/m.hr"
+                          },
+                          {
+                            "value": "kg/m.sec",
+                            "label": "kg/m.sec"
+                          },
+                          {
+                            "value": "lb/ft.hr",
+                            "label": "lb/ft.hr"
+                          },
+                          {
+                            "value": "lb/ft.sec",
+                            "label": "lb/ft.sec"
+                          },
+                          {
+                            "value": "lb/in.sec",
+                            "label": "lb/in.sec"
+                          },
+                          {
+                            "value": "lbf.sec/in2",
+                            "label": "lbf.sec/in2"
+                          },
+                          {
+                            "value": "m2/sec",
+                            "label": "m2/sec"
+                          },
+                          {
+                            "value": "mPa.sec",
+                            "label": "mPa.sec"
+                          },
+                          {
+                            "value": "N.sec/m2",
+                            "label": "N.sec/m2"
+                          },
+                          {
+                            "value": "Pa.sec",
+                            "label": "Pa.sec"
+                          },
+                          {
+                            "value": "Poise",
+                            "label": "Poise"
+                          },
+                          {
+                            "value": "Stokes",
+                            "label": "Stokes"
                           }
                         ]
                       }
@@ -1492,12 +1557,157 @@
                         "align": "right",
                         "options": [
                           {
-                            "value": "Meter",
-                            "label": "Meter"
+                            "value": "atm-a",
+                            "label": "atm-a"
                           },
                           {
-                            "value": "Feet",
-                            "label": "Feet"
+                            "value": "atm-g",
+                            "label": "atm-g"
+                          },
+                          {
+                            "value": "bar-a",
+                            "label": "bar-a"
+                          },
+                          {
+                            "value": "bar-g",
+                            "label": "bar-g"
+                          },
+                          {
+                            "value": "ftH2O@68F-a",
+                            "label": "ftH2O@68F-a"
+                          },
+                          {
+                            "value": "ftH2O@68F-g",
+                            "label": "ftH2O@68F-g"
+                          },
+                          {
+                            "value": "g/cm2-a",
+                            "label": "g/cm2-a"
+                          },
+                          {
+                            "value": "g/cm2-g",
+                            "label": "g/cm2-g"
+                          },
+                          {
+                            "value": "inH2O@60F-a",
+                            "label": "inH2O@60F-a"
+                          },
+                          {
+                            "value": "inH2O@60F-g",
+                            "label": "inH2O@60F-g"
+                          },
+                          {
+                            "value": "inH2O@68F-a",
+                            "label": "inH2O@68F-a"
+                          },
+                          {
+                            "value": "inH2O@68F-g",
+                            "label": "inH2O@68F-g"
+                          },
+                          {
+                            "value": "inH2O-a",
+                            "label": "inH2O-a"
+                          },
+                          {
+                            "value": "inH2O-g",
+                            "label": "inH2O-g"
+                          },
+                          {
+                            "value": "inHg@0C-a",
+                            "label": "inHg@0C-a"
+                          },
+                          {
+                            "value": "inHg@0C-g",
+                            "label": "inHg@0C-g"
+                          },
+                          {
+                            "value": "kg/cm2-a",
+                            "label": "kg/cm2-a"
+                          },
+                          {
+                            "value": "kg/cm2-g",
+                            "label": "kg/cm2-g"
+                          },
+                          {
+                            "value": "kPa-a",
+                            "label": "kPa-a"
+                          },
+                          {
+                            "value": "kPa-g",
+                            "label": "kPa-g"
+                          },
+                          {
+                            "value": "mbar-a",
+                            "label": "mbar-a"
+                          },
+                          {
+                            "value": "mbar-g",
+                            "label": "mbar-g"
+                          },
+                          {
+                            "value": "mmH20-a",
+                            "label": "mmH20-a"
+                          },
+                          {
+                            "value": "mmH20-g",
+                            "label": "mmH20-g"
+                          },
+                          {
+                            "value": "mmH2O@4C-a",
+                            "label": "mmH2O@4C-a"
+                          },
+                          {
+                            "value": "mmH2O@4C-g",
+                            "label": "mmH2O@4C-g"
+                          },
+                          {
+                            "value": "mmH2O@68F-a",
+                            "label": "mmH2O@68F-a"
+                          },
+                          {
+                            "value": "mmH2O@68F-g",
+                            "label": "mmH2O@68F-g"
+                          },
+                          {
+                            "value": "mmHg@0C-a",
+                            "label": "mmHg@0C-a"
+                          },
+                          {
+                            "value": "mmHg@0C-g",
+                            "label": "mmHg@0C-g"
+                          },
+                          {
+                            "value": "MPa-a",
+                            "label": "MPa-a"
+                          },
+                          {
+                            "value": "MPa-g",
+                            "label": "MPa-g"
+                          },
+                          {
+                            "value": "Pa-a",
+                            "label": "Pa-a"
+                          },
+                          {
+                            "value": "Pa-g",
+                            "label": "Pa-g"
+                          },
+                          {
+                            "value": "psig-a",
+                            "label": "psig-a",
+                            "selected": true
+                          },
+                          {
+                            "value": "psig-g",
+                            "label": "psig-g"
+                          },
+                          {
+                            "value": "Torr-a",
+                            "label": "Torr-a"
+                          },
+                          {
+                            "value": "Torr-g",
+                            "label": "Torr-g"
                           }
                         ]
                       }
