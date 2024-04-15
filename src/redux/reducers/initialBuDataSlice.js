@@ -3,6 +3,7 @@ import isolateSchema from "../../adapterDataManager/schema/schemaSeperator";
 import { STATUS } from "../../status";
 import lookoutSchema from "./lookoutSchema.json";
 import { findSchemaByBusinessUnitCode } from "../../api/schemaApi";
+import { transformJson } from "../../adapterDataManager/schema/transformJson";
 
 const initialState = {
   topSection: [],
@@ -19,7 +20,8 @@ const initialState = {
 export const fetchSchema = createAsyncThunk("loadSchema/fetchSchema", async (buType) => {
   // TODO: upload the lookout schema to the backend.
   if (buType.buType === "project_Lookout") {
-    return isolateSchema(lookoutSchema[0], "lookout");
+    const schemaWithEnvironmentVariables = transformJson(lookoutSchema[0], import.meta.env)
+    return isolateSchema(schemaWithEnvironmentVariables, "lookout");
   }
 
   try {
