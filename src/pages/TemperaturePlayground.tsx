@@ -470,7 +470,7 @@ const schema_chart_Data = {
             title: {
                display: true,
                text: 'Ambient Temperature (°C)',
-               padding: { top: 50, left: 0, right: 0, bottom: 0 },
+               padding: { top: 650, left: 0, right: 0, bottom: 0 },
                font: {
                   family: 'Noto Sans',
                   size: 12,
