@@ -13,7 +13,7 @@ export interface MsolTileOrThumbnailProps {
   data?: MsolTileOrThumbnailItem[];
   defaultIds?: string[];
   error?: string;
-  onChange?: (event: MouseEvent, type?: string, name?: string, value?: string[]) => void;
+  onChange?: (event: MouseEvent, type?: string, name?: string, value?: string[] | string) => void;
   othAttr?: { type: string };
   name: string;
   hideCheckboxes?: boolean;
@@ -41,7 +41,7 @@ export const MsolTileOrThumbnail: FC<MsolTileOrThumbnailProps> = ({
 
   const errorText = error.trim();
   const [value, setValue] = useState(defaultIds);
-  const [singleSelectValue , setSingleSelectValue] = useState("");
+  const [singleSelectValue , setSingleSelectValue] = useState("transmitter");
 
   return <MsolComponentHighlighter>
     <>
@@ -50,12 +50,12 @@ export const MsolTileOrThumbnail: FC<MsolTileOrThumbnailProps> = ({
           dataOverride.map(item => {
             const checked = value.includes(item.id);
             const selectedSingleSelect = (singleSelectValue === item.id) ? true : false;
-
+            
             const handleChange: MouseEventHandler<HTMLDivElement> = (event) => {
               
               if(singleSelect){
                 const newSelected = !selectedSingleSelect;
-                const newValue = newSelected ? item.id : "";
+                const newValue = newSelected ? item.id : null;
                 setSingleSelectValue(newValue);
                 onChange(event, othAttr?.type, name, newValue);
               } else {
