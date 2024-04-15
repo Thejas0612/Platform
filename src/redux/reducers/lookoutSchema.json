@@ -197,7 +197,7 @@
                   "inputClass": "customRequired",
                   "error": "",
                   "errorClass": "",
-                  "dataSourceUrl": "<%= VITE_API_URL %>/api/lookout/get_line_size?measurement_type=Flow"
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/lookout/line_sizes?measurement_type=Flow"
                 },
                 {
                   "column": 4,
@@ -210,7 +210,7 @@
                   "required": false,
                   "error": "",
                   "errorClass": "",
-                  "dataSourceUrl": "<%= VITE_API_URL %}//api/lookout/get_pipe_schedule"
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/lookout/get_pipe_schedule"
                 },
                 {
                   "column": 12,
