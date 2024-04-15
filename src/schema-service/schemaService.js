@@ -56,6 +56,9 @@ export const updateSchema = async (
   const field = mappedFields[name];
   field["required"] = true;
   field["error"] = "";
+  if (name === SCHEMA_CONSTANTS.FLOW_TAIL_THUMBNAIL) {
+    field["defaultIds"] = field?.value;
+  }
 
   let response;
   if (field?.isApiOnEvent) {

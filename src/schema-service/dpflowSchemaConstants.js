@@ -16,6 +16,7 @@ const SCHEMA_CONSTANTS = {
   DATABASE: "Database",
   ID: "id",
   CUSTOM_FLUID_NAME: "custom_fluid_name",
-  FLUID_DATABASE_NAME: "fluidsdatabase"
+  FLUID_DATABASE_NAME: "fluidsdatabase",
+  FLOW_TAIL_THUMBNAIL: "flow_tial_or_thumbnail"
 };
 export default SCHEMA_CONSTANTS;
