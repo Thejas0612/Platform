@@ -144,19 +144,19 @@
                       "id": 1,
                       "title": "Flow",
                       "description": "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, differential pressure, vortex, magnetic, ultrasonic, turbine and positive displacement meters.",
-                      "imgUrl": "https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png"
+                      "imgUrl": "flow__technology-type__flow.png"
                     },
                     {
                       "id": 2,
                       "title": "Density",
                       "description": "Our density measurement devices offer reliable performance for applications such as concentration, API, Brix, and more.",
-                      "imgUrl": "https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png"
+                      "imgUrl": "flow__technology-type__density.png"
                     },
                     {
                       "id": 3,
                       "title": "Viscosity",
                       "description": "Our inline viscosity meter offers accurate, repeatable measurement in industries such as refining, chemical, life sciences, and more.",
-                      "imgUrl": "https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png"
+                      "imgUrl": "flow__technology-type__viscosity.png"
                     }
                   ],
                   "required": true,
@@ -563,7 +563,7 @@
                 {
                   "column": 2,
                   "type": "RADIO_INPUT",
-                  "name": "fluidsource",
+                  "name": "fluidSource",
                   "label": "Fluid Source",
                   "labelClass": "app-content-label camelCase",
                   "value": "0",
@@ -583,11 +583,12 @@
                 {
                   "column": 6,
                   "type": "SINGLE_SELECT",
-                  "name": "fluidsdatabase",
+                  "name": "fluidsDatabaseDropdown",
                   "label": "Fluids Database",
                   "labelClass": "app-content-label camelCase",
                   "inputClass": "customRequired",
                   "value": "",
+                  "hide": false,
                   "options": [
                     {
                       "value": "0",
@@ -700,6 +701,15 @@
                       "id": "20"
                     }
                   ]
+                },
+                {
+                  "label": "Enter Custom Fluid Name",
+                  "labelClass": "app-content-label camelCase",
+                  "type": "TEXT_INPUT",
+                  "name": "fluidsDatabaseInput",
+                  "column": 4,
+                  "value" : "",
+                  "hide": true
                 }
               ]
             },
@@ -751,7 +761,8 @@
                       {
                         "type": "TEXT",
                         "label": "Flow Rate",
-                        "align": "center"
+                        "align": "center",
+                        "title":"Flow rate is the amount of fluid passing through a pipe segment. It can be presented as either mass flow or volumetric flow."
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -761,7 +772,8 @@
                         "align": "center",
                         "precision": 4,
                         "min":0,
-                        "max":10000000000
+                        "max":10000000000,
+                        "required":true
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -771,7 +783,8 @@
                         "align": "center",
                         "precision": 4,
                         "min":0,
-                        "max":10000000000
+                        "max":10000000000,
+                        "required":true
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -781,7 +794,8 @@
                         "align": "center",
                         "precision": 4,
                         "min":0,
-                        "max":10000000000
+                        "max":10000000000,
+                        "required":true
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -1277,6 +1291,7 @@
                   "type": "CHECKBOX_INPUT",
                   "column": 12,
                   "name": "CHECKBOX_INPUT",
+                  "hide": true,
                   "options": [
                     {
                       "label": "Calculate Density Variation",
@@ -1336,14 +1351,26 @@
                     ],
                     [
                       {
-                        "type": "TEXT",
-                        "label": "Density",
-                        "align": "center"
+                        "type": "SINGLE_SELECT",
+                        "name": "density_options",
+                        "value": "",
+                        "disabled": true,
+                        "options": [
+                          {
+                            "value": "Density",
+                            "label": "Density",
+                            "selected": true
+                          },
+                          {
+                            "value": "specific_gravity",
+                            "label": "Specific Gravity"
+                          }
+                        ]
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "density_min",
-                        "disabled": false,
+                        "disabled": true,
                         "align": "center",
                         "precision": 4
                       },
@@ -1351,14 +1378,15 @@
                         "type": "TEXT_INPUT",
                         "name": "density_norm",
                         "inputClass": "customRequired",
-                        "disabled": false,
+                        "disabled": true,
+                        "required": false,
                         "align": "center",
                         "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "density_max",
-                        "disabled": false,
+                        "disabled": true,
                         "align": "center",
                         "precision": 4
                       },
@@ -1371,12 +1399,21 @@
                         "inputClass": "unitClass",
                         "options": [
                           {
-                            "value": "Meter",
-                            "label": "Meter"
+                            "value": "kg/m3",
+                            "label": "kg/m3"
                           },
                           {
-                            "value": "Feet",
-                            "label": "Feet"
+                            "value": "g/cm3",
+                            "label": "g/cm3",
+                            "selected": true
+                          },
+                          {
+                            "value": "lb/ft3",
+                            "label": "lb/ft3"
+                          },
+                          {
+                            "value": "lb/gallon(US)",
+                            "label": "lb/gallon(US)"
                           }
                         ]
                       }
@@ -1390,7 +1427,7 @@
                       {
                         "type": "TEXT_INPUT",
                         "name": "viscosity_min",
-                        "disabled": false,
+                        "disabled": true,
                         "align": "center",
                         "precision": 4
                       },
@@ -1398,14 +1435,15 @@
                         "type": "TEXT_INPUT",
                         "name": "viscosity_norm",
                         "inputClass": "customRequired",
-                        "disabled": false,
+                        "disabled": true,
+                        "required": false,
                         "align": "center",
                         "precision": 4
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "viscosity_max",
-                        "disabled": false,
+                        "disabled": true,
                         "align": "center",
                         "precision": 4
                       },
@@ -1418,12 +1456,77 @@
                         "align": "right",
                         "options": [
                           {
-                            "value": "Meter",
-                            "label": "Meter"
+                            "value": "centistokes",
+                            "label": "centistokes"
                           },
                           {
-                            "value": "Feet",
-                            "label": "Feet"
+                            "value": "cm2/sec",
+                            "label": "cm2/sec"
+                          },
+                          {
+                            "value": "cP",
+                            "label": "cP",
+                            "selected": true
+                          },
+                          {
+                            "value": "ft2/sec",
+                            "label": "ft2/sec"
+                          },
+                          {
+                            "value": "gram/cm.sec",
+                            "label": "gram/cm.sec"
+                          },
+                          {
+                            "value": "gramf.sec/cm2",
+                            "label": "gramf.sec/cm2"
+                          },
+                          {
+                            "value": "kg/m.hr",
+                            "label": "kg/m.hr"
+                          },
+                          {
+                            "value": "kg/m.sec",
+                            "label": "kg/m.sec"
+                          },
+                          {
+                            "value": "lb/ft.hr",
+                            "label": "lb/ft.hr"
+                          },
+                          {
+                            "value": "lb/ft.sec",
+                            "label": "lb/ft.sec"
+                          },
+                          {
+                            "value": "lb/in.sec",
+                            "label": "lb/in.sec"
+                          },
+                          {
+                            "value": "lbf.sec/in2",
+                            "label": "lbf.sec/in2"
+                          },
+                          {
+                            "value": "m2/sec",
+                            "label": "m2/sec"
+                          },
+                          {
+                            "value": "mPa.sec",
+                            "label": "mPa.sec"
+                          },
+                          {
+                            "value": "N.sec/m2",
+                            "label": "N.sec/m2"
+                          },
+                          {
+                            "value": "Pa.sec",
+                            "label": "Pa.sec"
+                          },
+                          {
+                            "value": "Poise",
+                            "label": "Poise"
+                          },
+                          {
+                            "value": "Stokes",
+                            "label": "Stokes"
                           }
                         ]
                       }
@@ -1437,7 +1540,7 @@
                       {
                         "type": "TEXT_INPUT",
                         "name": "vapour_pressure_min",
-                        "disabled": false,
+                        "disabled": true,
                         "align": "center",
                         "precision": 4
                       },
@@ -1454,12 +1557,157 @@
                         "align": "right",
                         "options": [
                           {
-                            "value": "Meter",
-                            "label": "Meter"
+                            "value": "atm-a",
+                            "label": "atm-a"
                           },
                           {
-                            "value": "Feet",
-                            "label": "Feet"
+                            "value": "atm-g",
+                            "label": "atm-g"
+                          },
+                          {
+                            "value": "bar-a",
+                            "label": "bar-a"
+                          },
+                          {
+                            "value": "bar-g",
+                            "label": "bar-g"
+                          },
+                          {
+                            "value": "ftH2O@68F-a",
+                            "label": "ftH2O@68F-a"
+                          },
+                          {
+                            "value": "ftH2O@68F-g",
+                            "label": "ftH2O@68F-g"
+                          },
+                          {
+                            "value": "g/cm2-a",
+                            "label": "g/cm2-a"
+                          },
+                          {
+                            "value": "g/cm2-g",
+                            "label": "g/cm2-g"
+                          },
+                          {
+                            "value": "inH2O@60F-a",
+                            "label": "inH2O@60F-a"
+                          },
+                          {
+                            "value": "inH2O@60F-g",
+                            "label": "inH2O@60F-g"
+                          },
+                          {
+                            "value": "inH2O@68F-a",
+                            "label": "inH2O@68F-a"
+                          },
+                          {
+                            "value": "inH2O@68F-g",
+                            "label": "inH2O@68F-g"
+                          },
+                          {
+                            "value": "inH2O-a",
+                            "label": "inH2O-a"
+                          },
+                          {
+                            "value": "inH2O-g",
+                            "label": "inH2O-g"
+                          },
+                          {
+                            "value": "inHg@0C-a",
+                            "label": "inHg@0C-a"
+                          },
+                          {
+                            "value": "inHg@0C-g",
+                            "label": "inHg@0C-g"
+                          },
+                          {
+                            "value": "kg/cm2-a",
+                            "label": "kg/cm2-a"
+                          },
+                          {
+                            "value": "kg/cm2-g",
+                            "label": "kg/cm2-g"
+                          },
+                          {
+                            "value": "kPa-a",
+                            "label": "kPa-a"
+                          },
+                          {
+                            "value": "kPa-g",
+                            "label": "kPa-g"
+                          },
+                          {
+                            "value": "mbar-a",
+                            "label": "mbar-a"
+                          },
+                          {
+                            "value": "mbar-g",
+                            "label": "mbar-g"
+                          },
+                          {
+                            "value": "mmH20-a",
+                            "label": "mmH20-a"
+                          },
+                          {
+                            "value": "mmH20-g",
+                            "label": "mmH20-g"
+                          },
+                          {
+                            "value": "mmH2O@4C-a",
+                            "label": "mmH2O@4C-a"
+                          },
+                          {
+                            "value": "mmH2O@4C-g",
+                            "label": "mmH2O@4C-g"
+                          },
+                          {
+                            "value": "mmH2O@68F-a",
+                            "label": "mmH2O@68F-a"
+                          },
+                          {
+                            "value": "mmH2O@68F-g",
+                            "label": "mmH2O@68F-g"
+                          },
+                          {
+                            "value": "mmHg@0C-a",
+                            "label": "mmHg@0C-a"
+                          },
+                          {
+                            "value": "mmHg@0C-g",
+                            "label": "mmHg@0C-g"
+                          },
+                          {
+                            "value": "MPa-a",
+                            "label": "MPa-a"
+                          },
+                          {
+                            "value": "MPa-g",
+                            "label": "MPa-g"
+                          },
+                          {
+                            "value": "Pa-a",
+                            "label": "Pa-a"
+                          },
+                          {
+                            "value": "Pa-g",
+                            "label": "Pa-g"
+                          },
+                          {
+                            "value": "psig-a",
+                            "label": "psig-a",
+                            "selected": true
+                          },
+                          {
+                            "value": "psig-g",
+                            "label": "psig-g"
+                          },
+                          {
+                            "value": "Torr-a",
+                            "label": "Torr-a"
+                          },
+                          {
+                            "value": "Torr-g",
+                            "label": "Torr-g"
                           }
                         ]
                       }

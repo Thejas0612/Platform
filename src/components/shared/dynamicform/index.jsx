@@ -107,4 +107,4 @@ const MSOLDynamicForm = ({
   return generateForm;
 };
 
-export default MSOLDynamicForm;
+export default MSOLDynamicForm
