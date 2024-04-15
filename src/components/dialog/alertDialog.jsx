@@ -9,7 +9,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 export default function AlertDialog(props) {
 
   return (
-    <React.Fragment>
       <Dialog
         open={props.open}
         onClose={props.handleClose}
@@ -31,6 +30,5 @@ export default function AlertDialog(props) {
           </Button>
         </DialogActions>
       </Dialog>
-    </React.Fragment>
   );
 }

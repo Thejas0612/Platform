@@ -7,6 +7,7 @@ import {
 import AlertDialog from "../../../components/dialog/alertDialog";
 import "./TopLayout.css";
 import saveSizingApi from "./saveSizingApi";
+
 export default function TopLayout() {
   const [open, setOpen] = React.useState(false);
 
@@ -18,9 +19,8 @@ export default function TopLayout() {
     setOpen(false);
   };
   const saveSizing = async () => {
-    let data = await saveSizingApi();
+    await saveSizingApi();
     handleClickOpen()
-    console.log(data)
   };
   return (
     <div>
@@ -76,5 +76,3 @@ export default function TopLayout() {
     </div>
   );
 }
-
-
