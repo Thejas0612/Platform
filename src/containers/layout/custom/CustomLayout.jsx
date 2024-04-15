@@ -5,27 +5,27 @@ import { Grid } from "@mui/material";
 function CustomLayout() {
   const [schema, setSchema] = React.useState([
     {
-      group: "Proces Piping",
+      group: "",
       fields: [
-        // {
-        //   column: 12,
-        //   label: "LABEL_TEXT",
-        //   labelClass: "app-content-label",
-        //   name: "process_piping_label",
-        //   showLabel: false,
-        //   subText: "",
-        //   tableClass: "",
-        //   text: "Process Piping",
-        //   textClass: "ddl-typography--h5",
-        //   title: "this is title",
-        //   type: "LABEL_TEXT",
-        //   textStyles: {
-        //     textAlign: "start"
-        //   },
-        //   display: true,
-        //   value: "process_piping_label",
-        //   order: 0
-        // },
+        {
+          column: 12,
+          label: "LABEL_TEXT",
+          labelClass: "app-content-label",
+          name: "process_piping_label",
+          showLabel: false,
+          subText: "",
+          tableClass: "",
+          text: "Process Piping",
+          textClass: "ddl-typography--h5",
+          title: "this is title",
+          type: "LABEL_TEXT",
+          textStyles: {
+            textAlign: "start"
+          },
+          display: true,
+          value: "process_piping_label",
+          order: 0
+        },
         {
           column: 3,
           type: "SINGLE_SELECT",
@@ -147,6 +147,7 @@ function CustomLayout() {
               label: "Slurry"
             }
           ],
+          multiple: true,
           defaultIds: ["0"],
           showLabel: true,
           wrapperId: "",

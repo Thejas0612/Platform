@@ -17,7 +17,7 @@ import {
   ImageButtonInput,
   DragAndDrop
 } from "@emerson/dynamic-ui-public";
-import { Grid, Typography, Container } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import CheckboxInput from "../checkbox";
 import TableInput from "../../table-input/TableInput";
 import { MsolTileOrThumbnail } from "../msol-tile-or-thumbnail/MsolTileOrThumbnail";
@@ -84,12 +84,12 @@ const MSOLDynamicForm = ({
   const generateForm =
     formData &&
     formData.length &&
-    formData.map((formgroup, index) => {
+    formData.map((formGroup, index) => {
       return (
         <div key={index}>
-          {formgroup.group && <Typography fontWeight={"bold"}>{formgroup.group}</Typography>}
+          {formGroup.group && <Typography fontWeight={"bold"}>{formGroup.group}</Typography>}
           <Grid container spacing={2}>
-            {formgroup.fields.map((field) => {
+            {formGroup.fields.map((field) => {
               const FieldComponent = { ...FORM_FEILDS, ...overrideComponents }[field.type];
               return (
                 <>
