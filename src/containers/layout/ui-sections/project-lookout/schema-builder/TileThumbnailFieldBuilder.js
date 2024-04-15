@@ -1,5 +1,3 @@
-import { WorkflowBuilder } from "./WorkflowBuilder";
-
 /**
  * @typedef {import( "../../../../../components/shared/msol-tile-or-thumbnail/MsolTileOrThumbnail").MsolTileOrThumbnailProps} MsolTileOrThumbnailProps
  */

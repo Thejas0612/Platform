@@ -1,5 +1,3 @@
-import { WorkflowBuilder } from "./WorkflowBuilder";
-
 const SINGLE_SELECT_TYPE = "SINGLE_SELECT";
 
 export class SingleSelectFieldBuilder {
