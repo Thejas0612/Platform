@@ -58,6 +58,35 @@ const initialBuSchema = createSlice({
     },
     updateRightSection: (state, action) => {
       state.rightSection = action.payload;
+    },
+    updateVariation: (state, action) => {
+      const { type, rightSection } = action.payload;
+
+      const updatedRightSection = rightSection.map(section => {
+        const variations = section.componentProps.schema_variations[type] || [];
+        const schemaIds = section.componentProps.schema.map(item => item.id);
+        const newSchema = [...section.componentProps.schema];
+
+        variations.forEach(variation => {
+          const index = schemaIds.indexOf(variation.id);
+          if (index !== -1) {
+            newSchema[index] = variation;
+          } else {
+            newSchema.push(variation);
+          }
+        });
+
+        return {
+          ...section,
+          componentProps: {
+            ...section.componentProps,
+            schema: newSchema
+          }
+        };
+        
+      });
+
+      state.rightSection = updatedRightSection
     }
   },
   extraReducers: (builder) => {
@@ -80,5 +109,5 @@ const initialBuSchema = createSlice({
   }
 });
 
-export const { changeActiveIndex, resetActiveIndex, updateBu, updateLeftSection, updateRightSection } = initialBuSchema.actions;
+export const { changeActiveIndex, resetActiveIndex, updateBu, updateLeftSection, updateRightSection, updateVariation } = initialBuSchema.actions;
 export default initialBuSchema.reducer;

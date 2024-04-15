@@ -1,5 +1,3 @@
-import React from "react";
-import { DynamicForm } from "../../../../components/dynamic-ui/uiComponentsConfig";
 import { useSelector } from "react-redux";
 import ButtonStepper from "../../../../components/common/ButtonStepper";
 import { getDynamicFormSchema, updateSchema } from "../../../../schema-service/schemaService";
@@ -11,19 +9,36 @@ const DpFlowRightLayout = ({ schema, updateFieldsInSchema, updateValidations }) 
   const activeIndex = useSelector((state) => state.initialBuData?.activeIndex);
   const data = getDynamicFormSchema(buCode, "DynamicForm", activeIndex, schema);
 
-  const onUpdateSchema = async (e, formObj, formData, name, isValid) => {
-    const obj = await updateSchema(e, formObj, formData, name, isValid, activeIndex, buCode);
+  let invisibleElements = [];
+  let visibleElements = { id: data[0]?.id, fields: [] };
+  if (data?.length > 0)
+    data[0]?.fields?.forEach((ele) => {
+      if (ele.display) {
+        visibleElements.fields.push(ele);
+      } else {
+        invisibleElements.push(ele);
+      }
+    });
+
+  const onUpdateSchema = async (e, formObj, formData, name) => {
+    const obj = await updateSchema(
+      e,
+      formObj,
+      formData,
+      name,
+      activeIndex,
+      buCode,
+      invisibleElements
+    );
     await updateFieldsInSchema(obj);
   };
 
-  if (data?.length > 0) {
+  if (visibleElements.fields?.length > 0) {
     return (
       <div>
         <MSOLDynamicForm
-          schema={data}
-          handleChange={(e, formObj, formData, name, isValid) =>
-            onUpdateSchema(e, formObj, formData, name, isValid)
-          }
+          schema={[visibleElements]}
+          handleChange={(e, formObj, formData, name) => onUpdateSchema(e, formObj, formData, name)}
         />
         <div>
           <ButtonStepper
