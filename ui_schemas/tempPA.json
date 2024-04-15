@@ -131,461 +131,477 @@
                     ]
                  },
                  {
-                    "id":1,
-                    "fields":[
-                       {
-                          "column":12,
-                          "label":"LABEL_TEXT",
-                          "labelClass":"app-content-label",
-                          "name":"LABEL_TEXT",
-                          "showLabel":false,
-                          "subText":"",
-                          "tableClass":"",
-                          "text":"Process Variables",
-                          "textClass":"ddl-typography--h5",
-                          "title":"Process Variables",
-                          "type":"LABEL_TEXT",
-                          "textStyles":{
-                             "textAlign":"start"
-                          }
-                       },
-                       {
-                          "type":"TABLE_INPUT",
-                          "name":"TABLE_INPUT",
-                          "column": 9,
-                          "options":[
-                             [
-                                {
-                                   "type":"TEXT",
-                                   "label":"",
-                                   "name":"",
-                                   "align":"center",
-                                   "textStyles":{
-                                      "fontSize":"0.8rem"
-                                   }
-                                },
-                                {
-                                   "type":"TEXT",
-                                   "label":"Min",
-                                   "align":"center",
-                                   "name":"r1min",
-                                   "textStyles":{
-                                      "fontSize":"0.8rem"
-                                   }
-                                },
-                                {
-                                   "type":"TEXT",
-                                   "label":"Normal",
-                                   "align":"center",
-                                   "name":"r1min",
-                                   "textStyles":{
-                                      "fontSize":"0.8rem"
-                                   }
-                                },
-                                {
-                                   "type":"TEXT",
-                                   "label":"Max",
-                                   "name":"r1max",
-                                   "align":"center",
-                                   "textStyles":{
-                                      "fontSize":"0.8rem"
-                                   }
-                                },
-                                {
-                                   "type":"TEXT",
-                                   "label":"Units",
-                                   "name":"r1units",
-                                   "align":"center",
-                                   "textStyles":{
-                                      "fontSize":"0.8rem"
-                                   }
-                                }
-                             ],
-                             [
-                                {
-                                   "type":"TEXT",
-                                   "label":"Process Temperature",
-                                   "name":"lbl_process_temperature",
-                                   "align":"right",
-                                   "textStyles":{
-                                      "fontSize":"0.8rem"
-                                   }
-                                },
-                                {
-                                   "type":"TEXT_INPUT",
-                                   "label":"",
-                                   "name":"flow_rate_min",
-                                   "required":true,
-                                   "validations":[
-                                      {
-                                         "validationKey":"\\S",
-                                         "validationMessage":"This is required"
-                                      }
-                                   ]
-                                },
-                                {
-                                   "type":"TEXT_INPUT",
-                                   "label":"",
-                                   "name":"flow_rate_normal",
-                                   "required":true,
-                                   "validations":[
-                                      {
-                                         "validationKey":"\\S",
-                                         "validationMessage":"This is required"
-                                      }
-                                   ]
-                                },
-                                {
-                                   "type":"TEXT_INPUT",
-                                   "label":"",
-                                   "name":"flow_rate_max",
-                                   "required":true,
-                                   "validations":[
-                                      {
-                                         "validationKey":"\\S",
-                                         "validationMessage":"This is required"
-                                      }
-                                   ]
-                                },
-                                {
-                                   "type":"SINGLE_SELECT",
-                                   "label":"",
-                                   "name":"flow_rate_units",
-                                   "options":[
-                                      {
-                                         "value":"C",
-                                         "label":"C",
-                                         "selected": true
-                                      },
-                                      {
-                                         "value":"F",
-                                         "label":"F"
-                                      }
-                                   ]
-                                }
-                             ],
-                             [
-                                {
-                                   "type":"TEXT",
-                                   "label":"Ambient Temperature",
-                                   "name":"lbe_ambient Temperature",
-                                   "align":"right",
-                                   "textStyles":{
-                                      "fontSize":"0.8rem"
-                                   }
-                                },
-                                {
-                                   "type":"TEXT_INPUT",
-                                   "label":"",
-                                   "name":"line_pressure_min",
-                                   "disabled": true
-                                },
-                                {
-                                   "type":"TEXT_INPUT",
-                                   "label":"",
-                                   "name":"line_pressure_normal",
-                                   "required": true
-                                },
-                                {
-                                   "type":"TEXT_INPUT",
-                                   "label":"",
-                                   "name":"line_pressure_max",
-                                   "disabled": true
-                                },
-                                {
-                                   "type":"SINGLE_SELECT",
-                                   "label":"",
-                                   "name":"line_pressure_unit",
-                                   "options":[
-                                      {
-                                         "value":"C",
-                                         "label":"C",
-                                         "selected": true
-                                      },
-                                      {
-                                         "value":"F",
-                                         "label":"F"
-                                      }
-                                   ]
-                                }
-                             ]
-                          ],
-                          "title":"",
-                          "tableClass":"",
-                          "labelClass":"app-content-label",
-                          "label":""
-                       },
-                       {
-                          "column":12,
-                          "label":"LABEL_TEXT",
-                          "labelClass":"app-content-label",
-                          "name":"LABEL_TEXT",
-                          "showLabel":false,
-                          "subText":"",
-                          "tableClass":"",
-                          "text":"Transmitter Requirements",
-                          "textClass":"ddl-typography--h5",
-                          "title":"Transmitter Requirements",
-                          "type":"LABEL_TEXT",
-                          "textStyles":{
-                             "textAlign":"start"
-                          }
-                       },
-                       {
-                          "column":6,
-                          "type":"SINGLE_SELECT",
-                          "name":"communicationProtocol",
-                          "label":"Communication Protocol",
-                          "labelClass":"app-content-label",
-                          "disabled":false,
-                          "value":"",
-                          "options":[
-                             {
-                                "value":"4-20 mA with HART® Protocol",
-                                "label":"4-20 mA with HART® Protocol",
-                                "id":"0"
-                             },
-                             {
-                                "value":"FOUNDATION Fieldbus",
-                                "label":"FOUNDATION Fieldbus",
-                                "id":"1"
-                             },
-                             {
-                                "value":"WirelessHART",
-                                "label":"WirelessHART",
-                                "id":"2"
-                             }
-                           ],
-                          "required":false,
-                          "error":"",
-                          "errorClass":""
-                       },
-                       {
-                          "column":6,
-                          "type":"SINGLE_SELECT",
-                          "name":"formfactor",
-                          "label":"Form Factor",
-                          "labelClass":"app-content-label",
-                          "disabled":false,
-                          "value":"",
-                          "options":[
-                             {
-                                "value":"Field Mount",
-                                "label":"Field Mount",
-                                "id":"0"
-                             },
-                             {
-                                "value":"Head Mount",
-                                "label":"Head Mount",
-                                "id":"1"
-                             },
-                             {
-                                "value":"Rail Mount",
-                                "label":"Rail Mount",
-                                "id":"2"
-                             }
-                          ],
-                          "required":false,
-                          "error":"",
-                          "errorClass":""
-                       },
-                       {
-                          "column":6,
-                          "type":"SINGLE_SELECT",
-                          "name":"noOfInputs",
-                          "label":"Number of Inputs",
-                          "labelClass":"app-content-label",
-                          "disabled":false,
-                          "value":"",
-                          "options":[
-                             {
-                                "value":"Single input",
-                                "label":"Single input",
-                                "id":"0"
-                             },
-                             {
-                                "value":"Dual Input",
-                                "label":"Dual Input",
-                                "id":"1"
-                             },
-                             {
-                                "value":"4 Inputs",
-                                "label":"4 Inputs",
-                                "id":"2"
-                             },
-                             {
-                                "value":"8 Inputs",
-                                "label":"8 Inputs",
-                                "id":"3"
-                             }
-                          ],
-                          "required":false,
-                          "error":"",
-                          "errorClass":""
-                       },
-                       {
-                          "column":6,
-                          "type":"SINGLE_SELECT",
-                          "name":"performance",
-                          "label":"Performance",
-                          "labelClass":"app-content-label",
-                          "disabled":false,
-                          "value":"",
-                          "options":[
-                             {
-                                "value":"Basic",
-                                "label":"Basic",
-                                "id":"0"
-                             },
-                             {
-                                "value":"Industry Standard",
-                                "label":"Industry Standard",
-                                "id":"1"
-                             },
-                             {
-                                "value":"Industry Leading",
-                                "label":"Industry Leading",
-                                "id":"2"
-                             }
-                            ],
-                          "required":false,
-                          "error":"",
-                          "errorClass":""
-                       },
-                       {
-                          "type":"CHECKBOX_INPUT",
-                          "name":"CHECKBOX_INPUT",
-                          "label":"Diagnostics",
-                          "labelClass":"app-content-label1",
-                          "column":6,
-                          "selectedIds":[
-                             "1"
-                          ],
-                          "disabledIds":[
-                             
-                          ],
-                          "options":[
-                             {
-                                "value":"0",
-                                "label":"Loop Integrity",
-                                "title":"Loop Integrity"
-                             },
-                             {
-                                "value":"1",
-                                "label":"Logging"
-                             },
-                             {
-                                "value":"2",
-                                "label":"Hot Backup"
-                             },
-                             {
-                                "value":"3",
-                                "label":"Sensor Drift"
-                             },
-                             {
-                                "value":"4",
-                                "label":"EverConnect"
-                             }
-                          ],
-                          "required":false,
-                          "error":"",
-                          "errorClass":"",
-                          "showAlert":false
-                       },
-                       {
-                          "type":"CHECKBOX_INPUT",
-                          "name":"CHECKBOX_configuration",
-                          "label":"Configuration",
-                          "labelClass":"app-content-label2",
-                          "column":6,
-                          "selectedIds":[
-                             "1"
-                          ],
-                          "disabledIds":[
-                             
-                          ],
-                          "options":[
-                             {
-                                "value":"0",
-                                "label":"Bluetooth"
-                             },
-                             {
-                                "value":"1",
-                                "label":"Local Buttons"
-                             },
-                             {
-                                "value":"2",
-                                "label":"ReadyConnect"
-                             }
-                          ],
-                          "required":false,
-                          "error":"",
-                          "errorClass":"",
-                          "showAlert":false
-                       },
-                       {
-                          "type":"CHECKBOX_INPUT",
-                          "name":"CHECKBOX_display_and_interface",
-                          "label":"Display and Interface",
-                          "labelClass":"app-content-label",
-                          "column":6,
-                          "selectedIds":[
-                             "1"
-                          ],
-                          "disabledIds":[
-                             
-                          ],
-                          "options":[
-                             {
-                                "value":"1",
-                                "label":"Segmented Display"
-                             },
-                             {
-                                "value":"0",
-                                "label":"Graphical Backlit Display"
-                             }
-                          ],
-                          "required":false,
-                          "error":"",
-                          "errorClass":"",
-                          "showAlert":false
-                       },
-                       {
-                          "type":"CHECKBOX_INPUT",
-                          "name":"CHECKBOX_other",
-                          "label":"Other",
-                          "labelClass":"app-content-label",
-                          "column":6,
-                          "selectedIds":[
-                             "1"
-                          ],
-                          "disabledIds":[
-                             
-                          ],
-                          "options":[
-                             {
-                                "value":"1",
-                                "label":"SIS Certification"
-                             },
-                             {
-                                "value":"0",
-                                "label":"20-year Warranty"
-                             }
-                          ],
-                          "required":false,
-                          "error":"",
-                          "errorClass":"",
-                          "showAlert":false
-                       }
-                    ]
-                 },
-                 {
 
                  },
                  {
-                  
+                     "id": 2,
+                     "fields":[]
+                 },
+                 {
+                     "id": 3,
+                     "fields":[]
                  }
-              ]
+              ],
+              "schema_variations": {
+                  "x-well": [
+                     {"id": 1, "fields":[]},
+                     {"id": 2, "fields":[]},
+                     {"id": 3, "fields":[]}
+                  ],
+                  "transmitter": [
+                     {
+                        "id":1,
+                        "fields":[
+                           {
+                              "column":12,
+                              "label":"LABEL_TEXT",
+                              "labelClass":"app-content-label",
+                              "name":"LABEL_TEXT",
+                              "showLabel":false,
+                              "subText":"",
+                              "tableClass":"",
+                              "text":"Process Variables",
+                              "textClass":"ddl-typography--h5",
+                              "title":"Process Variables",
+                              "type":"LABEL_TEXT",
+                              "textStyles":{
+                                 "textAlign":"start"
+                              }
+                           },
+                           {
+                              "type":"TABLE_INPUT",
+                              "name":"TABLE_INPUT",
+                              "column": 9,
+                              "options":[
+                                 [
+                                    {
+                                       "type":"TEXT",
+                                       "label":"",
+                                       "name":"",
+                                       "align":"center",
+                                       "textStyles":{
+                                          "fontSize":"0.8rem"
+                                       }
+                                    },
+                                    {
+                                       "type":"TEXT",
+                                       "label":"Min",
+                                       "align":"center",
+                                       "name":"r1min",
+                                       "textStyles":{
+                                          "fontSize":"0.8rem"
+                                       }
+                                    },
+                                    {
+                                       "type":"TEXT",
+                                       "label":"Normal",
+                                       "align":"center",
+                                       "name":"r1min",
+                                       "textStyles":{
+                                          "fontSize":"0.8rem"
+                                       }
+                                    },
+                                    {
+                                       "type":"TEXT",
+                                       "label":"Max",
+                                       "name":"r1max",
+                                       "align":"center",
+                                       "textStyles":{
+                                          "fontSize":"0.8rem"
+                                       }
+                                    },
+                                    {
+                                       "type":"TEXT",
+                                       "label":"Units",
+                                       "name":"r1units",
+                                       "align":"center",
+                                       "textStyles":{
+                                          "fontSize":"0.8rem"
+                                       }
+                                    }
+                                 ],
+                                 [
+                                    {
+                                       "type":"TEXT",
+                                       "label":"Process Temperature",
+                                       "name":"lbl_process_temperature",
+                                       "align":"right",
+                                       "textStyles":{
+                                          "fontSize":"0.8rem"
+                                       }
+                                    },
+                                    {
+                                       "type":"TEXT_INPUT",
+                                       "label":"",
+                                       "name":"flow_rate_min",
+                                       "required":true,
+                                       "validations":[
+                                          {
+                                             "validationKey":"\\S",
+                                             "validationMessage":"This is required"
+                                          }
+                                       ]
+                                    },
+                                    {
+                                       "type":"TEXT_INPUT",
+                                       "label":"",
+                                       "name":"flow_rate_normal",
+                                       "required":true,
+                                       "validations":[
+                                          {
+                                             "validationKey":"\\S",
+                                             "validationMessage":"This is required"
+                                          }
+                                       ]
+                                    },
+                                    {
+                                       "type":"TEXT_INPUT",
+                                       "label":"",
+                                       "name":"flow_rate_max",
+                                       "required":true,
+                                       "validations":[
+                                          {
+                                             "validationKey":"\\S",
+                                             "validationMessage":"This is required"
+                                          }
+                                       ]
+                                    },
+                                    {
+                                       "type":"SINGLE_SELECT",
+                                       "label":"",
+                                       "name":"flow_rate_units",
+                                       "options":[
+                                          {
+                                             "value":"C",
+                                             "label":"C",
+                                             "selected": true
+                                          },
+                                          {
+                                             "value":"F",
+                                             "label":"F"
+                                          }
+                                       ]
+                                    }
+                                 ],
+                                 [
+                                    {
+                                       "type":"TEXT",
+                                       "label":"Ambient Temperature",
+                                       "name":"lbe_ambient Temperature",
+                                       "align":"right",
+                                       "textStyles":{
+                                          "fontSize":"0.8rem"
+                                       }
+                                    },
+                                    {
+                                       "type":"TEXT_INPUT",
+                                       "label":"",
+                                       "name":"line_pressure_min",
+                                       "disabled": true
+                                    },
+                                    {
+                                       "type":"TEXT_INPUT",
+                                       "label":"",
+                                       "name":"line_pressure_normal",
+                                       "required": true
+                                    },
+                                    {
+                                       "type":"TEXT_INPUT",
+                                       "label":"",
+                                       "name":"line_pressure_max",
+                                       "disabled": true
+                                    },
+                                    {
+                                       "type":"SINGLE_SELECT",
+                                       "label":"",
+                                       "name":"line_pressure_unit",
+                                       "options":[
+                                          {
+                                             "value":"C",
+                                             "label":"C",
+                                             "selected": true
+                                          },
+                                          {
+                                             "value":"F",
+                                             "label":"F"
+                                          }
+                                       ]
+                                    }
+                                 ]
+                              ],
+                              "title":"",
+                              "tableClass":"",
+                              "labelClass":"app-content-label",
+                              "label":""
+                           },
+                           {
+                              "column":12,
+                              "label":"LABEL_TEXT",
+                              "labelClass":"app-content-label",
+                              "name":"LABEL_TEXT",
+                              "showLabel":false,
+                              "subText":"",
+                              "tableClass":"",
+                              "text":"Transmitter Requirements",
+                              "textClass":"ddl-typography--h5",
+                              "title":"Transmitter Requirements",
+                              "type":"LABEL_TEXT",
+                              "textStyles":{
+                                 "textAlign":"start"
+                              }
+                           },
+                           {
+                              "column":6,
+                              "type":"SINGLE_SELECT",
+                              "name":"communicationProtocol",
+                              "label":"Communication Protocol",
+                              "labelClass":"app-content-label",
+                              "disabled":false,
+                              "value":"",
+                              "options":[
+                                 {
+                                    "value":"4-20 mA with HART® Protocol",
+                                    "label":"4-20 mA with HART® Protocol",
+                                    "id":"0"
+                                 },
+                                 {
+                                    "value":"FOUNDATION Fieldbus",
+                                    "label":"FOUNDATION Fieldbus",
+                                    "id":"1"
+                                 },
+                                 {
+                                    "value":"WirelessHART",
+                                    "label":"WirelessHART",
+                                    "id":"2"
+                                 }
+                               ],
+                              "required":false,
+                              "error":"",
+                              "errorClass":""
+                           },
+                           {
+                              "column":6,
+                              "type":"SINGLE_SELECT",
+                              "name":"formfactor",
+                              "label":"Form Factor",
+                              "labelClass":"app-content-label",
+                              "disabled":false,
+                              "value":"",
+                              "options":[
+                                 {
+                                    "value":"Field Mount",
+                                    "label":"Field Mount",
+                                    "id":"0"
+                                 },
+                                 {
+                                    "value":"Head Mount",
+                                    "label":"Head Mount",
+                                    "id":"1"
+                                 },
+                                 {
+                                    "value":"Rail Mount",
+                                    "label":"Rail Mount",
+                                    "id":"2"
+                                 }
+                              ],
+                              "required":false,
+                              "error":"",
+                              "errorClass":""
+                           },
+                           {
+                              "column":6,
+                              "type":"SINGLE_SELECT",
+                              "name":"noOfInputs",
+                              "label":"Number of Inputs",
+                              "labelClass":"app-content-label",
+                              "disabled":false,
+                              "value":"",
+                              "options":[
+                                 {
+                                    "value":"Single input",
+                                    "label":"Single input",
+                                    "id":"0"
+                                 },
+                                 {
+                                    "value":"Dual Input",
+                                    "label":"Dual Input",
+                                    "id":"1"
+                                 },
+                                 {
+                                    "value":"4 Inputs",
+                                    "label":"4 Inputs",
+                                    "id":"2"
+                                 },
+                                 {
+                                    "value":"8 Inputs",
+                                    "label":"8 Inputs",
+                                    "id":"3"
+                                 }
+                              ],
+                              "required":false,
+                              "error":"",
+                              "errorClass":""
+                           },
+                           {
+                              "column":6,
+                              "type":"SINGLE_SELECT",
+                              "name":"performance",
+                              "label":"Performance",
+                              "labelClass":"app-content-label",
+                              "disabled":false,
+                              "value":"",
+                              "options":[
+                                 {
+                                    "value":"Basic",
+                                    "label":"Basic",
+                                    "id":"0"
+                                 },
+                                 {
+                                    "value":"Industry Standard",
+                                    "label":"Industry Standard",
+                                    "id":"1"
+                                 },
+                                 {
+                                    "value":"Industry Leading",
+                                    "label":"Industry Leading",
+                                    "id":"2"
+                                 }
+                                ],
+                              "required":false,
+                              "error":"",
+                              "errorClass":""
+                           },
+                           {
+                              "type":"CHECKBOX_INPUT",
+                              "name":"CHECKBOX_INPUT",
+                              "label":"Diagnostics",
+                              "labelClass":"app-content-label1",
+                              "column":6,
+                              "selectedIds":[
+                                 "1"
+                              ],
+                              "disabledIds":[
+                                 
+                              ],
+                              "options":[
+                                 {
+                                    "value":"0",
+                                    "label":"Loop Integrity",
+                                    "title":"Loop Integrity"
+                                 },
+                                 {
+                                    "value":"1",
+                                    "label":"Logging"
+                                 },
+                                 {
+                                    "value":"2",
+                                    "label":"Hot Backup"
+                                 },
+                                 {
+                                    "value":"3",
+                                    "label":"Sensor Drift"
+                                 },
+                                 {
+                                    "value":"4",
+                                    "label":"EverConnect"
+                                 }
+                              ],
+                              "required":false,
+                              "error":"",
+                              "errorClass":"",
+                              "showAlert":false
+                           },
+                           {
+                              "type":"CHECKBOX_INPUT",
+                              "name":"CHECKBOX_configuration",
+                              "label":"Configuration",
+                              "labelClass":"app-content-label2",
+                              "column":6,
+                              "selectedIds":[
+                                 "1"
+                              ],
+                              "disabledIds":[
+                                 
+                              ],
+                              "options":[
+                                 {
+                                    "value":"0",
+                                    "label":"Bluetooth"
+                                 },
+                                 {
+                                    "value":"1",
+                                    "label":"Local Buttons"
+                                 },
+                                 {
+                                    "value":"2",
+                                    "label":"ReadyConnect"
+                                 }
+                              ],
+                              "required":false,
+                              "error":"",
+                              "errorClass":"",
+                              "showAlert":false
+                           },
+                           {
+                              "type":"CHECKBOX_INPUT",
+                              "name":"CHECKBOX_display_and_interface",
+                              "label":"Display and Interface",
+                              "labelClass":"app-content-label",
+                              "column":6,
+                              "selectedIds":[
+                                 "1"
+                              ],
+                              "disabledIds":[
+                                 
+                              ],
+                              "options":[
+                                 {
+                                    "value":"1",
+                                    "label":"Segmented Display"
+                                 },
+                                 {
+                                    "value":"0",
+                                    "label":"Graphical Backlit Display"
+                                 }
+                              ],
+                              "required":false,
+                              "error":"",
+                              "errorClass":"",
+                              "showAlert":false
+                           },
+                           {
+                              "type":"CHECKBOX_INPUT",
+                              "name":"CHECKBOX_other",
+                              "label":"Other",
+                              "labelClass":"app-content-label",
+                              "column":6,
+                              "selectedIds":[
+                                 "1"
+                              ],
+                              "disabledIds":[
+                                 
+                              ],
+                              "options":[
+                                 {
+                                    "value":"1",
+                                    "label":"SIS Certification"
+                                 },
+                                 {
+                                    "value":"0",
+                                    "label":"20-year Warranty"
+                                 }
+                              ],
+                              "required":false,
+                              "error":"",
+                              "errorClass":"",
+                              "showAlert":false
+                           }
+                        ]
+                     },
+                     {"id": 2, "fields":[]},
+                     {"id": 3, "fields":[]}
+                  ]
+              }
            }
         }
      ],

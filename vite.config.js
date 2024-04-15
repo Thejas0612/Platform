@@ -11,6 +11,7 @@ export default defineConfig({
     "process.env": process.env
   },
   resolve: {},
+  resolve: {},
   server: {
     port: process.env.PORT || 3000
   },
