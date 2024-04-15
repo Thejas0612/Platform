@@ -50,9 +50,7 @@ export const MsolTileOrThumbnail: FC<MsolTileOrThumbnailProps> = ({
           dataOverride.map(item => {
             const checked = value.includes(item.id);
             const selectedSingleSelect = (singleSelectValue === item.id) ? true : false;
-            
-            
-            // const checkedSingleSelect = valueTemp !== "" ? true : false ;
+
             const handleChange: MouseEventHandler<HTMLDivElement> = (event) => {
               
               if(singleSelect){
