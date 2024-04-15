@@ -4,14 +4,15 @@ import CustomTooltip from "./CustomTooltip";
 import { TEN_THOUSAND_PLACE_DECIMAL_MATCHER } from "../../utils/constants";
 
 const InputProps = {
-    style: {
-        minWidth: "5rem"
-    },
-}
+  style: {
+    minWidth: "5rem"
+  }
+};
 
 const Input = (props) => {
   const [defaultValue, setDefaultvalue] = useState("");
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -19,15 +20,18 @@ const Input = (props) => {
 
     if (isValid) {
       setDefaultvalue(value);
-      if (value < 0) {
+      if (props.schemaProps.min != null && value < props.schemaProps.min) {
         setError(true);
-      } else if (value > 0 || value === "") {
+        setErrorMessage(props.schemaProps.minError);
+        return;
+      } else {
         setError(false);
+        setErrorMessage("");
       }
     }
   };
   return (
-    <CustomTooltip title={error ? "Entered " + props.schemaProps.name.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) + " is below 0" : ""} placement="top">
+    <CustomTooltip title={error ? errorMessage : ""} placement="top">
       <TextField
         value={defaultValue}
         onChange={handleChange}

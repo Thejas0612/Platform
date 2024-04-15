@@ -18,12 +18,12 @@ const isolateSchema = (data, bucode) => {
                   if (subfield?.name === "nominalpipesize") {
                     return {
                       ...subfield,
-                      dataSourceUrl: `${process.env.VITE_API_URL}/api/lookout/lineSizes?measurement_type=Flow`
+                      dataSourceUrl: `${process.env.VITE_API_URL}/api/lookout/line_sizes?measurement_type=Flow`
                     };
                   } else if (subfield?.name === "pipeschedule") {
                     return {
                       ...subfield,
-                      dataSourceUrl: `${process.env.VITE_API_URL}/api/lookout/getPipeSchedule`
+                      dataSourceUrl: `${process.env.VITE_API_URL}/api/lookout/get_pipe_schedule`
                     };
                   } else return subfield;
                 })
