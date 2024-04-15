@@ -773,7 +773,8 @@
                         "precision": 4,
                         "min":0,
                         "max":10000000000,
-                        "required":true
+                        "required":true, 
+                        "minError": "Entered Minimum Flow Rate is below 0"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -784,7 +785,8 @@
                         "precision": 4,
                         "min":0,
                         "max":10000000000,
-                        "required":true
+                        "required":true,
+                        "minError": "Entered Normal Flow Rate is below 0"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -795,7 +797,8 @@
                         "precision": 4,
                         "min":0,
                         "max":10000000000,
-                        "required":true
+                        "required":true,
+                        "minError": "Entered Maximum Flow Rate is below 0"
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -1372,7 +1375,9 @@
                         "name": "density_min",
                         "disabled": true,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "min": 0.0001,
+                        "minError": "Entered Minimum Density is below or equal to 0"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -1381,14 +1386,18 @@
                         "disabled": true,
                         "required": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "min": 0.0001,
+                        "minError": "Entered Normal Density is below or equal to 0"
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "density_max",
                         "disabled": true,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "min": 0.0001,
+                        "minError": "Entered Maximum Density is below or equal to 0"
                       },
                       {
                         "type": "SINGLE_SELECT",

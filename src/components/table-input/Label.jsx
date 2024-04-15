@@ -6,8 +6,7 @@ const Label = (props) => {
   return (
     <>
       <Typography align="center">
-        {props.schemaProps.label}
-        {props.schemaProps.title ? (
+      {props.schemaProps.title ? (
           <CustomTooltip title={props.schemaProps.title}>
             <span className="dui-circle-info">
               <i>i</i>
@@ -16,6 +15,7 @@ const Label = (props) => {
         ) : (
           <></>
         )}
+        {props.schemaProps.label}
       </Typography>
     </>
   );

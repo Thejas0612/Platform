@@ -4,51 +4,27 @@ import CustomTooltip from "./CustomTooltip";
 import { TEN_THOUSAND_PLACE_DECIMAL_MATCHER } from "../../utils/constants";
 
 const InputProps = {
-    style: {
-        minWidth: "5rem"
-    },
-}
+  style: {
+    minWidth: "5rem"
+  }
+};
 
 const Input = (props) => {
   const [defaultValue, setDefaultvalue] = useState("");
   const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     const value = e.target.value;
     const isValid = value.match(TEN_THOUSAND_PLACE_DECIMAL_MATCHER);
 
-    const isFlowRow = ["flow_rate_min", "flow_rate_norm", "flow_rate_max"];
-    const isDensityRow = ["density_min", "density_norm", "density_max"];
-
-    const isViscosityRow = ["viscosity_min", "viscosity_norm", "viscosity_max"];
-
     if (isValid) {
       setDefaultvalue(value);
-
-      if (isFlowRow.includes(props.schemaProps.name) && value < 0) {
+      if (props.schemaProps.min != null && value < props.schemaProps.min) {
         setError(true);
-        setErrorMessage(
-          "Entered " +
-            props.schemaProps.name.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) +
-            " is below 0"
-        );
-      } else if (isDensityRow.includes(props.schemaProps.name) && value <= 0) {
-        setError(true);
-        setErrorMessage(
-          "Entered " +
-            props.schemaProps.name.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) +
-            " is below or equal to 0"
-        );
-      } else if (isViscosityRow.includes(props.schemaProps.name) && value < 0.01) {
-        setError(true);
-        setErrorMessage(
-          "Entered " +
-          props.schemaProps.name.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) +
-          " is below or equal to 0.01"
-        );
-      }
-      else if (value >= 0 || value === "") {
+        setErrorMessage(props.schemaProps.minError);
+        return;
+      } else {
         setError(false);
         setErrorMessage("");
       }
