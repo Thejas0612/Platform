@@ -431,8 +431,8 @@ const schema_Horizontal_Line = {
 function percentage(num: number, per: number)
 {
   return (num/100)*per;
-}     
-/*chart data related code*/ 
+}
+/*chart data related code*/
 var minYVal =-2.14 + percentage(-2.14, 15);//added demo data for now
 var maxYVal = 2.14 + percentage(2.14, 15);
 const schema_chart_Data = {

@@ -136,32 +136,29 @@
                 {
                   "column": 12,
                   "type": "TILE_THUMBNAIL",
-                  "name": "measurmenttype",
-                  "label": "Test Thumbnail",
+                  "name": "measurement-type",
                   "defaultIds": [],
                   "data": [
                     {
-                      "id": 1,
+                      "id": "FLOW",
                       "title": "Flow",
                       "description": "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, differential pressure, vortex, magnetic, ultrasonic, turbine and positive displacement meters.",
                       "imgUrl": "flow__technology-type__flow.png"
                     },
                     {
-                      "id": 2,
+                      "id": "DENSITY",
                       "title": "Density",
                       "description": "Our density measurement devices offer reliable performance for applications such as concentration, API, Brix, and more.",
                       "imgUrl": "flow__technology-type__density.png"
                     },
                     {
-                      "id": 3,
+                      "id": "VISCOSITY",
                       "title": "Viscosity",
                       "description": "Our inline viscosity meter offers accurate, repeatable measurement in industries such as refining, chemical, life sciences, and more.",
                       "imgUrl": "flow__technology-type__viscosity.png"
                     }
                   ],
-                  "required": true,
-                  "error": "",
-                  "errorClass": ""
+                  "required": true
                 }
               ]
             },

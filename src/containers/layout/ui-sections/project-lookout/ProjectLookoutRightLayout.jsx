@@ -1,52 +1,74 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ButtonStepperCommon from "../../../../components/button/ButtonStepperCommon";
 import getSchemaForDynamicForm from "../../../../adapterDataManager/schema/getSchema";
 import MSOLDynamicForm from "../../../../components/shared/dynamicform";
-import { updateNavigationStatus, saveValuesInSchema } from "./schema-services/schemaMutations";
-import {
-  updateLeftSection,
-  updateRightSection
-} from "../../../../redux/reducers/initialBuDataSlice";
+import { saveValuesInSchema, updateNavigationStatus } from "./schema-services/schemaMutations";
+import { updateLeftSection, updateRightSection } from "../../../../redux/reducers/initialBuDataSlice";
+import { cloneDeep } from "lodash";
+import { schemaBuilder } from "./schema-builder/schemaBuilder";
+import { notNullOrUndefined } from "../../../../utils/assert";
+import { TECHNOLOGY_TYPES_OPTIONS } from "./constants";
+
+const DISABLE_TOOLTIP = "There are no products that measure both Flow and Viscosity.";
 
 export default function ProjectLookoutRightLayout() {
-  const rightSecSchema = useSelector((state) => state.initialBuData?.rightSection);
-  const activeIndex = useSelector((state) => state.initialBuData?.activeIndex);
+  const screenIndex = useSelector((state) => state.initialBuData?.activeIndex);
+  const rightSectionSchema = useSelector((state) => state.initialBuData?.rightSection);
   const leftSectionSchema = useSelector((state) => state.initialBuData?.leftSection);
-
   const dispatch = useDispatch();
 
-  if (rightSecSchema?.length > 0) {
-    const { componentProps } = rightSecSchema[0];
-    const activeIndexSchema = getSchemaForDynamicForm(activeIndex, componentProps?.schema);
-    const activeIndexCopy = JSON.parse(JSON.stringify(activeIndexSchema));
-
-    const updateSchemaIndex = (screenId) => {
-      const leftSchema = updateNavigationStatus(leftSectionSchema, screenId);
-      dispatch(updateLeftSection(leftSchema));
-    };
-
-    const updateValuesInSchema = (formData) => {
-      const result = saveValuesInSchema(formData, rightSecSchema, activeIndex);
-      dispatch(updateRightSection(result));
-    };
-
-    return (
-      <div>
-        <MSOLDynamicForm
-          schema={activeIndexCopy}
-          handleChange={(e, formObj, formData, name, isValid) => {
-            console.log("e,formObj,formData, name, isValid: ", e, formObj, formData, name, isValid);
-            updateValuesInSchema(formData);
-          }}
-          handleKeyPress={(a, b, c) => console.log("a,b,c handleKeyPress", a, b, c)}
-          updateData={(a, b, c, d) => console.log("a,b,c,d updateData", a, b, c, d)}
-        />
-        <div>
-          <ButtonStepperCommon updateSchemaIndex={updateSchemaIndex} />
-        </div>
-      </div>
-    );
+  const hasSchemaLoaded = rightSectionSchema != null && 0 < rightSectionSchema.length;
+  if (!hasSchemaLoaded) {
+    return <></>;
   }
-  return <></>;
+
+  const screenSchema = getSchemaForDynamicForm(screenIndex, rightSectionSchema[0].componentProps.schema);
+  const screenSchemaCopy = cloneDeep(screenSchema);
+
+  const handleSchemaIndexChange = (screenIndexNew) => {
+    const leftSectionSchemaNew = updateNavigationStatus(leftSectionSchema, screenIndexNew);
+    dispatch(updateLeftSection(leftSectionSchemaNew));
+  };
+
+  const handleChange = (_event, _type, newScreenSchemas, _name, _isValid) => {
+
+    const rightSectionSchemaNew1= saveValuesInSchema(newScreenSchemas, rightSectionSchema, screenIndex);
+
+    const rightSectionSchemaNew2 = schemaBuilder(rightSectionSchemaNew1)
+      .screen(0)
+      .tileThumbnail("measurement-type")
+      .onChange((field, value) => {
+        const flowOption = field.data?.find(_ => _.id === TECHNOLOGY_TYPES_OPTIONS.FLOW_ID);
+        notNullOrUndefined(flowOption, "Could not find flowOption.");
+
+        const viscosityOption = field.data?.find(_ => _.id === TECHNOLOGY_TYPES_OPTIONS.VISCOSITY_ID);
+        notNullOrUndefined(viscosityOption, "Could not find viscosityOption.");
+
+        const isFlowSelected = value.includes(TECHNOLOGY_TYPES_OPTIONS.FLOW_ID);
+        const isViscositySelected = value.includes(TECHNOLOGY_TYPES_OPTIONS.VISCOSITY_ID);
+
+        const isFlowDisabled = isViscositySelected;
+        const isViscosityDisabled = isFlowSelected;
+
+        flowOption.disabled = isFlowDisabled;
+        flowOption.tooltip = isFlowDisabled ? DISABLE_TOOLTIP : undefined;
+
+        viscosityOption.disabled = isViscosityDisabled;
+        viscosityOption.tooltip = isViscosityDisabled ? DISABLE_TOOLTIP : undefined;
+      })
+      .build(screenIndex, newScreenSchemas);
+
+    dispatch(updateRightSection(rightSectionSchemaNew2));
+  };
+
+  return (
+    <>
+      <MSOLDynamicForm
+        schema={screenSchemaCopy}
+        handleChange={handleChange}
+      />
+      <ButtonStepperCommon updateSchemaIndex={handleSchemaIndexChange} />
+    </>
+  );
 }
