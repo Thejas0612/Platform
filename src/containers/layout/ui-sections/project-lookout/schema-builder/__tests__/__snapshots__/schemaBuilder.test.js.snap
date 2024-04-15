@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`schemaBuilder when measurement type is update, then disable  1`] = `
+[
+  {
+    "alignment": "right",
+    "componentName": "DynamicForm",
+    "componentProps": {
+      "schema": [
+        {
+          "fields": [
+            {
+              "column": 12,
+              "label": "LABEL_TEXT",
+              "labelClass": "app-content-label",
+              "name": "LABEL_TEXT",
+              "showLabel": false,
+              "subText": "",
+              "tableClass": "",
+              "text": "Measurement Type",
+              "textClass": "ddl-typography--h5",
+              "textStyles": {
+                "textAlign": "start",
+              },
+              "title": "this is title",
+              "type": "LABEL_TEXT",
+            },
+            {
+              "column": 12,
+              "data": [
+                {
+                  "description": "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, differential pressure, vortex, magnetic, ultrasonic, turbine and positive displacement meters.",
+                  "disabled": false,
+                  "id": "FLOW",
+                  "imgUrl": "https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png",
+                  "title": "Flow",
+                },
+                {
+                  "description": "Our density measurement devices offer reliable performance for applications such as concentration, API, Brix, and more.",
+                  "id": "DENSITY",
+                  "imgUrl": "https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png",
+                  "title": "Density",
+                },
+                {
+                  "description": "Our inline viscosity meter offers accurate, repeatable measurement in industries such as refining, chemical, life sciences, and more.",
+                  "disabled": true,
+                  "id": "VISCOSITY",
+                  "imgUrl": "https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png",
+                  "title": "Viscosity",
+                  "tooltip": "There are no products that measure both Flow and Viscosity.",
+                },
+              ],
+              "defaultIds": [
+                "FLOW",
+              ],
+              "name": "measurement-type",
+              "required": true,
+              "type": "TILE_THUMBNAIL",
+              "value": [
+                "FLOW",
+              ],
+            },
+          ],
+          "id": 0,
+        },
+      ],
+    },
+  },
+]
+`;
