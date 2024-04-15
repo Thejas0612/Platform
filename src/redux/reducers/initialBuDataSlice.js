@@ -19,25 +19,25 @@ const initialState = {
 export const fetchSchema = createAsyncThunk("loadSchema/fetchSchema", async (buType) => {
   // TODO: upload the lookout schema to the backend.
   if (buType.buType === "project_Lookout") {
-    return isolateSchema(lookoutSchema[0]);
+    return isolateSchema(lookoutSchema[0], "lookout");
   }
 
   try {
     const { default: data } = await import(`../../../ui_schemas/${buType.buType}.json`);
     if (Array.isArray(data)) {
-       return isolateSchema(data[0]);
+      return isolateSchema(data[0]);
     } else {
-       throw(`Invalid JSON in /ui_schemas/'${buType.buType}'.json schema.`)
+      throw `Invalid JSON in /ui_schemas/'${buType.buType}'.json schema.`;
     }
- } catch (localSchemaError) {
+  } catch (localSchemaError) {
     try {
-      const schemas = await findSchemaByBusinessUnitCode(buType.buType)
+      const schemas = await findSchemaByBusinessUnitCode(buType.buType);
       return isolateSchema(schemas[0]);
     } catch (err) {
-       console.log("Error occurred while fetching schema", err);
-       return "Error occurred while fetching schema";
+      console.log("Error occurred while fetching schema", err);
+      return "Error occurred while fetching schema";
     }
- }  
+  }
 });
 
 const initialBuSchema = createSlice({
@@ -80,5 +80,11 @@ const initialBuSchema = createSlice({
   }
 });
 
-export const { changeActiveIndex, resetActiveIndex, updateBu, updateLeftSection, updateRightSection } = initialBuSchema.actions;
+export const {
+  changeActiveIndex,
+  resetActiveIndex,
+  updateBu,
+  updateLeftSection,
+  updateRightSection
+} = initialBuSchema.actions;
 export default initialBuSchema.reducer;
