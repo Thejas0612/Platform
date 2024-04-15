@@ -1,4 +1,3 @@
-console.log("apiEndPoints", process.env.LINE_SIZE_API);
 const apiEndPoints = {
   lineSize: {
     api: process.env.LINE_SIZE_API,
