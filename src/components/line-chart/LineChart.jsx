@@ -6,7 +6,7 @@ const LineChart = (props) => {
   return (
     <>
       <div class="container">
-        <div class="rotationText">{props.schema.options.scales.y.title.text}</div>
+        <div class="rotationText">{props.schema.options.scales.y.title?.text || 'Total Probable Error (+/- °C)'}</div>
         <Line data={props.schema.data[0]} options={props.schema.options} />
       </div>
       <div class="center">
