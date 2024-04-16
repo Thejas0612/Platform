@@ -47,19 +47,14 @@ export const MsolTileOrThumbnail: FC<MsolTileOrThumbnailProps> = ({
       <Stack spacing={4}>
         {
           dataOverride.map(item => {
-            let checked ;
+            let checked;
             if(singleSelect){
               checked = (value === item.id) ? true : false;
-            }else{
-              checked =value.includes(item.id) ? true : false
+            } else {
+              checked = value.includes(item.id) ? true : false
             }
 
-            console.log(checked);
-            
-            
             const handleChange: MouseEventHandler<HTMLDivElement> = (event) => {
-              
-              
                 const newChecked = !checked;
                 let newValue;
                 if(singleSelect) {
