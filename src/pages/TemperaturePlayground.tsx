@@ -476,6 +476,8 @@ const schema_chart_Data = {
                   family: 'Noto Sans',
                   size: 12,
                   lineHeight: 1.2,
+                  color: '#666',
+                  fontStyle:'normal',
                },
             }
          },
@@ -488,7 +490,7 @@ const schema_chart_Data = {
             position: 'center',
             display: true,
             title: {
-               display: true,
+               display: false,
                text: 'Total Probable Error (+/- °C)',
                padding: { top: 650, left: 0, right: 0, bottom: 0 },
                font: {
