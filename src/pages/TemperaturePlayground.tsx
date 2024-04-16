@@ -1,10 +1,11 @@
 import TableInput from "../components/table-input/TableInput"
 import Checkmark from "../components/table-check/Checkmark"
-import TileAndThumbnail from "../components/tile-thumbnail/TileAndThumbnail";
 import HorizontalLine from "../components/horizonatal-line/HorizontalLine";
+import NavigationMenu from "../components/navigation-menu/NavigationMenu";
 import DropdownMenu from "../components/dropdown-menu/DropdownMenu";
 import { Grid, } from "@mui/material";
-import LineChart from "../components/LineChart";
+import LineChart from "../components/line-chart/LineChart";
+import { MsolTileOrThumbnail } from "../components/shared/msol-tile-or-thumbnail/MsolTileOrThumbnail";
 
 const schema = {
    "type": "TABLE_INPUT",
@@ -23,6 +24,7 @@ const schema = {
          {
             "type": "TEXT",
             "label": "Min",
+            "title": "This is a Title",
             "align": "center",
             "name": "r1min",
             "variant": "body2",
@@ -140,6 +142,7 @@ const schema = {
             "label": "",
             "name": "line_pressure_min",
             "required": false,
+            "disabled": true
          },
          {
             "type": "TEXT_INPUT",
@@ -148,9 +151,7 @@ const schema = {
             "required": true,
          },
          {
-            "type": "TEXT_INPUT",
-            "label": "",
-            "name": "line_pressure_max"
+            
          },
          {
             "type": "SINGLE_SELECT",
@@ -196,39 +197,27 @@ const schema_Checkmark_dash = {
         "name":"measurmenttype",
         "label":"Test Thumbnail",
         "labelClass":"app-content-label",
-        "description":"here is a toggle button",
-        "showAlert": false,
-        "sn_id": 4347,
-        "value": [ ],
         "required":true,
         "error":"",
         "errorClass":"",
-        "attribute_code_value": {
-           "defaultDirection": "tile",
-           "description": ""
-       },
         "column":12,
-        "buttonLabel": "btn lble",
+        "hideCheckboxes": true,
+        "singleSelect":true,
         "defaultIds": [
         ],
-        "imgUrl": "7bd555544cf68071bafa.png",
-        "np_id": 7,
-        "options":[
+        "data":[
            {
-              "id":0,
+              "id": "transmitter",
               "title":"Transmitter",
               "description":"Rosemount Temperature Transmitters offer innovative, industry-leading technologies engineered to accomadate tough environments and challenging applications.",
               "imgUrl":"https://www.emerson.com/resource/image/9241128/portrait_ratio1x1/207/207/4e379d0bdfecdc9dc9a162dabd1f254c/011724DEF921FFF3F2CA1BA57134EC32/updated%20family%20image%20transmitter.jpg",
-              "tootTipEnable":false,
-              "tootTipMessage":"",
            },
            {
-              "id":1,
+              "id": "xwell",
               "title":"X-well",
-              "description":"Rosemount™ X-well Technology measures process temperature accurately and reliably without a thermowell",
+              "description":"Rosemountâ„¢ X-well Technology measures process temperature accurately and reliably without a thermowell",
               "imgUrl":"https://www.emerson.com/resource/image/184154/portrait_ratio3x4/768/1024/6723fff039465ea8da39ab5c7b7978a2/EC9A2B6CF9DCB16E366CB86F03486544/prod-rmt-en-learn_about-x-well_with_shadows_lcd_rotated-c010.jpg",
-              "tootTipEnable":true,
-              "tootTipMessage":"X-Well",
+              "tooltip":"X-Well",
            }
         ], 
         
@@ -244,8 +233,8 @@ const schema_Checkmark_dash = {
       "value":"",
       "options":[
          {
-            "value":"4-20 mA with HART® Protocol",
-            "label":"4-20 mA with HART® Protocol",
+            "value":"4-20 mA with HARTÂ® Protocol",
+            "label":"4-20 mA with HARTÂ® Protocol",
             "id":"0"
          },
          {
@@ -368,109 +357,201 @@ const schema_Checkmark_dash = {
        "errorClass":""
     }
 
+    const nav_schema = [
+      {
+          "label": "Instrument Type",
+          "enabled": true,
+          "selected": true,
+          "name": "fpa_InstrumentType",
+          "ne_id": 0,
+          "np_id": 7,
+          "sn_id": 4347,
+          "step_order": 0,
+          "bu_code": "FLOW_PA_NEW",
+          "gui_type_code": "TEXT",
+          "attribute_code_json": "N/A",
+          "html_field_name": "fpa_InstrumentType",
+          "badges": []
+      },
+      {
+          "label": "Transmitter Requirements",
+          "enabled": true,
+          "selected": false,
+          "name": "fpa_transmitterRequirements",
+          "sn_id": 4347,
+          "ne_id": 1,
+          "bu_code": "FLOW_PA_NEW",
+          "np_id": 7,
+          "element_label": "Transmitter Requirements",
+          "step_order": 1,
+          "gui_type_code": "TEXT",
+          "attribute_code_json": "N/A",
+          "html_field_name": "fpa_transmitterRequirements",
+          "badges": []
+      },
+      {
+          "label": "Transmitter Selection",
+          "enabled": true,
+          "selected": false,
+          "name": "fpa_lh_transmitterSelection",
+          "badges": [],
+          "sn_id": 4347,
+          "ne_id": 2,
+          "bu_code": "FLOW_PA_NEW",
+          "np_id": 7,
+          "element_label": "Transmitter Selection",
+          "step_order": 2,
+          "left_right_anchor_flag": "L",
+          "gui_type_code": "TEXT",
+          "attribute_code_json": "N/A",
+          "html_field_name": "fpa_lh_transmitterSelection"
+      },
+      {
+          "label": "Results Summary",
+          "enabled": true,
+          "selected": false,
+          "name": "fpa_resultsSummary",
+          "badges": [],
+          "sn_id": 4347,
+          "ne_id": 3,
+          "bu_code": "FLOW_PA_NEW",
+          "np_id": 7,
+          "element_label": "Results Summary",
+          "step_order": 3,
+          "left_right_anchor_flag": "L",
+          "gui_type_code": "TEXT",
+          "attribute_code_json": "N/A",
+          "html_field_name": "fpa_resultsSummary"
+      }
+   ];
+   
+
 const schema_Horizontal_Line = {
    "horizontalLine":true,
 }
+function percentage(num: number, per: number)
+{
+  return (num/100)*per;
+}
+/*chart data related code*/
+var minYVal =-2.14 + percentage(-2.14, 15);//added demo data for now
+var maxYVal = 2.14 + percentage(2.14, 15);
 const schema_chart_Data = {
-    "options":  {
-
+   options: {
       plugins: {
-        "legend": {
-          "display": true,
-          "position": "bottom",
-          "align": "center"
-        },
-        title: {
-          display: true,
-          text: '248R CVD',
-          font: {
-            size: 16,
-            family: 'sans-serif',
-            weight: '10',
-            style: 'bold'
-          },
-          padding: {
-            bottom: 10
-          }
-        },
+         title: {
+            display: true,
+            text: '248R CVD',
+            padding: {
+               bottom: '0'
+            }
+         },
+         legend: {
+            display: false,
+            position: "bottom",
+            align: "center",
+            padding: {
+               bottom: 100
+            }
+         },
       },
-   
+      layout: {
+         padding: 10
+      },
+      responsive: true,
       scales: {
-        x: {
-          title: {
-            display: false,
-            text: 'Ambient Temperature (°C)',
-   
-          },
-          display: true,
-          position: 'center',
-          ticks: {
-            beginAtZero: false,
-            padding: 20,
-            align: 'center', // Center the x-axis labels
-          },
-   
-        },
-        y: {
-          title: {
-            display: false,
-            text: 'Total Probable Error (°C)'
-          },
-          position: "center",
-          min: -3.5000,
-          max: 3.5000,
-        },
-   
-      },
-    },
-  
-"data":[
-   {
-      labels: [-40,-30,-20,10,0,10,20,30,40],
-   
-      datasets: [
-        {
-          position: "bottom",
-          label: '248H HART(tpe -ve)',
-          data: [-2.14,-1.97,-1.8,-1.6,-1.59,-1.53,-1.51,-1.53,-1.59],
-          fill: false,
-          borderColor: 'blue',
-          cubicInterpolationMode: 'monotone',
-        },
-        {
-          label: '248H CVD(tpes -ve)',
-          data: [-1.68,-1.44,-1.25,-1.06,-0.89,-0.78,-0.74,-0.78,-0.89],
-          fill: false,
-          borderColor: 'orange',
-          cubicInterpolationMode: 'monotone',
-        },
-        {
-          label: '248H HART(tpe +ve)',
-          data: [2.14,1.97,1.81,1.69,1.59,1.53,1.51,1.53,1.59],
-          fill: false,
-          borderColor: 'blue',
-          cubicInterpolationMode: 'monotone',
-        },
-   
-        {
-          label: '248H CVD(tpes +ve)',
-          data: [1.68,1.46,1.25,1.06,0.89,0.78,0.74,0.78,0.89],
-          fill: false,
-          borderColor: 'orange',
-          cubicInterpolationMode: 'monotone',
-        },
-      ],
-    }
-]
+         x: {
+            ticks: {
+               beginAtZero: false,
+               padding: 50,
+               align: 'center',
+            },
+            position: 'center',
+            display: true,
+            title: {
+               display: true,
+               text: 'Ambient Temperature (Â°C)',
+               padding: { top: 650, left: 0, right: 0, bottom: 0 },
+               font: {
+                  family: 'Noto Sans',
+                  size: 12,
+                  lineHeight: 1.2,
+                  color: '#666',
+                  fontStyle:'normal',
+               },
+            }
+         },
+         y: {
+            ticks: {
+               beginAtZero: false,
+               padding: 50,
+               align: 'center',
+            },
+            position: 'center',
+            display: true,
+            title: {
+               display: false,
+               text: 'Total Probable Error (+/- Â°C)',
+               padding: { top: 650, left: 0, right: 0, bottom: 0 },
+               font: {
+                  family: 'Noto Sans',
+                  size: 12,
+                  lineHeight: 1.2,
+               },
+            },
+            min: minYVal,
+            max: maxYVal,
+         }
+      }
+   },
+   data: [
+      {
+         labels: [-50, -40, -30, -20, 10, 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+         datasets: [
+            {
+               position: "bottom",
+               label: '248H HART(tpe -ve)',
+               data: [-2.14, -1.97, -1.8, -1.6, -1.59, -1.53, -1.51, -1.53, -1.59],
+               fill: false,
+               borderColor: '#004b8d',
+            },
+            {
+               label: '248H CVD(tpes -ve)',
+               data: [-1.68, -1.44, -1.25, -1.06, -0.89, -0.78, -0.74, -0.78, -0.89],
+               fill: false,
+               borderColor: '#00805a',
+            },
+            {
+               label: '248H HART(tpe +ve)',
+               data: [2.14, 1.97, 1.81, 1.69, 1.59, 1.53, 1.51, 1.53, 1.59],
+               fill: false,
+               borderColor: '#004b8d',
+            },
+            {
+               label: '248H CVD(tpes +ve)',
+               data: [1.68, 1.46, 1.25, 1.06, 0.89, 0.78, 0.74, 0.78, 0.89],
+               fill: false,
+               borderColor: '#00805a',
+            },
+         ],
+      }
+   ],
+   labels: {
+      'tpeLabel': '248R TPE',
+      'tpesLabel': '248R w/CVD TPE',
+   }
 };
-
-
 
 const TemperaturePlayground = () => (
    <>
-         <div style={{width:"55%"}}><LineChart schema={schema_chart_Data} /></div>
-      <div style={{ width: "40%" }}><TableInput schema={schema} /></div>
-         <TileAndThumbnail schema={schema_Tile_Thumbnail} />
+      <div style={{width:"60%",padding:'20px'}}><LineChart schema={schema_chart_Data} /></div>
+      <div style={{ width: "40%" }}><TableInput {...schema} /></div>
+      <div style={{ width: "30%" }}>
+         <NavigationMenu
+            data={nav_schema}
+         />
+      </div>
+      <MsolTileOrThumbnail {...schema_Tile_Thumbnail} />
          <HorizontalLine  schema={schema_Horizontal_Line}/>
          <Checkmark schema={schema_Checkmark_dash} />
       <Grid container sx = {{width:'50%'}}>

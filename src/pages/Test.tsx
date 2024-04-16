@@ -3,7 +3,7 @@ import { FC, useState } from "react";
 import { FilterButton } from "../components/filter-button/FilterButton";
 import { Box, Paper, Stack } from "@mui/material";
 import { Dropdown, DropdownMenuGroup } from "../components/dropdown-menu-group/DropdownMenuGroup";
-import { BlockCheckboxGroup, BlockCheckboxGroupRow } from "../components/block-checkbox-group/BlockCheckboxGroup";
+import { MsolTileOrThumbnail, MsolTileOrThumbnailItem } from "../components/shared/msol-tile-or-thumbnail/MsolTileOrThumbnail";
 
 const DROPDOWNS: Dropdown[] = [
   {
@@ -66,14 +66,14 @@ const DROPDOWNS: Dropdown[] = [
 ];
 
 const CARD_CHECKBOX_GROUP_DATA: CardCheckboxGroupProps["data"] = [
-  { id: "1", name: "1", title: "Coriolis", imageUrl: "flow__coriolis-product.png" },
+  { id: "1", name: "1", title: "Coriolis", imageUrl: "flow__product__coriolis.png" },
   { id: "2", name: "2", title: "Differential Pressure Flow", imageUrl: "https://placehold.co/150x150" },
-  { id: "3", name: "3", title: "Magnetic", imageUrl: "flow__magnetic-product.png" },
+  { id: "3", name: "3", title: "Magnetic", imageUrl: "flow__product__magnetic.png" },
   {
     id: "4",
     name: "4",
     title: "Vortex",
-    imageUrl: "flow__vortex-product.jpg",
+    imageUrl: "flow__product__vortex.jpg",
     disabled: true,
     disabledTooltip: "This vertex technology is incompatible with your temperature range."
   },
@@ -81,16 +81,17 @@ const CARD_CHECKBOX_GROUP_DATA: CardCheckboxGroupProps["data"] = [
     id: "5",
     name: "5", title: "Density", imageUrl: "https://placehold.co/150x150"
   },
-  { id: "6", name: "6", title: "Viscosity", imageUrl: "flow__viscosity-product.png" }
+  { id: "6", name: "6", title: "Viscosity", imageUrl: "flow__product__viscosity.png" }
 ];
 
 
-const BLOCK_CHECKBOX_GROUP_DATA: BlockCheckboxGroupRow[] = [
+const BLOCK_CHECKBOX_GROUP_DATA: MsolTileOrThumbnailItem[] = [
   {
     id: "1",
     title: "Flow",
     description: "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, differential pressure, vortex, magnetic, ultrasonic, turbine and positive displacement meters.",
-    imgUrl: "https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png"
+    imgUrl: "https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png",
+    tooltip: "test"
   },
   {
     id: "2",
@@ -139,7 +140,7 @@ export const Test: FC = () => {
         </Stack>
 
         {showDropdownMenuGroup && <DropdownMenuGroup dropdowns={DROPDOWNS}
-                                                     onChange={handleDropdownChange} />}
+                                                     onChange={handleDropdownChange} selectedOptions={selectedOptions} />}
 
         <Box sx={{ paddingTop: 2 }}>
           <>
@@ -174,20 +175,22 @@ export const Test: FC = () => {
     <h2>Block Checkbox Group</h2>
     <Paper elevation={4} sx={{ padding: "1rem" }}>
       <h3>Normal</h3>
-      <BlockCheckboxGroup
-        data={BLOCK_CHECKBOX_GROUP_DATA}
-        selectedIds={blockCheckboxGroupSelectedIds}
-        onChange={(selectedIds) => {
-          setBlockCheckboxGroupSelectedIds(selectedIds);
+      <MsolTileOrThumbnail
+        name="selectedIds"
+        options={BLOCK_CHECKBOX_GROUP_DATA}
+        defaultIds={blockCheckboxGroupSelectedIds}
+        onChange={(_event, _type, _name, selectedIds) => {
+          setBlockCheckboxGroupSelectedIds(selectedIds || []);
         }}
       />
       <div>selectedIds = {blockCheckboxGroupSelectedIds.toSorted().join(", ")}</div>
 
       <h3>Error</h3>
-      <BlockCheckboxGroup
-        data={BLOCK_CHECKBOX_GROUP_DATA}
+      <MsolTileOrThumbnail
+        name="selectedIds"
+        options={BLOCK_CHECKBOX_GROUP_DATA}
         error={"Required"}
-        selectedIds={[]} />
+        defaultIds={[]} />
     </Paper>
   </>;
 };

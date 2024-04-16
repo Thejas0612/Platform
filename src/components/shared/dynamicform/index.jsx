@@ -4,7 +4,6 @@ import {
     TextInput,
     NumberInput,
     ButtonInput,
-    // TableInput,
     RadioInput,
     CustomToggleButton,
     CustomButtonGroup,
@@ -20,16 +19,16 @@ import {
 } from '@emerson/dynamic-ui-public';
 import CardContent from '@mui/material/CardContent';
 import { Grid, Stack, Typography } from '@mui/material';
-import TileOrThumbnail from '../tile';
 import CheckboxInput from '../checkbox'
-import TableInput from '../table'
+import TableInput from '../../table-input/TableInput'
+import { MsolTileOrThumbnail } from "../msol-tile-or-thumbnail/MsolTileOrThumbnail";
 
 const FORM_FEILDS = {
     "SINGLE_SELECT": SelectInput,
     "TEXT_INPUT": TextInput,
     "NUMBER_INPUT": NumberInput,
     "BUTTON": ButtonInput,
-    'TILE_THUMBNAIL': TileOrThumbnail,
+    'TILE_THUMBNAIL': MsolTileOrThumbnail,
     "CHECKBOX_INPUT": CheckboxInput,
     "TABLE_INPUT": TableInput,
     "RADIO_INPUT": RadioInput,
@@ -46,7 +45,7 @@ const FORM_FEILDS = {
     "DRAG_AND_DROP": DragAndDrop
 }
 
-const MSOLDynamicForm = (({ schema, handleChange, updateData, handleKeyPress, formKey, dataSourceUrl, components, ...props }) => {
+const MSOLDynamicForm = (({ schema, handleChange, updateData, handleKeyPress, formKey, dataSourceUrl, components, overrideComponents = {}, ...props }) => {
 
     //initial state of formData
     const [formData, setFormData] = React.useState([])
@@ -60,23 +59,18 @@ const MSOLDynamicForm = (({ schema, handleChange, updateData, handleKeyPress, fo
     const onChange = (e, type, name, val) => {
         let field = name;
         let value = val;
-        formData.forEach((val, i) => {
-            val.fields.forEach((v, ind) => {
-                if (v.name == field) {
-                    v.value = value;
+        const updatedFormData = formData.map((group) => {
+            const updatedFields = group.fields.map((field) => {
+                if (field.name === name) {
+                    return { ...field, value };
                 }
+                return field;
             });
+            return { ...group, fields: updatedFields };
         });
-        setFormData(formData);
+        setFormData(updatedFormData);
         setFormDataObj({ ...formDataObj, [field]: value });
-        //validate the feild
-        let message =  feildValidation(e, type, name, value);
-        handleChange(
-            e,
-            { ...formDataObj, [field]: value },
-            formData,
-            name,
-        );
+        handleChange(e, { ...formDataObj, [field]: value }, updatedFormData, name);
     }
 
     const feildValidation = (e, type, name, value) => {
@@ -100,16 +94,16 @@ const MSOLDynamicForm = (({ schema, handleChange, updateData, handleKeyPress, fo
                         <Typography fontWeight={'bold'}>{formgroup.group}</Typography>
                         <Grid container spacing={2}>
                             {formgroup.fields.map(field => {
-                                const FieldComponent = FORM_FEILDS[field.type]
+                                const FieldComponent = {...FORM_FEILDS, ...overrideComponents}[field.type]
                                 return (
                                     <>
-                                        <Grid item xs={field.column ? field.column : '12'}>
-                                            {FieldComponent ?
-                                                <FieldComponent
-                                                    {...field}
-                                                    onChange={onChange}
-                                                /> : null}
+                                      {field.hide && field.hide === true ? (
+                                        <></>
+                                      ) : (
+                                        <Grid item key={field.name} xs={field.column ? field.column : 12}>
+                                          {FieldComponent ? <FieldComponent {...field} onChange={onChange} /> : null}
                                         </Grid>
+                                      )}
                                     </>
                                 )
                             })}

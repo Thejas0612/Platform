@@ -29,6 +29,7 @@ See [Setup Local Environment](docs\setup-local-environment.md)
 | Name                             | Description                                                                                 |
 |----------------------------------|---------------------------------------------------------------------------------------------|
 | `VITE_HIGHLIGHT_MSOL_COMPONENTS` | `false` (default) - do nothing. <br />`true` - shows all MSOL component with yellow border. |
+| `VITE_API_URL` | The backend API URL. Defaults to backend development environment. (e.g. `https://webapp-z-autosol-msolst-ui-n-001.azurewebsites.net`) |
 
 ## Folder Structure
 

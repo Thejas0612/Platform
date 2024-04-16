@@ -3,6 +3,8 @@ import isolateSchema from "../../adapterDataManager/schema/schemaSeperator";
 import { STATUS } from "../../status";
 import lookoutSchema from "./lookoutSchema.json";
 import { findSchemaByBusinessUnitCode } from "../../api/schemaApi";
+import { transformJson } from "../../adapterDataManager/schema/transformJson";
+import { environment } from "../../config/environment";
 
 const initialState = {
   topSection: [],
@@ -19,25 +21,26 @@ const initialState = {
 export const fetchSchema = createAsyncThunk("loadSchema/fetchSchema", async (buType) => {
   // TODO: upload the lookout schema to the backend.
   if (buType.buType === "project_Lookout") {
-    return isolateSchema(lookoutSchema[0]);
+    const schemaWithEnvironmentVariables = transformJson(lookoutSchema[0], environment)
+    return isolateSchema(schemaWithEnvironmentVariables, "lookout");
   }
 
   try {
     const { default: data } = await import(`../../../ui_schemas/${buType.buType}.json`);
     if (Array.isArray(data)) {
-       return isolateSchema(data[0]);
+      return isolateSchema(data[0]);
     } else {
-       throw(`Invalid JSON in /ui_schemas/'${buType.buType}'.json schema.`)
+      throw `Invalid JSON in /ui_schemas/'${buType.buType}'.json schema.`;
     }
- } catch (localSchemaError) {
+  } catch (localSchemaError) {
     try {
-      const schemas = await findSchemaByBusinessUnitCode(buType.buType)
+      const schemas = await findSchemaByBusinessUnitCode(buType.buType);
       return isolateSchema(schemas[0]);
     } catch (err) {
-       console.log("Error occurred while fetching schema", err);
-       return "Error occurred while fetching schema";
+      console.log("Error occurred while fetching schema", err);
+      return "Error occurred while fetching schema";
     }
- }  
+  }
 });
 
 const initialBuSchema = createSlice({
@@ -55,6 +58,37 @@ const initialBuSchema = createSlice({
     },
     updateLeftSection: (state, action) => {
       state.leftSection = action.payload;
+    },
+    updateRightSection: (state, action) => {
+      state.rightSection = action.payload;
+    },
+    updateVariation: (state, action) => {
+      const { type, rightSection } = action.payload;
+
+      const updatedRightSection = rightSection.map((section) => {
+        const variations = section.componentProps.schema_variations[type] || [];
+        const schemaIds = section.componentProps.schema.map((item) => item.id);
+        const newSchema = [...section.componentProps.schema];
+
+        variations.forEach((variation) => {
+          const index = schemaIds.indexOf(variation.id);
+          if (index !== -1) {
+            newSchema[index] = variation;
+          } else {
+            newSchema.push(variation);
+          }
+        });
+
+        return {
+          ...section,
+          componentProps: {
+            ...section.componentProps,
+            schema: newSchema
+          }
+        };
+      });
+
+      state.rightSection = updatedRightSection;
     }
   },
   extraReducers: (builder) => {
@@ -77,5 +111,12 @@ const initialBuSchema = createSlice({
   }
 });
 
-export const { changeActiveIndex, resetActiveIndex, updateBu, updateLeftSection } = initialBuSchema.actions;
+export const {
+  changeActiveIndex,
+  resetActiveIndex,
+  updateBu,
+  updateLeftSection,
+  updateRightSection,
+  updateVariation
+} = initialBuSchema.actions;
 export default initialBuSchema.reducer;

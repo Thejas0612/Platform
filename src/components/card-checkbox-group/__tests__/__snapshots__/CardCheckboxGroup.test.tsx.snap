@@ -9,7 +9,7 @@ exports[`<CardCheckboxGroup /> when 2 options are selected, then 2 checked check
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2 css-9zgma0-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1mzl7qx"
+        class="MuiBox-root css-mpnfp0"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1yfb971-MuiGrid-root"
@@ -76,7 +76,7 @@ exports[`<CardCheckboxGroup /> when 2 options are selected, then 2 checked check
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2 css-9zgma0-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1mzl7qx"
+        class="MuiBox-root css-mpnfp0"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1yfb971-MuiGrid-root"
@@ -143,7 +143,7 @@ exports[`<CardCheckboxGroup /> when 2 options are selected, then 2 checked check
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2 css-9zgma0-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1mzl7qx"
+        class="MuiBox-root css-mpnfp0"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1yfb971-MuiGrid-root"
@@ -219,7 +219,7 @@ exports[`<CardCheckboxGroup /> when Coriolis compare is selected, then check Cor
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2 css-9zgma0-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1mzl7qx"
+        class="MuiBox-root css-mpnfp0"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1yfb971-MuiGrid-root"
@@ -286,7 +286,7 @@ exports[`<CardCheckboxGroup /> when Coriolis compare is selected, then check Cor
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2 css-9zgma0-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1mzl7qx"
+        class="MuiBox-root css-mpnfp0"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1yfb971-MuiGrid-root"
@@ -353,7 +353,7 @@ exports[`<CardCheckboxGroup /> when Coriolis compare is selected, then check Cor
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2 css-9zgma0-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1mzl7qx"
+        class="MuiBox-root css-mpnfp0"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1yfb971-MuiGrid-root"
@@ -429,7 +429,7 @@ exports[`<CardCheckboxGroup /> when Magnetic selected, then check Magnetic and f
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2 css-9zgma0-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1mzl7qx"
+        class="MuiBox-root css-mpnfp0"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1yfb971-MuiGrid-root"
@@ -496,7 +496,7 @@ exports[`<CardCheckboxGroup /> when Magnetic selected, then check Magnetic and f
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2 css-9zgma0-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1mzl7qx"
+        class="MuiBox-root css-mpnfp0"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1yfb971-MuiGrid-root"
@@ -563,7 +563,7 @@ exports[`<CardCheckboxGroup /> when Magnetic selected, then check Magnetic and f
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2 css-9zgma0-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1kcsyac"
+        class="MuiBox-root css-ltt0w8"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1yfb971-MuiGrid-root"
@@ -639,7 +639,7 @@ exports[`<CardCheckboxGroup /> when state is default, then 3 show checkbox 1`] =
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2 css-9zgma0-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1mzl7qx"
+        class="MuiBox-root css-mpnfp0"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1yfb971-MuiGrid-root"
@@ -706,7 +706,7 @@ exports[`<CardCheckboxGroup /> when state is default, then 3 show checkbox 1`] =
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2 css-9zgma0-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1mzl7qx"
+        class="MuiBox-root css-mpnfp0"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1yfb971-MuiGrid-root"
@@ -773,7 +773,7 @@ exports[`<CardCheckboxGroup /> when state is default, then 3 show checkbox 1`] =
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2 css-9zgma0-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1mzl7qx"
+        class="MuiBox-root css-mpnfp0"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1yfb971-MuiGrid-root"
@@ -849,7 +849,7 @@ exports[`<CardCheckboxGroup /> when state is error, then show error message. 1`]
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2 css-9zgma0-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1mzl7qx"
+        class="MuiBox-root css-mpnfp0"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1yfb971-MuiGrid-root"
@@ -916,7 +916,7 @@ exports[`<CardCheckboxGroup /> when state is error, then show error message. 1`]
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2 css-9zgma0-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1mzl7qx"
+        class="MuiBox-root css-mpnfp0"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1yfb971-MuiGrid-root"
@@ -983,7 +983,7 @@ exports[`<CardCheckboxGroup /> when state is error, then show error message. 1`]
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2 css-9zgma0-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1mzl7qx"
+        class="MuiBox-root css-mpnfp0"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-0.5 MuiGrid-direction-xs-column css-1yfb971-MuiGrid-root"
