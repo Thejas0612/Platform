@@ -98,8 +98,7 @@
                          },
                           "column":12,
                           "buttonLabel": "btn lble",
-                          "defaultIds": [
-                          ],
+                          "defaultIds": "",
                           "imgUrl": "7bd555544cf68071bafa.png",
                           "np_id": 7,
                           "hideCheckboxes": true,
