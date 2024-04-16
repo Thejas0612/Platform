@@ -152,6 +152,7 @@
                        {
                           "type":"TABLE_INPUT",
                           "name":"TABLE_INPUT",
+                          "column": 9,
                           "options":[
                              [
                                 {
@@ -165,7 +166,7 @@
                                 },
                                 {
                                    "type":"TEXT",
-                                   "label":"MIN",
+                                   "label":"Min",
                                    "align":"center",
                                    "name":"r1min",
                                    "textStyles":{
@@ -174,7 +175,7 @@
                                 },
                                 {
                                    "type":"TEXT",
-                                   "label":"NORMAL",
+                                   "label":"Normal",
                                    "align":"center",
                                    "name":"r1min",
                                    "textStyles":{
@@ -183,7 +184,7 @@
                                 },
                                 {
                                    "type":"TEXT",
-                                   "label":"MAX",
+                                   "label":"Max",
                                    "name":"r1max",
                                    "align":"center",
                                    "textStyles":{
@@ -192,7 +193,7 @@
                                 },
                                 {
                                    "type":"TEXT",
-                                   "label":"UNITS",
+                                   "label":"Units",
                                    "name":"r1units",
                                    "align":"center",
                                    "textStyles":{
@@ -253,7 +254,8 @@
                                    "options":[
                                       {
                                          "value":"C",
-                                         "label":"C"
+                                         "label":"C",
+                                         "selected": true
                                       },
                                       {
                                          "value":"F",
@@ -275,7 +277,8 @@
                                 {
                                    "type":"TEXT_INPUT",
                                    "label":"",
-                                   "name":"line_pressure_min"
+                                   "name":"line_pressure_min",
+                                   "disabled": true
                                 },
                                 {
                                    "type":"TEXT_INPUT",
@@ -286,7 +289,8 @@
                                 {
                                    "type":"TEXT_INPUT",
                                    "label":"",
-                                   "name":"line_pressure_max"
+                                   "name":"line_pressure_max",
+                                   "disabled": true
                                 },
                                 {
                                    "type":"SINGLE_SELECT",
@@ -295,7 +299,8 @@
                                    "options":[
                                       {
                                          "value":"C",
-                                         "label":"C"
+                                         "label":"C",
+                                         "selected": true
                                       },
                                       {
                                          "value":"F",
@@ -565,6 +570,12 @@
                           "showAlert":false
                        }
                     ]
+                 },
+                 {
+
+                 },
+                 {
+                  
                  }
               ]
            }

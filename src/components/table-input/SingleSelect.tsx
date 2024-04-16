@@ -13,6 +13,7 @@ const SingleSelect = (props) => {
                 fullWidth={true}
                 style={{borderRadius: 0}}
                 defaultValue={selectedValue}
+                disabled={props.schemaProps.disabled}
             >
                 {props.schemaProps.options.map((menu, menuIndex) => {
                     return (

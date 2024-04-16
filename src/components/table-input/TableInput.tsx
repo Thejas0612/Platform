@@ -1,14 +1,17 @@
-import { TextField, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import Input from "./Input";
 import SingleSelect from "./SingleSelect";
 import Label from "./Label";
+import "./table-input.scss"
 
-const TableInput = (props) => {
+const TableInput = ({options, data, column = 12, ...props}) => {
+  // TODO: Temporary fix to keep backwards compatibility. Eventually will just `data` property.
+  const dataOverride = data ? data : options
 
    return (
-      <>
+      <Grid item xs={column} className="msol-table-input">
          <table>
-            {props.options.map((row, rowIndex) => (
+            {dataOverride.map((row, rowIndex) => (
                <tr key={rowIndex}>
                   {row.map((cell, cellIndex) => (
                      <td key={cellIndex} style={{ whiteSpace: "nowrap" }}>
@@ -33,7 +36,7 @@ const TableInput = (props) => {
                </tr>
             ))}
          </table>
-      </>
+      </Grid>
     )
 }
 

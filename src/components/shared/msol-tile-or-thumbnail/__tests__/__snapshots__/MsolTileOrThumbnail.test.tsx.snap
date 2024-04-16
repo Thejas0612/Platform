@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<BlockCheckboxGroup /> when state is default, then show 1 unchecked checkbox, 1 checked checkbox and 1 disabled checkbox 1`] = `
+exports[`<MsolTileOrThumbnail /> when hideCheckboxes is true, then do not show checkboxes. 1`] = `
 <div>
   <div
     class="MuiStack-root css-8mcjw0-MuiStack-root"
   >
     <div
-      class="MuiBox-root css-mx2uwd"
+      class="MuiBox-root css-y8llyz"
     >
       <div
         class="MuiStack-root css-1d9cypr-MuiStack-root"
@@ -36,7 +36,7 @@ exports[`<BlockCheckboxGroup /> when state is default, then show 1 unchecked che
         </span>
         <img
           alt="1 - Unchecked"
-          class="blockCheckbox__image"
+          class="MuiBox-root css-1s768nl"
           src="https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png"
         />
         <div
@@ -56,7 +56,7 @@ exports[`<BlockCheckboxGroup /> when state is default, then show 1 unchecked che
       </div>
     </div>
     <div
-      class="MuiBox-root css-6zgbez"
+      class="MuiBox-root css-58uaq1"
     >
       <div
         class="MuiStack-root css-1d9cypr-MuiStack-root"
@@ -87,7 +87,7 @@ exports[`<BlockCheckboxGroup /> when state is default, then show 1 unchecked che
         </span>
         <img
           alt="2 - Checked"
-          class="blockCheckbox__image"
+          class="MuiBox-root css-1s768nl"
           src="https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png"
         />
         <div
@@ -107,7 +107,7 @@ exports[`<BlockCheckboxGroup /> when state is default, then show 1 unchecked che
       </div>
     </div>
     <div
-      class="MuiBox-root css-mx2uwd"
+      class="MuiBox-root css-1shpcaz"
     >
       <div
         class="MuiStack-root css-1d9cypr-MuiStack-root"
@@ -137,7 +137,7 @@ exports[`<BlockCheckboxGroup /> when state is default, then show 1 unchecked che
         </span>
         <img
           alt="3 - Disabled"
-          class="blockCheckbox__image"
+          class="MuiBox-root css-1s768nl"
           src="https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png"
         />
         <div
@@ -160,13 +160,13 @@ exports[`<BlockCheckboxGroup /> when state is default, then show 1 unchecked che
 </div>
 `;
 
-exports[`<BlockCheckboxGroup /> when state is error, then show error message. 1`] = `
+exports[`<MsolTileOrThumbnail /> when state is default, then show 1 unchecked checkbox, 1 checked checkbox and 1 disabled checkbox. 1`] = `
 <div>
   <div
     class="MuiStack-root css-8mcjw0-MuiStack-root"
   >
     <div
-      class="MuiBox-root css-mx2uwd"
+      class="MuiBox-root css-y8llyz"
     >
       <div
         class="MuiStack-root css-1d9cypr-MuiStack-root"
@@ -196,7 +196,7 @@ exports[`<BlockCheckboxGroup /> when state is error, then show error message. 1`
         </span>
         <img
           alt="1 - Unchecked"
-          class="blockCheckbox__image"
+          class="MuiBox-root css-1s768nl"
           src="https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png"
         />
         <div
@@ -216,7 +216,7 @@ exports[`<BlockCheckboxGroup /> when state is error, then show error message. 1`
       </div>
     </div>
     <div
-      class="MuiBox-root css-6zgbez"
+      class="MuiBox-root css-58uaq1"
     >
       <div
         class="MuiStack-root css-1d9cypr-MuiStack-root"
@@ -247,7 +247,7 @@ exports[`<BlockCheckboxGroup /> when state is error, then show error message. 1`
         </span>
         <img
           alt="2 - Checked"
-          class="blockCheckbox__image"
+          class="MuiBox-root css-1s768nl"
           src="https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png"
         />
         <div
@@ -267,7 +267,7 @@ exports[`<BlockCheckboxGroup /> when state is error, then show error message. 1`
       </div>
     </div>
     <div
-      class="MuiBox-root css-mx2uwd"
+      class="MuiBox-root css-1shpcaz"
     >
       <div
         class="MuiStack-root css-1d9cypr-MuiStack-root"
@@ -297,7 +297,167 @@ exports[`<BlockCheckboxGroup /> when state is error, then show error message. 1`
         </span>
         <img
           alt="3 - Disabled"
-          class="blockCheckbox__image"
+          class="MuiBox-root css-1s768nl"
+          src="https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png"
+        />
+        <div
+          class="MuiBox-root css-1c5ij41"
+        >
+          <h5
+            class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-1wbh7rs-MuiTypography-root"
+          >
+            3 - Disabled
+          </h5>
+          <p
+            class="MuiTypography-root MuiTypography-body2 css-16fcjk7-MuiTypography-root"
+          >
+            Our inline viscosity meter offers accurate, repeatable measurement in industries such as refining, chemical, life sciences, and more.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MsolTileOrThumbnail /> when state is error, then show error message. 1`] = `
+<div>
+  <div
+    class="MuiStack-root css-8mcjw0-MuiStack-root"
+  >
+    <div
+      class="MuiBox-root css-1pyieez"
+    >
+      <div
+        class="MuiStack-root css-1d9cypr-MuiStack-root"
+      >
+        <span
+          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+        >
+          <input
+            class="PrivateSwitchBase-input css-1m9pwf3"
+            data-indeterminate="false"
+            type="checkbox"
+          />
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CheckBoxOutlineBlankIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </span>
+        <img
+          alt="1 - Unchecked"
+          class="MuiBox-root css-1s768nl"
+          src="https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png"
+        />
+        <div
+          class="MuiBox-root css-1c5ij41"
+        >
+          <h5
+            class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-h93ljk-MuiTypography-root"
+          >
+            1 - Unchecked
+          </h5>
+          <p
+            class="MuiTypography-root MuiTypography-body2 css-e784if-MuiTypography-root"
+          >
+            Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, differential pressure, vortex, magnetic, ultrasonic, turbine and positive displacement meters.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiBox-root css-1pyieez"
+    >
+      <div
+        class="MuiStack-root css-1d9cypr-MuiStack-root"
+      >
+        <span
+          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+        >
+          <input
+            checked=""
+            class="PrivateSwitchBase-input css-1m9pwf3"
+            data-indeterminate="false"
+            type="checkbox"
+          />
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CheckBoxIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </span>
+        <img
+          alt="2 - Checked"
+          class="MuiBox-root css-1s768nl"
+          src="https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png"
+        />
+        <div
+          class="MuiBox-root css-1c5ij41"
+        >
+          <h5
+            class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-h93ljk-MuiTypography-root"
+          >
+            2 - Checked
+          </h5>
+          <p
+            class="MuiTypography-root MuiTypography-body2 css-e784if-MuiTypography-root"
+          >
+            Our density measurement devices offer reliable performance for applications such as concentration, API, Brix, and more.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiBox-root css-1wnaqjw"
+    >
+      <div
+        class="MuiStack-root css-1d9cypr-MuiStack-root"
+      >
+        <span
+          aria-disabled="true"
+          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+          tabindex="-1"
+        >
+          <input
+            class="PrivateSwitchBase-input css-1m9pwf3"
+            data-indeterminate="false"
+            disabled=""
+            type="checkbox"
+          />
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CheckBoxOutlineBlankIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+            />
+          </svg>
+        </span>
+        <img
+          alt="3 - Disabled"
+          class="MuiBox-root css-1s768nl"
           src="https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png"
         />
         <div

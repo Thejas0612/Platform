@@ -13,7 +13,8 @@ const initialState = {
   selectedBu: "",
   status: STATUS.IDLE,
   error: false,
-  errorMsg: null
+  errorMsg: null,
+  dropDownsValues : {'communicationProtocol':'', 'formFactor':'', 'noOfInputs':''}
 };
 
 export const fetchSchema = createAsyncThunk("loadSchema/fetchSchema", async (buType) => {
@@ -58,6 +59,9 @@ const initialBuSchema = createSlice({
     },
     updateRightSection: (state, action) => {
       state.rightSection = action.payload;
+    },
+    updateDropdownPayload :(state, action) => {
+      state.dropDownsValues = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -80,5 +84,5 @@ const initialBuSchema = createSlice({
   }
 });
 
-export const { changeActiveIndex, resetActiveIndex, updateBu, updateLeftSection,updateRightSection } = initialBuSchema.actions;
+export const { changeActiveIndex, resetActiveIndex, updateBu, updateLeftSection, updateRightSection, updateDropdownPayload } = initialBuSchema.actions;
 export default initialBuSchema.reducer;
