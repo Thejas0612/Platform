@@ -78,7 +78,7 @@ const MSOLDynamicForm = ({
     });
     setFormData(updatedFormData);
     setFormDataObj({ ...formDataObj, [field]: value });
-    handleChange(e, { ...formDataObj, [field]: value }, formData, name);
+    handleChange(e, { ...formDataObj, [field]: value }, updatedFormData, name);
   };
 
   const generateForm =

@@ -1,6 +1,6 @@
-//import schema from "./schema_version_0.0.1.json";
-
 import { getApi } from "../api/dp-flow/dpFlowApis";
+import SCHEMA_CONSTANTS from "./dpflowSchemaConstants";
+import { orderSchemaFields } from "./schemaServiceHelper";
 
 export const getNavigationMenuSchema = (buCode, componentName, schema) => {
   const schema_data = [];
@@ -32,93 +32,100 @@ export const getDynamicFormSchema = (buCode, componentName, activeIndex, schema)
   return schema_data;
 };
 
-export const updateSchema = async (e, formObj, formData, name, isValid, activeIndex, buCode) => {
-  const field = formData[0]?.fields?.find((itm) => itm.name === name);
+export const updateSchema = async (
+  e,
+  formObj,
+  formData,
+  name,
+  activeIndex,
+  buCode,
+  invisibleUiElements
+) => {
+  const mappedFields = {};
+  const allUiElements = [...formData[0].fields, ...invisibleUiElements];
+  let fieldLength = allUiElements?.length;
+
+  while (0 <= fieldLength) {
+    const fieldName = allUiElements[fieldLength]?.name;
+    if (fieldName !== undefined) {
+      mappedFields[fieldName] = allUiElements[fieldLength];
+    }
+    fieldLength--;
+  }
+
+  const field = mappedFields[name];
+  field["required"] = true;
+  field["error"] = "";
+
   let response;
   if (field?.isApiOnEvent) {
     response = await getApi(field?.isApiOnEvent?.apiInfo, e?.id);
-    response.unshift({ id: "pick one", disabled: true, label: "Pick One", value: "pick one" });
+    response.unshift({
+      id: SCHEMA_CONSTANTS.DEFAULT_DROPDOWN_ID,
+      disabled: true,
+      label: SCHEMA_CONSTANTS.DEFAULT_DROPDOWN_LABEL,
+      value: SCHEMA_CONSTANTS.DEFAULT_DROPDOWN_VALUE
+    });
   }
-  field["required"] = true;
-  field["error"] = "";
-  field["defaultIds"] = formObj[name];
-  let activeSchema;
-  const badges = [];
-  if (response?.length > 0) {
-    activeSchema = {
-      id: formData[0]?.id,
-      fields: formData[0]?.fields?.map((itm) => {
-        if (itm?.name === name) {
-          return field;
-        } else if (itm?.name === field?.isApiOnEvent?.targetUiElement) {
-          return {
-            ...itm,
-            [field?.isApiOnEvent?.targetProperty]: response,
-            placeholder: "Pick One",
-            value: "pick one"
-          };
-        } else return itm;
-      })
-    };
-    return { activeSchema, badges, activeIndex, buCode };
-  }
-  activeSchema = {
-    id: formData[0]?.id,
-    fields: formData[0]?.fields?.map((itm) => {
-      if (itm?.name === name) {
-        return field;
-      } else return itm;
-    })
-  };
-  return { activeSchema, badges, activeIndex, buCode };
-};
 
-export const updateApiDataInSchema = async (res, schema) => {
-  const transformApiData = [];
-  if (res?.apiResponse && res?.target?.uiElementType === "SINGLE_SELECT") {
-    if (res?.target?.targetUiElementName === "line_size") {
-      for (let [key, value] of Object.entries(res?.apiResponse[0])) {
-        const lineSize = value;
-        lineSize["label"] = value?.line_size;
-        lineSize["id"] = value?.lookup_code;
-        lineSize["value"] = value?.lookup_code;
-        lineSize["order"] = key;
-        transformApiData.push(lineSize);
-      }
+  if (field?.name === SCHEMA_CONSTANTS.LINE_SIZE) {
+    if (field?.value === SCHEMA_CONSTANTS.SPECIAL) {
+      mappedFields[SCHEMA_CONSTANTS.PIPE_ID][SCHEMA_CONSTANTS.DISPLAY] = true;
+      mappedFields[SCHEMA_CONSTANTS.PIPE_SCHEDULE][SCHEMA_CONSTANTS.DISPLAY] = false;
+      mappedFields[SCHEMA_CONSTANTS.UNITS][SCHEMA_CONSTANTS.DISPLAY] = true;
+      mappedFields[SCHEMA_CONSTANTS.PIPE_ID][SCHEMA_CONSTANTS.VALUE] = "";
+      mappedFields[SCHEMA_CONSTANTS.UNITS][SCHEMA_CONSTANTS.VALUE] = SCHEMA_CONSTANTS.INCH;
     } else {
-      res?.apiResponse.forEach((itm) => {
-        const liquidValue = {};
-        liquidValue["label"] = itm?.database_fluids;
-        liquidValue["id"] = itm?.lookup_code;
-        liquidValue["value"] = itm?.lookup_code;
-        transformApiData.push(liquidValue);
-      });
+      mappedFields[SCHEMA_CONSTANTS.PIPE_SCHEDULE][SCHEMA_CONSTANTS.DISPLAY] = true;
+      mappedFields[SCHEMA_CONSTANTS.PIPE_ID][SCHEMA_CONSTANTS.DISPLAY] = false;
+      mappedFields[SCHEMA_CONSTANTS.UNITS][SCHEMA_CONSTANTS.DISPLAY] = false;
     }
   }
-  if (Object.keys(schema).length > 0) {
-    const update_schema = {
-      uiComponents: schema?.uiComponents.map((comp) => {
-        if (comp.componentName === res?.target?.componentName) {
-          return {
-            ...comp,
-            componentProps: {
-              schema: comp?.componentProps?.schema.map((itm) => {
-                if (itm?.id === res?.target?.screenId) {
-                  return {
-                    ...itm,
-                    fields: itm.fields?.map((field) => {
-                      if (field?.name === res?.target?.targetUiElementName) {
-                        return { ...field, options: transformApiData };
-                      } else return field;
-                    })
-                  };
-                } else return itm;
-              })
-            }
-          };
-        } else return comp;
-      })
-    };
-    return update_schema;
+
+  if (field?.name === SCHEMA_CONSTANTS.PIPE_SCHEDULE) {
+    if (field?.value === SCHEMA_CONSTANTS.SPECIAL) {
+      mappedFields[SCHEMA_CONSTANTS.PIPE_ID][SCHEMA_CONSTANTS.DISPLAY] = true;
+      mappedFields[SCHEMA_CONSTANTS.UNITS][SCHEMA_CONSTANTS.DISPLAY] = true;
+      mappedFields[SCHEMA_CONSTANTS.PIPE_ID][SCHEMA_CONSTANTS.VALUE] = "";
+      mappedFields[SCHEMA_CONSTANTS.UNITS][SCHEMA_CONSTANTS.VALUE] = SCHEMA_CONSTANTS.INCH;
+    } else {
+      mappedFields[SCHEMA_CONSTANTS.PIPE_ID][SCHEMA_CONSTANTS.DISPLAY] = false;
+      mappedFields[SCHEMA_CONSTANTS.UNITS][SCHEMA_CONSTANTS.DISPLAY] = false;
+    }
   }
+
+  if (name === SCHEMA_CONSTANTS.FLUID_SOURCE) {
+    const selectedId = mappedFields[name].value;
+    if (
+      mappedFields[name][SCHEMA_CONSTANTS.OPTIONS][selectedId]?.label === SCHEMA_CONSTANTS.CUSTOM
+    ) {
+      mappedFields[SCHEMA_CONSTANTS.FLUID_DATABASE_NAME][SCHEMA_CONSTANTS.DISPLAY] = false;
+      mappedFields[SCHEMA_CONSTANTS.FLUID_DATABASE_NAME][SCHEMA_CONSTANTS.VALUE] = "";
+      mappedFields[SCHEMA_CONSTANTS.CUSTOM_FLUID_NAME][SCHEMA_CONSTANTS.DISPLAY] = true;
+    } else {
+      mappedFields[SCHEMA_CONSTANTS.FLUID_DATABASE_NAME][SCHEMA_CONSTANTS.DISPLAY] = true;
+      mappedFields[SCHEMA_CONSTANTS.CUSTOM_FLUID_NAME][SCHEMA_CONSTANTS.DISPLAY] = false;
+      mappedFields[SCHEMA_CONSTANTS.CUSTOM_FLUID_NAME][SCHEMA_CONSTANTS.VALUE] = "";
+    }
+  }
+
+  if (response?.length > 0) {
+    mappedFields[field?.isApiOnEvent?.targetUiElement] = {
+      ...mappedFields[field?.isApiOnEvent?.targetUiElement],
+      [field?.isApiOnEvent?.targetProperty]: response,
+      value: SCHEMA_CONSTANTS.DEFAULT_DROPDOWN_VALUE,
+      placeholder: SCHEMA_CONSTANTS.DEFAULT_DROPDOWN_LABEL
+    };
+    const updatedSchema = {
+      id: formData[0]?.id,
+      fields: orderSchemaFields(mappedFields)
+    };
+
+    return { updatedSchema, activeIndex, buCode };
+  }
+  const updatedSchema = {
+    id: formData[0]?.id,
+    fields: orderSchemaFields(mappedFields)
+  };
+  return { updatedSchema, activeIndex, buCode };
 };
