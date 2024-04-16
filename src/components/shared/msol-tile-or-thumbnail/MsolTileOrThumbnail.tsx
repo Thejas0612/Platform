@@ -11,9 +11,9 @@ export interface MsolTileOrThumbnailProps {
   required?: boolean;
   options?: MsolTileOrThumbnailItem[];
   data?: MsolTileOrThumbnailItem[];
-  defaultIds?: string[] | string ;
+  defaultIds?: string[] | string | null;
   error?: string;
-  onChange?: (event: MouseEvent, type?: string, name?: string, value?: string[] | string) => void;
+  onChange?: (event: MouseEvent, type?: string, name?: string, value?: string[] | string | null) => void;
   othAttr?: { type: string };
   name: string;
   hideCheckboxes?: boolean;
@@ -47,20 +47,20 @@ export const MsolTileOrThumbnail: FC<MsolTileOrThumbnailProps> = ({
       <Stack spacing={4}>
         {
           dataOverride.map(item => {
-            let checked;
+            let checked: boolean;
             if(singleSelect){
               checked = (value === item.id) ? true : false;
             } else {
-              checked = value.includes(item.id) ? true : false
+              checked = value && value.includes(item.id) ? true : false
             }
 
             const handleChange: MouseEventHandler<HTMLDivElement> = (event) => {
-                const newChecked = !checked;
+                const newChecked : boolean = !checked;
                 let newValue;
                 if(singleSelect) {
                   newValue = newChecked ? item.id : null;
                 } else {
-                  newValue = newChecked ? [...value, item.id] : value.filter(id => id !== item.id);
+                  newValue = newChecked ? [...value as string[], item.id] : (value as string[]).filter(id => id !== item.id);
                 }
                 setValue(newValue);
                 onChange(event, othAttr?.type, name, newValue);
