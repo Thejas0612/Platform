@@ -759,7 +759,7 @@
                         "type": "TEXT",
                         "label": "Flow Rate",
                         "align": "center",
-                        "title":"Flow rate is the amount of fluid passing through a pipe segment. It can be presented as either mass flow or volumetric flow."
+                        "title": "Flow rate is the amount of fluid passing through a pipe segment. It can be presented as either mass flow or volumetric flow."
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -768,9 +768,9 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "min":0,
-                        "max":10000000000,
-                        "required":true, 
+                        "min": 0,
+                        "max": 10000000000,
+                        "required": true,
                         "minError": "Entered Minimum Flow Rate is below 0"
                       },
                       {
@@ -780,9 +780,9 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "min":0,
-                        "max":10000000000,
-                        "required":true,
+                        "min": 0,
+                        "max": 10000000000,
+                        "required": true,
                         "minError": "Entered Normal Flow Rate is below 0"
                       },
                       {
@@ -792,9 +792,9 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "min":0,
-                        "max":10000000000,
-                        "required":true,
+                        "min": 0,
+                        "max": 10000000000,
+                        "required": true,
                         "minError": "Entered Maximum Flow Rate is below 0"
                       },
                       {
@@ -1299,6 +1299,8 @@
                     }
                   ]
                 },
+                {},
+                {},
                 {
                   "type": "CUSTOM_BUTTON_GROUP",
                   "column": 3,
@@ -1550,10 +1552,8 @@
                         "align": "center",
                         "precision": 4
                       },
-                      {
-                      },
-                      {
-                      },
+                      {},
+                      {},
                       {
                         "type": "SINGLE_SELECT",
                         "name": "vapour_pressure_units",

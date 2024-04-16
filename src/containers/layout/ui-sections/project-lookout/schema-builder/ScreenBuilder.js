@@ -1,6 +1,7 @@
 import { TileThumbnailFieldBuilder } from "./TileThumbnailFieldBuilder";
 // import { WorkflowBuilder } from "./WorkflowBuilder";
 import { SingleSelectFieldBuilder } from "./SingleSelectFieldBuilder";
+import { TableInputBuilder } from "./TableInputBuilder";
 
 export class ScreenBuilder {
   /**
@@ -12,6 +13,12 @@ export class ScreenBuilder {
    * @type {SingleSelectFieldBuilder[]}
    */
   #singleSelectBuilders = [];
+
+
+  /**
+   * @type {TableInputBuilder[]}
+   */
+  #tableInputBuilders = [];
 
   /**
    * @type {WorkflowBuilder}
@@ -47,6 +54,18 @@ export class ScreenBuilder {
   /**
    *
    * @param name {string}
+   * @return {TableInputBuilder}
+   */
+  tableInput(name){
+    const tableInputBuilder = new TableInputBuilder(name, this.#workflowBuilder);
+    this.#tableInputBuilders.push(tableInputBuilder);
+    return tableInputBuilder;
+  }
+
+
+  /**
+   *
+   * @param name {string}
    * @return {SingleSelectFieldBuilder}
    */
   singleSelect(name) {
@@ -74,6 +93,10 @@ export class ScreenBuilder {
 
     this.#singleSelectBuilders.forEach((singleSelectBuilder) => {
       singleSelectBuilder.finalBuild(screenSchemaNew)
+    });
+
+    this.#tableInputBuilders.forEach((tableInputBuilder) => {
+      tableInputBuilder.finalBuild(screenSchemaNew)
     });
   }
 }
