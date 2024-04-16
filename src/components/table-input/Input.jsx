@@ -17,10 +17,10 @@ const Input = (props) => {
   const handleChange = (e) => {
     const value = e.target.value;
     const isValid = value.match(TEN_THOUSAND_PLACE_DECIMAL_MATCHER);
-
+    
     if (isValid) {
       setDefaultvalue(value);
-      if (props.schemaProps.min != null && value < props.schemaProps.min) {
+      if (props.schemaProps.min != null && value !== "" && value < props.schemaProps.min) {
         setError(true);
         setErrorMessage(props.schemaProps.minError);
         return;
@@ -36,7 +36,7 @@ const Input = (props) => {
         value={defaultValue}
         onChange={handleChange}
         onBlur={(e) =>
-          setDefaultvalue(defaultValue !== "" ? String(Number(defaultValue).toFixed(4)) : "")
+          setDefaultvalue(defaultValue !== "" && defaultValue !== "-"? String(Number(defaultValue).toFixed(4)) : "")
         }
         size={props.size}
         error={error}

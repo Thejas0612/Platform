@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transformJson when JSON contains environment variables, then replace all environment variables with actual values 1`] = `
+{
+  "fields": [
+    {
+      "dataSourceUrl": "http://localhost:5000/api/lookout/get_line_size?measurement_type=Flow",
+      "name": "line-size",
+    },
+    {
+      "dataSourceUrl": "<%= VITE_API_URL %}//api/lookout/get_pipe_schedule",
+      "name": "pipe-schedule",
+    },
+  ],
+}
+`;

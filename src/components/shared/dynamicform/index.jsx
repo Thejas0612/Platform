@@ -59,23 +59,18 @@ const MSOLDynamicForm = (({ schema, handleChange, updateData, handleKeyPress, fo
     const onChange = (e, type, name, val) => {
         let field = name;
         let value = val;
-        formData.forEach((val, i) => {
-            val.fields.forEach((v, ind) => {
-                if (v.name == field) {
-                    v.value = value;
+        const updatedFormData = formData.map((group) => {
+            const updatedFields = group.fields.map((field) => {
+                if (field.name === name) {
+                    return { ...field, value };
                 }
+                return field;
             });
+            return { ...group, fields: updatedFields };
         });
-        setFormData(formData);
+        setFormData(updatedFormData);
         setFormDataObj({ ...formDataObj, [field]: value });
-        //validate the feild
-        let message =  feildValidation(e, type, name, value);
-        handleChange(
-            e,
-            { ...formDataObj, [field]: value },
-            formData,
-            name,
-        );
+        handleChange(e, { ...formDataObj, [field]: value }, updatedFormData, name);
     }
 
     const feildValidation = (e, type, name, value) => {
