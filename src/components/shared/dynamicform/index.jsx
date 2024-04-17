@@ -93,9 +93,13 @@ const MSOLDynamicForm = ({
               const FieldComponent = { ...FORM_FEILDS, ...overrideComponents }[field.type];
               return (
                 <>
+                {field.hide && field.hide === true ? (
+                                        <></>
+                                      ) : (
                   <Grid item key={field.name} xs={field.column ? field.column : 12}>
                     {FieldComponent ? <FieldComponent {...field} onChange={onChange} /> : null}
                   </Grid>
+                  )}
                 </>
               );
             })}
