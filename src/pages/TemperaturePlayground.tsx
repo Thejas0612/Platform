@@ -202,17 +202,18 @@ const schema_Checkmark_dash = {
         "errorClass":"",
         "column":12,
         "hideCheckboxes": true,
+        "singleSelect":true,
         "defaultIds": [
         ],
         "data":[
            {
-              "id": "0",
+              "id": "transmitter",
               "title":"Transmitter",
               "description":"Rosemount Temperature Transmitters offer innovative, industry-leading technologies engineered to accomadate tough environments and challenging applications.",
               "imgUrl":"https://www.emerson.com/resource/image/9241128/portrait_ratio1x1/207/207/4e379d0bdfecdc9dc9a162dabd1f254c/011724DEF921FFF3F2CA1BA57134EC32/updated%20family%20image%20transmitter.jpg",
            },
            {
-              "id": "1",
+              "id": "xwell",
               "title":"X-well",
               "description":"Rosemount™ X-well Technology measures process temperature accurately and reliably without a thermowell",
               "imgUrl":"https://www.emerson.com/resource/image/184154/portrait_ratio3x4/768/1024/6723fff039465ea8da39ab5c7b7978a2/EC9A2B6CF9DCB16E366CB86F03486544/prod-rmt-en-learn_about-x-well_with_shadows_lcd_rotated-c010.jpg",
@@ -431,8 +432,8 @@ const schema_Horizontal_Line = {
 function percentage(num: number, per: number)
 {
   return (num/100)*per;
-}     
-/*chart data related code*/ 
+}
+/*chart data related code*/
 var minYVal =-2.14 + percentage(-2.14, 15);//added demo data for now
 var maxYVal = 2.14 + percentage(2.14, 15);
 const schema_chart_Data = {
@@ -470,11 +471,13 @@ const schema_chart_Data = {
             title: {
                display: true,
                text: 'Ambient Temperature (°C)',
-               padding: { top: 50, left: 0, right: 0, bottom: 0 },
+               padding: { top: 650, left: 0, right: 0, bottom: 0 },
                font: {
                   family: 'Noto Sans',
                   size: 12,
                   lineHeight: 1.2,
+                  color: '#666',
+                  fontStyle:'normal',
                },
             }
          },
@@ -487,7 +490,7 @@ const schema_chart_Data = {
             position: 'center',
             display: true,
             title: {
-               display: true,
+               display: false,
                text: 'Total Probable Error (+/- °C)',
                padding: { top: 650, left: 0, right: 0, bottom: 0 },
                font: {

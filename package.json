@@ -29,6 +29,7 @@
     "i18next": "^23.6.0",
     "i18next-browser-languagedetector": "^7.1.0",
     "i18next-http-backend": "^2.3.1",
+    "immer": "^10.0.4",
     "lodash": "^4.17.21",
     "mathjs": "^11.11.2",
     "prop-types": "^15.8.1",

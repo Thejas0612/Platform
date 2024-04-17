@@ -1,9 +1,27 @@
-.center{
+.center {
     display: flex;
     justify-content: center;
 }
-.text{
+
+.text {
     font-family: "Noto Sans";
     font-size: small;
     fill: currentColor;
+}
+
+.container {
+    display: flex;
+}
+
+.rotationText {
+    writing-mode: vertical-rl;
+    /* Set text direction to vertical, from bottom to top */
+    transform: rotate(180deg);
+    /* Rotate the text 180 degrees to display bottom-up */
+    text-align: center;
+    /* Center the text horizontally */
+    font-size: 12px;
+    font-style: normal;
+    line-height: 1.2;
+    color: #666;
 }
