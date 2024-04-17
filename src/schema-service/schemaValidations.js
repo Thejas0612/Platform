@@ -20,7 +20,7 @@ export const schemaValidations = (activeIndex, field, schema) => {
                     ...field,
                     fields: field.fields?.map((itm) => {
                       if (itm?.value?.length === 0) {
-                        return { ...itm, error: " " };
+                        return { ...itm, error: itm?.display === true ? " " : "" };
                       } else return itm;
                     })
                   };

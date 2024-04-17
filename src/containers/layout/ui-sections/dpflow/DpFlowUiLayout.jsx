@@ -56,9 +56,9 @@ export default function DpFlowUiLayout() {
     setSchema({ ...schema, [buCode]: field });
   };
 
-  useEffect(async () => {
+  useEffect(() => {
     dispatch(updateBu(BUCODE));
-    setSchema(data);
+    setSchema(JSON.parse(JSON.stringify(data)));
     setIsLoading(false);
   }, []);
 
