@@ -427,7 +427,8 @@ const schema_Checkmark_dash = {
    
 
 const schema_Horizontal_Line = {
-   "horizontalLine":true,
+   "type": "HORIZONTAL_LINE",
+
 }
 function percentage(num: number, per: number)
 {

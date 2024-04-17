@@ -4,9 +4,10 @@ import getSchemaForDynamicForm from "../../../../adapterDataManager/schema/getSc
 import MSOLDynamicForm from "../../../../components/shared/dynamicform";
 import TableInput from "../../../../components/table-input/TableInput";
 import { changeHandler } from "./changeHandlers";
-
+import HorizontalLine from "../../../../components/horizonatal-line/HorizontalLine";
 const overrideComponents = {
   "TABLE_INPUT": TableInput,
+  "HORIZONTAL_LINE": HorizontalLine
 };
 
 export default function TempRightLayout({changeIndex}) {

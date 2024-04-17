@@ -337,6 +337,10 @@
                               "label":""
                            },
                            {
+                                 "type": "HORIZONTAL_LINE"
+                                 
+                           },
+                           {
                               "column":12,
                               "label":"LABEL_TEXT",
                               "labelClass":"app-content-label",
