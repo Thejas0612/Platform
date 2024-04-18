@@ -29,8 +29,8 @@ export default function TempRightLayout({changeIndex}) {
               changeHandler({dispatch, rightSecSchema, e, formObj, formData, name, isValid});
             }}
           />
-        <div>
-          <ButtonStepperCommon updateSchemaIndex={changeIndex} stepsCount={rightSecSchema[0].componentProps?.schema?.length}/>
+        <div style={{marginTop:"5rem"}}>
+          <ButtonStepperCommon   updateSchemaIndex={changeIndex} stepsCount={rightSecSchema[0].componentProps?.schema?.length}/>
         </div>
       </div>
     );
