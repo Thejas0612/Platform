@@ -1,7 +1,8 @@
 import { TileThumbnailFieldBuilder } from "./TileThumbnailFieldBuilder";
-// import { WorkflowBuilder } from "./WorkflowBuilder";
 import { SingleSelectFieldBuilder } from "./SingleSelectFieldBuilder";
 import { TableInputBuilder } from "./TableInputBuilder";
+import { FieldFinder } from "./FieldFinder";
+import { cloneDeep } from "lodash";
 
 export class ScreenBuilder {
   /**
@@ -13,7 +14,6 @@ export class ScreenBuilder {
    * @type {SingleSelectFieldBuilder[]}
    */
   #singleSelectBuilders = [];
-
 
   /**
    * @type {TableInputBuilder[]}
@@ -56,12 +56,11 @@ export class ScreenBuilder {
    * @param name {string}
    * @return {TableInputBuilder}
    */
-  tableInput(name){
+  tableInput(name) {
     const tableInputBuilder = new TableInputBuilder(name, this.#workflowBuilder);
     this.#tableInputBuilders.push(tableInputBuilder);
     return tableInputBuilder;
   }
-
 
   /**
    *
@@ -85,18 +84,20 @@ export class ScreenBuilder {
       throw new Error(`Could not find screen with '${this.#screenIndex}' index.`);
     }
 
-    schemaWorkflow[0].componentProps.schema[this.#screenIndex] = screenSchemaNew;
+    schemaWorkflow[0].componentProps.schema[this.#screenIndex] = cloneDeep(screenSchemaNew);
+
+    const fieldFinder = new FieldFinder(schemaWorkflow);
 
     this.#tileThumbnailBuilders.forEach((tileThumbnailBuilder) => {
-      tileThumbnailBuilder.finalBuild(screenSchemaNew);
+      tileThumbnailBuilder.finalBuild(this.#screenIndex, fieldFinder);
     });
 
     this.#singleSelectBuilders.forEach((singleSelectBuilder) => {
-      singleSelectBuilder.finalBuild(screenSchemaNew)
+      singleSelectBuilder.finalBuild(this.#screenIndex, fieldFinder);
     });
 
     this.#tableInputBuilders.forEach((tableInputBuilder) => {
-      tableInputBuilder.finalBuild(screenSchemaNew)
+      tableInputBuilder.finalBuild(this.#screenIndex, fieldFinder);
     });
   }
 }

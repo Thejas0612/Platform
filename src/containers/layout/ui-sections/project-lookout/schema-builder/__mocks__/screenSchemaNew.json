@@ -22,7 +22,9 @@
         "column": 12,
         "type": "TILE_THUMBNAIL",
         "name": "measurement-type",
-        "defaultIds": ["FLOW"],
+        "defaultIds": [
+          "FLOW"
+        ],
         "data": [
           {
             "id": "FLOW",
@@ -47,7 +49,18 @@
           }
         ],
         "required": true,
-        "value": ["FLOW"]
+        "value": [
+          "FLOW"
+        ]
+      },
+      {
+        "column": 12,
+        "name": "process-piping",
+        "text": "Process Piping",
+        "type": "LABEL_TEXT",
+        "value": [
+          "FLOW"
+        ]
       }
     ]
   },

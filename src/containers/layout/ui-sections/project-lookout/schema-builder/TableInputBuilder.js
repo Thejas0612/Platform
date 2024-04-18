@@ -1,8 +1,6 @@
-const TABLE_INPUT_TYPE = "TABLE_INPUT";
-
 export class TableInputBuilder {
   /**
-   * @type { (fieldProps: MsolTileOrThumbnailProps, value: string[]) => void}
+   * @type { (fieldProps: MsolTileOrThumbnailProps, value: string[], fieldFinder: FieldFinder) => void}
    */
   #onChangeHandler;
 
@@ -58,17 +56,12 @@ export class TableInputBuilder {
   }
 
   /**
-   * @param screen {any}
+   * @param screenIndex {number}
+   * @param fieldFinder {FieldFinder}
    */
-  finalBuild(screen) {
-    const field = screen.fields.find((_) => {
-      return _.name === this.#fieldName && _.type === TABLE_INPUT_TYPE;
-    });
+  finalBuild(screenIndex, fieldFinder) {
+    const field = fieldFinder.findTableInput(screenIndex, this.#fieldName )
 
-    if (field == null) {
-      throw new Error(`Could not find field with '${this.#fieldName}' name and ${TABLE_INPUT_TYPE} type.`);
-    }
-
-    this.#onChangeHandler && this.#onChangeHandler(field, field.value);
+    this.#onChangeHandler && this.#onChangeHandler(field, field.value, fieldFinder);
   }
 }
