@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { NavigationMenu } from "../../../../components/dynamic-ui/uiComponentsConfig";
+import { NavigationMenu } from "@emerson/dynamic-ui-public";
 import { getNavigationMenuSchema } from "../../../../schema-service/schemaService";
 import PropTypes from "prop-types";
 
