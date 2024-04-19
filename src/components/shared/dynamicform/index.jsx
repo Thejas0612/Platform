@@ -71,8 +71,8 @@ const MSOLDynamicForm = ({
                 }
             });
         });
-        setFormDataObj(formDataValues);
-        setFormError(formErrors);
+        setFormDataObj(prevState => ({...prevState, ...formDataValues}));
+        setFormError(prevState => ({...prevState, ...formErrors}));
     };
 
     //updating the initial state
