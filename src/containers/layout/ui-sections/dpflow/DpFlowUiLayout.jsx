@@ -7,12 +7,12 @@ import { updateBu } from "../../../../redux/reducers/initialBuDataSlice";
 import DpFlowLeftLayout from "./DpFlowLeftLayout";
 import DpFlowRightLayout from "./DpFlowRightLayout";
 import TopLayout from "../TopLayout";
+import DP_FLOW_CONSTANTS from "./constants/dpFlowConstants";
 
 export default function DpFlowUiLayout() {
   const [schema, setSchema] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
-  const BUCODE = "dpFlow";
   const updateFieldsInSchema = (data) => {
     if (Object.keys(data)?.length > 0) {
       const update_schema = {
@@ -57,7 +57,7 @@ export default function DpFlowUiLayout() {
   };
 
   useEffect(() => {
-    dispatch(updateBu(BUCODE));
+    dispatch(updateBu(DP_FLOW_CONSTANTS.BUCODE));
     setSchema(JSON.parse(JSON.stringify(data)));
     setIsLoading(false);
   }, []);
