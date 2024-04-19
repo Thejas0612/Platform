@@ -1,10 +1,9 @@
 import axios from "axios";
-import { environment } from "../../../config/environment";
+import { environment } from "../config/environment";
 
 const BASE_URL = `${environment.VITE_API_URL}/api/sizing/create`;
-debugger
 
-const saveSizingApi = async () => {
+export const createSizing = async () => {
   const data = {
     PA_REFERENCE_ID: "R423130",
     TECHNOLOGY_TYPE: "DP_FLOW",
@@ -148,5 +147,3 @@ const saveSizingApi = async () => {
   const response = await axios.post(BASE_URL, data);
   return response.data;
 };
-
-export default saveSizingApi;
