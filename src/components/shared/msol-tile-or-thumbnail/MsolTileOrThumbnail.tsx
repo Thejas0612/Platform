@@ -11,26 +11,28 @@ export interface MsolTileOrThumbnailProps {
   required?: boolean;
   options?: MsolTileOrThumbnailItem[];
   data?: MsolTileOrThumbnailItem[];
-  defaultIds?: string[];
+  defaultIds?: string[] | string | null;
   error?: string;
-  onChange?: (event: MouseEvent, type?: string, name?: string, value?: string[]) => void;
+  onChange?: (event: MouseEvent, type?: string, name?: string, value?: string[] | string | null) => void;
   othAttr?: { type: string };
   name: string;
   hideCheckboxes?: boolean;
+  singleSelect?: boolean;
 }
 
 export const MsolTileOrThumbnail: FC<MsolTileOrThumbnailProps> = ({
-                                                                  required = false,
-                                                                  data,
-                                                                  options,
-                                                                  defaultIds = [],
-                                                                  error = "",
-                                                                  onChange = () => {
-                                                                  },
-                                                                  othAttr,
-                                                                  name,
-                                                                  hideCheckboxes = false
-                                                                }) => {
+                                                                    required = false,
+                                                                    data,
+                                                                    options,
+                                                                    defaultIds = [],
+                                                                    error = "",
+                                                                    onChange = () => {
+                                                                    },
+                                                                    othAttr,
+                                                                    name,
+                                                                    hideCheckboxes = false,
+                                                                    singleSelect = false
+                                                                  }) => {
   // TODO: This is temporary to support backwards compatibility. This will be removed in the future.
   const dataOverride = data ? data : options;
   if (dataOverride == null) {
@@ -45,11 +47,21 @@ export const MsolTileOrThumbnail: FC<MsolTileOrThumbnailProps> = ({
       <Stack spacing={4}>
         {
           dataOverride.map(item => {
-            const checked = value.includes(item.id);
+            let checked = false;
+            if (singleSelect) {
+              checked = value === item.id;
+            } else {
+              checked = value != null && value.includes(item.id);
+            }
 
             const handleChange: MouseEventHandler<HTMLDivElement> = (event) => {
               const newChecked = !checked;
-              const newValue = newChecked ? [...value, item.id] : value.filter(id => id !== item.id);
+              let newValue;
+              if (singleSelect) {
+                newValue = newChecked ? item.id : null;
+              } else {
+                newValue = newChecked ? [...value as string[], item.id] : (value as string[]).filter(id => id !== item.id);
+              }
               setValue(newValue);
               onChange(event, othAttr?.type, name, newValue);
             };

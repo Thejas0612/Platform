@@ -16,11 +16,9 @@ const Input = (props) => {
 
   const handleChange = (e) => {
     const value = e.target.value;
-    const isValid = value.match(TEN_THOUSAND_PLACE_DECIMAL_MATCHER);
-
-    if (isValid) {
+    
       setDefaultvalue(value);
-      if (props.schemaProps.min != null && value < props.schemaProps.min) {
+      if (props.schemaProps.min != null && value !== "" && value < props.schemaProps.min) {
         setError(true);
         setErrorMessage(props.schemaProps.minError);
         return;
@@ -28,16 +26,19 @@ const Input = (props) => {
         setError(false);
         setErrorMessage("");
       }
-    }
   };
+  const precise = (x) => {
+    if(props?.schemaProps?.precision){
+      return isNaN(Number.parseFloat(x).toFixed(props?.schemaProps?.precision)) ? "" : Number.parseFloat(x).toFixed(props?.schemaProps?.precision) ;
+    }
+      return x;
+  }
   return (
     <CustomTooltip title={error ? errorMessage : ""} placement="top">
       <TextField
         value={defaultValue}
         onChange={handleChange}
-        onBlur={(e) =>
-          setDefaultvalue(defaultValue !== "" ? String(Number(defaultValue).toFixed(4)) : "")
-        }
+        onBlur={(e) => setDefaultvalue( defaultValue !== "" && defaultValue !== "-" && String(precise(defaultValue)) !== "" ?   String(precise(defaultValue)).split(".")[0].substring(0,6)+"."+String(precise(defaultValue)).split(".")[1].substring(0,4)  : ""  )}
         size={props.size}
         error={error}
         InputProps={{

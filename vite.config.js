@@ -1,18 +1,12 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import dotenv from "dotenv";
-dotenv.config();
 
 process.env.CLIENT_ID = process.env.SPA_CLIENT_ID || process.env.CLIENT_ID;
- 
 
 export default defineConfig({
   plugins: [react()],
   define: {
     "process.env": process.env
-  },
-  resolve: {
-  
   },
   server: {
     port: process.env.PORT || 3000
@@ -39,4 +33,3 @@ export default defineConfig({
     }
   }
 });
- 

@@ -5,353 +5,246 @@ import { Grid } from "@mui/material";
 function CustomLayout() {
   const [schema, setSchema] = React.useState([
     {
-      group: "Process Variables",
+      group: "",
       fields: [
         {
-          type: "TABLE_INPUT",
-          name: "process_variables",
-          data: [
-            [
-              // {
-              //   "type": "TEXT",
-              //   "label": "",
-              //   "name": "",
-              //   "align": "center",
-              //   "textStyles": {
-              //     "fontSize": "0.8rem"
-              //   }
-              // },
-              {
-                type: "TEXT",
-                label: "Line Size",
-                align: "center",
-                name: "r1min",
-                title: "Line Size",
-                textStyles: {
-                  fontSize: "0.8rem"
-                }
-              },
-              {
-                type: "TEXT",
-                label: "Pipe Schedule",
-                align: "center",
-                name: "r1min",
-                title: "Pipe Schedule",
-                textStyles: {
-                  fontSize: "0.8rem"
-                }
-              },
-              {
-                type: "TEXT",
-                label: "Pipe ID",
-                name: "r1max",
-                title: "Pipe ID",
-                align: "center",
-                textStyles: {
-                  fontSize: "0.8rem"
-                }
-              },
-              {
-                type: "TEXT",
-                label: "UNITS",
-                name: "r1units",
-                align: "center",
-                textStyles: {
-                  fontSize: "0.8rem"
-                }
-              }
-            ],
-            [
-              // {
-              //   "type": "TEXT",
-              //   "label": "",
-              //   "name": "lbl_flow_rate",
-              //   "align": "right",
-              // },
-              {
-                type: "SINGLE_SELECT",
-                label: "Line Size",
-                name: "line_size",
-                inputclass: "selectinput",
-                options: [
-                  {
-                    value: "1",
-                    label: "Option-1",
-                    title: "Yestitle",
-                    greyedOut: true
-                  },
-                  {
-                    value: "2",
-                    label: "Option-2",
-                    title: "Yestitle",
-                    greyedOut: false
-                  }
-                ],
-                required: true,
-                error: "Please select",
-                validations: []
-              },
-              {
-                type: "SINGLE_SELECT",
-                label: "",
-                name: "pipe_schedule",
-                inputclass: "selectinput",
-                options: [
-                  {
-                    value: "1",
-                    label: "Option-1",
-                    title: "Yestitle",
-                    greyedOut: true
-                  },
-                  {
-                    value: "2",
-                    label: "Option-2",
-                    title: "Yestitle",
-                    greyedOut: false
-                  }
-                ],
-                validations: []
-              },
-              {
-                type: "TEXT_INPUT",
-                label: "",
-                name: "pipe_id",
-                required: true,
-                inputclass: "selectinput",
-                disabled: true,
-                validations: [
-                  {
-                    type: "number",
-                    validationKey: "\\S",
-                    validationMessage: "This is required",
-                    checks: [
-                      {
-                        key: "minLength",
-                        val: 3
-                      },
-                      {
-                        key: "maxLength",
-                        val: 10
-                      }
-                    ],
-                    target: {
-                      id: ""
-                    },
-                    disabled: false
-                  }
-                ]
-              },
-              {
-                type: "SINGLE_SELECT",
-                label: "",
-                name: "units",
-                inputclass: "selectinput",
-                options: []
-              }
-            ]
-          ],
-          value: {
-            vessel_dimension_unit: "Meter"
-          },
           column: 12,
-          title: "",
+          label: "LABEL_TEXT",
+          labelClass: "app-content-label",
+          name: "process_piping_label",
+          showLabel: false,
+          subText: "",
           tableClass: "",
-          labelClass: "app-content-label"
-        }
-      ]
-    },
-    {
-      group: "Project Owner Details",
-      fields: [
+          text: "Process Piping",
+          textClass: "ddl-typography--h5",
+          title: "this is title",
+          type: "LABEL_TEXT",
+          textStyles: {
+            textAlign: "start"
+          },
+          display: true,
+          value: "process_piping_label",
+          order: 0
+        },
         {
-          id: "project_type",
+          column: 3,
           type: "SINGLE_SELECT",
-          name: "projectType",
-          label: "Project Type",
-          options: [
-            {
-              name: "Testing1",
-              label: "Test 1",
-              value: "testing_1",
-              greyedOut: false
-            },
-            {
-              name: "Testing2",
-              label: "Test 2",
-              value: "testing_2",
-              greyedOut: true
-            }
-          ],
-          column: "6",
-          validations: {
-            target: {
-              id: "email"
-            }
-          }
-        },
-        {
-          id: "email",
-          type: "TEXT_INPUT",
-          name: "email",
-          label: "Email",
-          title: "Email",
+          name: "line_size",
+          label: "Line Size",
+          labelClass: "app-content-label",
+          disabled: false,
+          value: "",
+          options: [],
+          required: true,
           error: "",
-          inputclass: "",
-          labelClass: "app-content-label",
-          value: "Default Value",
-          column: "6",
-          validations: {
-            target: {
-              id: "project_type",
-              value: "1"
-            }
-          }
+          errorClass: "",
+          placeholder: "Pick One",
+          isApiOnEvent: {
+            isApiCall: true,
+            apiInfo: {
+              url: "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingPipeSchedule?buCode=dpflow&lineSize=",
+              method: "GET",
+              payload: {}
+            },
+            targetUiElement: "pipeschedule",
+            targetProperty: "options"
+          },
+          dataSourceUrl:
+            "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingLineSize?buCode=dpflow",
+          display: true,
+          order: 1
         },
         {
-          type: "RADIO_INPUT",
-          name: "fluid",
-          label: "Fluid",
-          title: "Helo",
+          column: 3,
+          type: "SINGLE_SELECT",
+          name: "pipeschedule",
+          label: "Pipe Schedule",
           labelClass: "app-content-label",
-          selectedIds: ["2"],
-          disabledIds: [],
+          disabled: false,
+          value: "",
+          options: [],
+          required: true,
+          error: "",
+          errorClass: "",
+          display: true,
+          order: 2
+        },
+        {
+          column: 3,
+          type: "NUMBER_INPUT",
+          name: "Pipe Id",
+          label: "Pipe Id",
+          labelClass: "app-content-label",
+          disabled: false,
+          value: "",
+          required: true,
+          error: "",
+          errorClass: "",
+          display: false,
+          order: 3
+        },
+        {
+          column: 3,
+          type: "SINGLE_SELECT",
+          name: "units",
+          label: "Units",
+          labelClass: "app-content-label",
+          disabled: false,
+          value: "Inch",
           options: [
+            { id: "Inch", label: "Inch", value: "Inch" },
+            { id: "mm", label: "mm", value: "mm" }
+          ],
+          required: true,
+          error: "",
+          errorClass: "",
+          display: false,
+          order: 4
+        },
+        {
+          column: 12,
+          label: "LABEL_TEXT",
+          labelClass: "app-content-label",
+          name: "process_fluid",
+          showLabel: false,
+          subText: "",
+          tableClass: "",
+          text: "Process Fluid",
+          textClass: "ddl-typography--h5",
+          title: "this is title",
+          type: "LABEL_TEXT",
+          textStyles: {
+            textAlign: "start"
+          },
+          display: true,
+          order: 5
+        },
+        {
+          type: "CUSTOM_BUTTON_GROUP",
+          column: 12,
+          title: "Fluid Type",
+          label: "Fluid Type",
+          name: "fluidtype",
+          data: [
             {
-              value: "Liquid",
+              id: "0",
               label: "Liquid"
             },
             {
-              value: "Gas",
+              id: "1",
               label: "Gas"
             },
             {
-              value: "Steam",
+              id: "2",
               label: "Steam"
-            }
-          ],
-          column: "6",
-          required: true,
-          error: "",
-          errorClass: "",
-          showAlert: false
-        },
-        {
-          type: "CUSTOM_TOGGLE_BUTTON",
-          name: "metric",
-          label: "Metric",
-          title: "Helo",
-          labelClass: "app-content-label",
-          selectedIds: ["2"],
-          disabledIds: [],
-          data: [
-            {
-              value: "METRIC",
-              label: "METRIC"
             },
             {
-              value: "IMPERIAL",
-              label: "IMPERIAL"
+              id: "3",
+              label: "Natural Gas"
+            },
+            {
+              id: "4",
+              label: "Slurry"
             }
           ],
-          column: "6",
+          multiple: true,
+          defaultIds: ["0"],
+          showLabel: true,
+          wrapperId: "",
+          wrapperClass: "cutsom_class",
+          labelClass: "ddl-from-custom-label",
+          value: "0",
+          attribute_code_value: {
+            multiple: true,
+            size: "medium"
+          },
           required: true,
-          error: "",
-          errorClass: "",
-          showAlert: false
-        }
-      ]
-    },
-    {
-      group: "Selection",
-      fields: [
+          display: true,
+          order: 6
+        },
         {
-          type: "CHECKBOX_INPUT",
-          name: "Diagnostics",
-          label: "Diagnostics",
-          title: "Helo",
+          column: 3,
+          type: "RADIO_INPUT",
+          name: "fluidsource",
+          label: "Fluid Source",
           labelClass: "app-content-label",
-          selectedIds: ["1"],
-          disabledIds: [],
+          selectedIds: ["0"],
+          disabledIds: ["1"],
           options: [
             {
+              value: "0",
+              label: "Database",
+              id: "0"
+            },
+            {
               value: "1",
-              label: "Temperature",
-              info: "This is Tooltip"
-            },
-            {
-              value: "2",
-              label: "Pressure"
-            },
-            {
-              value: "3",
-              label: "Density"
+              label: "Custom",
+              id: "1"
             }
           ],
-          column: "6",
+          value: "0",
           required: true,
           error: "",
           errorClass: "",
-          showAlert: false
+          display: true,
+          order: 7
         },
         {
-          type: "CHECKBOX_INPUT",
-          name: "Configuration",
-          label: "Configuration",
-          title: "Helo",
+          column: 4,
+          type: "SINGLE_SELECT",
+          name: "fluidsdatabase",
+          label: "Fluids Database",
           labelClass: "app-content-label",
-          selectedIds: ["2"],
-          disabledIds: [],
-          options: [
-            {
-              value: "1",
-              label: "Temperature"
-            },
-            {
-              value: "2",
-              label: "Pressure",
-              info: "This is Tooltip"
-            }
-          ],
-          column: "6",
-          required: true,
-          error: "",
-          errorClass: "",
-          showAlert: false
-        },
-        {
-          type: "CUSTOM",
-          component: "Component",
-          name: "component",
           value: "",
-          column: 12
-        }
-      ]
-    },
-    {
-      group: "Models",
-      fields: [
+          options: [],
+          required: true,
+          error: "",
+          errorClass: "",
+          placeholder: "Pick One",
+          dataSourceUrl:
+            "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID",
+          display: true,
+          order: 8
+        },
         {
           column: 12,
-          type: "TILE_THUMBNAIL",
-          name: "models",
-          buttonLabel: "btn lble",
-          imgUrl: "7bd555544cf68071bafa.png",
-          attribute_code_value: {
-            description: "",
-            defaultDirection: "tile"
-          },
+          align: "left",
+          btnType: "textary",
           error: "",
-          showAlert: false,
-          defaultIds: [],
-          dataSourceUrl: "https://jsonplaceholder.typicode.com/users",
-          options: []
+          errorClass: "",
+          label: "Additional Options",
+          required: true,
+          showBackIcon: false,
+          type: "BUTTON",
+          value: "",
+          display: true,
+          order: 9,
+          name: "additional_options_label"
         },
         {
-          type: "CUSTOM",
-          component: "Component",
-          name: "component",
-          value: "",
-          column: 12
+          column: 12,
+          disabledIds: [],
+          error: "",
+          errorClass: "",
+          labelClass: "app-content-label",
+          name: "additional_options",
+          options: [
+            {
+              label:
+                "Fluid Plugs or Clogs (High Viscosity, Slurry, Entrained Solids, Solidifies, Etc)",
+              value: "0"
+            },
+            {
+              label: "Fluid Causes Wear and Erosion ( Entrained Solids, Abrasive, Etc.)",
+              value: "1"
+            }
+          ],
+          required: true,
+          selectedIds: ["1"],
+          showAlert: false,
+          type: "CHECKBOX_INPUT",
+          display: true,
+          order: 10
         }
       ]
     }
