@@ -1,10 +1,7 @@
 import React from "react";
-import {
-  CustomTop,
-  LabelText,
-  ButtonInput
-} from "../../../components/dynamic-ui/uiComponentsConfig";
+import { ButtonInput, CustomTop, LabelText } from "@emerson/dynamic-ui-public";
 import "./TopLayout.css";
+
 export default function TopLayout() {
   return (
     <div>
@@ -45,9 +42,11 @@ export default function TopLayout() {
               btnType="secondary"
               customClass=""
               label="Save Sizing"
-              onClick={() => {}}
+              onClick={() => {
+              }}
             />
-            <ButtonInput btnType="secondary" customClass="" label="Clear" onClick={() => {}} />
+            <ButtonInput btnType="secondary" customClass="" label="Clear" onClick={() => {
+            }} />
           </div>
         </div>
       </div>
