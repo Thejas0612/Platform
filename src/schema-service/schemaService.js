@@ -1,6 +1,6 @@
 import { getApi } from "../api/dp-flow/dpFlowApis";
 import SCHEMA_CONSTANTS from "./dpflowSchemaConstants";
-import { getMappedFields, orderSchemaFields } from "./schemaServiceHelper";
+import { mapFieldsByName, orderSchemaFields } from "./schemaServiceHelper";
 
 export const getNavigationMenuSchema = (buCode, componentName, schema) => {
   const schema_data = [];
@@ -42,7 +42,7 @@ export const updateSchema = async (
   invisibleUiElements
 ) => {
   const allUiElements = [...formData[0].fields, ...invisibleUiElements];
-  const mappedFields = getMappedFields(allUiElements);
+  const mappedFields = mapFieldsByName(allUiElements);
   const field = mappedFields[name];
   field["required"] = true;
   field["error"] = "";
