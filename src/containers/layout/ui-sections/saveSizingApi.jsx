@@ -1,7 +1,10 @@
 import axios from "axios";
+import { environment } from "../../../config/environment";
+
+const BASE_URL = `${environment.VITE_API_URL}/api/sizing/create`;
+debugger
 
 const saveSizingApi = async () => {
-  let Result;
   const data = {
     PA_REFERENCE_ID: "R423130",
     TECHNOLOGY_TYPE: "DP_FLOW",
@@ -142,24 +145,8 @@ const saveSizingApi = async () => {
     DP_RANGE: "RANGE_4"
   };
 
-  try {
-    const response = await axios({
-      method: "post",
-      url: `${import.meta.env.VITE_API_URL}/api/sizing/create`,
-      headers: {
-        "Content-Type": "application/json"
-      },
-      xsrfHeaderName: "X-CSRFToken",
-      xsrfCookieName: "csrftoken",
-      data: data
-    });
-
-    Result = response.data.data;
-  } catch (error) {
-    Result = error;
-  }
-
-  return Result;
+  const response = await axios.post(BASE_URL, data);
+  return response.data;
 };
 
 export default saveSizingApi;
