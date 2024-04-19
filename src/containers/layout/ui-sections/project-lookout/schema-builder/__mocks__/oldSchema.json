@@ -49,6 +49,12 @@
                 }
               ],
               "required": true
+            },
+            {
+              "column": 12,
+              "name": "process-piping",
+              "text": "Process Piping",
+              "type": "LABEL_TEXT"
             }
           ]
         },

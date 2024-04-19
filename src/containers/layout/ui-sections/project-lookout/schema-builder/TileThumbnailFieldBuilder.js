@@ -2,11 +2,9 @@
  * @typedef {import( "../../../../../components/shared/msol-tile-or-thumbnail/MsolTileOrThumbnail").MsolTileOrThumbnailProps} MsolTileOrThumbnailProps
  */
 
-const TILE_THUMBNAIL_TYPE = "TILE_THUMBNAIL";
-
 export class TileThumbnailFieldBuilder {
   /**
-   * @type { (fieldProps: MsolTileOrThumbnailProps, value: string[]) => void}
+   * @type { (fieldProps: MsolTileOrThumbnailProps, value: string[], fieldFinder: FieldFinder) => void}
    */
   #onChangeHandler;
 
@@ -62,19 +60,13 @@ export class TileThumbnailFieldBuilder {
   }
 
   /**
-   * @param screen {any}
+   * @param screenIndex {number}
+   * @param fieldFinder {FieldFinder}
    */
-  finalBuild(screen) {
-    const field = screen.fields.find((_) => {
-      return _.name === this.#fieldName && _.type === TILE_THUMBNAIL_TYPE;
-    });
-
-    if (field == null) {
-      throw new Error(`Could not find field with '${this.#fieldName}' name and ${TILE_THUMBNAIL_TYPE} type.`);
-    }
-
+  finalBuild(screenIndex, fieldFinder) {
+    const field = fieldFinder.findTileThumbnail(screenIndex, this.#fieldName)
     field.defaultIds = field.value;
 
-    this.#onChangeHandler && this.#onChangeHandler(field, field.value);
+    this.#onChangeHandler && this.#onChangeHandler(field, field.value, fieldFinder);
   }
 }

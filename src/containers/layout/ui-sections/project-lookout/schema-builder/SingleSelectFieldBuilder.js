@@ -1,8 +1,7 @@
-const SINGLE_SELECT_TYPE = "SINGLE_SELECT";
-
 export class SingleSelectFieldBuilder {
+  // TODO: better type fieldProps.
   /**
-   * @type { (fieldProps: {}, value: string[]) => void}
+   * @type { (fieldProps: {}, value: string[], fieldFinder: FieldFinder) => void}
    */
   #onChangeHandler;
 
@@ -59,19 +58,14 @@ export class SingleSelectFieldBuilder {
   }
 
   /**
-   * @param screen {any}
+   * @param screenIndex {number}
+   * @param fieldFinder {FieldFinder}
    */
-  finalBuild(screen) {
-    const field = screen.fields.find((_) => {
-      return _.name === this.#fieldName && _.type === SINGLE_SELECT_TYPE;
-    });
-
-    if (field == null) {
-      throw new Error(`Could not find field with '${this.#fieldName}' name and ${SINGLE_SELECT_TYPE} type.`);
-    }
+  finalBuild(screenIndex, fieldFinder) {
+    const field = fieldFinder.findSingleSelect(screenIndex, this.#fieldName)
 
     field.defaultIds = field.value;
 
-    this.#onChangeHandler && this.#onChangeHandler(field, field.value);
+    this.#onChangeHandler && this.#onChangeHandler(field, field.value, fieldFinder);
   }
 }
