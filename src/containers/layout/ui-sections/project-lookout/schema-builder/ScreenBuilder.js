@@ -57,7 +57,7 @@ export class ScreenBuilder {
    * @return {TableInputBuilder}
    */
   tableInput(name) {
-    const tableInputBuilder = new TableInputBuilder(name, this.#workflowBuilder);
+    const tableInputBuilder = new TableInputBuilder(name, this.#workflowBuilder, this);
     this.#tableInputBuilders.push(tableInputBuilder);
     return tableInputBuilder;
   }

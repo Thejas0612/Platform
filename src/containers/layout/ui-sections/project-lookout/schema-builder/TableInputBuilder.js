@@ -14,14 +14,18 @@ export class TableInputBuilder {
    */
   #workflowBuilder;
 
+  #screenBuilder
+
   /**
    *
    * @param fieldName {string}
    * @param workflowBuilder {WorkflowBuilder}
+   * @param screenBuilder {ScreenBuilder}
    */
-  constructor(fieldName, workflowBuilder) {
+  constructor(fieldName, workflowBuilder, screenBuilder) {
     this.#fieldName = fieldName;
     this.#workflowBuilder = workflowBuilder;
+    this.#screenBuilder = screenBuilder;
   }
 
   /**
@@ -36,6 +40,10 @@ export class TableInputBuilder {
 
     this.#onChangeHandler = onChangeHandler;
     return this;
+  }
+
+  tableInput(name){
+    return this.#screenBuilder.tableInput(name)
   }
 
   /**

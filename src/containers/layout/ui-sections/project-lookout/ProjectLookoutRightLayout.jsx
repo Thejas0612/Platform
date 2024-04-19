@@ -135,6 +135,10 @@ export default function ProjectLookoutRightLayout() {
           };
         }
       })
+      .tableInput("TABLE_INPUT1")
+      .onChange((_field, _value) => {
+        debugger
+      })
       .build(screenIndex, newScreenSchemas);
 
     dispatch(updateRightSection(rightSectionSchemaNew2));
