@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ButtonInput } from "../dynamic-ui/uiComponentsConfig";
+import { ButtonInput } from "@emerson/dynamic-ui-public";
 import { button_stepper_wrapper } from "./buttonStepper.module.css";
 import { changeAccordionStatus, schemaValidations } from "../../schema-service/schemaValidations";
 import { changeActiveIndex } from "../../redux/reducers/initialBuDataSlice";
@@ -55,6 +55,7 @@ ButtonStepper.propTypes = {
 };
 
 ButtonStepper.defaultProps = {
-  updateValidations: () => {}
+  updateValidations: () => {
+  }
 };
 export default ButtonStepper;

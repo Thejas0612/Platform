@@ -201,7 +201,7 @@
                   "type": "SINGLE_SELECT",
                   "name": "pipeschedule",
                   "label": "Pipe Schedule",
-                  "labelClass": "app-content-label camelCase",
+                  "labelClass": "camelCase",
                   "disabled": false,
                   "value": "",
                   "required": false,
