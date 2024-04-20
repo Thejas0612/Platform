@@ -3,11 +3,13 @@ export const orderSchemaFields = (mappedFields) =>
 
 export const mapFieldsByName = (allUiElements) => {
   const mappingFields = {};
-  if (!Array.isArray(allUiElements) || allUiElements.length === 0) return mappingFields;
-  for (const element of allUiElements) {
-    if (element?.name !== undefined) {
-      mappingFields[element.name] = element;
-    }
+  if (!allUiElements || allUiElements.length === 0) {
+    return mappingFields;
   }
+  allUiElements.forEach((field) => {
+    if (field?.name !== undefined) {
+      mappingFields[field.name] = field;
+    }
+  });
   return mappingFields;
 };
