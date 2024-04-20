@@ -61,8 +61,8 @@ const MSOLDynamicForm = ({
     const [formError, setFormError] = React.useState({});
 
     const initializeFormData = () => {
-        let formDataValues = {};
-        let formErrors = {};
+        const formDataValues = {};
+        const formErrors = {};
         schema.forEach((formGroup) => {
             formGroup.fields.forEach((field) => {
                 formDataValues[field.name] = field.value;
@@ -95,7 +95,7 @@ const MSOLDynamicForm = ({
         });
         setFormData(updatedFormData);
         setFormDataObj({ ...formDataObj, [field]: value });
-        let message = fieldValidation(e, type, name, value);
+        const message = fieldValidation(e, type, name, value);
         setFormError({ ...formError, [name]: message });
         if (!message) {
             handleChange(
@@ -108,7 +108,7 @@ const MSOLDynamicForm = ({
         }
     };
 
-    const onBlur = (e, type, name, val) => {
+    const handleBlur = (e, type, name, val) => {
         let field = name;
         let value = val;
         const updatedFormData = formData.map((group) => {
@@ -122,8 +122,7 @@ const MSOLDynamicForm = ({
         });
         setFormData(updatedFormData);
         setFormDataObj({ ...formDataObj, [field]: value });
-        //validate the feild
-        let message = fieldValidation(e, type, name, value);
+        const message = fieldValidation(e, type, name, value);
         setFormError({ ...formError, [name]: message });
         if (!message) {
             handleChange(
@@ -145,7 +144,7 @@ const MSOLDynamicForm = ({
                         field.name &&
                         field.name.toUpperCase() === name.toUpperCase()
                 );
-            return checkValidations(currentField, formDataObj, value);
+            return checkValidations(currentField, value);
         }
     };
 
@@ -166,7 +165,7 @@ const MSOLDynamicForm = ({
                                         <></>
                                     ) : (
                                         <Grid item key={field.name} xs={field.column ? field.column : 12}>
-                                            {FieldComponent ? <FieldComponent {...field} onBlur={onBlur} onChange={onChange} /> : null}
+                                            {FieldComponent ? <FieldComponent {...field} onBlur={handleBlur} onChange={onChange} /> : null}
                                         </Grid>
                                     )}
                                 </>

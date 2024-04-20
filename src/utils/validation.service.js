@@ -1,27 +1,18 @@
 import { ERRORS } from './constants'
 
-export const checkValidations = (field, inputFields, value) => {
-   const validations = field?.validations || [];
-   let error = false
+export const checkValidations = (field, value) => {
+   if (field?.validations == null) {
+      return;
+   }
+   const validations = field.validations;
+   let error = ''
    Object.keys(validations).forEach(rule => {
-      switch (rule) {
-         case 'required':
-            if (validations[rule] && ['', undefined].includes(value)) {
-               error = ERRORS.FIELD_REQUIRED
-            }
-            break;
-         case 'minValue':
-            if (validations[rule] && validations[rule] > value) {
-               error = `${ERRORS.MINIMUM_VALUE} ${validations[rule]}`
-            }
-            break;
-         case 'maxValue':
-            if (validations[rule] && validations[rule] < value) {
-               error = `${ERRORS.MAXIMUM_VALUE} ${validations[rule]}`
-            }
-            break;
-         default:
-            break
+      if (field.type === 'NUMBER_INPUT' && validations[rule]) {
+         if (rule === 'minValue' && validations[rule] > value) {
+            error = `${ERRORS.MINIMUM_VALUE} ${validations[rule]}`;
+         } else if (rule === 'maxValue' && validations[rule] < value) {
+            error = `${ERRORS.MAXIMUM_VALUE} ${validations[rule]}`;
+         }
       }
    })
    return error
