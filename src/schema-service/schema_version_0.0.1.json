@@ -235,37 +235,32 @@
                   "name": "fluidtype",
                   "data": [
                     {
-                      "id": "0",
+                      "id": "fluid_type_liquid",
                       "label": "Liquid"
                     },
                     {
-                      "id": "1",
+                      "id": "fluid_type_gas",
                       "label": "Gas"
                     },
                     {
-                      "id": "2",
+                      "id": "fluid_type_steam",
                       "label": "Steam"
                     },
                     {
-                      "id": "3",
+                      "id": "fluid_type_naturalgas",
                       "label": "Natural Gas"
                     },
                     {
-                      "id": "4",
+                      "id": "fluid_type_slurry",
                       "label": "Slurry"
                     }
                   ],
-                  "defaultIds": ["0"],
-                  "multiple": true,
+                  "defaultId": "fluid_type_liquid",
                   "showLabel": true,
                   "wrapperId": "",
                   "wrapperClass": "cutsom_class",
                   "labelClass": "ddl-from-custom-label camelCase",
                   "value": "0",
-                  "attribute_code_value": {
-                    "multiple": true,
-                    "size": "medium"
-                  },
                   "required": true,
                   "display": true,
                   "order": 6
