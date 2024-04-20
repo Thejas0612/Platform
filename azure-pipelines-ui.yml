@@ -63,7 +63,7 @@ steps:
   #       sudo mkdir /etc/smbcredentials
   #       fi
   #       if [ ! -f "/etc/smbcredentials/devopsfilestoreblob.cred" ]; then
-  #           sudo bash -c 'echo "username=devopsfilestoreblob" >> /etc/smbcredentials/devopsfilestoreblob.cred'f
+  #           sudo bash -c 'echo "username=devopsfilestoreblob" >> /etc/smbcredentials/devopsfilestoreblob.cred'
   #           sudo bash -c 'echo "password=$(BLOB_PWD)" >> /etc/smbcredentials/devopsfilestoreblob.cred'
   #       fi
   #       sudo chmod 600 /etc/smbcredentials/devopsfilestoreblob.cred
@@ -93,16 +93,6 @@ steps:
   #     Contents: |
   #       FortifyReport.pdf
   #     TargetFolder: '$(Build.ArtifactStagingDirectory)'
-
-
-  # - task: CopyFiles@2
-  #   inputs:
-  #     sourceFolder: "$(Build.SourcesDirectory)"
-  #     contents: |
-  #       src/*
-  #       public/*
-  #     targetFolder: "$(Build.ArtifactStagingDirectory)"
-  #   displayName: "Archive project files"
 
   # - task: ArchiveFiles@2
   #   inputs:
