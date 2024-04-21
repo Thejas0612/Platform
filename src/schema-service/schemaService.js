@@ -16,20 +16,9 @@ export const getNavigationMenuSchema = (buCode, componentName, schema) => {
   return schema_data;
 };
 
-export const getDynamicFormSchema = (buCode, componentName, activeIndex, schema) => {
-  const schema_data = [];
-  if (buCode && componentName) {
-    schema[buCode]?.uiComponents?.forEach((comp) => {
-      if (componentName === comp.componentName) {
-        comp.componentProps?.schema.forEach((sch) => {
-          if (sch.id === activeIndex) {
-            schema_data.push(sch);
-          }
-        });
-      }
-    });
-  }
-  return schema_data;
+export const getDynamicFormSchema = (activeIndex, schema) => {
+  if (schema?.length === 0 || schema[0]?.componentProps?.schema?.length === 0) return [];
+  return [schema[0]?.componentProps?.schema[activeIndex]];
 };
 
 export const updateSchema = async (
@@ -38,7 +27,6 @@ export const updateSchema = async (
   formData,
   name,
   activeIndex,
-  buCode,
   invisibleUiElements
 ) => {
   const allUiElements = [...formData[0].fields, ...invisibleUiElements];
@@ -114,11 +102,11 @@ export const updateSchema = async (
       fields: orderSchemaFields(mappedFields)
     };
 
-    return { updatedSchema, activeIndex, buCode };
+    return { updatedSchema, activeIndex };
   }
   const updatedSchema = {
     id: formData[0]?.id,
     fields: orderSchemaFields(mappedFields)
   };
-  return { updatedSchema, activeIndex, buCode };
+  return { updatedSchema, activeIndex };
 };

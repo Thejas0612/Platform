@@ -1,17 +1,20 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { NavigationMenu } from "@emerson/dynamic-ui-public";
-import { getNavigationMenuSchema } from "../../../../schema-service/schemaService";
 import PropTypes from "prop-types";
 
-const DpFlowLeftLayout = ({ schema }) => {
-  const buCode = useSelector((state) => state.initialBuData?.selectedBu);
-  const schema_data = getNavigationMenuSchema(buCode, "NavigationMenu", schema);
+const DpFlowLeftLayout = () => {
+  const leftSectionSchema = useSelector((state) => state.initialBuData?.leftSection);
 
-  if (schema_data?.length > 0) {
-    return <NavigationMenu data={schema_data} label="" onDelete={() => {}} onSelect={() => {}} />;
+  if (leftSectionSchema?.length > 0) {
+    return (
+      <NavigationMenu
+        data={leftSectionSchema[0]?.componentProps?.schema}
+        label=""
+        onDelete={() => {}}
+        onSelect={() => {}}
+      />
+    );
   }
-
   return <></>;
 };
 
