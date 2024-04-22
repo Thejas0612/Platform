@@ -1,77 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`schemaBuilder Changin the custom button group option 1`] = `
+exports[`schemaBuilder customButtonGroup when Fluid Type is changed to Gas, then update Fluid Type label. 1`] = `
 [
   {
-    "alignment": "right",
-    "componentName": "DynamicForm",
     "componentProps": {
       "schema": [
-        {
-          "fields": [
-            {
-              "column": 12,
-              "label": "LABEL_TEXT",
-              "labelClass": "app-content-label",
-              "name": "LABEL_TEXT",
-              "showLabel": false,
-              "subText": "",
-              "tableClass": "",
-              "text": "Measurement Type",
-              "textClass": "ddl-typography--h5",
-              "textStyles": {
-                "textAlign": "start",
-              },
-              "title": "this is title",
-              "type": "LABEL_TEXT",
-            },
-            {
-              "column": 12,
-              "data": [
-                {
-                  "description": "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, differential pressure, vortex, magnetic, ultrasonic, turbine and positive displacement meters.",
-                  "disabled": false,
-                  "id": "FLOW",
-                  "imgUrl": "https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png",
-                  "title": "Flow",
-                },
-                {
-                  "description": "Our density measurement devices offer reliable performance for applications such as concentration, API, Brix, and more.",
-                  "id": "DENSITY",
-                  "imgUrl": "https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png",
-                  "title": "Density",
-                },
-                {
-                  "description": "Our inline viscosity meter offers accurate, repeatable measurement in industries such as refining, chemical, life sciences, and more.",
-                  "disabled": true,
-                  "id": "VISCOSITY",
-                  "imgUrl": "https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png",
-                  "title": "Viscosity",
-                  "tooltip": "There are no products that measure both Flow and Viscosity.",
-                },
-              ],
-              "defaultIds": [
-                "FLOW",
-              ],
-              "name": "measurement-type",
-              "required": true,
-              "type": "TILE_THUMBNAIL",
-              "value": [
-                "FLOW",
-              ],
-            },
-            {
-              "column": 12,
-              "name": "process-piping",
-              "text": "Process Piping",
-              "type": "LABEL_TEXT",
-              "value": [
-                "FLOW",
-              ],
-            },
-          ],
-          "id": 0,
-        },
         {
           "fields": [
             {
@@ -85,28 +18,60 @@ exports[`schemaBuilder Changin the custom button group option 1`] = `
                   "id": "2",
                   "label": "Gas",
                 },
-                {
-                  "id": "3",
-                  "label": "Steam",
-                },
-                {
-                  "id": "4",
-                  "label": "Natural Gas",
-                },
-                {
-                  "id": "5",
-                  "label": "Slurry",
-                },
               ],
-              "defaultId": "1",
-              "label": "Fluid Type",
-              "labelClass": "app-content-label camelCase",
-              "name": "fluidtype",
+              "defaultId": "2",
+              "label": "Fluid Type - UPDATE",
+              "name": "fluid-type",
               "type": "CUSTOM_BUTTON_GROUP",
+              "value": "2",
             },
           ],
-          "id": 1,
         },
+      ],
+    },
+  },
+]
+`;
+
+exports[`schemaBuilder singleSelect when Flow Rate is changed to Gallons(US)/sec, then update Flow Rate label 1`] = `
+[
+  {
+    "componentProps": {
+      "schema": [
+        {
+          "fields": [
+            {
+              "defaultIds": "USGPS",
+              "label": "Flow Rate - UPDATE",
+              "name": "flow-rate",
+              "options": [
+                {
+                  "id": 1,
+                  "label": "ft3/day (ACFD)",
+                  "value": "ACFD",
+                },
+                {
+                  "id": 2,
+                  "label": "Gallons(US)/sec",
+                  "value": "USGPS",
+                },
+              ],
+              "type": "SINGLE_SELECT",
+              "value": "USGPS",
+            },
+          ],
+        },
+      ],
+    },
+  },
+]
+`;
+
+exports[`schemaBuilder tableInput when Density is changed to Specific Gravity, then blank Density Min cell and change Density Max cell to text 1`] = `
+[
+  {
+    "componentProps": {
+      "schema": [
         {
           "fields": [
             {
@@ -143,87 +108,38 @@ exports[`schemaBuilder Changin the custom button group option 1`] = `
                 [
                   {
                     "disabled": true,
-                    "name": "density_options",
+                    "name": "density",
                     "options": [
                       {
                         "label": "Density",
                         "selected": true,
-                        "value": "Density",
+                        "value": "DENSITY",
                       },
                       {
                         "label": "Specific Gravity",
-                        "value": "specific_gravity",
+                        "value": "SPECIFIC_GRAVITY",
                       },
                     ],
                     "type": "SINGLE_SELECT",
                     "value": "",
                   },
+                  {},
+                  ,
                   {
                     "align": "center",
-                    "disabled": true,
-                    "min": 0.0001,
-                    "minError": "Entered Minimum Density is below or equal to 0",
-                    "name": "density_min",
-                    "precision": 4,
-                    "type": "TEXT_INPUT",
-                  },
-                  {
-                    "align": "center",
-                    "disabled": true,
-                    "inputClass": "customRequired",
-                    "min": 0.0001,
-                    "minError": "Entered Normal Density is below or equal to 0",
-                    "name": "density_norm",
-                    "precision": 4,
-                    "required": false,
-                    "type": "TEXT_INPUT",
-                  },
-                  {
-                    "align": "center",
-                    "disabled": true,
-                    "min": 0.0001,
-                    "minError": "Entered Maximum Density is below or equal to 0",
-                    "name": "density_max",
-                    "precision": 4,
-                    "type": "TEXT_INPUT",
-                  },
-                  {
-                    "align": "center",
-                    "disabled": false,
-                    "inputClass": "unitClass",
-                    "name": "density_unit",
-                    "options": [
-                      {
-                        "label": "kg/m3",
-                        "value": "kg/m3",
-                      },
-                      {
-                        "label": "g/cm3",
-                        "selected": true,
-                        "value": "g/cm3",
-                      },
-                      {
-                        "label": "lb/ft3",
-                        "value": "lb/ft3",
-                      },
-                      {
-                        "label": "lb/gallon(US)",
-                        "value": "lb/gallon(US)",
-                      },
-                    ],
-                    "type": "SINGLE_SELECT",
-                    "value": "Meter",
+                    "label": "@60F and 14.7psia",
+                    "name": "DENSITY_MAX",
+                    "type": "TEXT",
                   },
                 ],
               ],
-              "labelClass": "app-content-label",
-              "name": "TABLE_INPUT2",
-              "tableClass": "",
-              "title": "",
+              "name": "FLUID_PROPERTIES",
               "type": "TABLE_INPUT",
+              "value": {
+                "density": "SPECIFIC_GRAVITY",
+              },
             },
           ],
-          "id": 2,
         },
       ],
     },
@@ -231,31 +147,13 @@ exports[`schemaBuilder Changin the custom button group option 1`] = `
 ]
 `;
 
-exports[`schemaBuilder when measurement type is changed, then disable viscosity option. 1`] = `
+exports[`schemaBuilder tileThumbnail when Measurement Type is changed to Density, then disable Viscosity option. 1`] = `
 [
   {
-    "alignment": "right",
-    "componentName": "DynamicForm",
     "componentProps": {
       "schema": [
         {
           "fields": [
-            {
-              "column": 12,
-              "label": "LABEL_TEXT",
-              "labelClass": "app-content-label",
-              "name": "LABEL_TEXT",
-              "showLabel": false,
-              "subText": "",
-              "tableClass": "",
-              "text": "Measurement Type",
-              "textClass": "ddl-typography--h5",
-              "textStyles": {
-                "textAlign": "start",
-              },
-              "title": "this is title",
-              "type": "LABEL_TEXT",
-            },
             {
               "column": 12,
               "data": [
@@ -282,179 +180,15 @@ exports[`schemaBuilder when measurement type is changed, then disable viscosity 
                 },
               ],
               "defaultIds": [
-                "FLOW",
+                "DENSITY",
               ],
               "name": "measurement-type",
-              "required": true,
               "type": "TILE_THUMBNAIL",
               "value": [
-                "FLOW",
-              ],
-            },
-            {
-              "column": 12,
-              "name": "process-piping",
-              "text": "Process Piping",
-              "type": "LABEL_TEXT",
-              "value": [
-                "FLOW",
+                "DENSITY",
               ],
             },
           ],
-          "id": 0,
-        },
-        {
-          "fields": [
-            {
-              "column": 12,
-              "data": [
-                {
-                  "id": "1",
-                  "label": "Liquid",
-                },
-                {
-                  "id": "2",
-                  "label": "Gas",
-                },
-                {
-                  "id": "3",
-                  "label": "Steam",
-                },
-                {
-                  "id": "4",
-                  "label": "Natural Gas",
-                },
-                {
-                  "id": "5",
-                  "label": "Slurry",
-                },
-              ],
-              "defaultId": "1",
-              "label": "Fluid Type",
-              "labelClass": "app-content-label camelCase",
-              "name": "fluidtype",
-              "type": "CUSTOM_BUTTON_GROUP",
-            },
-          ],
-          "id": 1,
-        },
-        {
-          "fields": [
-            {
-              "column": 12,
-              "data": [
-                [
-                  {
-                    "align": "center",
-                    "label": "",
-                    "name": "r1height",
-                    "type": "TEXT",
-                  },
-                  {
-                    "align": "center",
-                    "label": "Min",
-                    "type": "TEXT",
-                  },
-                  {
-                    "align": "center",
-                    "label": "Normal",
-                    "type": "TEXT",
-                  },
-                  {
-                    "align": "center",
-                    "label": "Max",
-                    "type": "TEXT",
-                  },
-                  {
-                    "align": "center",
-                    "label": "Units",
-                    "type": "TEXT",
-                  },
-                ],
-                [
-                  {
-                    "disabled": true,
-                    "name": "density_options",
-                    "options": [
-                      {
-                        "label": "Density",
-                        "selected": true,
-                        "value": "Density",
-                      },
-                      {
-                        "label": "Specific Gravity",
-                        "value": "specific_gravity",
-                      },
-                    ],
-                    "type": "SINGLE_SELECT",
-                    "value": "",
-                  },
-                  {
-                    "align": "center",
-                    "disabled": true,
-                    "min": 0.0001,
-                    "minError": "Entered Minimum Density is below or equal to 0",
-                    "name": "density_min",
-                    "precision": 4,
-                    "type": "TEXT_INPUT",
-                  },
-                  {
-                    "align": "center",
-                    "disabled": true,
-                    "inputClass": "customRequired",
-                    "min": 0.0001,
-                    "minError": "Entered Normal Density is below or equal to 0",
-                    "name": "density_norm",
-                    "precision": 4,
-                    "required": false,
-                    "type": "TEXT_INPUT",
-                  },
-                  {
-                    "align": "center",
-                    "disabled": true,
-                    "min": 0.0001,
-                    "minError": "Entered Maximum Density is below or equal to 0",
-                    "name": "density_max",
-                    "precision": 4,
-                    "type": "TEXT_INPUT",
-                  },
-                  {
-                    "align": "center",
-                    "disabled": false,
-                    "inputClass": "unitClass",
-                    "name": "density_unit",
-                    "options": [
-                      {
-                        "label": "kg/m3",
-                        "value": "kg/m3",
-                      },
-                      {
-                        "label": "g/cm3",
-                        "selected": true,
-                        "value": "g/cm3",
-                      },
-                      {
-                        "label": "lb/ft3",
-                        "value": "lb/ft3",
-                      },
-                      {
-                        "label": "lb/gallon(US)",
-                        "value": "lb/gallon(US)",
-                      },
-                    ],
-                    "type": "SINGLE_SELECT",
-                    "value": "Meter",
-                  },
-                ],
-              ],
-              "labelClass": "app-content-label",
-              "name": "TABLE_INPUT2",
-              "tableClass": "",
-              "title": "",
-              "type": "TABLE_INPUT",
-            },
-          ],
-          "id": 2,
         },
       ],
     },
@@ -462,61 +196,27 @@ exports[`schemaBuilder when measurement type is changed, then disable viscosity 
 ]
 `;
 
-exports[`schemaBuilder when measurement type is changed, then process pipe text. 1`] = `
+exports[`schemaBuilder tileThumbnail when Measurement Type is changed, then update Process Piping field text. 1`] = `
 [
   {
-    "alignment": "right",
-    "componentName": "DynamicForm",
     "componentProps": {
       "schema": [
         {
           "fields": [
             {
               "column": 12,
-              "label": "LABEL_TEXT",
-              "labelClass": "app-content-label",
-              "name": "LABEL_TEXT",
-              "showLabel": false,
-              "subText": "",
-              "tableClass": "",
-              "text": "Measurement Type",
-              "textClass": "ddl-typography--h5",
-              "textStyles": {
-                "textAlign": "start",
-              },
-              "title": "this is title",
-              "type": "LABEL_TEXT",
-            },
-            {
-              "column": 12,
               "data": [
                 {
                   "description": "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, differential pressure, vortex, magnetic, ultrasonic, turbine and positive displacement meters.",
-                  "disabled": false,
                   "id": "FLOW",
                   "imgUrl": "https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png",
                   "title": "Flow",
-                },
-                {
-                  "description": "Our density measurement devices offer reliable performance for applications such as concentration, API, Brix, and more.",
-                  "id": "DENSITY",
-                  "imgUrl": "https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png",
-                  "title": "Density",
-                },
-                {
-                  "description": "Our inline viscosity meter offers accurate, repeatable measurement in industries such as refining, chemical, life sciences, and more.",
-                  "disabled": true,
-                  "id": "VISCOSITY",
-                  "imgUrl": "https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png",
-                  "title": "Viscosity",
-                  "tooltip": "There are no products that measure both Flow and Viscosity.",
                 },
               ],
               "defaultIds": [
                 "FLOW",
               ],
               "name": "measurement-type",
-              "required": true,
               "type": "TILE_THUMBNAIL",
               "value": [
                 "FLOW",
@@ -527,396 +227,8 @@ exports[`schemaBuilder when measurement type is changed, then process pipe text.
               "name": "process-piping",
               "text": "Process Piping - UPDATED",
               "type": "LABEL_TEXT",
-              "value": [
-                "FLOW",
-              ],
             },
           ],
-          "id": 0,
-        },
-        {
-          "fields": [
-            {
-              "column": 12,
-              "data": [
-                {
-                  "id": "1",
-                  "label": "Liquid",
-                },
-                {
-                  "id": "2",
-                  "label": "Gas",
-                },
-                {
-                  "id": "3",
-                  "label": "Steam",
-                },
-                {
-                  "id": "4",
-                  "label": "Natural Gas",
-                },
-                {
-                  "id": "5",
-                  "label": "Slurry",
-                },
-              ],
-              "defaultId": "1",
-              "label": "Fluid Type",
-              "labelClass": "app-content-label camelCase",
-              "name": "fluidtype",
-              "type": "CUSTOM_BUTTON_GROUP",
-            },
-          ],
-          "id": 1,
-        },
-        {
-          "fields": [
-            {
-              "column": 12,
-              "data": [
-                [
-                  {
-                    "align": "center",
-                    "label": "",
-                    "name": "r1height",
-                    "type": "TEXT",
-                  },
-                  {
-                    "align": "center",
-                    "label": "Min",
-                    "type": "TEXT",
-                  },
-                  {
-                    "align": "center",
-                    "label": "Normal",
-                    "type": "TEXT",
-                  },
-                  {
-                    "align": "center",
-                    "label": "Max",
-                    "type": "TEXT",
-                  },
-                  {
-                    "align": "center",
-                    "label": "Units",
-                    "type": "TEXT",
-                  },
-                ],
-                [
-                  {
-                    "disabled": true,
-                    "name": "density_options",
-                    "options": [
-                      {
-                        "label": "Density",
-                        "selected": true,
-                        "value": "Density",
-                      },
-                      {
-                        "label": "Specific Gravity",
-                        "value": "specific_gravity",
-                      },
-                    ],
-                    "type": "SINGLE_SELECT",
-                    "value": "",
-                  },
-                  {
-                    "align": "center",
-                    "disabled": true,
-                    "min": 0.0001,
-                    "minError": "Entered Minimum Density is below or equal to 0",
-                    "name": "density_min",
-                    "precision": 4,
-                    "type": "TEXT_INPUT",
-                  },
-                  {
-                    "align": "center",
-                    "disabled": true,
-                    "inputClass": "customRequired",
-                    "min": 0.0001,
-                    "minError": "Entered Normal Density is below or equal to 0",
-                    "name": "density_norm",
-                    "precision": 4,
-                    "required": false,
-                    "type": "TEXT_INPUT",
-                  },
-                  {
-                    "align": "center",
-                    "disabled": true,
-                    "min": 0.0001,
-                    "minError": "Entered Maximum Density is below or equal to 0",
-                    "name": "density_max",
-                    "precision": 4,
-                    "type": "TEXT_INPUT",
-                  },
-                  {
-                    "align": "center",
-                    "disabled": false,
-                    "inputClass": "unitClass",
-                    "name": "density_unit",
-                    "options": [
-                      {
-                        "label": "kg/m3",
-                        "value": "kg/m3",
-                      },
-                      {
-                        "label": "g/cm3",
-                        "selected": true,
-                        "value": "g/cm3",
-                      },
-                      {
-                        "label": "lb/ft3",
-                        "value": "lb/ft3",
-                      },
-                      {
-                        "label": "lb/gallon(US)",
-                        "value": "lb/gallon(US)",
-                      },
-                    ],
-                    "type": "SINGLE_SELECT",
-                    "value": "Meter",
-                  },
-                ],
-              ],
-              "labelClass": "app-content-label",
-              "name": "TABLE_INPUT2",
-              "tableClass": "",
-              "title": "",
-              "type": "TABLE_INPUT",
-            },
-          ],
-          "id": 2,
-        },
-      ],
-    },
-  },
-]
-`;
-
-exports[`schemaBuilder when select specific gravity and then elements disappear 1`] = `
-[
-  {
-    "alignment": "right",
-    "componentName": "DynamicForm",
-    "componentProps": {
-      "schema": [
-        {
-          "fields": [
-            {
-              "column": 12,
-              "label": "LABEL_TEXT",
-              "labelClass": "app-content-label",
-              "name": "LABEL_TEXT",
-              "showLabel": false,
-              "subText": "",
-              "tableClass": "",
-              "text": "Measurement Type",
-              "textClass": "ddl-typography--h5",
-              "textStyles": {
-                "textAlign": "start",
-              },
-              "title": "this is title",
-              "type": "LABEL_TEXT",
-            },
-            {
-              "column": 12,
-              "data": [
-                {
-                  "description": "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, differential pressure, vortex, magnetic, ultrasonic, turbine and positive displacement meters.",
-                  "disabled": false,
-                  "id": "FLOW",
-                  "imgUrl": "https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png",
-                  "title": "Flow",
-                },
-                {
-                  "description": "Our density measurement devices offer reliable performance for applications such as concentration, API, Brix, and more.",
-                  "id": "DENSITY",
-                  "imgUrl": "https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png",
-                  "title": "Density",
-                },
-                {
-                  "description": "Our inline viscosity meter offers accurate, repeatable measurement in industries such as refining, chemical, life sciences, and more.",
-                  "disabled": true,
-                  "id": "VISCOSITY",
-                  "imgUrl": "https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png",
-                  "title": "Viscosity",
-                  "tooltip": "There are no products that measure both Flow and Viscosity.",
-                },
-              ],
-              "defaultIds": [
-                "FLOW",
-              ],
-              "name": "measurement-type",
-              "required": true,
-              "type": "TILE_THUMBNAIL",
-              "value": [
-                "FLOW",
-              ],
-            },
-            {
-              "column": 12,
-              "name": "process-piping",
-              "text": "Process Piping",
-              "type": "LABEL_TEXT",
-              "value": [
-                "FLOW",
-              ],
-            },
-          ],
-          "id": 0,
-        },
-        {
-          "fields": [
-            {
-              "column": 12,
-              "data": [
-                {
-                  "id": "1",
-                  "label": "Liquid",
-                },
-                {
-                  "id": "2",
-                  "label": "Gas",
-                },
-                {
-                  "id": "3",
-                  "label": "Steam",
-                },
-                {
-                  "id": "4",
-                  "label": "Natural Gas",
-                },
-                {
-                  "id": "5",
-                  "label": "Slurry",
-                },
-              ],
-              "defaultId": "1",
-              "label": "Fluid Type",
-              "labelClass": "app-content-label camelCase",
-              "name": "fluidtype",
-              "type": "CUSTOM_BUTTON_GROUP",
-            },
-          ],
-          "id": 1,
-        },
-        {
-          "fields": [
-            {
-              "column": 12,
-              "data": [
-                [
-                  {
-                    "align": "center",
-                    "label": "",
-                    "name": "r1height",
-                    "type": "TEXT",
-                  },
-                  {
-                    "align": "center",
-                    "label": "Min",
-                    "type": "TEXT",
-                  },
-                  {
-                    "align": "center",
-                    "label": "Normal",
-                    "type": "TEXT",
-                  },
-                  {
-                    "align": "center",
-                    "label": "Max",
-                    "type": "TEXT",
-                  },
-                  {
-                    "align": "center",
-                    "label": "Units",
-                    "type": "TEXT",
-                  },
-                ],
-                [
-                  {
-                    "disabled": true,
-                    "name": "density_options",
-                    "options": [
-                      {
-                        "label": "Density",
-                        "selected": true,
-                        "value": "Density",
-                      },
-                      {
-                        "label": "Specific Gravity",
-                        "value": "specific_gravity",
-                      },
-                    ],
-                    "type": "SINGLE_SELECT",
-                    "value": "",
-                  },
-                  {
-                    "align": "center",
-                    "disabled": true,
-                    "min": 0.0001,
-                    "minError": "Entered Minimum Density is below or equal to 0",
-                    "name": "density_min",
-                    "precision": 4,
-                    "type": "TEXT_INPUT",
-                  },
-                  {
-                    "align": "center",
-                    "disabled": true,
-                    "inputClass": "customRequired",
-                    "min": 0.0001,
-                    "minError": "Entered Normal Density is below or equal to 0",
-                    "name": "density_norm",
-                    "precision": 4,
-                    "required": false,
-                    "type": "TEXT_INPUT",
-                  },
-                  {
-                    "align": "center",
-                    "disabled": true,
-                    "min": 0.0001,
-                    "minError": "Entered Maximum Density is below or equal to 0",
-                    "name": "density_max",
-                    "precision": 4,
-                    "type": "TEXT_INPUT",
-                  },
-                  {
-                    "align": "center",
-                    "disabled": false,
-                    "inputClass": "unitClass",
-                    "name": "density_unit",
-                    "options": [
-                      {
-                        "label": "kg/m3",
-                        "value": "kg/m3",
-                      },
-                      {
-                        "label": "g/cm3",
-                        "selected": true,
-                        "value": "g/cm3",
-                      },
-                      {
-                        "label": "lb/ft3",
-                        "value": "lb/ft3",
-                      },
-                      {
-                        "label": "lb/gallon(US)",
-                        "value": "lb/gallon(US)",
-                      },
-                    ],
-                    "type": "SINGLE_SELECT",
-                    "value": "Meter",
-                  },
-                ],
-              ],
-              "labelClass": "app-content-label",
-              "name": "TABLE_INPUT2",
-              "tableClass": "",
-              "title": "",
-              "type": "TABLE_INPUT",
-            },
-          ],
-          "id": 2,
         },
       ],
     },

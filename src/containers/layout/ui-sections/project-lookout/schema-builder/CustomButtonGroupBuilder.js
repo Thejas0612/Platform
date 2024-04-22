@@ -1,6 +1,24 @@
-export class CustomButtonGroupBuilder {
+import { BaseFieldBuilder } from "./BaseFieldBuilder";
+import { ScreenBuilder } from "./ScreenBuilder";
+
+/**
+ * @typedef {import( "./FieldFinder").FieldFinder} FieldFinder
+ *
+ * @typedef {{
+ *   defaultIds: string[]
+ *   label: string
+ *   multiple: boolean
+ *   options: CustomButtonGroupOption[]
+ * }} CustomButtonGroup
+ *
+ * @typedef {{
+ *   id: string
+ *   label: string
+ * }} CustomButtonGroupOption
+ */
+export class CustomButtonGroupBuilder extends BaseFieldBuilder {
   /**
-   * @type { (fieldProps: {}, value: string[], fieldFinder: FieldFinder) => void}
+   * @type { (fieldProps: CustomButtonGroup, value: string[], fieldFinder: FieldFinder) => void}
    */
   #onChangeHandler;
 
@@ -10,27 +28,22 @@ export class CustomButtonGroupBuilder {
   #fieldName;
 
   /**
-   * @type {WorkflowBuilder}
-   */
-  #workflowBuilder;
-
-  /**
-   *
    * @param fieldName {string}
    * @param workflowBuilder {WorkflowBuilder}
+   * @param screenBuilder {ScreenBuilder}
    */
-  constructor(fieldName, workflowBuilder) {
+  constructor(fieldName, workflowBuilder, screenBuilder) {
+    super(workflowBuilder, screenBuilder);
     this.#fieldName = fieldName;
-    this.#workflowBuilder = workflowBuilder;
   }
 
   /**
-     *
-     // * @param onChangeHandler {(fieldProps: MsolTileOrThumbnailProps, value: string[]) => void}
-     * @return {CustomButtonGroupBuilder}
-     */
+   *
+   * @param onChangeHandler {(field: CustomButtonGroup, value: string[], fieldFinder: FieldFinder) => void}
+   * @return {CustomButtonGroupBuilder}
+   */
   onChange(onChangeHandler) {
-    if (this.onChangeHandler != null) {
+    if (this.#onChangeHandler != null) {
       throw new Error("The 'onChange' function was called 2 or more times.");
     }
 
@@ -40,27 +53,11 @@ export class CustomButtonGroupBuilder {
 
   /**
    * @param screenIndex {number}
-   * @return {ScreenBuilder}
-   */
-  screen(screenIndex) {
-    return this.#workflowBuilder.screen(screenIndex);
-  }
-
-  /**
-   * @param screenIndex {index}
-   * @param newScreenSchema {object}
-   * @return {object}
-   */
-  build(screenIndex, newScreenSchema) {
-    return this.#workflowBuilder.finalBuild(screenIndex, newScreenSchema);
-  }
-
-  /**
-   * @param screenIndex {number}
    * @param fieldFinder {FieldFinder}
    */
   finalBuild(screenIndex, fieldFinder) {
     const field = fieldFinder.findCustomButtonGroup(screenIndex, this.#fieldName);
+    field.defaultId = field.value;
 
     this.#onChangeHandler && this.#onChangeHandler(field, field.value, fieldFinder);
   }

@@ -1,9 +1,13 @@
 import { notNullOrUndefined } from "../../../../../utils/assert";
 import { FIELD_TYPE } from "./FieldType";
+import { keyBy } from "lodash";
 
+/**
+ * @typedef { { [screenIndex: number]: { [fieldName: string]: object } } } ScreenByIndex
+ */
 export class FieldFinder {
   /**
-   * [{screenIndex: number}]: [{fieldName}]: object
+   * @type {ScreenByIndex}
    */
   #screensByIndex;
 
@@ -48,7 +52,7 @@ export class FieldFinder {
   /**
    * @param screenIndex {number}
    * @param fieldName {string}
-   * @return {*}
+   * @return {SingleSelect}
    */
   findSingleSelect(screenIndex, fieldName) {
     return this.find(screenIndex, FIELD_TYPE.SINGLE_SELECT, fieldName);
@@ -82,29 +86,30 @@ export class FieldFinder {
   }
 
   /**
+   * @param screenIndex {number}
+   * @return {*}
+   */
+  findAllByScreen(screenIndex) {
+    return this.#screensByIndex[screenIndex];
+  }
+
+  /**
    *
    * @param workflowSchema
-   * @return {{screenIndex: number}: {fieldName: string}: object}
+   * @return {ScreenByIndex}
    */
   #hashScreensByIndex(workflowSchema) {
     const screensByIndex = {};
     workflowSchema[0].componentProps.schema.forEach((screenSchema, screenIndex) => {
-      screensByIndex[screenIndex] = this.#hashFieldsBySchema(screenSchema);
+      screensByIndex[screenIndex] = this.#hashFieldsByName(screenSchema);
     });
 
     return screensByIndex;
   }
 
-  /**
-   * @param screenSchema
-   * @return {[{fieldName}]: object}
-   */
-  #hashFieldsBySchema(screenSchema) {
-    const fieldsByName = {};
-    screenSchema.fields.forEach((field) => {
-      fieldsByName[field.name] = field;
+  #hashFieldsByName(screenSchema) {
+    return keyBy(screenSchema.fields, (field) => {
+      return field.name;
     });
-
-    return fieldsByName;
   }
 }

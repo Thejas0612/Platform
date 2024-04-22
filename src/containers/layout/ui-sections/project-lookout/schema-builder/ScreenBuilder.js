@@ -17,7 +17,7 @@ export class ScreenBuilder {
   #singleSelectBuilders = [];
 
   /**
-   * @type {FluidTypeBuilder[]}
+   * @type {CustomButtonGroupBuilder[]}
    */
   #customButtonGroupBuilders = [];
 
@@ -52,7 +52,7 @@ export class ScreenBuilder {
    * @return {TileThumbnailFieldBuilder}
    */
   tileThumbnail(name) {
-    const tileThumbnailBuilder = new TileThumbnailFieldBuilder(name, this.#workflowBuilder);
+    const tileThumbnailBuilder = new TileThumbnailFieldBuilder(name, this.#workflowBuilder, this);
     this.#tileThumbnailBuilders.push(tileThumbnailBuilder);
     return tileThumbnailBuilder;
   }
@@ -60,10 +60,10 @@ export class ScreenBuilder {
   /**
    *
    * @param name {string}
-   * @return {customButtonGroupBuilder}
+   * @return {CustomButtonGroupBuilder}
    */
   customButtonGroup(name) {
-    const customButtonGroupBuilder = new CustomButtonGroupBuilder(name, this.#workflowBuilder);
+    const customButtonGroupBuilder = new CustomButtonGroupBuilder(name, this.#workflowBuilder, this);
     this.#customButtonGroupBuilders.push(customButtonGroupBuilder);
     return customButtonGroupBuilder;
   }
@@ -74,7 +74,7 @@ export class ScreenBuilder {
    * @return {TableInputBuilder}
    */
   tableInput(name) {
-    const tableInputBuilder = new TableInputBuilder(name, this.#workflowBuilder);
+    const tableInputBuilder = new TableInputBuilder(name, this.#workflowBuilder, this);
     this.#tableInputBuilders.push(tableInputBuilder);
     return tableInputBuilder;
   }
@@ -85,7 +85,7 @@ export class ScreenBuilder {
    * @return {SingleSelectFieldBuilder}
    */
   singleSelect(name) {
-    const singleSelectBuilder = new SingleSelectFieldBuilder(name, this.#workflowBuilder);
+    const singleSelectBuilder = new SingleSelectFieldBuilder(name, this.#workflowBuilder, this);
     this.#singleSelectBuilders.push(singleSelectBuilder);
     return singleSelectBuilder;
   }
@@ -101,24 +101,28 @@ export class ScreenBuilder {
       throw new Error(`Could not find screen with '${this.#screenIndex}' index.`);
     }
 
-    schemaWorkflow[0].componentProps.schema[this.#screenIndex] = cloneDeep(screenSchemaNew);
+    // TODO: create old field finder.
+    // const screenSchemaOldClone = cloneDeep(schemaWorkflow);
+    // const oldFieldFinder = new FieldFinder(screenSchemaOldClone)
 
-    const fieldFinder = new FieldFinder(schemaWorkflow);
+    // new
+    schemaWorkflow[0].componentProps.schema[this.#screenIndex] = cloneDeep(screenSchemaNew);
+    const newFieldFinder = new FieldFinder(schemaWorkflow);
 
     this.#tileThumbnailBuilders.forEach((tileThumbnailBuilder) => {
-      tileThumbnailBuilder.finalBuild(this.#screenIndex, fieldFinder);
+      tileThumbnailBuilder.finalBuild(this.#screenIndex, newFieldFinder);
     });
 
     this.#customButtonGroupBuilders.forEach((customButtonGroupBuilder) => {
-      customButtonGroupBuilder.finalBuild(this.#screenIndex, fieldFinder);
+      customButtonGroupBuilder.finalBuild(this.#screenIndex, newFieldFinder);
     });
 
     this.#singleSelectBuilders.forEach((singleSelectBuilder) => {
-      singleSelectBuilder.finalBuild(this.#screenIndex, fieldFinder);
+      singleSelectBuilder.finalBuild(this.#screenIndex, newFieldFinder);
     });
 
     this.#tableInputBuilders.forEach((tableInputBuilder) => {
-      tableInputBuilder.finalBuild(this.#screenIndex, fieldFinder);
+      tableInputBuilder.finalBuild(this.#screenIndex, newFieldFinder);
     });
   }
 }

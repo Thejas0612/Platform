@@ -1,6 +1,36 @@
-export class TableInputBuilder {
+import { BaseFieldBuilder } from "./BaseFieldBuilder";
+
+/**
+ * @typedef {import( "./FieldFinder").FieldFinder} FieldFinder
+ *
+ * @typedef {{
+ *   data: TableInputData[][]
+ *   label: string
+ *   value: Value
+ * }} TableInput
+ *
+ * @typedef {{
+ *   align?: string
+ *   label: string
+ *   name: string
+ *   textStyles?: TableInputDataTextStyles
+ *   type: string
+ *   required?: boolean
+ *   options?: TableInputDataOption[]
+ * }} TableInputData
+ *
+ * @typedef {{
+ *   fontSize: string
+ * }} TableInputDataTextStyles
+ *
+ * @typedef {{
+ *   label: string
+ *   value: string
+ * }} TableInputDataOption
+ */
+export class TableInputBuilder extends BaseFieldBuilder {
   /**
-   * @type { (fieldProps: MsolTileOrThumbnailProps, value: string[], fieldFinder: FieldFinder) => void}
+   * @type { (fieldProps: TableInput, value: string[], fieldFinder: FieldFinder) => void}
    */
   #onChangeHandler;
 
@@ -10,49 +40,28 @@ export class TableInputBuilder {
   #fieldName;
 
   /**
-   * @type {WorkflowBuilder}
-   */
-  #workflowBuilder;
-
-  /**
    *
    * @param fieldName {string}
    * @param workflowBuilder {WorkflowBuilder}
+   * @param screenBuilder {ScreenBuilder}
    */
-  constructor(fieldName, workflowBuilder) {
+  constructor(fieldName, workflowBuilder, screenBuilder) {
+    super(workflowBuilder, screenBuilder)
     this.#fieldName = fieldName;
-    this.#workflowBuilder = workflowBuilder;
   }
 
   /**
    *
-   // * @param onChangeHandler {(fieldProps: MsolTileOrThumbnailProps, value: string[]) => void}
+   * @param onChangeHandler {(fieldProps: TableInput, value: { [key: string]: string | number}) => void}
    * @return {TableInputBuilder}
    */
   onChange(onChangeHandler) {
-    if (this.onChangeHandler != null) {
+    if (this.#onChangeHandler != null) {
       throw new Error("The 'onChange' function was called 2 or more times.");
     }
 
     this.#onChangeHandler = onChangeHandler;
     return this;
-  }
-
-  /**
-   * @param screenIndex {number}
-   * @return {ScreenBuilder}
-   */
-  screen(screenIndex) {
-    return this.#workflowBuilder.screen(screenIndex);
-  }
-
-  /**
-   * @param screenIndex {index}
-   * @param newScreenSchema {object}
-   * @return {object}
-   */
-  build(screenIndex, newScreenSchema) {
-    return this.#workflowBuilder.finalBuild(screenIndex, newScreenSchema);
   }
 
   /**

@@ -12,8 +12,22 @@ import { cloneDeep } from "lodash";
 import { schemaBuilder } from "./schema-builder/schemaBuilder";
 import { notNullOrUndefined } from "../../../../utils/assert";
 import { TECHNOLOGY_TYPES_OPTIONS } from "./constants";
+import { environment } from "../../../../config/environment";
 
 const DISABLE_TOOLTIP = "There are no products that measure both Flow and Viscosity.";
+
+/**
+ * @param measurementTypes {string[]}
+ * @return {string}
+ */
+export function generateLineSizeUrl(measurementTypes) {
+  const url = new URL("/api/lookout/line-sizes", environment.VITE_API_URL);
+  measurementTypes.forEach((measurementType) => {
+    url.searchParams.append("measurementTypes", measurementType);
+  });
+
+  return url.toString();
+}
 
 export default function ProjectLookoutRightLayout() {
   const screenIndex = useSelector((state) => state.initialBuData?.activeIndex);
@@ -47,7 +61,7 @@ export default function ProjectLookoutRightLayout() {
     const rightSectionSchemaNew2 = schemaBuilder(rightSectionSchemaNew1)
       .screen(0)
       .tileThumbnail("measurement-type")
-      .onChange((field, value) => {
+      .onChange((field, value, fieldFinder) => {
         const flowOption = field.data?.find((_) => _.id === TECHNOLOGY_TYPES_OPTIONS.FLOW_ID);
         notNullOrUndefined(flowOption, "Could not find flowOption.");
 
@@ -67,12 +81,12 @@ export default function ProjectLookoutRightLayout() {
 
         viscosityOption.disabled = isViscosityDisabled;
         viscosityOption.tooltip = isViscosityDisabled ? DISABLE_TOOLTIP : undefined;
+
+        const lineSize = fieldFinder.findSingleSelect(1, "line-size");
+        lineSize.dataSourceUrl = generateLineSizeUrl(value);
       })
       .screen(1)
       .customButtonGroup("fluidtype")
-      .onChange((field, value) => {
-        field.defaultId = value;
-      })
       .screen(2)
       .tableInput("TABLE_INPUT2")
       .onChange((field, value) => {

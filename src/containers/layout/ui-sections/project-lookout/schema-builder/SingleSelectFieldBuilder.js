@@ -1,7 +1,28 @@
-export class SingleSelectFieldBuilder {
-  // TODO: better type fieldProps.
+import { BaseFieldBuilder } from "./BaseFieldBuilder";
+
+/**
+ * @typedef {import( "./FieldFinder").FieldFinder} FieldFinder
+ *
+ * @typedef {{
+ *   label: string
+ *   labelClass: string
+ *   name: string
+ *   options: SingleSelectOption[]
+ *   placeholder: string
+ *   warningMsg: string
+ * }} SingleSelect
+ *
+ * @typedef {{
+ *   greyedOut: boolean
+ *   label: string
+ *   title: string
+ *   value: string
+ *   isDisabled?: boolean
+ * }} SingleSelectOption
+ */
+export class SingleSelectFieldBuilder extends BaseFieldBuilder {
   /**
-   * @type { (fieldProps: {}, value: string[], fieldFinder: FieldFinder) => void}
+   * @type { (fieldProps: SingleSelect, value: string[], fieldFinder: FieldFinder) => void}
    */
   #onChangeHandler;
 
@@ -11,50 +32,29 @@ export class SingleSelectFieldBuilder {
   #fieldName;
 
   /**
-   * @type {WorkflowBuilder}
-   */
-  #workflowBuilder;
-
-  /**
    *
    * @param fieldName {string}
    * @param workflowBuilder {WorkflowBuilder}
-   * @param workflowBuilder {ScreenBuilder}
+   * @param screenBuilder {ScreenBuilder}
    */
-  constructor(fieldName, workflowBuilder) {
+  constructor(fieldName, workflowBuilder, screenBuilder) {
+    super(workflowBuilder, screenBuilder)
+
     this.#fieldName = fieldName;
-    this.#workflowBuilder = workflowBuilder;
   }
 
   /**
    *
-   * @param onChangeHandler {(fieldProps: any, value: string[]) => void}
+   * @param onChangeHandler {(fieldProps: SingleSelect, value: string, fieldFinder: FieldFinder) => void}
    * @return {SingleSelectFieldBuilder}
    */
   onChange(onChangeHandler) {
-    if (this.onChangeHandler != null) {
+    if (this.#onChangeHandler != null) {
       throw new Error("The 'onChange' function was called 2 or more times.");
     }
 
     this.#onChangeHandler = onChangeHandler;
     return this;
-  }
-
-  /**
-   * @param screenIndex {number}
-   * @return {ScreenBuilder}
-   */
-  screen(screenIndex) {
-    return this.#workflowBuilder.screen(screenIndex);
-  }
-
-  /**
-   * @param screenIndex {index}
-   * @param newScreenSchema {object}
-   * @return {object}
-   */
-  build(screenIndex, newScreenSchema) {
-    return this.#workflowBuilder.finalBuild(screenIndex, newScreenSchema);
   }
 
   /**
