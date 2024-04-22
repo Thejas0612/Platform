@@ -3,7 +3,7 @@ import {
   ButtonInput,
   CustomTop,
   LabelText
-} from "../../../components/dynamic-ui/uiComponentsConfig";
+} from "@emerson/dynamic-ui-public";
 import AlertDialog from "../../../components/dialog/AlertDialog";
 import "./TopLayout.css";
 import { createSizing } from "../../../api/createSizing";
