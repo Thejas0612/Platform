@@ -20,4 +20,10 @@ describe("<MsolTitleOrThumbnailItem {...PROPS} />", () => {
 
     expect(handleChange).not.toHaveBeenCalled();
   });
+
+  test('when tooltip is empty string, then hide tooltip', () => {
+    const {container} =  render(<MsolTitleOrThumbnailItem {...PROPS} tooltip={""} />);
+
+    expect(container).toMatchSnapshot()
+  })
 });

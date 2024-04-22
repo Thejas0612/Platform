@@ -5,7 +5,10 @@ import "./chart.css"
 const LineChart = (props) => {
   return (
     <>
-      <Line data={props.schema.data[0]} options={props.schema.options} />
+      <div class="container">
+        <div class="rotationText">{props.schema.options.scales.y.title?.text || 'Total Probable Error (+/- °C)'}</div>
+        <Line data={props.schema.data[0]} options={props.schema.options} />
+      </div>
       <div class="center">
         <svg xmlns="http://www.w3.org/2000/svg">
           <rect x="0" y="0" width="20" height="10" fill="#004b8d"></rect>
@@ -15,7 +18,7 @@ const LineChart = (props) => {
         </svg>
       </div>
     </>
-      )
-    }
+  )
+}
 
 export default LineChart;

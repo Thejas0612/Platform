@@ -136,32 +136,29 @@
                 {
                   "column": 12,
                   "type": "TILE_THUMBNAIL",
-                  "name": "measurmenttype",
-                  "label": "Test Thumbnail",
+                  "name": "measurement-type",
                   "defaultIds": [],
                   "data": [
                     {
-                      "id": 1,
+                      "id": "FLOW",
                       "title": "Flow",
                       "description": "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, differential pressure, vortex, magnetic, ultrasonic, turbine and positive displacement meters.",
                       "imgUrl": "flow__technology-type__flow.png"
                     },
                     {
-                      "id": 2,
+                      "id": "DENSITY",
                       "title": "Density",
                       "description": "Our density measurement devices offer reliable performance for applications such as concentration, API, Brix, and more.",
                       "imgUrl": "flow__technology-type__density.png"
                     },
                     {
-                      "id": 3,
+                      "id": "VISCOSITY",
                       "title": "Viscosity",
                       "description": "Our inline viscosity meter offers accurate, repeatable measurement in industries such as refining, chemical, life sciences, and more.",
                       "imgUrl": "flow__technology-type__viscosity.png"
                     }
                   ],
-                  "required": true,
-                  "error": "",
-                  "errorClass": ""
+                  "required": true
                 }
               ]
             },
@@ -190,329 +187,27 @@
                   "name": "nominalpipesize",
                   "showLabel": true,
                   "label": "Line Size",
-                  "labelClass":"camelCase",
-                  "title":"Line Size is the diameter of the piping or tubing where the meter will be installed. Knowing line size helps this tool validate that the calculated meter size is correct.",
+                  "labelClass": "camelCase",
+                  "title": "Line Size is the diameter of the piping or tubing where the meter will be installed. Knowing line size helps this tool validate that the calculated meter size is correct.",
                   "disabled": false,
                   "value": "",
                   "inputClass": "customRequired",
-                  "options": [
-                    {
-                      "value": "0",
-                      "label": "Unknown",
-                      "id": "0"
-                    },
-                    {
-                      "value": "1",
-                      "label": "<1/4 INCH (<DN8)",
-                      "id": "1"
-                    },
-                    {
-                      "value": "2",
-                      "label": "1/4 INCH (DN8)",
-                      "id": "2"
-                    },
-                    {
-                      "value": "3",
-                      "label": "3/8 INCH (DN10)",
-                      "id": "3"
-                    },
-                    {
-                      "value": "4",
-                      "label": "1/2 INCH (DN15)",
-                      "id": "4"
-                    },
-                    {
-                      "value": "5",
-                      "label": "3/4 INCH (DN20)",
-                      "id": "5"
-                    },
-                    {
-                      "value": "6",
-                      "label": "1 INCH (DN25)",
-                      "id": "6"
-                    },
-                    {
-                      "value": "7",
-                      "label": "1 1/2 INCH (DN40)",
-                      "id": "7"
-                    },
-                    {
-                      "value": "8",
-                      "label": "2 INCH (DN50)",
-                      "id": "8"
-                    },
-                    {
-                      "value": "9",
-                      "label": "2 1/2 INCH (DN65)",
-                      "id": "9"
-                    },
-                    {
-                      "value": "10",
-                      "label": "3 INCH (DN80)",
-                      "id": "10"
-                    },
-                    {
-                      "value": "11",
-                      "label": "3 1/2 INCH (DN90)",
-                      "id": "11"
-                    },
-                    {
-                      "value": "12",
-                      "label": "4 INCH (DN100)",
-                      "id": "12"
-                    },
-                    {
-                      "value": "12",
-                      "label": "5 INCH (DN125)",
-                      "id": "12"
-                    },
-                    {
-                      "value": "13",
-                      "label": "6 INCH (DN150)",
-                      "id": "13"
-                    },
-                    {
-                      "value": "14",
-                      "label": "8 INCH (DN200)",
-                      "id": "14"
-                    },
-                    {
-                      "value": "15",
-                      "label": "10 INCH (DN250)",
-                      "id": "15"
-                    },
-                    {
-                      "value": "16",
-                      "label": "12 INCH (DN300)",
-                      "id": "16"
-                    },
-                    {
-                      "value": "17",
-                      "label": "14 INCH (DN350)",
-                      "id": "17"
-                    },
-                    {
-                      "value": "18",
-                      "label": "16 INCH (DN400)",
-                      "id": "18"
-                    },
-                    {
-                      "value": "19",
-                      "label": "18 INCH (DN450)",
-                      "id": "19"
-                    },
-                    {
-                      "value": "20",
-                      "label": "20 INCH (DN500)",
-                      "id": "20"
-                    },
-                    {
-                      "value": "21",
-                      "label": "24 INCH (DN600)",
-                      "id": "21"
-                    },
-                    {
-                      "value": "22",
-                      "label": "26 INCH (DN650)",
-                      "id": "22"
-                    },
-                    {
-                      "value": "23",
-                      "label": "28 INCH (DN700)",
-                      "id": "23"
-                    },
-                    {
-                      "value": "24",
-                      "label": "30 INCH (DN750)",
-                      "id": "24"
-                    },
-                    {
-                      "value": "25",
-                      "label": "32 INCH (DN800)",
-                      "id": "25"
-                    },
-                    {
-                      "value": "26",
-                      "label": "36 INCH (DN900)",
-                      "id": "26"
-                    },
-                    {
-                      "value": "27",
-                      "label": "40 INCH (DN1000)",
-                      "id": "27"
-                    },
-                    {
-                      "value": "28",
-                      "label": "42 INCH (DN1050)",
-                      "id": "28"
-                    },
-                    {
-                      "value": "29",
-                      "label": "44 INCH (DN1100)",
-                      "id": "29"
-                    },
-                    {
-                      "value": "30",
-                      "label": "46 INCH (DN1150)",
-                      "id": "30"
-                    },
-                    {
-                      "value": "31",
-                      "label": "48 INCH (DN1200)",
-                      "id": "31"
-                    },
-                    {
-                      "value": "32",
-                      "label": "52 INCH (DN1300)",
-                      "id": "29"
-                    },
-                    {
-                      "value": "33",
-                      "label": "54 INCH (DN1350)",
-                      "id": "33"
-                    },
-                    {
-                      "value": "34",
-                      "label": "56 INCH (DN1400)",
-                      "id": "34"
-                    },
-                    {
-                      "value": "35",
-                      "label": "60 INCH (DN1500)",
-                      "id": "35"
-                    },
-                    {
-                      "value": "36",
-                      "label": "64 INCH (DN1600)",
-                      "id": "36"
-                    },
-                    {
-                      "value": "37",
-                      "label": "68 INCH (DN1700)",
-                      "id": "37"
-                    },
-                    {
-                      "value": "38",
-                      "label": "72 INCH (DN1800)",
-                      "id": "38"
-                    },
-                    {
-                      "value": "39",
-                      "label": "76 INCH (DN1900)",
-                      "id": "39"
-                    }
-                  ],
                   "error": "",
-                  "errorClass": ""
+                  "errorClass": "",
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/lookout/line_sizes?measurement_type=Flow"
                 },
                 {
                   "column": 4,
                   "type": "SINGLE_SELECT",
                   "name": "pipeschedule",
                   "label": "Pipe Schedule",
-                  "labelClass": "app-content-label camelCase",
+                  "labelClass": "camelCase",
                   "disabled": false,
                   "value": "",
-                  "options": [
-                    {
-                      "value": "0",
-                      "label": "Unknown",
-                      "id": "0"
-                    },
-                    {
-                      "value": "1",
-                      "label": "5",
-                      "id": "1"
-                    },
-                    {
-                      "value": "2",
-                      "label": "5S",
-                      "id": "2"
-                    },
-                    {
-                      "value": "3",
-                      "label": "10",
-                      "id": "3"
-                    },
-                    {
-                      "value": "4",
-                      "label": "10S",
-                      "id": "4"
-                    },
-                    {
-                      "value": "5",
-                      "label": "20",
-                      "id": "5"
-                    },
-                    {
-                      "value": "6",
-                      "label": "30",
-                      "id": "6"
-                    },
-                    {
-                      "value": "7",
-                      "label": "40",
-                      "id": "7"
-                    },
-                    {
-                      "value": "8",
-                      "label": "40S",
-                      "id": "8"
-                    },
-                    {
-                      "value": "9",
-                      "label": "STD",
-                      "id": "9"
-                    },
-                    {
-                      "value": "10",
-                      "label": "60",
-                      "id": "10"
-                    },
-                    {
-                      "value": "11",
-                      "label": "80",
-                      "id": "11"
-                    },
-                    {
-                      "value": "12",
-                      "label": "80S",
-                      "id": "12"
-                    },
-                    {
-                      "value": "13",
-                      "label": "XS",
-                      "id": "13"
-                    },
-                    {
-                      "value": "14",
-                      "label": "100",
-                      "id": "14"
-                    },
-                    {
-                      "value": "15",
-                      "label": "120",
-                      "id": "15"
-                    },
-                    {
-                      "value": "16",
-                      "label": "140",
-                      "id": "16"
-                    },
-                    {
-                      "value": "17",
-                      "label": "160",
-                      "id": "17"
-                    },
-                    {
-                      "value": "18",
-                      "label": "XXS",
-                      "id": "18"
-                    }
-                  ],
                   "required": false,
                   "error": "",
-                  "errorClass": ""
+                  "errorClass": "",
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/lookout/get_pipe_schedule"
                 },
                 {
                   "column": 12,
@@ -708,7 +403,7 @@
                   "type": "TEXT_INPUT",
                   "name": "fluidsDatabaseInput",
                   "column": 4,
-                  "value" : "",
+                  "value": "",
                   "hide": true
                 }
               ]
@@ -762,7 +457,7 @@
                         "type": "TEXT",
                         "label": "Flow Rate",
                         "align": "center",
-                        "title":"Flow rate is the amount of fluid passing through a pipe segment. It can be presented as either mass flow or volumetric flow."
+                        "title": "Flow rate is the amount of fluid passing through a pipe segment. It can be presented as either mass flow or volumetric flow."
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -771,9 +466,9 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "min":0,
-                        "max":10000000000,
-                        "required":true, 
+                        "min": 0,
+                        "max": 10000000000,
+                        "required": true,
                         "minError": "Entered Minimum Flow Rate is below 0"
                       },
                       {
@@ -783,9 +478,9 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "min":0,
-                        "max":10000000000,
-                        "required":true,
+                        "min": 0,
+                        "max": 10000000000,
+                        "required": true,
                         "minError": "Entered Normal Flow Rate is below 0"
                       },
                       {
@@ -795,9 +490,9 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "min":0,
-                        "max":10000000000,
-                        "required":true,
+                        "min": 0,
+                        "max": 10000000000,
+                        "required": true,
                         "minError": "Entered Maximum Flow Rate is below 0"
                       },
                       {
@@ -1302,6 +997,8 @@
                     }
                   ]
                 },
+                {},
+                {},
                 {
                   "type": "CUSTOM_BUTTON_GROUP",
                   "column": 3,
@@ -1553,10 +1250,8 @@
                         "align": "center",
                         "precision": 4
                       },
-                      {
-                      },
-                      {
-                      },
+                      {},
+                      {},
                       {
                         "type": "SINGLE_SELECT",
                         "name": "vapour_pressure_units",
