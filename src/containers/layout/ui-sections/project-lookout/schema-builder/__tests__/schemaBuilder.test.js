@@ -11,12 +11,12 @@ describe("schemaBuilder", () => {
       .screen(0)
       .tileThumbnail("measurement-type")
       .onChange((field) => {
-        const viscosityOption = field.data?.find(_ => _.id === VISCOSITY_ID);
+        const viscosityOption = field.data?.find((_) => _.id === VISCOSITY_ID);
         notNullOrUndefined(viscosityOption, "Could not find viscosity option.");
 
         viscosityOption.disabled = true;
       })
-      .build(0,screenSchemaNew);
+      .build(0, screenSchemaNew);
 
     expect(schema).toMatchSnapshot();
   });
@@ -46,6 +46,18 @@ describe("schemaBuilder", () => {
           align: "center"
         };
         field.data[1][4] = {};
+      })
+      .build(0, screenSchemaNew);
+
+    expect(schema).toMatchSnapshot();
+  });
+
+  test("Changin the custom button group option", () => {
+    const schema = schemaBuilder(oldSchema)
+      .screen(1)
+      .customButtonGroup("fluidtype")
+      .onChange((field, value) => {
+        field.defaultId = "3";
       })
       .build(0, screenSchemaNew);
 

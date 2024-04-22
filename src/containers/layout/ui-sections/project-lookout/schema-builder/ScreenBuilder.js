@@ -1,6 +1,7 @@
 import { TileThumbnailFieldBuilder } from "./TileThumbnailFieldBuilder";
 import { SingleSelectFieldBuilder } from "./SingleSelectFieldBuilder";
 import { TableInputBuilder } from "./TableInputBuilder";
+import { CustomButtonGroupBuilder } from "./CustomButtonGroupBuilder";
 import { FieldFinder } from "./FieldFinder";
 import { cloneDeep } from "lodash";
 
@@ -14,6 +15,11 @@ export class ScreenBuilder {
    * @type {SingleSelectFieldBuilder[]}
    */
   #singleSelectBuilders = [];
+
+  /**
+   * @type {FluidTypeBuilder[]}
+   */
+  #customButtonGroupBuilders = [];
 
   /**
    * @type {TableInputBuilder[]}
@@ -49,6 +55,17 @@ export class ScreenBuilder {
     const tileThumbnailBuilder = new TileThumbnailFieldBuilder(name, this.#workflowBuilder);
     this.#tileThumbnailBuilders.push(tileThumbnailBuilder);
     return tileThumbnailBuilder;
+  }
+
+  /**
+   *
+   * @param name {string}
+   * @return {customButtonGroupBuilder}
+   */
+  customButtonGroup(name) {
+    const customButtonGroupBuilder = new CustomButtonGroupBuilder(name, this.#workflowBuilder);
+    this.#customButtonGroupBuilders.push(customButtonGroupBuilder);
+    return customButtonGroupBuilder;
   }
 
   /**
@@ -90,6 +107,10 @@ export class ScreenBuilder {
 
     this.#tileThumbnailBuilders.forEach((tileThumbnailBuilder) => {
       tileThumbnailBuilder.finalBuild(this.#screenIndex, fieldFinder);
+    });
+
+    this.#customButtonGroupBuilders.forEach((customButtonGroupBuilder) => {
+      customButtonGroupBuilder.finalBuild(this.#screenIndex, fieldFinder);
     });
 
     this.#singleSelectBuilders.forEach((singleSelectBuilder) => {

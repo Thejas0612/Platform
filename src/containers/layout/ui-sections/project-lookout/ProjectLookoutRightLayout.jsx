@@ -4,7 +4,10 @@ import ButtonStepperCommon from "../../../../components/button/ButtonStepperComm
 import getSchemaForDynamicForm from "../../../../adapterDataManager/schema/getSchema";
 import MSOLDynamicForm from "../../../../components/shared/dynamicform";
 import { saveValuesInSchema, updateNavigationStatus } from "./schema-services/schemaMutations";
-import { updateLeftSection, updateRightSection } from "../../../../redux/reducers/initialBuDataSlice";
+import {
+  updateLeftSection,
+  updateRightSection
+} from "../../../../redux/reducers/initialBuDataSlice";
 import { cloneDeep } from "lodash";
 import { schemaBuilder } from "./schema-builder/schemaBuilder";
 import { notNullOrUndefined } from "../../../../utils/assert";
@@ -23,7 +26,10 @@ export default function ProjectLookoutRightLayout() {
     return <></>;
   }
 
-  const screenSchema = getSchemaForDynamicForm(screenIndex, rightSectionSchema[0].componentProps.schema);
+  const screenSchema = getSchemaForDynamicForm(
+    screenIndex,
+    rightSectionSchema[0].componentProps.schema
+  );
   const screenSchemaCopy = cloneDeep(screenSchema);
 
   const handleSchemaIndexChange = (screenIndexNew) => {
@@ -32,16 +38,22 @@ export default function ProjectLookoutRightLayout() {
   };
 
   const handleChange = (_event, _type, newScreenSchemas, _name, _isValid) => {
-    const rightSectionSchemaNew1 = saveValuesInSchema(newScreenSchemas, rightSectionSchema, screenIndex);
+    const rightSectionSchemaNew1 = saveValuesInSchema(
+      newScreenSchemas,
+      rightSectionSchema,
+      screenIndex
+    );
 
     const rightSectionSchemaNew2 = schemaBuilder(rightSectionSchemaNew1)
       .screen(0)
       .tileThumbnail("measurement-type")
       .onChange((field, value) => {
-        const flowOption = field.data?.find(_ => _.id === TECHNOLOGY_TYPES_OPTIONS.FLOW_ID);
+        const flowOption = field.data?.find((_) => _.id === TECHNOLOGY_TYPES_OPTIONS.FLOW_ID);
         notNullOrUndefined(flowOption, "Could not find flowOption.");
 
-        const viscosityOption = field.data?.find(_ => _.id === TECHNOLOGY_TYPES_OPTIONS.VISCOSITY_ID);
+        const viscosityOption = field.data?.find(
+          (_) => _.id === TECHNOLOGY_TYPES_OPTIONS.VISCOSITY_ID
+        );
         notNullOrUndefined(viscosityOption, "Could not find viscosityOption.");
 
         const isFlowSelected = value.includes(TECHNOLOGY_TYPES_OPTIONS.FLOW_ID);
@@ -55,6 +67,11 @@ export default function ProjectLookoutRightLayout() {
 
         viscosityOption.disabled = isViscosityDisabled;
         viscosityOption.tooltip = isViscosityDisabled ? DISABLE_TOOLTIP : undefined;
+      })
+      .screen(1)
+      .customButtonGroup("fluidtype")
+      .onChange((field, value) => {
+        field.defaultId = value;
       })
       .screen(2)
       .tableInput("TABLE_INPUT2")
@@ -142,11 +159,8 @@ export default function ProjectLookoutRightLayout() {
 
   return (
     <>
-      <MSOLDynamicForm
-        schema={screenSchemaCopy}
-        handleChange={handleChange}
-      />
+      <MSOLDynamicForm schema={screenSchemaCopy} handleChange={handleChange} />
       <ButtonStepperCommon updateSchemaIndex={handleSchemaIndexChange} />
     </>
   );
-};
+}

@@ -59,6 +59,41 @@
           ]
         },
         {
+          "id": 1,
+          "fields": [
+            {
+              "type": "CUSTOM_BUTTON_GROUP",
+              "column": 12,
+              "label": "Fluid Type",
+              "name": "fluidtype",
+              "defaultId": "1",
+              "data": [
+                {
+                  "id": "1",
+                  "label": "Liquid"
+                },
+                {
+                  "id": "2",
+                  "label": "Gas"
+                },
+                {
+                  "id": "3",
+                  "label": "Steam"
+                },
+                {
+                  "id": "4",
+                  "label": "Natural Gas"
+                },
+                {
+                  "id": "5",
+                  "label": "Slurry"
+                }
+              ],
+              "labelClass": "app-content-label camelCase"
+            }
+          ]
+        },
+        {
           "id": 2,
           "fields": [
             {

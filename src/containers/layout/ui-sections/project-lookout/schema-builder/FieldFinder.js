@@ -22,10 +22,15 @@ export class FieldFinder {
     const fieldByName = this.#screensByIndex[screenIndex];
     notNullOrUndefined(fieldByName, `Could not find '${screenIndex}' screen.`);
     const field = fieldByName[fieldName];
-    notNullOrUndefined(field, `Could not find field with '${fieldName}' on '${screenIndex}' screen.`);
+    notNullOrUndefined(
+      field,
+      `Could not find field with '${fieldName}' on '${screenIndex}' screen.`
+    );
 
     if (field.type !== fieldType) {
-      throw new Error(`The field type did not match. Expected '${field.type}' field type but actual field type is '${fieldType}'.`);
+      throw new Error(
+        `The field type did not match. Expected '${field.type}' field type but actual field type is '${fieldType}'.`
+      );
     }
 
     return field;
@@ -36,8 +41,8 @@ export class FieldFinder {
    * @param fieldName {string}
    * @return {*}
    */
-  findLabelText(screenIndex, fieldName){
-    return this.find(screenIndex, FIELD_TYPE.LABEL_TEXT, fieldName)
+  findLabelText(screenIndex, fieldName) {
+    return this.find(screenIndex, FIELD_TYPE.LABEL_TEXT, fieldName);
   }
 
   /**
@@ -45,8 +50,8 @@ export class FieldFinder {
    * @param fieldName {string}
    * @return {*}
    */
-  findSingleSelect(screenIndex, fieldName){
-    return this.find(screenIndex, FIELD_TYPE.SINGLE_SELECT, fieldName)
+  findSingleSelect(screenIndex, fieldName) {
+    return this.find(screenIndex, FIELD_TYPE.SINGLE_SELECT, fieldName);
   }
 
   /**
@@ -54,8 +59,8 @@ export class FieldFinder {
    * @param fieldName {string}
    * @return {*}
    */
-  findTableInput(screenIndex, fieldName){
-    return this.find(screenIndex, FIELD_TYPE.TABLE_INPUT, fieldName)
+  findTableInput(screenIndex, fieldName) {
+    return this.find(screenIndex, FIELD_TYPE.TABLE_INPUT, fieldName);
   }
 
   /**
@@ -63,8 +68,17 @@ export class FieldFinder {
    * @param fieldName {string}
    * @return {*}
    */
-  findTileThumbnail(screenIndex,fieldName){
-    return this.find(screenIndex, FIELD_TYPE.TILE_THUMBNAIL, fieldName)
+  findCustomButtonGroup(screenIndex, fieldName) {
+    return this.find(screenIndex, FIELD_TYPE.CUSTOM_BUTTON_GROUP, fieldName);
+  }
+
+  /**
+   * @param screenIndex {number}
+   * @param fieldName {string}
+   * @return {*}
+   */
+  findTileThumbnail(screenIndex, fieldName) {
+    return this.find(screenIndex, FIELD_TYPE.TILE_THUMBNAIL, fieldName);
   }
 
   /**
