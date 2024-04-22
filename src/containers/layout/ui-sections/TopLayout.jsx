@@ -1,6 +1,6 @@
 import React from "react";
 import { ButtonInput, CustomTop, LabelText } from "../../../components/dynamic-ui/uiComponentsConfig";
-import AlertDialog from "../../../components/dialog/AlertDialog";
+import AlertDialog from "../../../components/dialog/AalertDialog";
 import "./TopLayout.css";
 import { createSizing } from "../../../api/createSizing";
 
