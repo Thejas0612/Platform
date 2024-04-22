@@ -4,6 +4,7 @@ import { environment } from "../config/environment";
 const BASE_URL = `${environment.VITE_API_URL}/api/sizing/create`;
 
 export const createSizing = async () => {
+  // As of now harcoding after ui data is saving in redux we will add dynamically
   const data = {
     PA_REFERENCE_ID: "",
     TECHNOLOGY_TYPE: "DP_FLOW",
