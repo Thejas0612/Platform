@@ -1,6 +1,7 @@
 import DP_FLOW_CONSTANTS from "../containers/layout/ui-sections/dpflow/constants/dpFlowConstants";
 import SCHEMA_CONSTANTS from "./dpflowSchemaConstants";
 
+/* This function is used to validate screenFields and update the error property based on required and value property */
 export const schemaValidations = (screenFields, activeIndex, copyRightSectionSchema) => {
   const updatedScreenField = { id: activeIndex, fields: [] };
 
@@ -18,6 +19,7 @@ export const schemaValidations = (screenFields, activeIndex, copyRightSectionSch
   return { copyRightSectionSchema, isError };
 };
 
+/* This function is used to update the selected status of fields in a schema based on the active index  */
 export const changeAccordionStatus = (leftSectionSchemaCopy, activeIndex, btnType) => {
   if (!leftSectionSchemaCopy || leftSectionSchemaCopy?.length === 0) return [];
 

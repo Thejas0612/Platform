@@ -40,7 +40,7 @@ export default function DpFlowRightLayout() {
         <div>
           <ButtonStepper
             copyRightSectionSchema={copyRightSectionSchema}
-            visibleElements={[...visibleElements?.fields, ...invisibleElements]}
+            visibleElements={[...visibleElements.fields, ...invisibleElements]}
             activeIndex={activeIndex}
           />
         </div>

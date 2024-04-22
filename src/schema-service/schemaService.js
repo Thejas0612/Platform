@@ -2,6 +2,7 @@ import { getApi } from "../api/dp-flow/dpFlowApis";
 import SCHEMA_CONSTANTS from "./dpflowSchemaConstants";
 import { mapFieldsByName, orderSchemaFields } from "./schemaServiceHelper";
 
+/*  function is used to retrieve the schema of the "NavigationMenu" */
 export const getNavigationMenuSchema = (buCode, componentName, schema) => {
   const schema_data = [];
   if (buCode && componentName) {
@@ -16,11 +17,13 @@ export const getNavigationMenuSchema = (buCode, componentName, schema) => {
   return schema_data;
 };
 
+/* function is used to retrieve a specific screen elements (schema) from a list of schemas based on the active index */
 export const getDynamicFormSchema = (activeIndex, schema) => {
   if (schema?.length === 0 || schema[0]?.componentProps?.schema?.length === 0) return [];
   return [schema[0]?.componentProps?.schema[activeIndex]];
 };
 
+/* This function is responsible for updating screen elements */
 export const updateSchema = async (
   e,
   formObj,

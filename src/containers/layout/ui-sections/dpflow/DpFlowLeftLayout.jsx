@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux";
 import { NavigationMenu } from "@emerson/dynamic-ui-public";
-import PropTypes from "prop-types";
 
-const DpFlowLeftLayout = () => {
+export default function DpFlowLeftLayout() {
   const leftSectionSchema = useSelector((state) => state.initialBuData?.leftSection);
 
   if (leftSectionSchema?.length > 0) {
@@ -16,10 +15,4 @@ const DpFlowLeftLayout = () => {
     );
   }
   return <></>;
-};
-
-DpFlowLeftLayout.propTypes = {
-  schema: PropTypes.object.isRequired
-};
-
-export default DpFlowLeftLayout;
+}
