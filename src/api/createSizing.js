@@ -5,7 +5,7 @@ const BASE_URL = `${environment.VITE_API_URL}/api/sizing/create`;
 
 export const createSizing = async () => {
   const data = {
-    PA_REFERENCE_ID: "R423130",
+    PA_REFERENCE_ID: "",
     TECHNOLOGY_TYPE: "DP_FLOW",
     INSTRUMENT_TYPE: "FLOW_METER",
     APPLICATION_NAME: "test",
