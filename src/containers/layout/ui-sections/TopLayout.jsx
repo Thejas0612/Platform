@@ -1,5 +1,9 @@
 import React from "react";
-import { ButtonInput, CustomTop, LabelText } from "../../../components/dynamic-ui/uiComponentsConfig";
+import {
+  ButtonInput,
+  CustomTop,
+  LabelText
+} from "../../../components/dynamic-ui/uiComponentsConfig";
 import AlertDialog from "../../../components/dialog/AlertDialog";
 import "./TopLayout.css";
 import { createSizing } from "../../../api/createSizing";
@@ -61,8 +65,7 @@ export default function TopLayout() {
               label="Save Sizing"
               onClick={() => saveSizing()}
             />
-            <ButtonInput btnType="secondary" customClass="" label="Clear" onClick={() => {
-            }} />
+            <ButtonInput btnType="secondary" customClass="" label="Clear" onClick={() => {}} />
             <AlertDialog
               message={"Saved Successfully"}
               open={open}
