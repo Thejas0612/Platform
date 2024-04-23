@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input /> Does not show error if the value is above the minimum 1`] = `
+<div>
+  <div
+    aria-label=""
+    class="MuiFormControl-root MuiTextField-root css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+    data-mui-internal-clone-element="true"
+  >
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall Mui-focused  css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+      style="min-width: 5rem;"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input"
+        id="mui-3"
+        type="text"
+        value="5.0000"
+      />
+      <fieldset
+        aria-hidden="true"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="css-ihdtdm"
+        >
+          <span
+            class="notranslate"
+          >
+            ​
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Input /> Show error when the value is less than the minimum 1`] = `
+<div
+  class="base-Popper-root MuiTooltip-popper MuiTooltip-popperInteractive css-8v5zyd-MuiPopper-root-MuiTooltip-popper"
+  data-popper-escaped=""
+  data-popper-placement="top"
+  data-popper-reference-hidden=""
+  id="mui-2"
+  role="tooltip"
+  style="position: absolute; top: 0px; left: 0px; margin: 0px; bottom: 0px; transform: translate(0px, 0px);"
+>
+  <div
+    class="MuiTooltip-tooltip MuiTooltip-tooltipPlacementTop css-ja5taz-MuiTooltip-tooltip"
+    style="opacity: 1; transform: scale(1, 1); transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 133ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+  >
+    Entered Normal Density is below or equal to 0
+  </div>
+</div>
+`;
+
+exports[`<Input /> Show error when the value is less than the minimum 2`] = `
+<div>
+  <div
+    aria-label="Entered Normal Density is below or equal to 0"
+    class="MuiFormControl-root MuiTextField-root css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+    data-mui-internal-clone-element="true"
+  >
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-sizeSmall Mui-focused  css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+      style="min-width: 5rem;"
+    >
+      <input
+        aria-invalid="true"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input"
+        id="mui-1"
+        type="text"
+        value="-1"
+      />
+      <fieldset
+        aria-hidden="true"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="css-ihdtdm"
+        >
+          <span
+            class="notranslate"
+          >
+            ​
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Input /> it should not contain a value in value if a - is typed 1`] = `
+<div>
+  <div
+    aria-label=""
+    class="MuiFormControl-root MuiTextField-root css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+    data-mui-internal-clone-element="true"
+  >
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall Mui-focused  css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+      style="min-width: 5rem;"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input"
+        id="mui-5"
+        type="text"
+        value=""
+      />
+      <fieldset
+        aria-hidden="true"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="css-ihdtdm"
+        >
+          <span
+            class="notranslate"
+          >
+            ​
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;

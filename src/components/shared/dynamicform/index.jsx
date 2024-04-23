@@ -148,33 +148,41 @@ const MSOLDynamicForm = ({
         }
     };
 
-    const generateForm =
-        formData &&
-        formData.length &&
-        formData.map((formGroup, index) => {
-            return (
-                <div key={index}>
-                    {formGroup.group && <Typography fontWeight={"bold"}>{formGroup.group}</Typography>}
-                    <Grid container spacing={2}>
-                        {formGroup.fields.map((field) => {
-                            field.error = formError[field.name];
-                            const FieldComponent = { ...FORM_FEILDS, ...overrideComponents }[field.type];
-                            return (
-                                <>
-                                    {field.hide && field.hide === true ? (
+  const generateForm =
+    formData &&
+    formData.length &&
+    formData.map((formGroup, index) => {
+      return (
+        <div key={index}>
+          {formGroup.group && <Typography fontWeight={"bold"}>{formGroup.group}</Typography>}
+          <Grid container spacing={2}>
+            {formGroup.fields.map((field) => {
+              field.error = formError[field.name];
+              const FieldComponent = { ...FORM_FEILDS, ...overrideComponents }[field.type];
+
+              // CustomButtonGroup onChange event always returns undefined as the name. Now we
+              // use the name in the schema.
+              // https://dev.azure.com/EmersonAutomationSolutions/AS-MSOL-Digital%20Experience%20Tools/_workitems/edit/1708287/
+              function handleChange(e, type, _name, val) {
+                onChange(e, type, field.name, val)
+              }
+
+              return (
+                <>
+                {field.hide && field.hide === true ? (
                                         <></>
-                                    ) : (
-                                        <Grid item key={field.name} xs={field.column ? field.column : 12}>
-                                            {FieldComponent ? <FieldComponent {...field} onBlur={handleBlur} onChange={onChange} /> : null}
-                                        </Grid>
-                                    )}
-                                </>
-                            );
-                        })}
-                    </Grid>
-                </div>
-            );
-        });
+                                      ) : (
+                  <Grid item key={field.name} xs={field.column ? field.column : 12}>
+                    {FieldComponent ? <FieldComponent {...field} onChange={handleChange} /> : null}
+                  </Grid>
+                  )}
+                </>
+              );
+            })}
+          </Grid>
+        </div>
+      );
+    });
 
     return generateForm;
 };

@@ -1,8 +1,28 @@
-const SINGLE_SELECT_TYPE = "SINGLE_SELECT";
+import { BaseFieldBuilder } from "./BaseFieldBuilder";
 
-export class SingleSelectFieldBuilder {
+/**
+ * @typedef {import( "./FieldFinder").FieldFinder} FieldFinder
+ *
+ * @typedef {{
+ *   label: string
+ *   labelClass: string
+ *   name: string
+ *   options: SingleSelectOption[]
+ *   placeholder: string
+ *   warningMsg: string
+ * }} SingleSelect
+ *
+ * @typedef {{
+ *   greyedOut: boolean
+ *   label: string
+ *   title: string
+ *   value: string
+ *   isDisabled?: boolean
+ * }} SingleSelectOption
+ */
+export class SingleSelectFieldBuilder extends BaseFieldBuilder {
   /**
-   * @type { (fieldProps: {}, value: string[]) => void}
+   * @type { (fieldProps: SingleSelect, value: string[], fieldFinder: FieldFinder) => void}
    */
   #onChangeHandler;
 
@@ -12,28 +32,24 @@ export class SingleSelectFieldBuilder {
   #fieldName;
 
   /**
-   * @type {WorkflowBuilder}
-   */
-  #workflowBuilder;
-
-  /**
    *
    * @param fieldName {string}
    * @param workflowBuilder {WorkflowBuilder}
-   * @param workflowBuilder {ScreenBuilder}
+   * @param screenBuilder {ScreenBuilder}
    */
-  constructor(fieldName, workflowBuilder) {
+  constructor(fieldName, workflowBuilder, screenBuilder) {
+    super(workflowBuilder, screenBuilder)
+
     this.#fieldName = fieldName;
-    this.#workflowBuilder = workflowBuilder;
   }
 
   /**
    *
-   * @param onChangeHandler {(fieldProps: any, value: string[]) => void}
+   * @param onChangeHandler {(fieldProps: SingleSelect, value: string, fieldFinder: FieldFinder) => void}
    * @return {SingleSelectFieldBuilder}
    */
   onChange(onChangeHandler) {
-    if (this.onChangeHandler != null) {
+    if (this.#onChangeHandler != null) {
       throw new Error("The 'onChange' function was called 2 or more times.");
     }
 
@@ -43,35 +59,13 @@ export class SingleSelectFieldBuilder {
 
   /**
    * @param screenIndex {number}
-   * @return {ScreenBuilder}
+   * @param fieldFinder {FieldFinder}
    */
-  screen(screenIndex) {
-    return this.#workflowBuilder.screen(screenIndex);
-  }
-
-  /**
-   * @param screenIndex {index}
-   * @param newScreenSchema {object}
-   * @return {object}
-   */
-  build(screenIndex, newScreenSchema) {
-    return this.#workflowBuilder.finalBuild(screenIndex, newScreenSchema);
-  }
-
-  /**
-   * @param screen {any}
-   */
-  finalBuild(screen) {
-    const field = screen.fields.find((_) => {
-      return _.name === this.#fieldName && _.type === SINGLE_SELECT_TYPE;
-    });
-
-    if (field == null) {
-      throw new Error(`Could not find field with '${this.#fieldName}' name and ${SINGLE_SELECT_TYPE} type.`);
-    }
+  finalBuild(screenIndex, fieldFinder) {
+    const field = fieldFinder.findSingleSelect(screenIndex, this.#fieldName)
 
     field.defaultIds = field.value;
 
-    this.#onChangeHandler && this.#onChangeHandler(field, field.value);
+    this.#onChangeHandler && this.#onChangeHandler(field, field.value, fieldFinder);
   }
 }

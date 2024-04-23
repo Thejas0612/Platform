@@ -10,7 +10,7 @@ import { MsolTileOrThumbnail } from "../components/shared/msol-tile-or-thumbnail
 const schema = {
    "type": "TABLE_INPUT",
    "name": "TABLE_INPUT",
-   "options": [
+   "data": [
       [
          {
             "type": "TEXT",

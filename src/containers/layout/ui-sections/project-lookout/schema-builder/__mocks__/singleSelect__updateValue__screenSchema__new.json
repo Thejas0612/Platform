@@ -1,0 +1,23 @@
+[
+  {
+    "fields": [
+      {
+        "type": "SINGLE_SELECT",
+        "name": "flow-rate",
+        "value": "USGPS",
+        "options": [
+          {
+            "id": 1,
+            "value": "ACFD",
+            "label": "ft3/day (ACFD)"
+          },
+          {
+            "id": 2,
+            "value": "USGPS",
+            "label": "Gallons(US)/sec"
+          }
+        ]
+      }
+    ]
+  }
+]
