@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const SingleSelect = (props) => {
-  const [dropDownData, setDropDownData] = useState(props.options || []);
+  const [dropDownData, setDropDownData] = useState(props.schemaProps.options || []);
   const [userValue, setUserValue] = useState("");
 
   async function fetchOptions(url: string) {
@@ -11,19 +11,16 @@ const SingleSelect = (props) => {
     return response.data;
   }
 
-
   useEffect(() => {
     if (!props.schemaProps.dataSourceUrl) {
       return;
     }
-
     fetchOptions(props.schemaProps.dataSourceUrl).then(options => {
-      debugger
       setDropDownData(options);
     });
   }, []);
 
-  const selectedValue = props.schemaProps?.options?.find(option => option.selected)?.value || "";
+  const selectedValue = dropDownData.find((option:any) => option.selected)?.value || ""
 
   return (
     <FormControl size={props.size} style={{ minWidth: "7rem" }}>
@@ -43,7 +40,7 @@ const SingleSelect = (props) => {
         {dropDownData && dropDownData.map((option: any) => {
           return (
             <MenuItem key={option.id}
-                      value={option.value}>
+              value={option.value}>
               {option.label}
             </MenuItem>
           );
