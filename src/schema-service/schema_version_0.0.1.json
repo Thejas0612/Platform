@@ -99,7 +99,7 @@
                       "id": "flow_1",
                       "title": "DP Flow",
                       "description": "Innovative products enhance your flow measurement capabilities by expanding on time-tested and proven technology.",
-                      "imgUrl": "https://tools.emerson.com/OA_HTML/ibcGetAttachment.jsp?cItemId=454559"
+                      "imgUrl": "flow_primary_element.PNG"
                     }
                   ],
                   "np_id": 7,
@@ -324,6 +324,21 @@
                   "maxLength": 40
                 },
                 {
+                  "column": 4,
+                  "type": "TEXT_INPUT",
+                  "name": "natural_gas__name",
+                  "label": "Natural Gas Name",
+                  "labelClass": "app-content-label camelCase",
+                  "value": "",
+                  "required": true,
+                  "error": "",
+                  "errorClass": "",
+                  "placeholder": "Enter Text",
+                  "display": false,
+                  "order": 10,
+                  "maxLength": 40
+                },
+                {
                   "column": 12,
                   "align": "left",
                   "btnType": "textary",
@@ -335,7 +350,7 @@
                   "type": "BUTTON",
                   "value": "",
                   "display": true,
-                  "order": 10,
+                  "order": 11,
                   "name": "additional_options_label"
                 },
                 {
@@ -360,7 +375,7 @@
                   "showAlert": false,
                   "type": "CHECKBOX_INPUT",
                   "display": true,
-                  "order": 11
+                  "order": 12
                 }
               ]
             },
