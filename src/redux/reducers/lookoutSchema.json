@@ -862,7 +862,9 @@
                         "name": "process_temp_min",
                         "disabled": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "min": -459.67,
+                        "minError": "Entered Minimum Temperature is below -459.67"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -870,14 +872,19 @@
                         "inputClass": "customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "min": -459.67,
+                        "required": true,
+                        "minError": "Entered Normal Temperature is below -459.67"
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "process_temp_max",
                         "disabled": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "min": -459.67,
+                        "minError": "Entered Maximum Temperature is below -459.67"
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -886,6 +893,12 @@
                         "inputClass": "unitClass",
                         "disabled": false,
                         "align": "right",
+                        "dataSourceUrl": "<%= UOM_API_URL %>/mmipa/units/",
+                        "httpMethod":"post",
+                        "unit_type": 4,
+                        "payload":{
+                          "language":"US"
+                        },
                         "options": [
                           {
                             "id": 1,
@@ -921,7 +934,9 @@
                         "name": "amb_temp_min",
                         "disabled": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4, 
+                        "min": -459.67,
+                        "minError": "Entered Minimum Ambient Temperature is below -459.67"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -929,14 +944,19 @@
                         "inputClass": "customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "min": -459.67,
+                        "required": true,
+                        "minError": "Entered Normal Ambient Temperature is below -459.67"
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "amb_temp_max",
                         "disabled": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4, 
+                        "min": -459.67,
+                        "minError": "Entered Maximum Ambient Temperature is below -459.67"
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -945,6 +965,12 @@
                         "inputClass": "unitClass",
                         "disabled": false,
                         "align": "right",
+                        "dataSourceUrl": "<%= UOM_API_URL %>/mmipa/units/",
+                        "httpMethod":"post",
+                        "unit_type": 4,
+                        "payload":{
+                          "language":"US"
+                        },
                         "options": [
                           {
                             "id": 1,

@@ -100,7 +100,7 @@ export class FieldFinder {
    */
   #hashScreensByIndex(workflowSchema) {
     const screensByIndex = {};
-    workflowSchema[0].componentProps.schema.forEach((screenSchema, screenIndex) => {
+    workflowSchema[0].componentProps?.schema.forEach((screenSchema, screenIndex) => {
       screensByIndex[screenIndex] = this.#hashFieldsByName(screenSchema);
     });
 
