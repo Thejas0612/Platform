@@ -1,11 +1,29 @@
 import React from "react";
 import {
+  ButtonInput,
   CustomTop,
-  LabelText,
-  ButtonInput
-} from "../../../components/dynamic-ui/uiComponentsConfig";
+  LabelText
+} from "@emerson/dynamic-ui-public";
+import AlertDialog from "../../../components/dialog/AlertDialog";
 import "./TopLayout.css";
+import { createSizing } from "../../../api/createSizing";
+
 export default function TopLayout() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const saveSizing = async () => {
+    await createSizing();
+    handleClickOpen();
+  };
+
   return (
     <div>
       <div className="SizingSelection">
@@ -45,9 +63,15 @@ export default function TopLayout() {
               btnType="secondary"
               customClass=""
               label="Save Sizing"
-              onClick={() => {}}
+              onClick={() => saveSizing()}
             />
             <ButtonInput btnType="secondary" customClass="" label="Clear" onClick={() => {}} />
+            <AlertDialog
+              message={"Saved Successfully"}
+              open={open}
+              handleClose={handleClose}
+              handleClickOpen={handleClickOpen}
+            />
           </div>
         </div>
       </div>

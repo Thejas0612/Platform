@@ -110,7 +110,7 @@
                           "np_id": 7,
                           "hideCheckboxes": true,
                           "singleSelect":true,
-                          "options":[
+                          "data":[
                              {
                                 "id":"transmitter",
                                 "title":"Transmitter",
@@ -189,7 +189,7 @@
                               "type":"TABLE_INPUT",
                               "name":"TABLE_INPUT",
                               "column": 9,
-                              "options":[
+                              "data":[
                                  [
                                     {
                                        "type":"TEXT",

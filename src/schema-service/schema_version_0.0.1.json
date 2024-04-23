@@ -94,7 +94,7 @@
                   },
                   "showAlert": false,
                   "defaultIds": [],
-                  "options": [
+                  "data": [
                     {
                       "id": "flow_1",
                       "title": "DP Flow",
@@ -734,7 +734,7 @@
                 {
                   "type": "TABLE_INPUT",
                   "column": 12,
-                  "options": [
+                  "data": [
                     [
                       {
                         "type": "TEXT",
@@ -997,7 +997,7 @@
                     "defaultIds": [],
                     "defaultDirection": "tile"
                   },
-                  "options": [
+                  "data": [
                     {
                       "id": 1,
                       "title": "Transmitter",
@@ -1115,7 +1115,7 @@
                     "defaultIds": [],
                     "defaultDirection": "tile"
                   },
-                  "options": [
+                  "data": [
                     {
                       "id": 1,
                       "title": "Flow",
