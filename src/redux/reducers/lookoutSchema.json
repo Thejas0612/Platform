@@ -893,34 +893,7 @@
                         "inputClass": "unitClass",
                         "disabled": false,
                         "align": "right",
-                        "dataSourceUrl": "<%= UOM_API_URL %>/mmipa/units/",
-                        "httpMethod":"post",
-                        "unit_type": 4,
-                        "payload":{
-                          "language":"US"
-                        },
-                        "options": [
-                          {
-                            "id": 1,
-                            "value": "C",
-                            "label": "C"
-                          },
-                          {
-                            "id": 2,
-                            "value": "F",
-                            "label": "F"
-                          },
-                          {
-                            "id": 3,
-                            "value": "K",
-                            "label": "K"
-                          },
-                          {
-                            "id": 4,
-                            "value": "R",
-                            "label": "R"
-                          }
-                        ]
+                        "dataSourceUrl": "https://mocki.io/v1/3cf4bba5-9728-438c-8466-3a27fa7ea9e6"
                       }
                     ],
                     [
