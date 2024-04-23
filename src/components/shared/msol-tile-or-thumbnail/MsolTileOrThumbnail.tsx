@@ -9,7 +9,6 @@ export interface MsolTileOrThumbnailItem extends Omit<MsolTitleOrThumbnailItemPr
 
 export interface MsolTileOrThumbnailProps {
   required?: boolean;
-  options?: MsolTileOrThumbnailItem[];
   data?: MsolTileOrThumbnailItem[];
   defaultIds?: string[] | string | null;
   error?: string;
@@ -22,8 +21,7 @@ export interface MsolTileOrThumbnailProps {
 
 export const MsolTileOrThumbnail: FC<MsolTileOrThumbnailProps> = ({
                                                                     required = false,
-                                                                    data,
-                                                                    options,
+                                                                    data = [],
                                                                     defaultIds = [],
                                                                     error = "",
                                                                     onChange = () => {
@@ -33,11 +31,6 @@ export const MsolTileOrThumbnail: FC<MsolTileOrThumbnailProps> = ({
                                                                     hideCheckboxes = false,
                                                                     singleSelect = false
                                                                   }) => {
-  // TODO: This is temporary to support backwards compatibility. This will be removed in the future.
-  const dataOverride = data ? data : options;
-  if (dataOverride == null) {
-    throw Error("`data` property is required.");
-  }
 
   const errorText = error.trim();
   const [value, setValue] = useState(defaultIds);
@@ -46,7 +39,7 @@ export const MsolTileOrThumbnail: FC<MsolTileOrThumbnailProps> = ({
     <>
       <Stack spacing={4}>
         {
-          dataOverride.map(item => {
+          data.map(item => {
             let checked = false;
             if (singleSelect) {
               checked = value === item.id;

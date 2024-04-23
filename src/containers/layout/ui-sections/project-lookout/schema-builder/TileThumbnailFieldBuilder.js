@@ -1,8 +1,10 @@
 /**
  * @typedef {import( "../../../../../components/shared/msol-tile-or-thumbnail/MsolTileOrThumbnail").MsolTileOrThumbnailProps} MsolTileOrThumbnailProps
+ * @typedef {import( "./FieldFinder").FieldFinder} FieldFinder
  */
+import { BaseFieldBuilder } from "./BaseFieldBuilder";
 
-export class TileThumbnailFieldBuilder {
+export class TileThumbnailFieldBuilder extends BaseFieldBuilder {
   /**
    * @type { (fieldProps: MsolTileOrThumbnailProps, value: string[], fieldFinder: FieldFinder) => void}
    */
@@ -14,18 +16,15 @@ export class TileThumbnailFieldBuilder {
   #fieldName;
 
   /**
-   * @type {WorkflowBuilder}
-   */
-  #workflowBuilder;
-
-  /**
    *
    * @param fieldName {string}
    * @param workflowBuilder {WorkflowBuilder}
+   * @param screenBuilder {ScreenBuilder}
    */
-  constructor(fieldName, workflowBuilder) {
+  constructor(fieldName, workflowBuilder, screenBuilder) {
+    super(workflowBuilder, screenBuilder)
+
     this.#fieldName = fieldName;
-    this.#workflowBuilder = workflowBuilder;
   }
 
   /**
@@ -34,29 +33,12 @@ export class TileThumbnailFieldBuilder {
    * @return {TileThumbnailFieldBuilder}
    */
   onChange(onChangeHandler) {
-    if (this.onChangeHandler != null) {
+    if (this.#onChangeHandler != null) {
       throw new Error("The 'onChange' function was called 2 or more times.");
     }
 
     this.#onChangeHandler = onChangeHandler;
     return this;
-  }
-
-  /**
-   * @param screenIndex {number}
-   * @return {ScreenBuilder}
-   */
-  screen(screenIndex) {
-    return this.#workflowBuilder.screen(screenIndex);
-  }
-
-  /**
-   * @param screenIndex {index}
-   * @param newScreenSchema {object}
-   * @return {object}
-   */
-  build(screenIndex, newScreenSchema) {
-    return this.#workflowBuilder.finalBuild(screenIndex, newScreenSchema);
   }
 
   /**

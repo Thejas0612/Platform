@@ -167,33 +167,19 @@
               "fields": [
                 {
                   "column": 12,
-                  "label": "LABEL_TEXT",
-                  "labelClass": "app-content-label",
-                  "name": "LABEL_TEXT",
-                  "showLabel": false,
-                  "subText": "",
-                  "tableClass": "",
+                  "name": "process-piping",
                   "text": "Process Piping",
                   "textClass": "ddl-typography--h5",
-                  "title": "this is title",
-                  "type": "LABEL_TEXT",
-                  "textStyles": {
-                    "textAlign": "start"
-                  }
+                  "type": "LABEL_TEXT"
                 },
                 {
                   "column": 4,
                   "type": "SINGLE_SELECT",
-                  "name": "nominalpipesize",
-                  "showLabel": true,
+                  "name": "line-size",
                   "label": "Line Size",
                   "labelClass": "camelCase",
                   "title": "Line Size is the diameter of the piping or tubing where the meter will be installed. Knowing line size helps this tool validate that the calculated meter size is correct.",
-                  "disabled": false,
-                  "value": "",
                   "inputClass": "customRequired",
-                  "error": "",
-                  "errorClass": "",
                   "dataSourceUrl": "<%= VITE_API_URL %>/api/lookout/line_sizes?measurement_type=Flow"
                 },
                 {

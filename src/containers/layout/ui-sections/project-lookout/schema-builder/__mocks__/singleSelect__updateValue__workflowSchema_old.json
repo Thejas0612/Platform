@@ -1,0 +1,29 @@
+[
+  {
+    "componentProps": {
+      "schema": [
+        {
+          "fields": [
+            {
+              "type": "SINGLE_SELECT",
+              "name": "flow-rate",
+              "value": "ACFD",
+              "options": [
+                {
+                  "id": 1,
+                  "value": "ACFD",
+                  "label": "ft3/day (ACFD)"
+                },
+                {
+                  "id": 2,
+                  "value": "USGPS",
+                  "label": "Gallons(US)/sec"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -1,36 +1,24 @@
 import { BaseFieldBuilder } from "./BaseFieldBuilder";
+import { ScreenBuilder } from "./ScreenBuilder";
 
 /**
  * @typedef {import( "./FieldFinder").FieldFinder} FieldFinder
  *
  * @typedef {{
- *   data: TableInputData[][]
+ *   defaultIds: string[]
  *   label: string
- *   value: Value
- * }} TableInput
+ *   multiple: boolean
+ *   options: CustomButtonGroupOption[]
+ * }} CustomButtonGroup
  *
  * @typedef {{
- *   align?: string
+ *   id: string
  *   label: string
- *   name: string
- *   textStyles?: TableInputDataTextStyles
- *   type: string
- *   required?: boolean
- *   options?: TableInputDataOption[]
- * }} TableInputData
- *
- * @typedef {{
- *   fontSize: string
- * }} TableInputDataTextStyles
- *
- * @typedef {{
- *   label: string
- *   value: string
- * }} TableInputDataOption
+ * }} CustomButtonGroupOption
  */
-export class TableInputBuilder extends BaseFieldBuilder {
+export class CustomButtonGroupBuilder extends BaseFieldBuilder {
   /**
-   * @type { (fieldProps: TableInput, value: string[], fieldFinder: FieldFinder) => void}
+   * @type { (fieldProps: CustomButtonGroup, value: string[], fieldFinder: FieldFinder) => void}
    */
   #onChangeHandler;
 
@@ -40,20 +28,19 @@ export class TableInputBuilder extends BaseFieldBuilder {
   #fieldName;
 
   /**
-   *
    * @param fieldName {string}
    * @param workflowBuilder {WorkflowBuilder}
    * @param screenBuilder {ScreenBuilder}
    */
   constructor(fieldName, workflowBuilder, screenBuilder) {
-    super(workflowBuilder, screenBuilder)
+    super(workflowBuilder, screenBuilder);
     this.#fieldName = fieldName;
   }
 
   /**
    *
-   * @param onChangeHandler {(fieldProps: TableInput, value: { [key: string]: string | number}) => void}
-   * @return {TableInputBuilder}
+   * @param onChangeHandler {(field: CustomButtonGroup, value: string[], fieldFinder: FieldFinder) => void}
+   * @return {CustomButtonGroupBuilder}
    */
   onChange(onChangeHandler) {
     if (this.#onChangeHandler != null) {
@@ -69,7 +56,8 @@ export class TableInputBuilder extends BaseFieldBuilder {
    * @param fieldFinder {FieldFinder}
    */
   finalBuild(screenIndex, fieldFinder) {
-    const field = fieldFinder.findTableInput(screenIndex, this.#fieldName )
+    const field = fieldFinder.findCustomButtonGroup(screenIndex, this.#fieldName);
+    field.defaultId = field.value;
 
     this.#onChangeHandler && this.#onChangeHandler(field, field.value, fieldFinder);
   }

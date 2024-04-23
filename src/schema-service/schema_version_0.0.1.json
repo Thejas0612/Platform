@@ -94,7 +94,7 @@
                   },
                   "showAlert": false,
                   "defaultIds": [],
-                  "options": [
+                  "data": [
                     {
                       "id": "flow_1",
                       "title": "DP Flow",
@@ -745,7 +745,7 @@
                 {
                   "type": "TABLE_INPUT",
                   "column": 12,
-                  "options": [
+                  "data": [
                     [
                       {
                         "type": "TEXT",
