@@ -1,7 +1,7 @@
 import { ERRORS } from './constants'
 
 export const checkValidations = (field, value) => {
-   if (field?.validations == null) {
+   if (!field?.validations || Object.keys(field.validations).length === 0) {
       return;
    }
    const validations = field.validations;

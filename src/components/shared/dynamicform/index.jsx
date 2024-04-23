@@ -81,9 +81,8 @@ const MSOLDynamicForm = ({
         initializeFormData(schema)
     }, [JSON.stringify(schema)]);
 
-    const onChange = (e, type, name, val) => {
-        let field = name;
-        let value = val;
+    const updateFormData = (e, type, name, value) => {
+        const newFormDataObj = { ...formDataObj, [name]: value }
         const updatedFormData = formData.map((group) => {
             const updatedFields = group.fields.map((field) => {
                 if (field.name === name) {
@@ -94,44 +93,17 @@ const MSOLDynamicForm = ({
             return { ...group, fields: updatedFields };
         });
         setFormData(updatedFormData);
-        setFormDataObj({ ...formDataObj, [field]: value });
+        setFormDataObj(newFormDataObj);
         const message = fieldValidation(e, type, name, value);
         setFormError({ ...formError, [name]: message });
         handleChange(
             e,
-            { ...formDataObj, [field]: value },
+            newFormDataObj,
             updatedFormData,
             name,
             { ...formError, [name]: message },
         );
-    };
-
-    const handleBlur = (e, type, name, val) => {
-        let field = name;
-        let value = val;
-        const updatedFormData = formData.map((group) => {
-            const updatedFields = group.fields.map((field) => {
-                if (field.name === name) {
-                    return { ...field, value };
-                }
-                return field;
-            });
-            return { ...group, fields: updatedFields };
-        });
-        setFormData(updatedFormData);
-        setFormDataObj({ ...formDataObj, [field]: value });
-        const message = fieldValidation(e, type, name, value);
-        setFormError({ ...formError, [name]: message });
-        if (!message) {
-            handleChange(
-                e,
-                { ...formDataObj, [field]: value },
-                updatedFormData,
-                name,
-                { ...formError, [name]: message },
-            );
-        }
-    };
+    }
 
     const fieldValidation = (e, type, name, value) => {
         if (name != undefined) {
@@ -162,16 +134,18 @@ const MSOLDynamicForm = ({
               // use the name in the schema.
               // https://dev.azure.com/EmersonAutomationSolutions/AS-MSOL-Digital%20Experience%20Tools/_workitems/edit/1708287/
               function handleChange(e, type, _name, val) {
-                onChange(e, type, field.name, val)
+                updateFormData(e, type, field.name, val)
               }
-
+              function handleBlur(e, type, _name, val) {
+                updateFormData(e, type, field.name, val)
+              }
               return (
                 <>
                 {field.hide && field.hide === true ? (
                                         <></>
                                       ) : (
                   <Grid item key={field.name} xs={field.column ? field.column : 12}>
-                    {FieldComponent ? <FieldComponent {...field} onChange={handleChange} /> : null}
+                    {FieldComponent ? <FieldComponent {...field} onChange={handleChange} onBlur={handleBlur} /> : null}
                   </Grid>
                   )}
                 </>
