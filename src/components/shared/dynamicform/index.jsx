@@ -97,15 +97,13 @@ const MSOLDynamicForm = ({
         setFormDataObj({ ...formDataObj, [field]: value });
         const message = fieldValidation(e, type, name, value);
         setFormError({ ...formError, [name]: message });
-        if (!message) {
-            handleChange(
-                e,
-                { ...formDataObj, [field]: value },
-                updatedFormData,
-                name,
-                { ...formError, [name]: message },
-            );
-        }
+        handleChange(
+            e,
+            { ...formDataObj, [field]: value },
+            updatedFormData,
+            name,
+            { ...formError, [name]: message },
+        );
     };
 
     const handleBlur = (e, type, name, val) => {
