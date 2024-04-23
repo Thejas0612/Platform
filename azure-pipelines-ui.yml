@@ -94,19 +94,20 @@ steps:
         FortifyReport.pdf
       TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-  # - task: ArchiveFiles@2
-  #   inputs:
-  #     rootFolderOrFile: $(Build.ArtifactStagingDirectory)
-  #     archiveType: "zip"
-  #     archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
-  #     includeRootFolder: false
+  - task: CopyFiles@2
+    displayName: "Copy Files to: $(Build.ArtifactStagingDirectory)"
+    inputs:
+      Contents: |
+        FortifyReport.pdf
+        $(Build.BuildId).fpr
+      TargetFolder: "$(Build.ArtifactStagingDirectory)"
 
-  # - task: PublishPipelineArtifact@1
-  #   inputs:
-  #     artifactName: e2e-server
-  #     targetPath: "$(Build.ArtifactStagingDirectory)"
-  #     publishLocation: "pipeline"
-  #   displayName: "Publish npm artifact"
+  - task: PublishBuildArtifacts@1
+    displayName: "Publish Fortify Report Artifact"
+    inputs:
+      pathToPublish: $(Build.ArtifactStagingDirectory)
+      artifactName: FortifyReport
+
   - script: |
       docker login $(dockerId).azurecr.io -u $(dockerId) -p $pswd
       docker build -f docker/dev/Dockerfile -t $(dockerId).azurecr.io/$(imageName):$(Build.BuildId) --build-arg ISSUER=$(ISSUER) --build-arg CLIENT=$(CLIENT) . 
