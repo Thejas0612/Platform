@@ -65,7 +65,7 @@ function CustomLayout() {
           disabled: false,
           value: "",
           options: [],
-          required: true,
+          required: false,
           error: "",
           errorClass: "",
           display: true,
@@ -233,9 +233,9 @@ function CustomLayout() {
   }, []);
 
   const submitForm = (fields) => {
-    // const { updatedValues, updatedStepperIndex } = genericStepperValidation(fields, "", stepperIndex)
-    // setSchema([{ ...schema[0], fields: updatedValues }]);
-    // setStepperIndex(updatedStepperIndex);
+    const { updatedValues, updatedStepperIndex } = genericStepperValidation(fields, stepperIndex)
+    setSchema([{ ...schema[0], fields: updatedValues }]);
+    setStepperIndex(updatedStepperIndex);
   }
 
   return (

@@ -18,15 +18,14 @@ export const checkValidations = (field, value) => {
    return error
 }
 
-export const genericStepperValidation = (formFields, inputValues, stepperIndex) => {
-   let value = inputValues;
+export const genericStepperValidation = (formFields, stepperIndex) => {
    let errorCount = 0;
    let updatedStepperIndex = stepperIndex;
    const updatedValues = new Array(formFields.length);
    for (let i = 0; i < formFields.length; i++) {
       let field = { ...formFields[i] };
       if (field.visibled !== "hidden") {
-         if (field.required && !value) {
+         if (field.required && !field.value) {
             field.error = ERRORS.FIELD_REQUIRED;
             errorCount++;
          }
@@ -45,5 +44,11 @@ export const generateFields = (formFields) => {
    if (!formFields.length) {
       return [];
    }
-   return formFields.map((field) => field);
+   return formFields.map((field) => {
+      // if the value present in the field then remove the error
+      if (field.value) {
+         field.error = '';
+      }
+      return field
+   });
 }
