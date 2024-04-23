@@ -5,20 +5,10 @@ import { STATUS } from "../../../../status";
 import TempLeftLayout from "./TempLeftLayout";
 import TempRightLayout from "./TempRightLayout";
 import TopLayout from "../TopLayout";
-import { changeActiveIndex, updateLeftSection } from "../../../../redux/reducers/initialBuDataSlice";
-import { changeStepperIndex } from "../schemaMutations";
 
 export default function TempUiLayout() {
   const status = useSelector((state) => state.initialBuData.status);
-  const leftSection = useSelector((state) => state.initialBuData?.leftSection);
-  const dispatch = useDispatch();
-
-  const changeIndex = (index) => {
-    const leftSchema = changeStepperIndex(leftSection, index);
-    dispatch(updateLeftSection(leftSchema));
-    dispatch(changeActiveIndex(index));
-  }
-
+  
   if (status === STATUS.SUCCESSED)
     return (
       <Grid container className="temperature_pa">
@@ -28,10 +18,10 @@ export default function TempUiLayout() {
         <Grid item sx={{width: "100%"}}>
           <Grid container direction="row">
             <Grid item className="left_section" xs={12} md={3}>
-              <TempLeftLayout changeIndex={changeIndex}/>
+              <TempLeftLayout/>
             </Grid>
             <Grid item className="right_section" xs={12} md={9}>
-              <TempRightLayout changeIndex={changeIndex}/>
+              <TempRightLayout/>
             </Grid>
           </Grid>
         </Grid>

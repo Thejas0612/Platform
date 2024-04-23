@@ -23,64 +23,71 @@
                     "badges":[
                        
                     ]
-                 },
-                 {
-                    "label":"Transmitter Requirements",
-                    "enabled":true,
-                    "selected":false,
-                    "name":"fpa_transmitterRequirements",
-                    "sn_id":4347,
-                    "ne_id":1,
-                    "bu_code":"FLOW_PA_NEW",
-                    "np_id":7,
-                    "element_label":"Transmitter Requirements",
-                    "step_order":1,
-                    "gui_type_code":"TEXT",
-                    "attribute_code_json":"N/A",
-                    "html_field_name":"fpa_transmitterRequirements",
-                    "badges":[
-                       
-                    ]
-                 },
-                 {
-                    "label":"Transmitter Selection",
-                    "enabled":true,
-                    "selected":false,
-                    "name":"fpa_lh_transmitterSelection",
-                    "badges":[
-                       
-                    ],
-                    "sn_id":4347,
-                    "ne_id":2,
-                    "bu_code":"FLOW_PA_NEW",
-                    "np_id":7,
-                    "element_label":"Transmitter Selection",
-                    "step_order":2,
-                    "left_right_anchor_flag":"L",
-                    "gui_type_code":"TEXT",
-                    "attribute_code_json":"N/A",
-                    "html_field_name":"fpa_lh_transmitterSelection"
-                 },
-                 {
-                    "label":"Results Summary",
-                    "enabled":true,
-                    "selected":false,
-                    "name":"fpa_resultsSummary",
-                    "badges":[
-                       
-                    ],
-                    "sn_id":4347,
-                    "ne_id":3,
-                    "bu_code":"FLOW_PA_NEW",
-                    "np_id":7,
-                    "element_label":"Results Summary",
-                    "step_order":3,
-                    "left_right_anchor_flag":"L",
-                    "gui_type_code":"TEXT",
-                    "attribute_code_json":"N/A",
-                    "html_field_name":"fpa_resultsSummary"
                  }
-              ]
+              ],
+              "schema_variations": {
+                  "x-well": [
+                     
+                  ],
+                  "transmitter": [
+                     {
+                        "label":"Transmitter Requirements",
+                        "enabled":true,
+                        "selected":false,
+                        "name":"fpa_transmitterRequirements",
+                        "sn_id":4347,
+                        "ne_id":1,
+                        "bu_code":"FLOW_PA_NEW",
+                        "np_id":7,
+                        "element_label":"Transmitter Requirements",
+                        "step_order":1,
+                        "gui_type_code":"TEXT",
+                        "attribute_code_json":"N/A",
+                        "html_field_name":"fpa_transmitterRequirements",
+                        "badges":[
+                           
+                        ]
+                     },
+                     {
+                        "label":"Transmitter Selection transmitter",
+                        "enabled":true,
+                        "selected":false,
+                        "name":"fpa_lh_transmitterSelection",
+                        "badges":[
+                           
+                        ],
+                        "sn_id":4347,
+                        "ne_id":2,
+                        "bu_code":"FLOW_PA_NEW",
+                        "np_id":7,
+                        "element_label":"Transmitter Selection",
+                        "step_order":2,
+                        "left_right_anchor_flag":"L",
+                        "gui_type_code":"TEXT",
+                        "attribute_code_json":"N/A",
+                        "html_field_name":"fpa_lh_transmitterSelection"
+                     },
+                     {
+                        "label":"Results Summary transmitter",
+                        "enabled":true,
+                        "selected":false,
+                        "name":"fpa_resultsSummary",
+                        "badges":[
+                           
+                        ],
+                        "sn_id":4347,
+                        "ne_id":3,
+                        "bu_code":"FLOW_PA_NEW",
+                        "np_id":7,
+                        "element_label":"Results Summary",
+                        "step_order":3,
+                        "left_right_anchor_flag":"L",
+                        "gui_type_code":"TEXT",
+                        "attribute_code_json":"N/A",
+                        "html_field_name":"fpa_resultsSummary"
+                     }
+                  ]
+              }
            }
         },
         {
@@ -125,7 +132,7 @@
                           "description":"here is a toggle button",
                           "showAlert": false,
                           "sn_id": 4347,
-                          "value": [ ],
+                          "value":"transmitter",
                           "required":true,
                           "error":"",
                           "errorClass":""
@@ -133,22 +140,30 @@
                     ]
                  },
                  {
-
-                 },
-                 {
-                     "id": 2,
-                     "fields":[]
-                 },
-                 {
-                     "id": 3,
+                     "id": 1,
                      "fields":[]
                  }
               ],
               "schema_variations": {
                   "x-well": [
-                     {"id": 1, "fields":[]},
-                     {"id": 2, "fields":[]},
-                     {"id": 3, "fields":[]}
+                     {"id": 1, "fields":[
+                        {
+                           "column":12,
+                           "label":"LABEL_TEXT",
+                           "labelClass":"app-content-label",
+                           "name":"LABEL_TEXT",
+                           "showLabel":false,
+                           "subText":"",
+                           "tableClass":"",
+                           "text":"X-well path",
+                           "textClass":"ddl-typography--h5",
+                           "title":"X-well path",
+                           "type":"LABEL_TEXT",
+                           "textStyles":{
+                              "textAlign":"start"
+                           }
+                        }
+                     ]}
                   ],
                   "transmitter": [
                      {
