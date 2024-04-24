@@ -9,11 +9,12 @@ import {
 } from "../../redux/reducers/initialBuDataSlice";
 import PropTypes from "prop-types";
 import DP_FLOW_CONSTANTS from "../../../src/containers/layout/ui-sections/dpflow/constants/dpFlowConstants";
+import { cloneDeep } from 'lodash'
 
 export default function ButtonStepper({ copyRightSectionSchema, visibleElements, activeIndex }) {
   const leftSectionSchema = useSelector((state) => state.initialBuData?.leftSection);
   // structeredClone is not part of ECMAScript standard, we need node 17 in docker image to support this
-  const leftSectionSchemaCopy = JSON.parse(JSON.stringify(leftSectionSchema))
+  const leftSectionSchemaCopy = cloneDeep(leftSectionSchema)
   const dispatch = useDispatch();
 
   const onNextChange = () => {
