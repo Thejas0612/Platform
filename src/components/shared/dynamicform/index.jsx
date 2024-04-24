@@ -127,7 +127,7 @@ const MSOLDynamicForm = ({
           {formGroup.group && <Typography fontWeight={"bold"}>{formGroup.group}</Typography>}
           <Grid container spacing={2}>
             {formGroup.fields.map((field) => {
-              let fieldObj = {...field}
+              const fieldObj = {...field}
               fieldObj.error = formError[fieldObj.name];
               const FieldComponent = { ...FORM_FEILDS, ...overrideComponents }[fieldObj.type];
 
