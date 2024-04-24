@@ -26,6 +26,7 @@ const Input = (props) => {
         setError(false);
         setErrorMessage("");
       }
+      props.onChange(e, e.target.value, props.schemaProps.name);
   };
   const precise = (x) => {
     if(props?.schemaProps?.precision){

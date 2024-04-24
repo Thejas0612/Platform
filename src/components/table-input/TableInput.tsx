@@ -33,6 +33,7 @@ const TableInput = ({data, column = 12, onChange, name }: {
                   <Input
                     schemaProps={cell}
                     size="small"
+                    onChange={handleChange}
                   />
                 ) : cell.type === "SINGLE_SELECT" ? (
                   <SingleSelect
