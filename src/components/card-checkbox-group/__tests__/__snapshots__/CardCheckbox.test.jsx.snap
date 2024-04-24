@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CardCheckbox /> when state is default, then show title, image and checkbox 1`] = `
+exports[`<CardCheckbox /> when state is default, then show title, image, and checkbox 1`] = `
 <div>
   <div
     class="MuiBox-root css-mpnfp0"
