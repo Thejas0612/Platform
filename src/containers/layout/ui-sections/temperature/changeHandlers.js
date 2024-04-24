@@ -1,13 +1,14 @@
-import { updateVariation } from "../../../../redux/reducers/initialBuDataSlice";
+import { updateRightSection } from "../../../../redux/reducers/initialBuDataSlice";
+import { updateFieldByName } from "../schemaMutations";
 
 export const changeHandler = (props) => {
-    const { dispatch, rightSecSchema, name, formData } = props;
+    const { dispatch, name, formData } = props;
+    let { rightSecSchema } = props;
     switch(name) {
         case "measurmenttype": 
             const type = formData[0].fields[0].value;
-            dispatch(updateVariation({rightSection: rightSecSchema, type: type}));
+            rightSecSchema = updateFieldByName('measurmenttype', 0, rightSecSchema, 'value', type);
+            dispatch(updateRightSection(rightSecSchema));
             break;
-        default:
-            console.warn(`changeHandler is not applied for ${name}`);
     }
 }
