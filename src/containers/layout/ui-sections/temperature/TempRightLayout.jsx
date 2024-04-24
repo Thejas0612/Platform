@@ -17,7 +17,7 @@ export default function TempRightLayout() {
   const activeIndex = useSelector((state) => state.initialBuData?.activeIndex);
   const dispatch = useDispatch();
 
-  const onIndexChange = (currentIndex, newIndex) => {
+  const handleIndexChange = (currentIndex, newIndex) => {
     indexChangeHandlers({currentIndex, newIndex, rightSecSchema, leftSecSchema, dispatch});
   }
 
@@ -36,7 +36,7 @@ export default function TempRightLayout() {
             }}
           />
         <div style={{marginTop:"5rem"}}>
-          <ButtonStepperCommon updateSchemaIndex={() => {}} onIndexChange={onIndexChange} stepsCount={rightSecSchema[0].componentProps?.schema?.length}/>
+          <ButtonStepperCommon updateSchemaIndex={() => {}} onIndexChange={handleIndexChange} stepsCount={rightSecSchema[0].componentProps?.schema?.length}/>
         </div>
       </div>
     );

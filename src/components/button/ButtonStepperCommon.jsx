@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ButtonInput } from "@emerson/dynamic-ui-public";
 import { changeActiveIndex } from "../../redux/reducers/initialBuDataSlice";
