@@ -36,7 +36,7 @@ function CustomLayout() {
           value: "",
           options: [],
           required: true,
-          error: "",
+          error: "required",
           errorClass: "",
           placeholder: "Pick One",
           isApiOnEvent: {
@@ -81,7 +81,11 @@ function CustomLayout() {
           error: "",
           errorClass: "",
           display: false,
-          order: 3
+          order: 3,
+          validations: {
+            minValue: 1,
+            maxValue: 100
+          }
         },
         {
           column: 3,
