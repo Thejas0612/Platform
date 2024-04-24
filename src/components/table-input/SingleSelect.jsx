@@ -1,12 +1,12 @@
+import React, { useEffect, useState } from "react";
 import { FormControl, MenuItem, Select } from "@mui/material";
-import { useEffect, useState } from "react";
 import axios from "axios";
 
 const SingleSelect = (props) => {
   const [dropDownData, setDropDownData] = useState(props.schemaProps.options || []);
   const [userValue, setUserValue] = useState("");
 
-  async function fetchOptions(url: string) {
+  async function fetchOptions(url) {
     const response = await axios.get(url);
     return response.data;
   }
@@ -20,7 +20,7 @@ const SingleSelect = (props) => {
     });
   }, []);
 
-  const selectedValue = dropDownData.find((option:any) => option.selected)?.value || ""
+  const selectedValue = dropDownData.find((option) => option.selected)?.value || ""
 
   return (
     <FormControl size={props.size} style={{ minWidth: "7rem" }}>
@@ -37,7 +37,7 @@ const SingleSelect = (props) => {
         disabled={props.schemaProps.disabled}
         value={userValue?.length > 0 ? userValue : selectedValue}
       >
-        {dropDownData && dropDownData.map((option: any) => {
+        {dropDownData && dropDownData.map((option) => {
           return (
             <MenuItem key={option.id}
               value={option.value}>
