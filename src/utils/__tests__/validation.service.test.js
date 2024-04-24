@@ -18,7 +18,7 @@ describe('checkValidations', () => {
     };
     const value = 10;
     const result = checkValidations(field, value);
-    expect(result).toBe('');
+    expect(result).toBeUndefined();
   });
 
   it('should return an empty string when field.type is not "NUMBER_INPUT"', () => {

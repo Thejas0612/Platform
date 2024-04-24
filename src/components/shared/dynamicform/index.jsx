@@ -127,25 +127,26 @@ const MSOLDynamicForm = ({
           {formGroup.group && <Typography fontWeight={"bold"}>{formGroup.group}</Typography>}
           <Grid container spacing={2}>
             {formGroup.fields.map((field) => {
-              field.error = formError[field.name];
-              const FieldComponent = { ...FORM_FEILDS, ...overrideComponents }[field.type];
+              let fieldObj = {...field}
+              fieldObj.error = formError[fieldObj.name];
+              const FieldComponent = { ...FORM_FEILDS, ...overrideComponents }[fieldObj.type];
 
               // CustomButtonGroup onChange event always returns undefined as the name. Now we
               // use the name in the schema.
               // https://dev.azure.com/EmersonAutomationSolutions/AS-MSOL-Digital%20Experience%20Tools/_workitems/edit/1708287/
               function handleChange(e, type, _name, val) {
-                updateFormData(e, type, field.name, val)
+                updateFormData(e, type, fieldObj.name, val)
               }
               function handleBlur(e, type, _name, val) {
-                updateFormData(e, type, field.name, val)
+                updateFormData(e, type, fieldObj.name, val)
               }
               return (
                 <>
-                {field.hide && field.hide === true ? (
+                {fieldObj.hide && fieldObj.hide === true ? (
                                         <></>
                                       ) : (
-                  <Grid item key={field.name} xs={field.column ? field.column : 12}>
-                    {FieldComponent ? <FieldComponent {...field} onChange={handleChange} onBlur={handleBlur} /> : null}
+                  <Grid item key={fieldObj.name} xs={fieldObj.column ? fieldObj.column : 12}>
+                    {FieldComponent ? <FieldComponent {...fieldObj} onChange={handleChange} onBlur={handleBlur} /> : null}
                   </Grid>
                   )}
                 </>
