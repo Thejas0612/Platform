@@ -5,7 +5,7 @@ import lookoutSchema from "./lookoutSchema.json";
 import { findSchemaByBusinessUnitCode } from "../../api/schemaApi";
 import { transformJson } from "../../adapterDataManager/schema/transformJson";
 import { environment } from "../../config/environment";
-
+import dpFlowSchema from "../../schema-service/schema_version_0.0.1.json";
 const initialState = {
   topSection: [],
   leftSection: [],
@@ -21,8 +21,12 @@ const initialState = {
 export const fetchSchema = createAsyncThunk("loadSchema/fetchSchema", async (buType) => {
   // TODO: upload the lookout schema to the backend.
   if (buType.buType === "project_Lookout") {
-    const schemaWithEnvironmentVariables = transformJson(lookoutSchema[0], environment)
+    const schemaWithEnvironmentVariables = transformJson(lookoutSchema[0], environment);
     return isolateSchema(schemaWithEnvironmentVariables, "lookout");
+  }
+
+  if (buType.buType === "dpFlow") {
+    return isolateSchema(dpFlowSchema?.dpFlow);
   }
 
   try {
