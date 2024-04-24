@@ -5,6 +5,9 @@ import {useDispatch, useSelector} from "react-redux";
 jest.mock('react-redux')
 
 const PROPS = {
+    copyRightSectionSchema: [],
+    visibleElements: [],
+    activeIndex: 0,
     schema: {},
     updateValidations: ()=> {},
     data: [],
