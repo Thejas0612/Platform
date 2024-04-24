@@ -49,7 +49,7 @@
                         ]
                      },
                      {
-                        "label":"Transmitter Selection transmitter",
+                        "label":"Transmitter Selection",
                         "enabled":true,
                         "selected":false,
                         "name":"fpa_lh_transmitterSelection",
@@ -68,7 +68,7 @@
                         "html_field_name":"fpa_lh_transmitterSelection"
                      },
                      {
-                        "label":"Results Summary transmitter",
+                        "label":"Results Summary",
                         "enabled":true,
                         "selected":false,
                         "name":"fpa_resultsSummary",

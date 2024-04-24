@@ -2,19 +2,21 @@ import { updateLeftSection, updateRightSection } from "../../../../redux/reducer
 import { updateSchemaWithVariation, getFieldByName, changeStepperIndex } from "../schemaMutations";
 
 export const indexChangeHandlers = (props) => { 
-    const {currentIndex, newIndex, dispatch} = props;
-    let {rightSecSchema, leftSecSchema} = props;
+    const {currentIndex, newIndex, rightSecSchema, leftSecSchema, dispatch} = props;
+    
+    let updatedRightSecSchema = rightSecSchema;
+    let updatedLeftSecSchema = leftSecSchema;
 
     if(currentIndex === 0 && newIndex === 1) {
         const measurmenttype = getFieldByName('measurmenttype', 0, rightSecSchema);
         if (measurmenttype && ["x-well", "transmitter"].includes(measurmenttype.value)) {
-            rightSecSchema = updateSchemaWithVariation(measurmenttype.value, rightSecSchema);
-            leftSecSchema = updateSchemaWithVariation(measurmenttype.value, leftSecSchema);
+            updatedRightSecSchema = updateSchemaWithVariation(measurmenttype.value, rightSecSchema);
+            updatedLeftSecSchema = updateSchemaWithVariation(measurmenttype.value, leftSecSchema);
         }
     }
 
-    leftSecSchema = changeStepperIndex(leftSecSchema, newIndex);
+    updatedLeftSecSchema = changeStepperIndex(updatedLeftSecSchema, newIndex);
 
-    dispatch(updateLeftSection(leftSecSchema));
-    dispatch(updateRightSection(rightSecSchema));
+    dispatch(updateLeftSection(updatedLeftSecSchema));
+    dispatch(updateRightSection(updatedRightSecSchema));
 }
