@@ -180,7 +180,7 @@
                   "labelClass": "camelCase",
                   "title": "Line Size is the diameter of the piping or tubing where the meter will be installed. Knowing line size helps this tool validate that the calculated meter size is correct.",
                   "inputClass": "customRequired",
-                  "dataSourceUrl": "<%= VITE_API_URL %>/api/lookout/line-sizes?measurement-types=Flow"
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/lookout/line-sizes"
                 },
                 {
                   "column": 4,
