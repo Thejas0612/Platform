@@ -78,7 +78,7 @@ steps:
   #       echo Phase 2: Translate
   #       "/home/vsts/HPE_Fortify/HPE_Fortify_SCA_and_Apps/bin/sourceanalyzer" -b $(Build.BuildId) "/home/vsts/work/1/s/**/*" -exclude "**/node_modules/**/*"
   #       echo Phase 3: Scan
-  #       "/home/vsts/HPE_Fortify/HPE_Fortify_SCA_and_Apps/bin/sourceanalyzer" -b $(Build.BuildId) -scan -f "/home/vsts/work/1/s/$(Build.BuildId).fpr"
+  #       "/home/vsts/HPE_Fortify/HPE_Fortify_SCA_and_Apps/bin/sourceanalyzer" -b $(Build.BuildId) -scan -scan-precision 3 -f "/home/vsts/work/1/s/$(Build.BuildId).fpr"
   #       echo Phase 4: Generating report
   #       "/home/vsts/HPE_Fortify/HPE_Fortify_SCA_and_Apps/bin/BIRTReportGenerator" -template "Developer Workbook" -source "/home/vsts/work/1/s/$(Build.BuildId).fpr" -format PDF -output "/home/vsts/work/1/s/FortifyReport.pdf"
   #       echo Phase 5: Uploading Results
