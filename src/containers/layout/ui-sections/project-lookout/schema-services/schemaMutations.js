@@ -1,3 +1,5 @@
+import { FLUID_SOURCE_OPTIONS } from "../constants";
+
 export const updateNavigationStatus = (leftSection, activeIndex) => {
   return [
     {
@@ -22,51 +24,7 @@ export const saveValuesInSchema = (formData, rightSectionSchema, activeIndex) =>
 
             return {
               id: id,
-              fields: fields?.map((element, key) => {
-
-                switch (element?.type) {
-                  case "TILE_THUMBNAIL": {
-                    element.defaultIds = element?.value;
-                    return element
-                  }
-
-                  case "TABLE_INPUT": {
-                    const tempVar = fields[key]?.value;
-                    delete tempVar?.exclude_model;
-                    element.value = { ...element?.value, ...tempVar };
-                    return element;
-                  }
-
-                  case "SINGLE_SELECT": {
-                    if (element.name === "fluidsDatabaseDropdown") {
-                      element.hide = !(
-                        fields.find((source) => source.name === "fluidSource").value === "0"
-                      );
-                      return element;
-                    }
-
-                    return element;
-                  }
-
-                  case "TEXT_INPUT": {
-                    if (element.name === "fluidsDatabaseInput") {
-                      element.hide = !(
-                        fields.find((source) => source.name === "fluidSource").value === "1"
-                      );
-                      return element;
-                    }
-
-                    return element;
-
-                  }
-
-                  default:
-                    return element;
-                }
-
-
-
-              })
+              fields: fields
             };
           } else {
             if (screens.id === 2 && activeIndex === 1) {
@@ -74,10 +32,10 @@ export const saveValuesInSchema = (formData, rightSectionSchema, activeIndex) =>
                 if (elementField.name === "TABLE_INPUT2") {
                   let data;
                   const { fields } = formData[0];
-                  const fluidSource = fields.filter((el) => el.name === "fluidSource");
+                  const fluidSource = fields.filter((el) => el.name === "fluid-source");
                   data = elementField?.data.map((row) => {
                     const currentRow = row.map((formElement) => {
-                      if (fluidSource[0].value === "0") {
+                      if (fluidSource[0].value === FLUID_SOURCE_OPTIONS.DATABASE) {
                         if (formElement.type === "TEXT_INPUT" || formElement.name === "density_options") {
                           return { ...formElement, disabled: true, required: false };
                         } else {

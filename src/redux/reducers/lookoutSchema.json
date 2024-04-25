@@ -180,7 +180,7 @@
                   "labelClass": "camelCase",
                   "title": "Line Size is the diameter of the piping or tubing where the meter will be installed. Knowing line size helps this tool validate that the calculated meter size is correct.",
                   "inputClass": "customRequired",
-                  "dataSourceUrl": "<%= VITE_API_URL %>/api/lookout/line-sizes?measurementTypes=FLOW"
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/lookout/line-sizes"
                 },
                 {
                   "column": 4,
@@ -215,27 +215,27 @@
                   "type": "CUSTOM_BUTTON_GROUP",
                   "column": 12,
                   "label": "Fluid Type",
-                  "name": "fluidtype",
-                  "defaultId": "1",
+                  "name": "fluid-type",
+                  "defaultId": "LIQUID",
                   "data": [
                     {
-                      "id": "1",
+                      "id": "LIQUID",
                       "label": "Liquid"
                     },
                     {
-                      "id": "2",
+                      "id": "GAS",
                       "label": "Gas"
                     },
                     {
-                      "id": "3",
+                      "id": "STEAM",
                       "label": "Steam"
                     },
                     {
-                      "id": "4",
+                      "id": "NATURAL_GAS",
                       "label": "Natural Gas"
                     },
                     {
-                      "id": "5",
+                      "id": "SLURRY",
                       "label": "Slurry"
                     }
                   ],
@@ -244,152 +244,36 @@
                 {
                   "column": 2,
                   "type": "RADIO_INPUT",
-                  "name": "fluidSource",
+                  "name": "fluid-source",
                   "label": "Fluid Source",
                   "labelClass": "app-content-label camelCase",
-                  "value": "0",
+                  "value": "DATABASE",
                   "options": [
                     {
-                      "value": "0",
+                      "value": "DATABASE",
                       "label": "Database"
                     },
                     {
-                      "value": "1",
+                      "value": "CUSTOM",
                       "label": "Custom"
                     }
-                  ],
-                  "error": "",
-                  "errorClass": ""
+                  ]
                 },
                 {
                   "column": 6,
                   "type": "SINGLE_SELECT",
-                  "name": "fluidsDatabaseDropdown",
+                  "name": "fluids-database",
                   "label": "Fluids Database",
                   "labelClass": "app-content-label camelCase",
                   "inputClass": "customRequired",
-                  "value": "",
-                  "hide": false,
-                  "options": [
-                    {
-                      "value": "0",
-                      "label": "1-2-2-TETRAFLUOROETHANE",
-                      "id": "0"
-                    },
-                    {
-                      "value": "1",
-                      "label": "1-2-TRICHLOROETHANE",
-                      "id": "1"
-                    },
-                    {
-                      "value": "2",
-                      "label": "1-2-4-TRICHLOROBENZENE",
-                      "id": "2"
-                    },
-                    {
-                      "value": "3",
-                      "label": "1-2-BUTADIENE",
-                      "id": "3"
-                    },
-                    {
-                      "value": "4",
-                      "label": "1-3-5-TRICHLOROBENZENE",
-                      "id": "4"
-                    },
-                    {
-                      "value": "5",
-                      "label": "1-3-BUTADIENE",
-                      "id": "5"
-                    },
-                    {
-                      "value": "6",
-                      "label": "I-4-DIOXANE",
-                      "id": "6"
-                    },
-                    {
-                      "value": "7",
-                      "label": "I—4-HEXADIENE",
-                      "id": "7"
-                    },
-                    {
-                      "value": "8",
-                      "label": "1-BUTENE",
-                      "id": "8"
-                    },
-                    {
-                      "value": "9",
-                      "label": "1-DECANAL",
-                      "id": "9"
-                    },
-                    {
-                      "value": "10",
-                      "label": "1-DECENE",
-                      "id": "10"
-                    },
-                    {
-                      "value": "11",
-                      "label": "1-DODECANOL",
-                      "id": "11"
-                    },
-                    {
-                      "value": "12",
-                      "label": "1-DODECENE",
-                      "id": "12"
-                    },
-                    {
-                      "value": "12",
-                      "label": "1-HEPTANOL",
-                      "id": "12"
-                    },
-                    {
-                      "value": "13",
-                      "label": "1-HEPTENE",
-                      "id": "13"
-                    },
-                    {
-                      "value": "14",
-                      "label": "1-HEXADECANOL",
-                      "id": "14"
-                    },
-                    {
-                      "value": "15",
-                      "label": "1-HEXENE",
-                      "id": "15"
-                    },
-                    {
-                      "value": "16",
-                      "label": "1-NONANAL",
-                      "id": "16"
-                    },
-                    {
-                      "value": "17",
-                      "label": "1-NONANOL",
-                      "id": "17"
-                    },
-                    {
-                      "value": "18",
-                      "label": "1-OCTANOL",
-                      "id": "18"
-                    },
-                    {
-                      "value": "19",
-                      "label": "1-OCTENE",
-                      "id": "19"
-                    },
-                    {
-                      "value": "20",
-                      "label": "1-PENTADECANOL",
-                      "id": "20"
-                    }
-                  ]
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/fluidsDatabase?fluidType=LIQUID&buCode=project_Lookout"
                 },
                 {
                   "label": "Enter Custom Fluid Name",
                   "labelClass": "app-content-label camelCase",
                   "type": "TEXT_INPUT",
-                  "name": "fluidsDatabaseInput",
+                  "name": "custom-fluid-name",
                   "column": 4,
-                  "value": "",
                   "hide": true
                 }
               ]
