@@ -13,7 +13,7 @@ const TableInput = ({data, column = 12, onChange, name }: {
   function handleChange(e: any, propertyValue: string, propertyName: string): void {
     const value: { [key: string]: string } = {};
     value[propertyName] = propertyValue;
-
+    
     onChange(e, "", name, value);
   }
 

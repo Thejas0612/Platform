@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { DropdownMenuGroup, DropdownMenuGroupProps } from "../DropdownMenuGroup";
+import { DropdownMenuGroup } from "../DropdownMenuGroup";
 
-const PROPS: DropdownMenuGroupProps = {
+const PROPS = {
   dropdowns: [
     {
       id: "OPERATING_TEMPERATURE",
@@ -41,6 +41,7 @@ const PROPS: DropdownMenuGroupProps = {
     OPERATING_TEMPERATURE: []
   }
 };
+
 describe("<DropdownMenuGroup />", () => {
   test("when state is default, then show 2 dropdowns", () => {
     const { container } = render(<DropdownMenuGroup {...PROPS} />);

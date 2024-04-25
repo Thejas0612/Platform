@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { CardCheckbox, CardCheckboxProps } from "../CardCheckbox";
+import { CardCheckbox } from "../CardCheckbox";
 import userEvent from "@testing-library/user-event";
 
-const PROPS: CardCheckboxProps = {
+const PROPS = {
   id: "Test Id",
   name: "Test Name",
   title: "Test Title",
@@ -10,9 +10,8 @@ const PROPS: CardCheckboxProps = {
 };
 
 describe("<CardCheckbox />", () => {
-  test("when state is default, then show title, image and checkbox", () => {
+  test("when state is default, then show title, image, and checkbox", () => {
     const { container } = render(<CardCheckbox {...PROPS} />);
-
     expect(container).toMatchSnapshot();
   });
 
@@ -30,8 +29,7 @@ describe("<CardCheckbox />", () => {
 
   describe("when state is disabled", () => {
     test("then show tooltip", async () => {
-      const props: CardCheckboxProps = { ...PROPS, disabled: true, disabledTooltip: "test disabled tooltip" };
-
+      const props = { ...PROPS, disabled: true, disabledTooltip: "test disabled tooltip" };
       const { container } = render(<CardCheckbox {...props} />);
 
       const image = screen.getByRole("img", { name: /test disabled tooltip/i });
@@ -45,13 +43,7 @@ describe("<CardCheckbox />", () => {
 
     test("then prevent select", async () => {
       const onSelectChange = jest.fn();
-      const props: CardCheckboxProps = {
-        ...PROPS,
-        disabled: true,
-        disabledTooltip: "test disabled tooltip",
-        onSelectChange
-      };
-
+      const props = { ...PROPS, disabled: true, disabledTooltip: "test disabled tooltip", onSelectChange };
       render(<CardCheckbox {...props} />);
 
       const title = screen.getByText("Test Title");
@@ -60,5 +52,4 @@ describe("<CardCheckbox />", () => {
       expect(onSelectChange).not.toHaveBeenCalled();
     });
   });
-
 });
