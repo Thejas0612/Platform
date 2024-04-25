@@ -11,11 +11,13 @@ import tileThumbnail__updateValue__workflowSchema__old
 import tileThumbnail__updateValue__screenSchema__new
   from "../__mocks__/tileThumbnail__updateValue__screenSchema__new.json";
 import tableInput__updateValue__screenSchema__new from "../__mocks__/tableInput__updateValue__screenSchema__new.json";
-import singleSelect__updateValue__screenSchema_new from "../__mocks__/singleSelect__updateValue__screenSchema__new.json";
-import singleSelect__updateValue__workflowSchema_old
-  from "../__mocks__/singleSelect__updateValue__workflowSchema_old.json";
+import singleSelect__updateValue__screenSchema__new from "../__mocks__/singleSelect__updateValue__screenSchema__new.json";
+import singleSelect__updateValue__workflowSchema__old
+  from "../__mocks__/singleSelect__updateValue__workflowSchema__old.json";
 import tableInput__updateValue__workflowSchema__old
   from "../__mocks__/tableInput__updateValue__workflowSchema__old.json";
+import radioInput__updateValue__screenSchema__new from "../__mocks__/radioInput__updateValue__screenSchema__new.json"
+import radioInput__updateValue__workflowSchema__old from "../__mocks__/radioInput__updateValue__workflowSchema__old.json"
 import { schemaBuilder } from "../schemaBuilder";
 import { notNullOrUndefined } from "../../../../../../utils/assert";
 import { TECHNOLOGY_TYPES_OPTIONS } from "../../constants";
@@ -85,14 +87,14 @@ describe("schemaBuilder", () => {
   describe("singleSelect", () => {
     test("when Flow Rate is changed to Gallons(US)/sec, then update Flow Rate label", () => {
       let valueActual = "";
-      const schema = schemaBuilder(singleSelect__updateValue__workflowSchema_old)
+      const schema = schemaBuilder(singleSelect__updateValue__workflowSchema__old)
         .screen(0)
         .singleSelect("flow-rate")
         .onChange((field, value) => {
           valueActual = value;
           field.label = "Flow Rate - UPDATE";
         })
-        .build(0, singleSelect__updateValue__screenSchema_new);
+        .build(0, singleSelect__updateValue__screenSchema__new);
 
       expect(valueActual).toBe("USGPS");
       expect(schema).toMatchSnapshot();
@@ -113,6 +115,24 @@ describe("schemaBuilder", () => {
         .build(0, customButtonGroup__updateValue__screenSchema__new);
 
       expect(valueActual).toBe("2");
+      expect(schema).toMatchSnapshot();
+    });
+  });
+
+  describe("radioSelect", () => {
+    test("when Fluid Source is changed to CUSTOM, then update Fluid Source label.", () => {
+      let valueActual = "";
+      const schema = schemaBuilder(radioInput__updateValue__workflowSchema__old)
+        .screen(0)
+        .radioInput("fluid-source")
+        .onChange((field, value) => {
+          valueActual = value;
+
+          field.label = "Fluid Source - UPDATE"
+        })
+        .build(0, radioInput__updateValue__screenSchema__new);
+
+      expect(valueActual).toBe("DATABASE");
       expect(schema).toMatchSnapshot();
     });
   });

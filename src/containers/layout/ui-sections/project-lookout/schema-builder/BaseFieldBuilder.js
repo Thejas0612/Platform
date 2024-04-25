@@ -67,4 +67,20 @@ export class BaseFieldBuilder {
   singleSelect(name) {
     return this.#screenBuilder.singleSelect(name);
   }
+
+  /**
+   *
+   * @param name
+   */
+  radioInput(name){
+    return this.#screenBuilder.radioInput(name)
+  }
+
+  /**
+   * @param _screenIndex {number}
+   * @param _fieldFinder {FieldFinder}
+   */
+ finalBuild(_screenIndex, _fieldFinder) {
+    throw new Error("Function 'finalBuild()' must be implemented in extend class.");
+  }
 }
