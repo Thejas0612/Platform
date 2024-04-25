@@ -10,6 +10,7 @@ import { createSizing } from "../../../api/createSizing";
 
 export default function TopLayout() {
   const [open, setOpen] = React.useState(false);
+  const [ref_id,setRefId]=React.useState('')
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -20,7 +21,9 @@ export default function TopLayout() {
   };
 
   const saveSizing = async () => {
-    await createSizing();
+   const result = await createSizing();
+   console.log(result)
+   setRefId(result.data.PA_REFERENCE_ID)
     handleClickOpen();
   };
 
@@ -67,7 +70,7 @@ export default function TopLayout() {
             />
             <ButtonInput btnType="secondary" customClass="" label="Clear" onClick={() => {}} />
             <AlertDialog
-              message={"Saved Successfully"}
+              message={`Saved Successfully with Reference Id ${ref_id}`}
               open={open}
               handleClose={handleClose}
               handleClickOpen={handleClickOpen}
