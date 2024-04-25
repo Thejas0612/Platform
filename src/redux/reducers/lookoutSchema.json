@@ -242,7 +242,7 @@
                   "labelClass": "app-content-label camelCase"
                 },
                 {
-                  "hide":true,
+                  "hide": true,
                   "column": 12,
                   "type": "RADIO_INPUT",
                   "name": "saturatedTemperaturePressure",

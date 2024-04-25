@@ -4,7 +4,10 @@ import ButtonStepperCommon from "../../../../components/button/ButtonStepperComm
 import getSchemaForDynamicForm from "../../../../adapterDataManager/schema/getSchema";
 import MSOLDynamicForm from "../../../../components/shared/dynamicform";
 import { saveValuesInSchema, updateNavigationStatus } from "./schema-services/schemaMutations";
-import { updateLeftSection, updateRightSection } from "../../../../redux/reducers/initialBuDataSlice";
+import {
+  updateLeftSection,
+  updateRightSection
+} from "../../../../redux/reducers/initialBuDataSlice";
 import { cloneDeep } from "lodash";
 import { schemaBuilder } from "./schema-builder/schemaBuilder";
 import { notNullOrUndefined } from "../../../../utils/assert";
@@ -37,7 +40,6 @@ export function generateFluidDatabase(fluidType) {
 
   return url.toString();
 }
-
 
 export default function ProjectLookoutRightLayout() {
   const screenIndex = useSelector((state) => state.initialBuData?.activeIndex);
@@ -105,11 +107,11 @@ export default function ProjectLookoutRightLayout() {
           1,
           "saturatedTemperaturePressure"
         );
-        
+
         const fluidSource = fieldFinder.findRadioInput(1, "fluid-source");
         const textInput = fieldFinder.findTextInput(1, "custom-fluid-name");
         const tableInput1 = fieldFinder.findTableInput(2, "TABLE_INPUT1");
-   
+
         if (value === "STEAM") {
           saturatedTemperaturePressure.hide = false;
           fluidSource.hide = true;
@@ -132,20 +134,17 @@ export default function ProjectLookoutRightLayout() {
           tableInput1.data[3][2].disabled = false;
           tableInput1.data[3][2].required = true;
         }
-        
       })
       .radioInput("fluid-source")
       .onChange((_field, value, fieldFinder) => {
-        const fluidsDatabase = fieldFinder.findSingleSelect(1, 'fluids-database')
-        const customFluidName = fieldFinder.findTextInput(1, 'custom-fluid-name')
-        
-        const fluidType = fieldFinder.findCustomButtonGroup(1, "fluid-type")
-        console.log()
-        if(fluidType.value !=='STEAM'){
-          fluidsDatabase.hide = value !== FLUID_SOURCE_OPTIONS.DATABASE
-          customFluidName.hide = value !== FLUID_SOURCE_OPTIONS.CUSTOM
+        const fluidsDatabase = fieldFinder.findSingleSelect(1, "fluids-database");
+        const customFluidName = fieldFinder.findTextInput(1, "custom-fluid-name");
+        const fluidType = fieldFinder.findCustomButtonGroup(1, "fluid-type");
+
+        if (fluidType.value !== "STEAM") {
+          fluidsDatabase.hide = value !== FLUID_SOURCE_OPTIONS.DATABASE;
+          customFluidName.hide = value !== FLUID_SOURCE_OPTIONS.CUSTOM;
         }
-        
       })
       .screen(2)
       .tableInput("TABLE_INPUT2")
