@@ -1,9 +1,13 @@
 import { notNullOrUndefined } from "../../../../../utils/assert";
 import { FIELD_TYPE } from "./FieldType";
+import { keyBy } from "lodash";
 
+/**
+ * @typedef { { [screenIndex: number]: { [fieldName: string]: object } } } ScreenByIndex
+ */
 export class FieldFinder {
   /**
-   * [{screenIndex: number}]: [{fieldName}]: object
+   * @type {ScreenByIndex}
    */
   #screensByIndex;
 
@@ -22,10 +26,15 @@ export class FieldFinder {
     const fieldByName = this.#screensByIndex[screenIndex];
     notNullOrUndefined(fieldByName, `Could not find '${screenIndex}' screen.`);
     const field = fieldByName[fieldName];
-    notNullOrUndefined(field, `Could not find field with '${fieldName}' on '${screenIndex}' screen.`);
+    notNullOrUndefined(
+      field,
+      `Could not find field with '${fieldName}' on '${screenIndex}' screen.`
+    );
 
     if (field.type !== fieldType) {
-      throw new Error(`The field type did not match. Expected '${field.type}' field type but actual field type is '${fieldType}'.`);
+      throw new Error(
+        `The field type did not match. Expected '${field.type}' field type but actual field type is '${fieldType}'.`
+      );
     }
 
     return field;
@@ -36,8 +45,17 @@ export class FieldFinder {
    * @param fieldName {string}
    * @return {*}
    */
-  findLabelText(screenIndex, fieldName){
-    return this.find(screenIndex, FIELD_TYPE.LABEL_TEXT, fieldName)
+  findLabelText(screenIndex, fieldName) {
+    return this.find(screenIndex, FIELD_TYPE.LABEL_TEXT, fieldName);
+  }
+
+  /**
+   * @param screenIndex {number}
+   * @param fieldName {string}
+   * @return {SingleSelect}
+   */
+  findSingleSelect(screenIndex, fieldName) {
+    return this.find(screenIndex, FIELD_TYPE.SINGLE_SELECT, fieldName);
   }
 
   /**
@@ -45,8 +63,8 @@ export class FieldFinder {
    * @param fieldName {string}
    * @return {*}
    */
-  findSingleSelect(screenIndex, fieldName){
-    return this.find(screenIndex, FIELD_TYPE.SINGLE_SELECT, fieldName)
+  findTableInput(screenIndex, fieldName) {
+    return this.find(screenIndex, FIELD_TYPE.TABLE_INPUT, fieldName);
   }
 
   /**
@@ -54,8 +72,8 @@ export class FieldFinder {
    * @param fieldName {string}
    * @return {*}
    */
-  findTableInput(screenIndex, fieldName){
-    return this.find(screenIndex, FIELD_TYPE.TABLE_INPUT, fieldName)
+  findCustomButtonGroup(screenIndex, fieldName) {
+    return this.find(screenIndex, FIELD_TYPE.CUSTOM_BUTTON_GROUP, fieldName);
   }
 
   /**
@@ -63,34 +81,35 @@ export class FieldFinder {
    * @param fieldName {string}
    * @return {*}
    */
-  findTileThumbnail(screenIndex,fieldName){
-    return this.find(screenIndex, FIELD_TYPE.TILE_THUMBNAIL, fieldName)
+  findTileThumbnail(screenIndex, fieldName) {
+    return this.find(screenIndex, FIELD_TYPE.TILE_THUMBNAIL, fieldName);
+  }
+
+  /**
+   * @param screenIndex {number}
+   * @return {*}
+   */
+  findAllByScreen(screenIndex) {
+    return this.#screensByIndex[screenIndex];
   }
 
   /**
    *
    * @param workflowSchema
-   * @return {{screenIndex: number}: {fieldName: string}: object}
+   * @return {ScreenByIndex}
    */
   #hashScreensByIndex(workflowSchema) {
     const screensByIndex = {};
     workflowSchema[0].componentProps.schema.forEach((screenSchema, screenIndex) => {
-      screensByIndex[screenIndex] = this.#hashFieldsBySchema(screenSchema);
+      screensByIndex[screenIndex] = this.#hashFieldsByName(screenSchema);
     });
 
     return screensByIndex;
   }
 
-  /**
-   * @param screenSchema
-   * @return {[{fieldName}]: object}
-   */
-  #hashFieldsBySchema(screenSchema) {
-    const fieldsByName = {};
-    screenSchema.fields.forEach((field) => {
-      fieldsByName[field.name] = field;
+  #hashFieldsByName(screenSchema) {
+    return keyBy(screenSchema.fields, (field) => {
+      return field.name;
     });
-
-    return fieldsByName;
   }
 }

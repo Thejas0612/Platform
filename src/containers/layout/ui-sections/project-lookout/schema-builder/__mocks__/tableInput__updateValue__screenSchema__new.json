@@ -1,0 +1,63 @@
+[
+  {
+    "fields": [
+      {
+        "type": "TABLE_INPUT",
+        "column": 12,
+        "name": "FLUID_PROPERTIES",
+        "value": {
+          "density": "SPECIFIC_GRAVITY"
+        },
+        "data": [
+          [
+            {
+              "type": "TEXT",
+              "label": "",
+              "name": "r1height",
+              "align": "center"
+            },
+            {
+              "type": "TEXT",
+              "label": "Min",
+              "align": "center"
+            },
+            {
+              "type": "TEXT",
+              "label": "Normal",
+              "align": "center"
+            },
+            {
+              "type": "TEXT",
+              "label": "Max",
+              "align": "center"
+            },
+            {
+              "type": "TEXT",
+              "label": "Units",
+              "align": "center"
+            }
+          ],
+          [
+            {
+              "type": "SINGLE_SELECT",
+              "name": "density",
+              "value": "",
+              "disabled": true,
+              "options": [
+                {
+                  "value": "DENSITY",
+                  "label": "Density",
+                  "selected": true
+                },
+                {
+                  "value": "SPECIFIC_GRAVITY",
+                  "label": "Specific Gravity"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

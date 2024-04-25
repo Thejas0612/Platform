@@ -1,13 +1,16 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ButtonStepper from "../../../../components/common/ButtonStepper";
 import { getDynamicFormSchema, updateSchema } from "../../../../schema-service/schemaService";
-import PropTypes from "prop-types";
 import MSOLDynamicForm from "../../../../components/shared/dynamicform";
+import { updateRightSection } from "../../../../redux/reducers/initialBuDataSlice";
+import SCHEMA_CONSTANTS from "../../../../schema-service/dpflowSchemaConstants";
 
-const DpFlowRightLayout = ({ schema, updateFieldsInSchema, updateValidations }) => {
-  const buCode = useSelector((state) => state.initialBuData?.selectedBu);
+export default function DpFlowRightLayout() {
   const activeIndex = useSelector((state) => state.initialBuData?.activeIndex);
-  const data = getDynamicFormSchema(buCode, "DynamicForm", activeIndex, schema);
+  const rightSectionSchema = useSelector((state) => state.initialBuData?.rightSection);
+  const dispatch = useDispatch();
+  const copyRightSectionSchema = structuredClone(rightSectionSchema);
+  const data = getDynamicFormSchema(activeIndex, copyRightSectionSchema);
 
   let invisibleElements = [];
   let visibleElements = { id: data[0]?.id, fields: [] };
@@ -21,19 +24,13 @@ const DpFlowRightLayout = ({ schema, updateFieldsInSchema, updateValidations }) 
     });
 
   const onUpdateSchema = async (e, formObj, formData, name) => {
-    const obj = await updateSchema(
-      e,
-      formObj,
-      formData,
-      name,
-      activeIndex,
-      buCode,
-      invisibleElements
-    );
-    await updateFieldsInSchema(obj);
+    const obj = await updateSchema(e, formObj, formData, name, activeIndex, invisibleElements);
+    copyRightSectionSchema[0][SCHEMA_CONSTANTS.COMP_PROPS][SCHEMA_CONSTANTS.SCHEMA][activeIndex] =
+      obj?.updatedSchema;
+    dispatch(updateRightSection(copyRightSectionSchema));
   };
 
-  if (visibleElements.fields?.length > 0) {
+  if (visibleElements?.fields?.length > 0) {
     return (
       <div>
         <MSOLDynamicForm
@@ -42,27 +39,13 @@ const DpFlowRightLayout = ({ schema, updateFieldsInSchema, updateValidations }) 
         />
         <div>
           <ButtonStepper
-            data={data}
-            schema={schema[buCode]}
-            updateValidations={updateValidations}
-            buCode={buCode}
+            copyRightSectionSchema={copyRightSectionSchema}
+            visibleElements={[...visibleElements.fields, ...invisibleElements]}
+            activeIndex={activeIndex}
           />
         </div>
       </div>
     );
   }
   return <></>;
-};
-
-DpFlowRightLayout.propTypes = {
-  schema: PropTypes.object.isRequired,
-  updateFieldsInSchema: PropTypes.func,
-  updateValidations: PropTypes.func
-};
-
-DpFlowRightLayout.defaultProps = {
-  updateFieldsInSchema: () => {},
-  updateValidations: () => {}
-};
-
-export default DpFlowRightLayout;
+}

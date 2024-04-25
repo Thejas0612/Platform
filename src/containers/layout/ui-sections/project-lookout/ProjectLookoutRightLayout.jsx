@@ -4,13 +4,30 @@ import ButtonStepperCommon from "../../../../components/button/ButtonStepperComm
 import getSchemaForDynamicForm from "../../../../adapterDataManager/schema/getSchema";
 import MSOLDynamicForm from "../../../../components/shared/dynamicform";
 import { saveValuesInSchema, updateNavigationStatus } from "./schema-services/schemaMutations";
-import { updateLeftSection, updateRightSection } from "../../../../redux/reducers/initialBuDataSlice";
+import {
+  updateLeftSection,
+  updateRightSection
+} from "../../../../redux/reducers/initialBuDataSlice";
 import { cloneDeep } from "lodash";
 import { schemaBuilder } from "./schema-builder/schemaBuilder";
 import { notNullOrUndefined } from "../../../../utils/assert";
 import { TECHNOLOGY_TYPES_OPTIONS } from "./constants";
+import { environment } from "../../../../config/environment";
 
 const DISABLE_TOOLTIP = "There are no products that measure both Flow and Viscosity.";
+
+/**
+ * @param measurementTypes {string[]}
+ * @return {string}
+ */
+export function generateLineSizeUrl(measurementTypes) {
+  const url = new URL("/api/lookout/line-sizes", environment.VITE_API_URL);
+  measurementTypes.forEach((measurementType) => {
+    url.searchParams.append("measurementTypes", measurementType);
+  });
+
+  return url.toString();
+}
 
 export default function ProjectLookoutRightLayout() {
   const screenIndex = useSelector((state) => state.initialBuData?.activeIndex);
@@ -23,7 +40,10 @@ export default function ProjectLookoutRightLayout() {
     return <></>;
   }
 
-  const screenSchema = getSchemaForDynamicForm(screenIndex, rightSectionSchema[0].componentProps.schema);
+  const screenSchema = getSchemaForDynamicForm(
+    screenIndex,
+    rightSectionSchema[0].componentProps.schema
+  );
   const screenSchemaCopy = cloneDeep(screenSchema);
 
   const handleSchemaIndexChange = (screenIndexNew) => {
@@ -32,16 +52,22 @@ export default function ProjectLookoutRightLayout() {
   };
 
   const handleChange = (_event, _type, newScreenSchemas, _name, _isValid) => {
-    const rightSectionSchemaNew1 = saveValuesInSchema(newScreenSchemas, rightSectionSchema, screenIndex);
+    const rightSectionSchemaNew1 = saveValuesInSchema(
+      newScreenSchemas,
+      rightSectionSchema,
+      screenIndex
+    );
 
     const rightSectionSchemaNew2 = schemaBuilder(rightSectionSchemaNew1)
       .screen(0)
       .tileThumbnail("measurement-type")
-      .onChange((field, value) => {
-        const flowOption = field.data?.find(_ => _.id === TECHNOLOGY_TYPES_OPTIONS.FLOW_ID);
+      .onChange((field, value, fieldFinder) => {
+        const flowOption = field.data?.find((_) => _.id === TECHNOLOGY_TYPES_OPTIONS.FLOW_ID);
         notNullOrUndefined(flowOption, "Could not find flowOption.");
 
-        const viscosityOption = field.data?.find(_ => _.id === TECHNOLOGY_TYPES_OPTIONS.VISCOSITY_ID);
+        const viscosityOption = field.data?.find(
+          (_) => _.id === TECHNOLOGY_TYPES_OPTIONS.VISCOSITY_ID
+        );
         notNullOrUndefined(viscosityOption, "Could not find viscosityOption.");
 
         const isFlowSelected = value.includes(TECHNOLOGY_TYPES_OPTIONS.FLOW_ID);
@@ -55,7 +81,12 @@ export default function ProjectLookoutRightLayout() {
 
         viscosityOption.disabled = isViscosityDisabled;
         viscosityOption.tooltip = isViscosityDisabled ? DISABLE_TOOLTIP : undefined;
+
+        const lineSize = fieldFinder.findSingleSelect(1, "line-size");
+        lineSize.dataSourceUrl = generateLineSizeUrl(value);
       })
+      .screen(1)
+      .customButtonGroup("fluidtype")
       .screen(2)
       .tableInput("TABLE_INPUT2")
       .onChange((field, value) => {
@@ -77,62 +108,64 @@ export default function ProjectLookoutRightLayout() {
           };
           field.data[1][4] = {};
         } else {
-          field.data[1][1] = {
-            type: "TEXT_INPUT",
-            name: "density_min",
-            disabled: false,
-            align: "center",
-            precision: 4,
-            min: 0.0001,
-            minError: "Entered Minimum Density is below or equal to 0"
-          };
-          field.data[1][2] = {
-            type: "TEXT_INPUT",
-            name: "density_norm",
-            inputClass: "customRequired",
-            disabled: false,
-            required: true,
-            align: "center",
-            precision: 4,
-            min: 0.0001,
-            minError: "Entered Normal Density is below or equal to 0"
-          };
-          field.data[1][3] = {
-            type: "TEXT_INPUT",
-            name: "density_max",
-            disabled: false,
-            align: "center",
-            precision: 4,
-            min: 0.0001,
-            minError: "Entered Maximum Density is below or equal to 0"
-          };
-          field.data[1][4] = {
-            type: "SINGLE_SELECT",
-            name: "density_unit",
-            value: "Meter",
-            disabled: false,
-            align: "center",
-            inputClass: "unitClass",
-            options: [
-              {
-                value: "kg/m3",
-                label: "kg/m3"
-              },
-              {
-                value: "g/cm3",
-                label: "g/cm3",
-                selected: true
-              },
-              {
-                value: "lb/ft3",
-                label: "lb/ft3"
-              },
-              {
-                value: "lb/gallon(US)",
-                label: "lb/gallon(US)"
-              }
-            ]
-          };
+          if (field.data[1][0].disabled == false) {
+            field.data[1][1] = {
+              type: "TEXT_INPUT",
+              name: "density_min",
+              disabled: false,
+              align: "center",
+              precision: 4,
+              min: 0.0001,
+              minError: "Entered Minimum Density is below or equal to 0"
+            };
+            field.data[1][2] = {
+              type: "TEXT_INPUT",
+              name: "density_norm",
+              inputClass: "customRequired",
+              disabled: false,
+              required: true,
+              align: "center",
+              precision: 4,
+              min: 0.0001,
+              minError: "Entered Normal Density is below or equal to 0"
+            };
+            field.data[1][3] = {
+              type: "TEXT_INPUT",
+              name: "density_max",
+              disabled: false,
+              align: "center",
+              precision: 4,
+              min: 0.0001,
+              minError: "Entered Maximum Density is below or equal to 0"
+            };
+            field.data[1][4] = {
+              type: "SINGLE_SELECT",
+              name: "density_unit",
+              value: "Meter",
+              disabled: false,
+              align: "center",
+              inputClass: "unitClass",
+              options: [
+                {
+                  value: "kg/m3",
+                  label: "kg/m3"
+                },
+                {
+                  value: "g/cm3",
+                  label: "g/cm3",
+                  selected: true
+                },
+                {
+                  value: "lb/ft3",
+                  label: "lb/ft3"
+                },
+                {
+                  value: "lb/gallon(US)",
+                  label: "lb/gallon(US)"
+                }
+              ]
+            };
+          }
         }
       })
       .build(screenIndex, newScreenSchemas);
@@ -142,11 +175,8 @@ export default function ProjectLookoutRightLayout() {
 
   return (
     <>
-      <MSOLDynamicForm
-        schema={screenSchemaCopy}
-        handleChange={handleChange}
-      />
+      <MSOLDynamicForm schema={screenSchemaCopy} handleChange={handleChange} />
       <ButtonStepperCommon updateSchemaIndex={handleSchemaIndexChange} />
     </>
   );
-};
+}

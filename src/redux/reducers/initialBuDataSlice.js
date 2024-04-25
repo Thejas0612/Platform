@@ -5,7 +5,7 @@ import lookoutSchema from "./lookoutSchema.json";
 import { findSchemaByBusinessUnitCode } from "../../api/schemaApi";
 import { transformJson } from "../../adapterDataManager/schema/transformJson";
 import { environment } from "../../config/environment";
-
+import dpFlowSchema from "../../schema-service/schema_version_0.0.1.json";
 const initialState = {
   topSection: [],
   leftSection: [],
@@ -21,8 +21,12 @@ const initialState = {
 export const fetchSchema = createAsyncThunk("loadSchema/fetchSchema", async (buType) => {
   // TODO: upload the lookout schema to the backend.
   if (buType.buType === "project_Lookout") {
-    const schemaWithEnvironmentVariables = transformJson(lookoutSchema[0], environment)
+    const schemaWithEnvironmentVariables = transformJson(lookoutSchema[0], environment);
     return isolateSchema(schemaWithEnvironmentVariables, "lookout");
+  }
+
+  if (buType.buType === "dpFlow") {
+    return isolateSchema(dpFlowSchema?.dpFlow);
   }
 
   try {
@@ -62,34 +66,6 @@ const initialBuSchema = createSlice({
     updateRightSection: (state, action) => {
       state.rightSection = action.payload;
     },
-    updateVariation: (state, action) => {
-      const { type, rightSection } = action.payload;
-
-      const updatedRightSection = rightSection.map((section) => {
-        const variations = section.componentProps.schema_variations[type] || [];
-        const schemaIds = section.componentProps.schema.map((item) => item.id);
-        const newSchema = [...section.componentProps.schema];
-
-        variations.forEach((variation) => {
-          const index = schemaIds.indexOf(variation.id);
-          if (index !== -1) {
-            newSchema[index] = variation;
-          } else {
-            newSchema.push(variation);
-          }
-        });
-
-        return {
-          ...section,
-          componentProps: {
-            ...section.componentProps,
-            schema: newSchema
-          }
-        };
-      });
-
-      state.rightSection = updatedRightSection;
-    }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchSchema.pending, (state) => {
@@ -117,6 +93,5 @@ export const {
   updateBu,
   updateLeftSection,
   updateRightSection,
-  updateVariation
 } = initialBuSchema.actions;
 export default initialBuSchema.reducer;

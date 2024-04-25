@@ -32,12 +32,12 @@ export class WorkflowBuilder {
   }
 
   /**
-   * @param screenIndex {index}
+   * @param screenIndex {number}
    * @param newScreenSchemas {object}
    * returns {object}
    */
   finalBuild(screenIndex, newScreenSchemas) {
-    if (newScreenSchemas == null || newScreenSchemas[0] == null) {
+    if (newScreenSchemas?.[0] == null) {
       throw new Error(`newScreenSchemas[${screenIndex}] not found.`);
     }
 

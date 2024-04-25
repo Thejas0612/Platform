@@ -1,78 +1,34 @@
-export const schemaValidations = (activeIndex, field, schema) => {
+import DP_FLOW_CONSTANTS from "../containers/layout/ui-sections/dpflow/constants/dpFlowConstants";
+import SCHEMA_CONSTANTS from "./dpflowSchemaConstants";
+
+/* This function is used to validate screenFields and update the error property based on required and value property */
+export const schemaValidations = (screenFields, activeIndex, copyRightSectionSchema) => {
+  const updatedScreenField = { id: activeIndex, fields: [] };
+
+  if (!screenFields || screenFields?.length === 0) return updatedScreenField;
   let isError = false;
-  field[0]?.fields?.forEach((itm) => {
-    if (itm?.required && itm?.value?.length === 0) {
+  updatedScreenField[SCHEMA_CONSTANTS.FIELDS] = screenFields?.map((field) => {
+    if (field?.required && field?.value?.length === 0) {
       isError = true;
-      return;
-    }
+      return { ...field, error: field?.display === true ? " " : "" };
+    } else return field;
   });
-  let update_schema;
-  if (isError) {
-    update_schema = {
-      uiComponents: schema?.uiComponents?.map((itm) => {
-        if (itm?.componentName === "DynamicForm") {
-          return {
-            ...itm,
-            componentProps: {
-              schema: itm?.componentProps?.schema.map((field) => {
-                if (field.id === activeIndex) {
-                  return {
-                    ...field,
-                    fields: field.fields?.map((itm) => {
-                      if (itm?.value?.length === 0) {
-                        return { ...itm, error: " " };
-                      } else return itm;
-                    })
-                  };
-                } else return field;
-              })
-            }
-          };
-        } else return itm;
-      })
-    };
-    return { update_schema, isError };
-  }
-  update_schema = {
-    uiComponents: schema?.uiComponents?.map((itm) => {
-      if (itm?.componentName === "NavigationMenu") {
-        return {
-          ...itm,
-          componentProps: {
-            schema: itm?.componentProps?.schema.map((field) => {
-              if (field.ne_id === activeIndex + 1) {
-                return {
-                  ...field,
-                  selected: true
-                };
-              } else return { ...field, selected: false };
-            })
-          }
-        };
-      } else return itm;
-    })
-  };
-  return { update_schema, isError };
+
+  copyRightSectionSchema[0][SCHEMA_CONSTANTS.COMP_PROPS][SCHEMA_CONSTANTS.SCHEMA][activeIndex] =
+    updatedScreenField;
+  return { copyRightSectionSchema, isError };
 };
 
-export const changeAccordionStatus = (schema, activeIndex) => {
-  return {
-    uiComponents: schema?.uiComponents?.map((itm) => {
-      if (itm?.componentName === "NavigationMenu") {
-        return {
-          ...itm,
-          componentProps: {
-            schema: itm?.componentProps?.schema.map((field) => {
-              if (field.ne_id === activeIndex - 1) {
-                return {
-                  ...field,
-                  selected: true
-                };
-              } else return { ...field, selected: false };
-            })
-          }
-        };
-      } else return itm;
-    })
-  };
+/* This function is used to update the selected status of fields in a schema based on the active index  */
+export const changeAccordionStatus = (leftSectionSchemaCopy, activeIndex, btnType) => {
+  if (!leftSectionSchemaCopy || leftSectionSchemaCopy?.length === 0) return [];
+
+  const updatedNavSchema = leftSectionSchemaCopy[0].componentProps.schema.map((field) => ({
+    ...field,
+    selected:
+      field.ne_id === (btnType === DP_FLOW_CONSTANTS.BTN_NEXT ? activeIndex + 1 : activeIndex - 1)
+  }));
+
+  leftSectionSchemaCopy[0][SCHEMA_CONSTANTS.COMP_PROPS][SCHEMA_CONSTANTS.SCHEMA] = updatedNavSchema;
+  return leftSectionSchemaCopy;
 };

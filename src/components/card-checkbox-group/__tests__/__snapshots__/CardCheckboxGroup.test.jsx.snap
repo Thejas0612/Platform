@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CardCheckboxGroup /> when 2 options are selected, then 2 checked checkboxes 1`] = `
+exports[`<CardCheckboxGroup /> when 2 options are selected, then show 2 checked checkboxes 1`] = `
 <div>
   <div
     class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
@@ -630,7 +630,7 @@ exports[`<CardCheckboxGroup /> when Magnetic selected, then check Magnetic and f
 </div>
 `;
 
-exports[`<CardCheckboxGroup /> when state is default, then 3 show checkbox 1`] = `
+exports[`<CardCheckboxGroup /> when state is default, then show 3 checkboxes 1`] = `
 <div>
   <div
     class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"

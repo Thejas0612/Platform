@@ -167,34 +167,20 @@
               "fields": [
                 {
                   "column": 12,
-                  "label": "LABEL_TEXT",
-                  "labelClass": "app-content-label",
-                  "name": "LABEL_TEXT",
-                  "showLabel": false,
-                  "subText": "",
-                  "tableClass": "",
+                  "name": "process-piping",
                   "text": "Process Piping",
                   "textClass": "ddl-typography--h5",
-                  "title": "this is title",
-                  "type": "LABEL_TEXT",
-                  "textStyles": {
-                    "textAlign": "start"
-                  }
+                  "type": "LABEL_TEXT"
                 },
                 {
                   "column": 4,
                   "type": "SINGLE_SELECT",
-                  "name": "nominalpipesize",
-                  "showLabel": true,
+                  "name": "line-size",
                   "label": "Line Size",
                   "labelClass": "camelCase",
                   "title": "Line Size is the diameter of the piping or tubing where the meter will be installed. Knowing line size helps this tool validate that the calculated meter size is correct.",
-                  "disabled": false,
-                  "value": "",
                   "inputClass": "customRequired",
-                  "error": "",
-                  "errorClass": "",
-                  "dataSourceUrl": "<%= VITE_API_URL %>/api/lookout/line_sizes?measurement_type=Flow"
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/lookout/line-sizes?measurementTypes=FLOW"
                 },
                 {
                   "column": 4,
@@ -876,7 +862,9 @@
                         "name": "process_temp_min",
                         "disabled": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "min": -273.15,
+                        "minError": "Entered Minimum Temperature is below -273.15 C"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -884,14 +872,19 @@
                         "inputClass": "customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "min": -273.15,
+                        "required": true,
+                        "minError": "Entered Normal Temperature is below -273.15 C"
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "process_temp_max",
                         "disabled": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "min": -273.15,
+                        "minError": "Entered Maximum Temperature is below -273.15 C"
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -900,28 +893,7 @@
                         "inputClass": "unitClass",
                         "disabled": false,
                         "align": "right",
-                        "options": [
-                          {
-                            "id": 1,
-                            "value": "C",
-                            "label": "C"
-                          },
-                          {
-                            "id": 2,
-                            "value": "F",
-                            "label": "F"
-                          },
-                          {
-                            "id": 3,
-                            "value": "K",
-                            "label": "K"
-                          },
-                          {
-                            "id": 4,
-                            "value": "R",
-                            "label": "R"
-                          }
-                        ]
+                        "dataSourceUrl": "https://mocki.io/v1/1af64ea6-bca4-42de-ba57-e88d7cb1ed17"
                       }
                     ],
                     [
@@ -935,7 +907,9 @@
                         "name": "amb_temp_min",
                         "disabled": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "min": -273.15,
+                        "minError": "Entered Minimum Ambient Temperature is below -273.15 C"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -943,14 +917,19 @@
                         "inputClass": "customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "min": -273.15,
+                        "required": true,
+                        "minError": "Entered Normal Ambient Temperature is below -273.15 C"
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "amb_temp_max",
                         "disabled": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "min": -273.15,
+                        "minError": "Entered Maximum Ambient Temperature is below -273.15 C"
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -959,28 +938,7 @@
                         "inputClass": "unitClass",
                         "disabled": false,
                         "align": "right",
-                        "options": [
-                          {
-                            "id": 1,
-                            "value": "C",
-                            "label": "C"
-                          },
-                          {
-                            "id": 2,
-                            "value": "F",
-                            "label": "F"
-                          },
-                          {
-                            "id": 3,
-                            "value": "K",
-                            "label": "K"
-                          },
-                          {
-                            "id": 4,
-                            "value": "R",
-                            "label": "R"
-                          }
-                        ]
+                        "dataSourceUrl": "https://mocki.io/v1/1af64ea6-bca4-42de-ba57-e88d7cb1ed17"
                       }
                     ]
                   ]
