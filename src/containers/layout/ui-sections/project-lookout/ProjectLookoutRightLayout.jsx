@@ -102,7 +102,7 @@ export default function ProjectLookoutRightLayout() {
       .onChange((_field, value, fieldFinder) => {
         const fluidsDatabase = fieldFinder.findSingleSelect(1, "fluids-database");
         fluidsDatabase.dataSourceUrl = generateFluidDatabase(value);
-        _field.defaultId = value !== undefined ? value : "1";
+        _field.defaultId = value !== undefined ? value : "LIQUID";
         const saturatedTemperaturePressure = fieldFinder.findRadioInput(
           1,
           "saturatedTemperaturePressure"
