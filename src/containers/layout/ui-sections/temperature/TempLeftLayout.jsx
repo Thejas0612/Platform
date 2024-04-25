@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import NavigationMenu from "../../../../components/navigation-menu/NavigationMenu";
 import { changeActiveIndex, updateLeftSection } from "../../../../redux/reducers/initialBuDataSlice";
 import { changeStepperIndex } from "../schemaMutations";
-export default function TempLeftLayout() {
+export default function TempLeftLayout({onIndexChange}) {
   const leftSection = useSelector((state) => state.initialBuData?.leftSection);
   const activeIndex = useSelector((state) => state.initialBuData?.activeIndex);
   const dispatch = useDispatch();
@@ -11,6 +11,7 @@ export default function TempLeftLayout() {
     if(menu.step_order < activeIndex) {
       const leftSchema = changeStepperIndex(leftSection, menu.step_order);
       dispatch(updateLeftSection(leftSchema));
+      onIndexChange(activeIndex, menu.step_order)
       dispatch(changeActiveIndex(menu.step_order));
     }
   }
