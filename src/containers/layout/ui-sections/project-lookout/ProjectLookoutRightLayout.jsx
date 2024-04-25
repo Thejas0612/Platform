@@ -100,13 +100,52 @@ export default function ProjectLookoutRightLayout() {
       .onChange((_field, value, fieldFinder) => {
         const fluidsDatabase = fieldFinder.findSingleSelect(1, "fluids-database");
         fluidsDatabase.dataSourceUrl = generateFluidDatabase(value);
+        _field.defaultId = value !== undefined ? value : "1";
+        const saturatedTemperaturePressure = fieldFinder.findRadioInput(
+          1,
+          "saturatedTemperaturePressure"
+        );
+        
+        const fluidSource = fieldFinder.findRadioInput(1, "fluid-source");
+        const textInput = fieldFinder.findTextInput(1, "custom-fluid-name");
+        const tableInput1 = fieldFinder.findTableInput(2, "TABLE_INPUT1");
+   
+        if (value === "STEAM") {
+          saturatedTemperaturePressure.hide = false;
+          fluidSource.hide = true;
+          fluidsDatabase.hide = true;
+          textInput.hide = true;
+
+          tableInput1.data[2][2].disabled =
+            saturatedTemperaturePressure.value === "saturated-temperature" ? true : false;
+          tableInput1.data[2][2].required =
+            saturatedTemperaturePressure.value === "saturated-temperature" ? false : true;
+          tableInput1.data[3][2].disabled =
+            saturatedTemperaturePressure.value === "saturated-pressure" ? true : false;
+          tableInput1.data[3][2].required =
+            saturatedTemperaturePressure.value === "saturated-pressure" ? false : true;
+        } else {
+          fluidSource.hide = false;
+          saturatedTemperaturePressure.hide = true;
+          tableInput1.data[2][2].disabled = false;
+          tableInput1.data[2][2].required = true;
+          tableInput1.data[3][2].disabled = false;
+          tableInput1.data[3][2].required = true;
+        }
+        
       })
       .radioInput("fluid-source")
       .onChange((_field, value, fieldFinder) => {
         const fluidsDatabase = fieldFinder.findSingleSelect(1, 'fluids-database')
         const customFluidName = fieldFinder.findTextInput(1, 'custom-fluid-name')
-        fluidsDatabase.hide = value !== FLUID_SOURCE_OPTIONS.DATABASE
-        customFluidName.hide = value !== FLUID_SOURCE_OPTIONS.CUSTOM
+        
+        const fluidType = fieldFinder.findCustomButtonGroup(1, "fluid-type")
+        console.log()
+        if(fluidType.value !=='STEAM'){
+          fluidsDatabase.hide = value !== FLUID_SOURCE_OPTIONS.DATABASE
+          customFluidName.hide = value !== FLUID_SOURCE_OPTIONS.CUSTOM
+        }
+        
       })
       .screen(2)
       .tableInput("TABLE_INPUT2")
@@ -191,7 +230,6 @@ export default function ProjectLookoutRightLayout() {
       })
       .build(screenIndex, newScreenSchemas);
 
-    debugger;
     dispatch(updateRightSection(rightSectionSchemaNew2));
   };
 
