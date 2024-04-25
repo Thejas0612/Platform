@@ -3,20 +3,20 @@
     color: var(--ddl-color--primary-black);
     cursor: pointer;
     padding: 0.7rem 0;
-    width: 80%;
+    width: 85%;
+    display: grid;
+    align-items: center;
     
     &:hover {
         border-bottom: 1.5px solid var(--ddl-color--primary-emerson-green-dark);
         color: var(--ddl-color--primary-emerson-green-dark);
         transition: width .1s;
-        width: 80%;
     }
     
     &.selected {
         border-bottom: 1.5px solid var(--ddl-color--primary-emerson-green);
         color: var(--ddl-color--primary-emerson-green);
         transition: width .1s;
-        width: 80%;
         font-weight: bolder;
     }
     
@@ -31,5 +31,8 @@
         color: var(--ddl-color--primary-emerson-green);
         left: 0.3rem;
         transition: width .1s;
+    }
+    @media (max-width: 768px){
+        width: 100;
     }
 }
