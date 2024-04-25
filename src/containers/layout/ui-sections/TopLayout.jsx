@@ -22,7 +22,6 @@ export default function TopLayout() {
 
   const saveSizing = async () => {
    const result = await createSizing();
-   console.log(result)
    setRefId(result.data.PA_REFERENCE_ID)
     handleClickOpen();
   };
