@@ -4,27 +4,13 @@ import { TableInputBuilder } from "./TableInputBuilder";
 import { CustomButtonGroupBuilder } from "./CustomButtonGroupBuilder";
 import { FieldFinder } from "./FieldFinder";
 import { cloneDeep } from "lodash";
+import { RadioInputFieldBuilder } from "./RadioInputFieldBuilder";
 
 export class ScreenBuilder {
   /**
-   * @type {TileThumbnailFieldBuilder[]}
+   * @type {BaseFieldBuilder[]}
    */
-  #tileThumbnailBuilders = [];
-
-  /**
-   * @type {SingleSelectFieldBuilder[]}
-   */
-  #singleSelectBuilders = [];
-
-  /**
-   * @type {CustomButtonGroupBuilder[]}
-   */
-  #customButtonGroupBuilders = [];
-
-  /**
-   * @type {TableInputBuilder[]}
-   */
-  #tableInputBuilders = [];
+  #fieldBuilders = [];
 
   /**
    * @type {WorkflowBuilder}
@@ -53,7 +39,7 @@ export class ScreenBuilder {
    */
   tileThumbnail(name) {
     const tileThumbnailBuilder = new TileThumbnailFieldBuilder(name, this.#workflowBuilder, this);
-    this.#tileThumbnailBuilders.push(tileThumbnailBuilder);
+    this.#fieldBuilders.push(tileThumbnailBuilder);
     return tileThumbnailBuilder;
   }
 
@@ -64,7 +50,7 @@ export class ScreenBuilder {
    */
   customButtonGroup(name) {
     const customButtonGroupBuilder = new CustomButtonGroupBuilder(name, this.#workflowBuilder, this);
-    this.#customButtonGroupBuilders.push(customButtonGroupBuilder);
+    this.#fieldBuilders.push(customButtonGroupBuilder);
     return customButtonGroupBuilder;
   }
 
@@ -75,7 +61,7 @@ export class ScreenBuilder {
    */
   tableInput(name) {
     const tableInputBuilder = new TableInputBuilder(name, this.#workflowBuilder, this);
-    this.#tableInputBuilders.push(tableInputBuilder);
+    this.#fieldBuilders.push(tableInputBuilder);
     return tableInputBuilder;
   }
 
@@ -86,8 +72,19 @@ export class ScreenBuilder {
    */
   singleSelect(name) {
     const singleSelectBuilder = new SingleSelectFieldBuilder(name, this.#workflowBuilder, this);
-    this.#singleSelectBuilders.push(singleSelectBuilder);
+    this.#fieldBuilders.push(singleSelectBuilder);
     return singleSelectBuilder;
+  }
+
+  /**
+   *
+   * @param name {string}
+   * @return {SingleSelectFieldBuilder}
+   */
+  radioInput(name){
+    const radioInputFieldBuilder = new RadioInputFieldBuilder(name, this.#workflowBuilder, this);
+    this.#fieldBuilders.push(radioInputFieldBuilder);
+    return radioInputFieldBuilder;
   }
 
   /**
@@ -109,20 +106,8 @@ export class ScreenBuilder {
     schemaWorkflow[0].componentProps.schema[this.#screenIndex] = cloneDeep(screenSchemaNew);
     const newFieldFinder = new FieldFinder(schemaWorkflow);
 
-    this.#tileThumbnailBuilders.forEach((tileThumbnailBuilder) => {
-      tileThumbnailBuilder.finalBuild(this.#screenIndex, newFieldFinder);
-    });
-
-    this.#customButtonGroupBuilders.forEach((customButtonGroupBuilder) => {
-      customButtonGroupBuilder.finalBuild(this.#screenIndex, newFieldFinder);
-    });
-
-    this.#singleSelectBuilders.forEach((singleSelectBuilder) => {
-      singleSelectBuilder.finalBuild(this.#screenIndex, newFieldFinder);
-    });
-
-    this.#tableInputBuilders.forEach((tableInputBuilder) => {
-      tableInputBuilder.finalBuild(this.#screenIndex, newFieldFinder);
+    this.#fieldBuilders.forEach((fieldBuilder) => {
+      fieldBuilder.finalBuild(this.#screenIndex, newFieldFinder);
     });
   }
 }

@@ -22,38 +22,6 @@ export const changeStepperIndex = (leftSection, step) => {
 };
 
 /**
- * Updates the schema of a section with variations based on the given type.
- * 
- * @param {string} type - The type of variation to apply.
- * @param {object[]} section - The section containing the schema to update.
- * @returns {object[]} - The updated section with the modified schema.
- */
-export const updateSchemaWithVariation = (type, section) => {
-  const schema = section[0].componentProps.schema.filter(item => !item.is_variation); // Filter out existing variations
-  const variations = section[0].componentProps.schema_variations[type] || [];
-  const schemaIds = schema.map((item) => section[0].componentName === "NavigationMenu" ? item.ne_id : item.id);
-
-  variations.forEach((variation) => {
-    const updatedVariation  = { ...variation, is_variation: true, variation_type: type };
-    const index = schemaIds.indexOf(section[0].componentName === "NavigationMenu" ? variation.ne_id : variation.id);
-    if (index !== -1) {
-      schema[index] = updatedVariation ;
-    } else {
-      schema.push(updatedVariation );
-    }
-  });
-
-
-  return [{
-    ...section[0],
-    componentProps: {
-      ...section[0].componentProps,
-      schema: schema
-    }
-  }];
-}
-
-/**
  * Update a specific field within the schema by its name, screen ID, and property name.
  * 
  * @param {string} fieldName - The name of the field to update.
@@ -104,4 +72,50 @@ export const getFieldByName = (fieldName, screenId, schema) => {
   }
 
   return null;
+};
+
+/**
+ * Updates the schema of a section with variations based on the given type.
+ * 
+ * @param {string} type - The type of variation to apply.
+ * @param {object[]} section - The section containing the schema to update. schema can be left or right.
+ * @returns {object[]} - The updated section with the modified schema.
+ */
+export const updateSchemaWithVariation = (type, section) => {
+  const schema = section[0].componentProps.schema.filter(item => !item.is_variation); // Filter out existing variations
+  const variations = section[0].componentProps.schema_variations[type] || [];
+  const schemaIds = schema.map((item) => section[0].componentName === "NavigationMenu" ? item.ne_id : item.id);
+
+  variations.forEach((variation) => {
+    const updatedVariation  = { ...variation, is_variation: true, variation_type: type };
+    const index = schemaIds.indexOf(section[0].componentName === "NavigationMenu" ? variation.ne_id : variation.id);
+    if (index !== -1) {
+      schema[index] = updatedVariation ;
+    } else {
+      schema.push(updatedVariation );
+    }
+  });
+
+  return [{
+    ...section[0],
+    componentProps: {
+      ...section[0].componentProps,
+      schema: schema
+    }
+  }];
+}
+
+/**
+ * Removes variations from the schema.
+ * @param {Array} schema - The schema to remove variations from. All screens with 'is_variation' are removed.
+ * @returns {Array} - The schema without variations.
+ */
+export const removeVariationsFromSchema = (schema) => {
+  return schema.map((item) => ({
+      ...item,
+      componentProps: {
+          ...item.componentProps,
+          schema: item.componentProps.schema.filter((field) => !field.is_variation)
+      }
+  }));
 };
