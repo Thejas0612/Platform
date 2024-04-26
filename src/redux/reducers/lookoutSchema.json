@@ -242,6 +242,29 @@
                   "labelClass": "app-content-label camelCase"
                 },
                 {
+                  "hide": true,
+                  "column": 12,
+                  "type": "RADIO_INPUT",
+                  "name": "saturatedTemperaturePressure",
+                  "value": "superheated",
+                  "options": [
+                    {
+                      "value": "superheated",
+                      "label": "Superheated: Pressure and Temperature must be specified"
+                    },
+                    {
+                      "value": "saturated-temperature",
+                      "label": "Based on Saturated Temperature"
+                    },
+                    {
+                      "value": "saturated-pressure",
+                      "label": "Based on Saturated Pressure"
+                    }
+                  ],
+                  "error": "",
+                  "errorClass": ""
+                },
+                {
                   "column": 2,
                   "type": "RADIO_INPUT",
                   "name": "fluid-source",
@@ -747,8 +770,8 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "min": -273.15,
-                        "minError": "Entered Minimum Temperature is below -273.15 C"
+                        "min": -459.67,
+                        "minError": "Entered Minimum Temperature is below -459.67 F"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -757,9 +780,9 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "min": -273.15,
+                        "min": -459.67,
                         "required": true,
-                        "minError": "Entered Normal Temperature is below -273.15 C"
+                        "minError": "Entered Normal Temperature is below -459.67 F"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -767,8 +790,8 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "min": -273.15,
-                        "minError": "Entered Maximum Temperature is below -273.15 C"
+                        "min": -459.67,
+                        "minError": "Entered Maximum Temperature is below -459.67 F"
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -792,8 +815,8 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "min": -273.15,
-                        "minError": "Entered Minimum Ambient Temperature is below -273.15 C"
+                        "min": -459.67,
+                        "minError": "Entered Minimum Ambient Temperature is below -459.67 F"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -802,9 +825,9 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "min": -273.15,
+                        "min": -459.67,
                         "required": true,
-                        "minError": "Entered Normal Ambient Temperature is below -273.15 C"
+                        "minError": "Entered Normal Ambient Temperature is below -459.67 F"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -812,8 +835,8 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "min": -273.15,
-                        "minError": "Entered Maximum Ambient Temperature is below -273.15 C"
+                        "min": -459.67,
+                        "minError": "Entered Maximum Ambient Temperature is below -459.67 F"
                       },
                       {
                         "type": "SINGLE_SELECT",
