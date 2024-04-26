@@ -1,7 +1,7 @@
-import { CardCheckboxGroup, CardCheckboxGroupProps } from "../CardCheckboxGroup";
+import { CardCheckboxGroup } from "../CardCheckboxGroup";
 import { fireEvent, render, screen } from "@testing-library/react";
 
-const PROPS: CardCheckboxGroupProps = {
+const PROPS = {
   comparedIds: [],
   data: [
     { id: "CORIOLIS", name: "coriolis", title: "Coriolis", imageUrl: "https://placehold.co/150x150" },
@@ -16,21 +16,18 @@ const PROPS: CardCheckboxGroupProps = {
 };
 
 describe("<CardCheckboxGroup />", () => {
-  test("when state is default, then 3 show checkbox", () => {
+  test("when state is default, then show 3 checkboxes", () => {
     const { container } = render(<CardCheckboxGroup {...PROPS} />);
-
     expect(container).toMatchSnapshot();
   });
 
-  test("when 2 options are selected, then 2 checked checkboxes", () => {
+  test("when 2 options are selected, then show 2 checked checkboxes", () => {
     const { container } = render(<CardCheckboxGroup {...PROPS} comparedIds={["1", "3"]} />);
-
     expect(container).toMatchSnapshot();
   });
 
   test("when state is error, then show error message.", () => {
     const { container } = render(<CardCheckboxGroup {...PROPS} error="test error" />);
-
     expect(container).toMatchSnapshot();
   });
 

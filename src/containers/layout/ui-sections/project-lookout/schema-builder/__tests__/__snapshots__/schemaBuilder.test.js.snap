@@ -33,6 +33,38 @@ exports[`schemaBuilder customButtonGroup when Fluid Type is changed to Gas, then
 ]
 `;
 
+exports[`schemaBuilder radioSelect when Fluid Source is changed to CUSTOM, then update Fluid Source label. 1`] = `
+[
+  {
+    "componentProps": {
+      "schema": [
+        {
+          "fields": [
+            {
+              "label": "Fluid Source - UPDATE",
+              "labelClass": "app-content-label camelCase",
+              "name": "fluid-source",
+              "options": [
+                {
+                  "label": "Database",
+                  "value": "DATABASE",
+                },
+                {
+                  "label": "Custom",
+                  "value": "CUSTOM",
+                },
+              ],
+              "type": "RADIO_INPUT",
+              "value": "DATABASE",
+            },
+          ],
+        },
+      ],
+    },
+  },
+]
+`;
+
 exports[`schemaBuilder singleSelect when Flow Rate is changed to Gallons(US)/sec, then update Flow Rate label 1`] = `
 [
   {

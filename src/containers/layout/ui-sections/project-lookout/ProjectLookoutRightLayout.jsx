@@ -11,7 +11,7 @@ import {
 import { cloneDeep } from "lodash";
 import { schemaBuilder } from "./schema-builder/schemaBuilder";
 import { notNullOrUndefined } from "../../../../utils/assert";
-import { TECHNOLOGY_TYPES_OPTIONS } from "./constants";
+import { FLUID_SOURCE_OPTIONS, TECHNOLOGY_TYPES_OPTIONS } from "./constants";
 import { environment } from "../../../../config/environment";
 
 const DISABLE_TOOLTIP = "There are no products that measure both Flow and Viscosity.";
@@ -25,6 +25,18 @@ export function generateLineSizeUrl(measurementTypes) {
   measurementTypes.forEach((measurementType) => {
     url.searchParams.append("measurementTypes", measurementType);
   });
+
+  return url.toString();
+}
+
+/**
+ * @param fluidType {string}
+ * @return {string}
+ */
+export function generateFluidDatabase(fluidType) {
+  const url = new URL("/api/processcondition/fluidsDatabase", environment.VITE_API_URL);
+  url.searchParams.set("fluidType", fluidType);
+  url.searchParams.set("buCode", "project_Lookout");
 
   return url.toString();
 }
@@ -86,7 +98,54 @@ export default function ProjectLookoutRightLayout() {
         lineSize.dataSourceUrl = generateLineSizeUrl(value);
       })
       .screen(1)
-      .customButtonGroup("fluidtype")
+      .customButtonGroup("fluid-type")
+      .onChange((_field, value, fieldFinder) => {
+        const fluidsDatabase = fieldFinder.findSingleSelect(1, "fluids-database");
+        fluidsDatabase.dataSourceUrl = generateFluidDatabase(value);
+        _field.defaultId = value !== undefined ? value : "LIQUID";
+        const saturatedTemperaturePressure = fieldFinder.findRadioInput(
+          1,
+          "saturatedTemperaturePressure"
+        );
+
+        const fluidSource = fieldFinder.findRadioInput(1, "fluid-source");
+        const textInput = fieldFinder.findTextInput(1, "custom-fluid-name");
+        const tableInput1 = fieldFinder.findTableInput(2, "TABLE_INPUT1");
+
+        if (value === "STEAM") {
+          saturatedTemperaturePressure.hide = false;
+          fluidSource.hide = true;
+          fluidsDatabase.hide = true;
+          textInput.hide = true;
+
+          tableInput1.data[2][2].disabled =
+            saturatedTemperaturePressure.value === "saturated-temperature" ? true : false;
+          tableInput1.data[2][2].required =
+            saturatedTemperaturePressure.value === "saturated-temperature" ? false : true;
+          tableInput1.data[3][2].disabled =
+            saturatedTemperaturePressure.value === "saturated-pressure" ? true : false;
+          tableInput1.data[3][2].required =
+            saturatedTemperaturePressure.value === "saturated-pressure" ? false : true;
+        } else {
+          fluidSource.hide = false;
+          saturatedTemperaturePressure.hide = true;
+          tableInput1.data[2][2].disabled = false;
+          tableInput1.data[2][2].required = true;
+          tableInput1.data[3][2].disabled = false;
+          tableInput1.data[3][2].required = true;
+        }
+      })
+      .radioInput("fluid-source")
+      .onChange((_field, value, fieldFinder) => {
+        const fluidsDatabase = fieldFinder.findSingleSelect(1, "fluids-database");
+        const customFluidName = fieldFinder.findTextInput(1, "custom-fluid-name");
+        const fluidType = fieldFinder.findCustomButtonGroup(1, "fluid-type");
+
+        if (fluidType.value !== "STEAM") {
+          fluidsDatabase.hide = value !== FLUID_SOURCE_OPTIONS.DATABASE;
+          customFluidName.hide = value !== FLUID_SOURCE_OPTIONS.CUSTOM;
+        }
+      })
       .screen(2)
       .tableInput("TABLE_INPUT2")
       .onChange((field, value) => {
@@ -108,62 +167,64 @@ export default function ProjectLookoutRightLayout() {
           };
           field.data[1][4] = {};
         } else {
-          field.data[1][1] = {
-            type: "TEXT_INPUT",
-            name: "density_min",
-            disabled: false,
-            align: "center",
-            precision: 4,
-            min: 0.0001,
-            minError: "Entered Minimum Density is below or equal to 0"
-          };
-          field.data[1][2] = {
-            type: "TEXT_INPUT",
-            name: "density_norm",
-            inputClass: "customRequired",
-            disabled: false,
-            required: true,
-            align: "center",
-            precision: 4,
-            min: 0.0001,
-            minError: "Entered Normal Density is below or equal to 0"
-          };
-          field.data[1][3] = {
-            type: "TEXT_INPUT",
-            name: "density_max",
-            disabled: false,
-            align: "center",
-            precision: 4,
-            min: 0.0001,
-            minError: "Entered Maximum Density is below or equal to 0"
-          };
-          field.data[1][4] = {
-            type: "SINGLE_SELECT",
-            name: "density_unit",
-            value: "Meter",
-            disabled: false,
-            align: "center",
-            inputClass: "unitClass",
-            options: [
-              {
-                value: "kg/m3",
-                label: "kg/m3"
-              },
-              {
-                value: "g/cm3",
-                label: "g/cm3",
-                selected: true
-              },
-              {
-                value: "lb/ft3",
-                label: "lb/ft3"
-              },
-              {
-                value: "lb/gallon(US)",
-                label: "lb/gallon(US)"
-              }
-            ]
-          };
+          if (field.data[1][0].disabled == false) {
+            field.data[1][1] = {
+              type: "TEXT_INPUT",
+              name: "density_min",
+              disabled: false,
+              align: "center",
+              precision: 4,
+              min: 0.0001,
+              minError: "Entered Minimum Density is below or equal to 0"
+            };
+            field.data[1][2] = {
+              type: "TEXT_INPUT",
+              name: "density_norm",
+              inputClass: "customRequired",
+              disabled: false,
+              required: true,
+              align: "center",
+              precision: 4,
+              min: 0.0001,
+              minError: "Entered Normal Density is below or equal to 0"
+            };
+            field.data[1][3] = {
+              type: "TEXT_INPUT",
+              name: "density_max",
+              disabled: false,
+              align: "center",
+              precision: 4,
+              min: 0.0001,
+              minError: "Entered Maximum Density is below or equal to 0"
+            };
+            field.data[1][4] = {
+              type: "SINGLE_SELECT",
+              name: "density_unit",
+              value: "Meter",
+              disabled: false,
+              align: "center",
+              inputClass: "unitClass",
+              options: [
+                {
+                  value: "kg/m3",
+                  label: "kg/m3"
+                },
+                {
+                  value: "g/cm3",
+                  label: "g/cm3",
+                  selected: true
+                },
+                {
+                  value: "lb/ft3",
+                  label: "lb/ft3"
+                },
+                {
+                  value: "lb/gallon(US)",
+                  label: "lb/gallon(US)"
+                }
+              ]
+            };
+          }
         }
       })
       .build(screenIndex, newScreenSchemas);

@@ -5,13 +5,15 @@ import MSOLDynamicForm from "../../../../components/shared/dynamicform";
 import TableInput from "../../../../components/table-input/TableInput";
 import { changeHandler } from "./changeHandlers";
 import HorizontalLine from "../../../../components/horizonatal-line/HorizontalLine";
+import { indexChangeHandlers } from "./indexChangeHandlers";
 const overrideComponents = {
   "TABLE_INPUT": TableInput,
   "HORIZONTAL_LINE": HorizontalLine
 };
 
-export default function TempRightLayout({changeIndex}) {
+export default function TempRightLayout({onIndexChange}) {
   const rightSecSchema = useSelector((state) => state.initialBuData?.rightSection);
+  const leftSecSchema = useSelector((state) => state.initialBuData?.leftSection);
   const activeIndex = useSelector((state) => state.initialBuData?.activeIndex);
   const dispatch = useDispatch();
 
@@ -26,11 +28,11 @@ export default function TempRightLayout({changeIndex}) {
             schema={activeIndexCopy}
             overrideComponents={overrideComponents}
             handleChange={(e, formObj, formData, name, isValid) => {
-              changeHandler({dispatch, rightSecSchema, e, formObj, formData, name, isValid});
+              changeHandler({dispatch, rightSecSchema, leftSecSchema, e, formObj, formData, name, isValid});
             }}
           />
         <div style={{marginTop:"5rem"}}>
-          <ButtonStepperCommon   updateSchemaIndex={changeIndex} stepsCount={rightSecSchema[0].componentProps?.schema?.length}/>
+          <ButtonStepperCommon updateSchemaIndex={() => {}} onIndexChange={onIndexChange} stepsCount={rightSecSchema[0].componentProps?.schema?.length}/>
         </div>
       </div>
     );
