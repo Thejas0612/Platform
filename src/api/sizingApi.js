@@ -1,9 +1,14 @@
 import axios from "axios";
 import { environment } from "../config/environment";
 
-const BASE_URL = `${environment.VITE_API_URL}/api/sizing`;
+const SIZING_URL = `${environment.VITE_API_URL}/api/sizing`;
 
-export const createSizing = async () => {
+const getSizing = async (data) => {
+  const response = await axios.get(`${SIZING_URL}?sizingData=${JSON.stringify(data)}`);
+  return response.data;
+};
+
+const createSizing = async () => {
   // As of now harcoding after ui data is saving in redux we will add dynamically
   const data = {
     PA_REFERENCE_ID: "",
@@ -145,6 +150,10 @@ export const createSizing = async () => {
     DP_RANGE: "RANGE_4"
   };
 
-  const response = await axios.post(BASE_URL, data);
+  const response = await axios.post(SIZING_URL, data);
   return response.data;
+};
+export default {
+  getSizing,
+  createSizing
 };

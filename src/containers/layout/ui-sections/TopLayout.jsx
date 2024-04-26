@@ -1,16 +1,12 @@
 import React from "react";
-import {
-  ButtonInput,
-  CustomTop,
-  LabelText
-} from "@emerson/dynamic-ui-public";
+import { ButtonInput, CustomTop, LabelText } from "@emerson/dynamic-ui-public";
 import AlertDialog from "../../../components/dialog/AlertDialog";
 import "./TopLayout.css";
-import { createSizing } from "../../../api/createSizing";
+import { createSizing } from "../../../api/sizingApi";
 
 export default function TopLayout() {
   const [open, setOpen] = React.useState(false);
-  const [ref_id,setRefId]=React.useState('')
+  const [refId, setRefId] = React.useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -21,8 +17,8 @@ export default function TopLayout() {
   };
 
   const saveSizing = async () => {
-   const result = await createSizing();
-   setRefId(result.data.PA_REFERENCE_ID)
+    const result = await createSizing();
+    setRefId(result.data.PA_REFERENCE_ID);
     handleClickOpen();
   };
 
@@ -69,7 +65,7 @@ export default function TopLayout() {
             />
             <ButtonInput btnType="secondary" customClass="" label="Clear" onClick={() => {}} />
             <AlertDialog
-              message={`Saved Successfully with Reference Id ${ref_id}`}
+              message={`Saved Successfully with Reference Id ${refId}`}
               open={open}
               handleClose={handleClose}
               handleClickOpen={handleClickOpen}
