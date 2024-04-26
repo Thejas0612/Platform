@@ -615,7 +615,9 @@
                         "name": "line_pressure_min",
                         "disabled": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "min": -14.696,
+                        "minError": "Entered Minimum Pressure is below full vacuum, -14.696 psig"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -623,14 +625,19 @@
                         "inputClass": "customRequired",
                         "disabled": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "required":true,
+                        "min": -14.696,
+                        "minError": "Entered Normal Pressure is below full vacuum, -14.696 psig"
                       },
                       {
                         "type": "TEXT_INPUT",
                         "name": "line_pressure_max",
                         "disabled": false,
                         "align": "center",
-                        "precision": 4
+                        "precision": 4,
+                        "min": -14.696,
+                        "minError": "Entered Maximum Pressure is below full vacuum, -14.696 psig"
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -639,123 +646,7 @@
                         "inputClass": "unitClass",
                         "disabled": false,
                         "align": "right",
-                        "options": [
-                          {
-                            "id": 1,
-                            "value": "ATM_A",
-                            "label": "atm-a"
-                          },
-                          {
-                            "id": 2,
-                            "value": "ATM_G",
-                            "label": "atm-g"
-                          },
-                          {
-                            "id": 3,
-                            "value": "BAR_A",
-                            "label": "bar-a"
-                          },
-                          {
-                            "id": 4,
-                            "value": "BAR_G",
-                            "label": "bar-g"
-                          },
-                          {
-                            "id": 5,
-                            "value": "FTH2O@68F_G",
-                            "label": "ftH2O@68F-g"
-                          },
-                          {
-                            "id": 6,
-                            "value": "INH2O@60F_G",
-                            "label": "inH2O@60F-g"
-                          },
-                          {
-                            "id": 7,
-                            "value": "INH2O@68F_G",
-                            "label": "inH2O@68F-g"
-                          },
-                          {
-                            "id": 8,
-                            "value": "KG/CM2_A",
-                            "label": "kg/cm2-a"
-                          },
-                          {
-                            "id": 9,
-                            "value": "KG/CM2_G",
-                            "label": "kg/cm2-g"
-                          },
-                          {
-                            "id": 10,
-                            "value": "KPA_A",
-                            "label": "kPa-a"
-                          },
-                          {
-                            "id": 11,
-                            "value": "KPA_G",
-                            "label": "kPa-g"
-                          },
-                          {
-                            "id": 12,
-                            "value": "MBAR_A",
-                            "label": "mbar-a"
-                          },
-                          {
-                            "id": 13,
-                            "value": "MBAR_G",
-                            "label": "mbar-g"
-                          },
-                          {
-                            "id": 14,
-                            "value": "MMH2O@4C_G",
-                            "label": "mmH2O@4C-g"
-                          },
-                          {
-                            "id": 15,
-                            "value": "MMH2O@68F_G",
-                            "label": "mmH2O@68F-g"
-                          },
-                          {
-                            "id": 16,
-                            "value": "MMH2O_G",
-                            "label": "mmH2O-g"
-                          },
-                          {
-                            "id": 17,
-                            "value": "MMHG@0C_A",
-                            "label": "mmHg@0C-a"
-                          },
-                          {
-                            "id": 18,
-                            "value": "MPA_A",
-                            "label": "MPa-a"
-                          },
-                          {
-                            "id": 19,
-                            "value": "MPA_G",
-                            "label": "MPa-g"
-                          },
-                          {
-                            "id": 20,
-                            "value": "PA_A",
-                            "label": "Pa-a"
-                          },
-                          {
-                            "id": 21,
-                            "value": "PA_G",
-                            "label": "Pa-g"
-                          },
-                          {
-                            "id": 22,
-                            "value": "PSIA",
-                            "label": "psia"
-                          },
-                          {
-                            "id": 23,
-                            "value": "PSIG",
-                            "label": "psig"
-                          }
-                        ]
+                        "dataSourceUrl":"https://mocki.io/v1/95664f22-7551-41d0-b170-c6ce9951c3bc"
                       }
                     ],
                     [
