@@ -230,6 +230,7 @@
                 {
                   "type": "CUSTOM_BUTTON_GROUP",
                   "column": 12,
+                  "size": "large",
                   "title": "Fluid Type",
                   "label": "Fluid Type",
                   "name": "fluidtype",
@@ -257,10 +258,10 @@
                   ],
                   "defaultId": "fluid_type_liquid",
                   "showLabel": true,
-                  "wrapperId": "",
+                  "wrapperId": "fluid_type_gas",
                   "wrapperClass": "cutsom_class",
                   "labelClass": "ddl-from-custom-label camelCase",
-                  "value": "0",
+                  "value": "fluid_type_liquid",
                   "required": true,
                   "display": true,
                   "order": 6
@@ -325,6 +326,22 @@
                 },
                 {
                   "column": 4,
+                  "type": "SINGLE_SELECT",
+                  "name": "fluid_database_dropdown_naturalgas",
+                  "label": "Fluids Database",
+                  "labelClass": "app-content-label camelCase",
+                  "value": "",
+                  "options": [],
+                  "required": true,
+                  "error": "",
+                  "errorClass": "",
+                  "placeholder": "Pick One",
+                  "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID",
+                  "display": false,
+                  "order": 10
+                },
+                {
+                  "column": 3,
                   "type": "TEXT_INPUT",
                   "name": "natural_gas__name",
                   "label": "Natural Gas Name",
@@ -335,8 +352,38 @@
                   "errorClass": "",
                   "placeholder": "Enter Text",
                   "display": false,
-                  "order": 10,
+                  "order": 11,
                   "maxLength": 40
+                },
+                {
+                  "column": 4,
+                  "type": "BUTTON",
+                  "labelClass": "app-content-label mt-2",
+                  "label": "PICK FROM DATABASE",
+                  "required": false,
+                  "display": false,
+                  "btnType": "primary",
+                  "order": 12,
+                  "name": "pick_from_database",
+                  "customClass": "pick_from_database_btn",
+                  "showIcon": false
+                },
+                {
+                  "column": 8,
+                  "type": "SINGLE_SELECT",
+                  "name": "composition_method_dropdown_naturalgas",
+                  "label": "Natural Gas Composition Method",
+                  "labelClass": "app-content-label camelCase",
+                  "value": "",
+                  "options": [],
+                  "required": true,
+                  "error": "",
+                  "errorClass": "",
+                  "placeholder": "Pick One",
+                  "display": false,
+                  "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=NATURAL_GAS",
+                  "order": 13,
+                  "wrapperClass": "composition_method_dropdown_naturalgas"
                 },
                 {
                   "column": 12,
@@ -350,7 +397,7 @@
                   "type": "BUTTON",
                   "value": "",
                   "display": true,
-                  "order": 11,
+                  "order": 14,
                   "name": "additional_options_label"
                 },
                 {
@@ -375,7 +422,7 @@
                   "showAlert": false,
                   "type": "CHECKBOX_INPUT",
                   "display": true,
-                  "order": 12
+                  "order": 15
                 }
               ]
             },
