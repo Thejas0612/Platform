@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
-import { NavigationMenu } from "../../../../components/dynamic-ui/uiComponentsConfig";
+import { NavigationMenu } from "@emerson/dynamic-ui-public";
+
 export default function ProjectLookoutLeftLayout() {
   const leftNavData = useSelector((state) => state.initialBuData?.leftSection);
   if (leftNavData?.length > 0) {
@@ -8,8 +9,10 @@ export default function ProjectLookoutLeftLayout() {
       <NavigationMenu
         data={componentProps?.schema}
         label="hello LeftNavigation"
-        onDelete={() => {}}
-        onSelect={function noRefCheck() {}}
+        onDelete={() => {
+        }}
+        onSelect={function noRefCheck() {
+        }}
       />
     );
   }

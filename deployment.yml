@@ -1,9 +1,16 @@
 apiVersion: v1
 kind: Namespace
 metadata:
+  name: ##APP_NAME##-ns
+  labels:
     name: ##APP_NAME##-ns
-    labels:
-        name: ##APP_NAME##-ns
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: ##APP_NAME##-sa
+  namespace: ##APP_NAME##-ns
+
 ---
 apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
 kind: SecretProviderClass
@@ -13,15 +20,15 @@ metadata:
 spec:
   provider: azure
   secretObjects:
-  - secretName: ingress-tls-csi
-    type: kubernetes.io/tls
-    data:
-    - objectName: "##CERT_NAME##"
-      key: tls.key
-    - objectName: "##CERT_NAME##"
-      key: tls.crt
+    - secretName: ingress-tls-csi
+      type: kubernetes.io/tls
+      data:
+        - objectName: "##CERT_NAME##"
+          key: tls.key
+        - objectName: "##CERT_NAME##"
+          key: tls.crt
   parameters:
-#    usePodIdentity: "false"
+    #    usePodIdentity: "false"
     useVMManagedIdentity: "true"
     userAssignedIdentityID: "##CLIENT_ID##"
     keyvaultName: "##AKV_NAME##"
@@ -31,32 +38,33 @@ spec:
           objectName: ##CERT_NAME##
           objectType: secret
     tenantId: "##TENANT_ID##"
+
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ##APP_NAME##-deployment
+  name: ##APP_NAME##-ui-deployment
   namespace: ##APP_NAME##-ns
 spec:
   selector:
     matchLabels:
-      app: ##APP_NAME##
+      app: ##APP_NAME##-ui
   replicas: ##REPLICA_COUNT##
   template:
     metadata:
       labels:
-        app: ##APP_NAME##
+        app: ##APP_NAME##-ui
     spec:
       containers:
-      - name: ##APP_NAME##
-        image: ##ACR_ID##.azurecr.io/##imageName##:##BuildId##
-        volumeMounts:
-          - name: secrets-store-inline
-            mountPath: "/mnt/secrets-store"
-            readOnly: true
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 5000
+        - name: ##APP_NAME##-ui
+          image: ##ACR_ID##.azurecr.io/##imageName##:##BuildId##
+          volumeMounts:
+            - name: secrets-store-inline
+              mountPath: "/mnt/secrets-store"
+              readOnly: true
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
       volumes:
         - name: secrets-store-inline
           csi:
@@ -65,46 +73,127 @@ spec:
             volumeAttributes:
               secretProviderClass: "azure-secret"
       imagePullSecrets:
-      - name: ##acr-secret-name##
+        - name: ##acr-secret-name##
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: ##APP_NAME##-service
+  name: ##APP_NAME##-ui-service
   namespace: ##APP_NAME##-ns
 spec:
-#  type: LoadBalancer
   ports:
-  - name: http
-    port: 80
-    protocol: TCP
-    targetPort: 5000
-  - name: https
-    port: 443
-    protocol: TCP
-    targetPort: 5000
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 3000
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 3000
   selector:
-    app: ##APP_NAME##
+    app: ##APP_NAME##-ui
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ##APP_NAME##-ingress
+  name: ##APP_NAME##-ingress-ui
   namespace: ##APP_NAME##-ns
+  annotations:
+    #kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/error-pages: "400=/ui/error"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-next-upstream-timeout: "300"
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST"
+    nginx.ingress.kubernetes.io/cors-allow-headers: "Content-Type"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "##CORS_URL##"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect-code: "301"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "false"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/secure-backends: "true"
+    nginx.ingress.kubernetes.io/hsts: "max-age=31536000; includeSubDomains; preload"
+    nginx.ingress.kubernetes.io/frame-options: "DENY"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      if ($request_method = OPTIONS) {
+        return 403;
+      }
+      more_set_headers "X-Content-Type-Options: nosniff";
+      more_set_headers "X-XSS-Protection: 1; mode=block";
+      more_set_headers "cache-control: no-store, no-cache, must-revalidate, max-age=0";
+      more_set_headers "Strict-Transport-Security: max-age=31536000; preload";
+      more_set_headers "X-Frame-Options: DENY";
+      more_set_headers "Content-Security-Policy: frame-ancestors 'none'; object-src 'none'; frame-src 'self';";
+      proxy_hide_header X-Powered-By;
 spec:
+  ingressClassName: nginx
   tls:
-  - hosts:
-    - "##HOST_NAME##"
-    secretName: ingress-tls-csi
+    - hosts:
+        - "##HOST_NAME##"
+      secretName: ingress-tls-csi
   rules:
-  - host: "##HOST_NAME##"
-    http:
-#  - http:
-      paths:
-      - path: /api/
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: ##APP_NAME##-service
-            port:
-              number: 80
+    - host: "##HOST_NAME##"
+      http:
+        paths:
+          - path: /ui/.*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: ##APP_NAME##-ui-service
+                port:
+                  number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ##APP_NAME##-ingress-ui-static
+  namespace: ##APP_NAME##-ns
+  annotations:
+    #kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-next-upstream-timeout: "300"
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST"
+    nginx.ingress.kubernetes.io/cors-allow-headers: "Content-Type"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "##CORS_URL##"
+    nginx.ingress.kubernetes.io/rewrite-target: /static/$1
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect-code: "301"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "false"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/secure-backends: "true"
+    nginx.ingress.kubernetes.io/hsts: "max-age=31536000; includeSubDomains; preload"
+    nginx.ingress.kubernetes.io/frame-options: "DENY"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      if ($request_method = OPTIONS) {
+        return 403;
+      }
+      more_set_headers "X-Content-Type-Options: nosniff";
+      more_set_headers "X-XSS-Protection: 1; mode=block";
+      more_set_headers "cache-control: no-store, no-cache, must-revalidate, max-age=0";
+      more_set_headers "Strict-Transport-Security: max-age=31536000; preload";
+      more_set_headers "X-Frame-Options: DENY";
+      more_set_headers "Content-Security-Policy: frame-ancestors 'none'; object-src 'none'; frame-src 'self';";
+      proxy_hide_header X-Powered-By;
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - "##HOST_NAME##"
+      secretName: ingress-tls-csi
+  rules:
+    - host: "##HOST_NAME##"
+      http:
+        paths:
+          - path: /static/.*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: ##APP_NAME##-ui-service
+                port:
+                  number: 80

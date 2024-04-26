@@ -85,7 +85,6 @@ function CustomLayout() {
           display: false,
           order: 3,
           validations: {
-            required: true,
             minValue: 1,
             maxValue: 100
           }

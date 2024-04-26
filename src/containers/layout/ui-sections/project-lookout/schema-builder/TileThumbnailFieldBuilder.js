@@ -1,12 +1,12 @@
 /**
  * @typedef {import( "../../../../../components/shared/msol-tile-or-thumbnail/MsolTileOrThumbnail").MsolTileOrThumbnailProps} MsolTileOrThumbnailProps
+ * @typedef {import( "./FieldFinder").FieldFinder} FieldFinder
  */
+import { BaseFieldBuilder } from "./BaseFieldBuilder";
 
-const TILE_THUMBNAIL_TYPE = "TILE_THUMBNAIL";
-
-export class TileThumbnailFieldBuilder {
+export class TileThumbnailFieldBuilder extends BaseFieldBuilder {
   /**
-   * @type { (fieldProps: MsolTileOrThumbnailProps, value: string[]) => void}
+   * @type { (fieldProps: MsolTileOrThumbnailProps, value: string[], fieldFinder: FieldFinder) => void}
    */
   #onChangeHandler;
 
@@ -16,18 +16,15 @@ export class TileThumbnailFieldBuilder {
   #fieldName;
 
   /**
-   * @type {WorkflowBuilder}
-   */
-  #workflowBuilder;
-
-  /**
    *
    * @param fieldName {string}
    * @param workflowBuilder {WorkflowBuilder}
+   * @param screenBuilder {ScreenBuilder}
    */
-  constructor(fieldName, workflowBuilder) {
+  constructor(fieldName, workflowBuilder, screenBuilder) {
+    super(workflowBuilder, screenBuilder)
+
     this.#fieldName = fieldName;
-    this.#workflowBuilder = workflowBuilder;
   }
 
   /**
@@ -36,7 +33,7 @@ export class TileThumbnailFieldBuilder {
    * @return {TileThumbnailFieldBuilder}
    */
   onChange(onChangeHandler) {
-    if (this.onChangeHandler != null) {
+    if (this.#onChangeHandler != null) {
       throw new Error("The 'onChange' function was called 2 or more times.");
     }
 
@@ -46,35 +43,12 @@ export class TileThumbnailFieldBuilder {
 
   /**
    * @param screenIndex {number}
-   * @return {ScreenBuilder}
+   * @param fieldFinder {FieldFinder}
    */
-  screen(screenIndex) {
-    return this.#workflowBuilder.screen(screenIndex);
-  }
-
-  /**
-   * @param screenIndex {index}
-   * @param newScreenSchema {object}
-   * @return {object}
-   */
-  build(screenIndex, newScreenSchema) {
-    return this.#workflowBuilder.finalBuild(screenIndex, newScreenSchema);
-  }
-
-  /**
-   * @param screen {any}
-   */
-  finalBuild(screen) {
-    const field = screen.fields.find((_) => {
-      return _.name === this.#fieldName && _.type === TILE_THUMBNAIL_TYPE;
-    });
-
-    if (field == null) {
-      throw new Error(`Could not find field with '${this.#fieldName}' name and ${TILE_THUMBNAIL_TYPE} type.`);
-    }
-
+  finalBuild(screenIndex, fieldFinder) {
+    const field = fieldFinder.findTileThumbnail(screenIndex, this.#fieldName)
     field.defaultIds = field.value;
 
-    this.#onChangeHandler && this.#onChangeHandler(field, field.value);
+    this.#onChangeHandler && this.#onChangeHandler(field, field.value, fieldFinder);
   }
 }

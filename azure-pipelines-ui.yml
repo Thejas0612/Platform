@@ -63,7 +63,7 @@ steps:
   #       sudo mkdir /etc/smbcredentials
   #       fi
   #       if [ ! -f "/etc/smbcredentials/devopsfilestoreblob.cred" ]; then
-  #           sudo bash -c 'echo "username=devopsfilestoreblob" >> /etc/smbcredentials/devopsfilestoreblob.cred'f
+  #           sudo bash -c 'echo "username=devopsfilestoreblob" >> /etc/smbcredentials/devopsfilestoreblob.cred'
   #           sudo bash -c 'echo "password=$(BLOB_PWD)" >> /etc/smbcredentials/devopsfilestoreblob.cred'
   #       fi
   #       sudo chmod 600 /etc/smbcredentials/devopsfilestoreblob.cred
@@ -78,7 +78,7 @@ steps:
   #       echo Phase 2: Translate
   #       "/home/vsts/HPE_Fortify/HPE_Fortify_SCA_and_Apps/bin/sourceanalyzer" -b $(Build.BuildId) "/home/vsts/work/1/s/**/*" -exclude "**/node_modules/**/*"
   #       echo Phase 3: Scan
-  #       "/home/vsts/HPE_Fortify/HPE_Fortify_SCA_and_Apps/bin/sourceanalyzer" -b $(Build.BuildId) -scan -f "/home/vsts/work/1/s/$(Build.BuildId).fpr"
+  #       "/home/vsts/HPE_Fortify/HPE_Fortify_SCA_and_Apps/bin/sourceanalyzer" -b $(Build.BuildId) -scan -scan-precision 3 -f "/home/vsts/work/1/s/$(Build.BuildId).fpr"
   #       echo Phase 4: Generating report
   #       "/home/vsts/HPE_Fortify/HPE_Fortify_SCA_and_Apps/bin/BIRTReportGenerator" -template "Developer Workbook" -source "/home/vsts/work/1/s/$(Build.BuildId).fpr" -format PDF -output "/home/vsts/work/1/s/FortifyReport.pdf"
   #       echo Phase 5: Uploading Results
@@ -94,29 +94,20 @@ steps:
   #       FortifyReport.pdf
   #     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-
   # - task: CopyFiles@2
+  #   displayName: "Copy Files to: $(Build.ArtifactStagingDirectory)"
   #   inputs:
-  #     sourceFolder: "$(Build.SourcesDirectory)"
-  #     contents: |
-  #       src/*
-  #       public/*
-  #     targetFolder: "$(Build.ArtifactStagingDirectory)"
-  #   displayName: "Archive project files"
+  #     Contents: |
+  #       FortifyReport.pdf
+  #       $(Build.BuildId).fpr
+  #     TargetFolder: "$(Build.ArtifactStagingDirectory)"
 
-  # - task: ArchiveFiles@2
+  # - task: PublishBuildArtifacts@1
+  #   displayName: "Publish Fortify Report Artifact"
   #   inputs:
-  #     rootFolderOrFile: $(Build.ArtifactStagingDirectory)
-  #     archiveType: "zip"
-  #     archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
-  #     includeRootFolder: false
+  #     pathToPublish: $(Build.ArtifactStagingDirectory)
+  #     artifactName: FortifyReport
 
-  # - task: PublishPipelineArtifact@1
-  #   inputs:
-  #     artifactName: e2e-server
-  #     targetPath: "$(Build.ArtifactStagingDirectory)"
-  #     publishLocation: "pipeline"
-  #   displayName: "Publish npm artifact"
   - script: |
       docker login $(dockerId).azurecr.io -u $(dockerId) -p $pswd
       docker build -f docker/dev/Dockerfile -t $(dockerId).azurecr.io/$(imageName):$(Build.BuildId) --build-arg ISSUER=$(ISSUER) --build-arg CLIENT=$(CLIENT) . 
