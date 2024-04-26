@@ -4,14 +4,11 @@ import ButtonStepperCommon from "../../../../components/button/ButtonStepperComm
 import getSchemaForDynamicForm from "../../../../adapterDataManager/schema/getSchema";
 import MSOLDynamicForm from "../../../../components/shared/dynamicform";
 import { saveValuesInSchema, updateNavigationStatus } from "./schema-services/schemaMutations";
-import {
-  updateLeftSection,
-  updateRightSection
-} from "../../../../redux/reducers/initialBuDataSlice";
+import { updateLeftSection, updateRightSection } from "../../../../redux/reducers/initialBuDataSlice";
 import { cloneDeep } from "lodash";
 import { schemaBuilder } from "./schema-builder/schemaBuilder";
 import { notNullOrUndefined } from "../../../../utils/assert";
-import { TECHNOLOGY_TYPES_OPTIONS } from "./constants";
+import { FLUID_SOURCE_OPTIONS, TECHNOLOGY_TYPES_OPTIONS } from "./constants";
 import { environment } from "../../../../config/environment";
 
 const DISABLE_TOOLTIP = "There are no products that measure both Flow and Viscosity.";
@@ -28,6 +25,19 @@ export function generateLineSizeUrl(measurementTypes) {
 
   return url.toString();
 }
+
+/**
+ * @param fluidType {string}
+ * @return {string}
+ */
+export function generateFluidDatabase(fluidType) {
+  const url = new URL("/api/processcondition/fluidsDatabase", environment.VITE_API_URL);
+  url.searchParams.set("fluidType", fluidType);
+  url.searchParams.set("buCode", "project_Lookout");
+
+  return url.toString();
+}
+
 
 export default function ProjectLookoutRightLayout() {
   const screenIndex = useSelector((state) => state.initialBuData?.activeIndex);
@@ -86,7 +96,18 @@ export default function ProjectLookoutRightLayout() {
         lineSize.dataSourceUrl = generateLineSizeUrl(value);
       })
       .screen(1)
-      .customButtonGroup("fluidtype")
+      .customButtonGroup("fluid-type")
+      .onChange((_field, value, fieldFinder) => {
+        const fluidsDatabase = fieldFinder.findSingleSelect(1, "fluids-database");
+        fluidsDatabase.dataSourceUrl = generateFluidDatabase(value);
+      })
+      .radioInput("fluid-source")
+      .onChange((_field, value, fieldFinder) => {
+        const fluidsDatabase = fieldFinder.findSingleSelect(1, 'fluids-database')
+        const customFluidName = fieldFinder.findTextInput(1, 'custom-fluid-name')
+        fluidsDatabase.hide = value !== FLUID_SOURCE_OPTIONS.DATABASE
+        customFluidName.hide = value !== FLUID_SOURCE_OPTIONS.CUSTOM
+      })
       .screen(2)
       .tableInput("TABLE_INPUT2")
       .onChange((field, value) => {
@@ -170,6 +191,7 @@ export default function ProjectLookoutRightLayout() {
       })
       .build(screenIndex, newScreenSchemas);
 
+    debugger;
     dispatch(updateRightSection(rightSectionSchemaNew2));
   };
 

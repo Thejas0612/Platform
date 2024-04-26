@@ -4,20 +4,12 @@ import { BaseFieldBuilder } from "./BaseFieldBuilder";
  * @typedef {import( "./FieldFinder").FieldFinder} FieldFinder
  *
  * @typedef {{
- *   defaultIds: string[]
- *   label: string
- *   multiple: boolean
- *   options: CustomButtonGroupOption[]
- * }} CustomButtonGroup
- *
- * @typedef {{
- *   id: string
- *   label: string
- * }} CustomButtonGroupOption
+ *   name: string
+ * }} RadioSelect
  */
-export class CustomButtonGroupBuilder extends BaseFieldBuilder {
+export class RadioInputFieldBuilder extends BaseFieldBuilder {
   /**
-   * @type { (fieldProps: CustomButtonGroup, value: string, fieldFinder: FieldFinder) => void}
+   * @type { (fieldProps: RadioSelect, value: string[], fieldFinder: FieldFinder) => void}
    */
   #onChangeHandler;
 
@@ -27,19 +19,21 @@ export class CustomButtonGroupBuilder extends BaseFieldBuilder {
   #fieldName;
 
   /**
+   *
    * @param fieldName {string}
    * @param workflowBuilder {WorkflowBuilder}
    * @param screenBuilder {ScreenBuilder}
    */
   constructor(fieldName, workflowBuilder, screenBuilder) {
-    super(workflowBuilder, screenBuilder);
+    super(workflowBuilder, screenBuilder)
+
     this.#fieldName = fieldName;
   }
 
   /**
    *
-   * @param onChangeHandler {(field: CustomButtonGroup, value: string, fieldFinder: FieldFinder) => void}
-   * @return {CustomButtonGroupBuilder}
+   * @param onChangeHandler {(fieldProps: RadioSelect, value: string, fieldFinder: FieldFinder) => void}
+   * @return {RadioInputFieldBuilder}
    */
   onChange(onChangeHandler) {
     if (this.#onChangeHandler != null) {
@@ -55,8 +49,7 @@ export class CustomButtonGroupBuilder extends BaseFieldBuilder {
    * @param fieldFinder {FieldFinder}
    */
   finalBuild(screenIndex, fieldFinder) {
-    const field = fieldFinder.findCustomButtonGroup(screenIndex, this.#fieldName);
-    field.defaultId = field.value;
+    const field = fieldFinder.findRadioSelect(screenIndex, this.#fieldName)
 
     this.#onChangeHandler && this.#onChangeHandler(field, field.value, fieldFinder);
   }
