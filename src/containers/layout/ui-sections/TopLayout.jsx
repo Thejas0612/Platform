@@ -48,7 +48,7 @@ export default function TopLayout() {
                     },
                     {
                       text: "Search Sizing",
-                      url: "/searchsizing"
+                      url: "/search-sizing"
                     }
                   ],
                   labelClass: "ddl-typography--paragraph",
