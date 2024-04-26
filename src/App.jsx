@@ -4,6 +4,8 @@ import "@emerson/dynamic-ui-public/dist/emerson-ui.css";
 import DpFlowUiLayout from "./containers/layout/ui-sections/dpflow/DpFlowUiLayout";
 import ProjectLookoutUiLayout from "./containers/layout/ui-sections/project-lookout/ProjectLookoutUiLayout";
 import TempUiLayout from "./containers/layout/ui-sections/temperature/TempUiLayout";
+import Preference from "./containers/layout/ui-sections/Preference";
+import SearchSizing from "./containers/layout/ui-sections/SearchSizing";
 import CustomLayout from "./containers/layout/custom/CustomLayout";
 import { Test } from "./pages/Test";
 import TemperaturePlayground from "./pages/TemperaturePlayground";
@@ -23,6 +25,8 @@ const App = () => {
         <Route path="/custom" exact={true} component={CustomLayout} />
         <Route path="/test" exact={true} component={Test} />
         <Route path="/temperature-playground" exact={true} component={TemperaturePlayground} />
+        <Route path="/preferences" exact={true} component={Preference} />
+        <Route path="/search-sizing" exact={true} component={SearchSizing} />
       </Switch>
     </Router>
   );
