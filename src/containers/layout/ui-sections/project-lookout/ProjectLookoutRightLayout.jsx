@@ -151,10 +151,8 @@ export default function ProjectLookoutRightLayout() {
         const tableInput1 = fieldFinder.findTableInput(2, "TABLE_INPUT1");
         if(value === "saturated-temperature"){
           tableInput1.data[2][2].disabled = true
-          tableInput1.data[2][2].value = ""
         }else{
           tableInput1.data[2][2].disabled = false
-          tableInput1.data[2][2].value = ""
         }
       })
       .screen(2)
