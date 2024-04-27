@@ -24,8 +24,16 @@ export default function DpFlowRightLayout() {
       }
     });
 
-  const onUpdateSchema = async (e, formObj, formData, name) => {
-    const obj = await updateSchema(e, formObj, formData, name, activeIndex, invisibleElements);
+  const onUpdateSchema = async (e, formObj, formData, name, fieldError) => {
+    const obj = await updateSchema(
+      e,
+      formObj,
+      formData,
+      name,
+      fieldError,
+      activeIndex,
+      invisibleElements
+    );
     const cpoied_data = [...copyRightSectionSchema];
     cpoied_data[0][SCHEMA_CONSTANTS.COMP_PROPS][SCHEMA_CONSTANTS.SCHEMA][activeIndex] =
       obj?.updatedSchema;
@@ -37,7 +45,9 @@ export default function DpFlowRightLayout() {
       <div>
         <MSOLDynamicForm
           schema={[visibleElements]}
-          handleChange={(e, formObj, formData, name) => onUpdateSchema(e, formObj, formData, name)}
+          handleChange={(e, formObj, formData, name, fieldError) =>
+            onUpdateSchema(e, formObj, formData, name, fieldError)
+          }
         />
         <div>
           <ButtonStepper

@@ -189,7 +189,11 @@
                   "errorClass": "",
                   "display": false,
                   "order": 3,
-                  "placeholder": "Enter Text"
+                  "placeholder": "Enter Text",
+                  "validations": {
+                    "minValue": 0.25,
+                    "maxValue": 999
+                  }
                 },
                 {
                   "column": 3,

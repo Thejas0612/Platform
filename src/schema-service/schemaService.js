@@ -29,6 +29,7 @@ export const updateSchema = async (
   formObj,
   formData,
   name,
+  fieldError,
   activeIndex,
   invisibleUiElements
 ) => {
@@ -36,7 +37,7 @@ export const updateSchema = async (
   const mappedFields = mapFieldsByName(allUiElements);
   const field = mappedFields[name];
   field["required"] = true;
-  field["error"] = "";
+  field["error"] = fieldError[name] !== undefined && fieldError[name] ? fieldError[name] : "";
   if (name === SCHEMA_CONSTANTS.FLOW_TAIL_THUMBNAIL) {
     field["defaultIds"] = field?.value;
   }
