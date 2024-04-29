@@ -90,8 +90,26 @@ export class FieldFinder {
    * @param fieldName {string}
    * @return {*}
    */
-  findRadioSelect(screenIndex, fieldName){
+  findRadioSelect(screenIndex, fieldName) {
     return this.find(screenIndex, FIELD_TYPE.RADIO_SELECT, fieldName);
+  }
+
+  /**
+   * @param screenIndex {number}
+   * @param fieldName {string}
+   * @return {TEXT_INPUT}
+   */
+  findTextInput(screenIndex, fieldName) {
+    return this.find(screenIndex, FIELD_TYPE.TEXT_INPUT, fieldName);
+  }
+
+  /**
+   * @param screenIndex {number}
+   * @param fieldName {string}
+   * @return {RADIO_INPUT}
+   */
+  findRadioInput(screenIndex, fieldName) {
+    return this.find(screenIndex, FIELD_TYPE.RADIO_INPUT, fieldName);
   }
 
   /**
@@ -99,7 +117,7 @@ export class FieldFinder {
    * @param fieldName
    * @return {*}
    */
-  findTextInput(screenIndex, fieldName){
+  findTextInput(screenIndex, fieldName) {
     return this.find(screenIndex, FIELD_TYPE.TEXT_INPUT, fieldName);
   }
 

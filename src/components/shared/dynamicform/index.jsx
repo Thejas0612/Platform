@@ -22,8 +22,11 @@ import CheckboxInput from "../checkbox";
 import TableInput from "../../table-input/TableInput";
 import { MsolTileOrThumbnail } from "../msol-tile-or-thumbnail/MsolTileOrThumbnail";
 import { checkValidations } from '../../../utils/validation.service';
+import { FilterButton } from "../../filter-button/FilterButton";
+import { CardCheckboxGroup } from "../../card-checkbox-group/CardCheckboxGroup";
+import {DropdownMenuGroup} from "../../dropdown-menu-group/DropdownMenuGroup";
 
-const FORM_FEILDS = {
+const FORM_FIELDS = {
     SINGLE_SELECT: SelectInput,
     TEXT_INPUT: TextInput,
     NUMBER_INPUT: NumberInput,
@@ -42,7 +45,10 @@ const FORM_FEILDS = {
     DATA_TABLE: DataTable,
     IMAGE_THUMBNAIL: ImageThumbnail,
     IMAGE_BUTTON: ImageButtonInput,
-    DRAG_AND_DROP: DragAndDrop
+    DRAG_AND_DROP: DragAndDrop,
+    FILTER_BUTTON: FilterButton,
+    CARD_CHECKBOX_GROUP: CardCheckboxGroup,
+    DROPDOWN_MENU_GROUP: DropdownMenuGroup
 };
 
 const MSOLDynamicForm = ({
@@ -129,7 +135,7 @@ const MSOLDynamicForm = ({
             {formGroup.fields.map((field) => {
               const fieldObj = {...field}
               fieldObj.error = formError[fieldObj.name];
-              const FieldComponent = { ...FORM_FEILDS, ...overrideComponents }[fieldObj.type];
+              const FieldComponent = { ...FORM_FIELDS, ...overrideComponents }[fieldObj.type];
 
               // CustomButtonGroup onChange event always returns undefined as the name. Now we
               // use the name in the schema.
