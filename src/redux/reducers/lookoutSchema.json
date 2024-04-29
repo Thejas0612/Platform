@@ -137,6 +137,7 @@
                   "column": 12,
                   "type": "TILE_THUMBNAIL",
                   "name": "measurement-type",
+                  "hideCheckboxes": true,
                   "defaultIds": [],
                   "data": [
                     {
