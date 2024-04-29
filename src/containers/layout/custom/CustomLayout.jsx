@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import MSOLDynamicForm from "../../../components/shared/dynamicform";
 import { Grid } from "@mui/material";
 import { ButtonInput } from '@emerson/dynamic-ui-public'
-import { genericStepperValidation, generateFields } from "../../../utils/validation.service";
+import { navigate, generateFields } from "../../../utils/validation.service";
 
 function CustomLayout() {
   const [schema, setSchema] = React.useState([
@@ -217,14 +217,15 @@ function CustomLayout() {
   ]);
   const [stepperIndex, setStepperIndex] = useState(0);
 
-  const handleInput = React.useCallback((e, formData, schemaData, fieldName) => {
+  const handleInput = React.useCallback((e, formData, schemaData, fieldName, formErrors) => {
     setSchema(prevSchema => {
       const updatedSchema = [...prevSchema];
       const fieldIndex = updatedSchema[0].fields.findIndex(field => field.name === fieldName);
       if (fieldIndex !== -1) {
         updatedSchema[0].fields[fieldIndex] = {
           ...updatedSchema[0].fields[fieldIndex],
-          value: formData[fieldName]
+          value: formData[fieldName],
+          error: formErrors[fieldName]
         };
       }
       return updatedSchema;
@@ -232,9 +233,8 @@ function CustomLayout() {
   }, []);
 
   const submitForm = (fields) => {
-    // const { updatedValues, updatedStepperIndex } = genericStepperValidation(fields, "", stepperIndex)
-    // setSchema([{ ...schema[0], fields: updatedValues }]);
-    // setStepperIndex(updatedStepperIndex);
+    const { updatedValues, errorCount } = navigate(fields)
+    setSchema([{ ...schema[0], fields: updatedValues }]);
   }
 
   return (
@@ -248,7 +248,7 @@ function CustomLayout() {
                   fields: generateFields(schema[0].fields)
                 }
               ]}
-              handleChange={(event, a, b, c) => handleInput(event, a, b, c)}
+              handleChange={(event, a, b, c, formErrors) => handleInput(event, a, b, c, formErrors)}
               handleKeyPress={function noRefCheck() { }}
               handleSubmit={function noRefCheck() { }}
               updateData={function noRefCheck() { }}
