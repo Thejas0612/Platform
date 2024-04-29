@@ -218,6 +218,7 @@
                   "label": "Fluid Type",
                   "name": "fluid-type",
                   "defaultId": "LIQUID",
+                  "value": "LIQUID",
                   "data": [
                     {
                       "id": "LIQUID",
@@ -350,7 +351,7 @@
                       {
                         "type": "TEXT",
                         "label": "Flow Rate",
-                        "align": "center",
+                        "align": "right",
                         "title": "Flow rate is the amount of fluid passing through a pipe segment. It can be presented as either mass flow or volumetric flow."
                       },
                       {
@@ -609,7 +610,7 @@
                       {
                         "type": "TEXT",
                         "label": "Line Pressure",
-                        "align": "center"
+                        "align": "right"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -627,7 +628,7 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "required":true,
+                        "required": true,
                         "min": -14.696,
                         "minError": "Entered Normal Pressure is below full vacuum, -14.696 psig"
                       },
@@ -647,14 +648,14 @@
                         "inputClass": "unitClass",
                         "disabled": false,
                         "align": "right",
-                        "dataSourceUrl":"https://mocki.io/v1/95664f22-7551-41d0-b170-c6ce9951c3bc"
+                        "dataSourceUrl": "https://mocki.io/v1/95664f22-7551-41d0-b170-c6ce9951c3bc"
                       }
                     ],
                     [
                       {
                         "type": "TEXT",
                         "label": "Process Temperature",
-                        "align": "center"
+                        "align": "right"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -699,7 +700,7 @@
                       {
                         "type": "TEXT",
                         "label": "Ambient Temperature",
-                        "align": "center"
+                        "align": "right"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -885,7 +886,7 @@
                       {
                         "type": "TEXT",
                         "label": "Viscosity",
-                        "align": "center"
+                        "align": "right"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -998,7 +999,7 @@
                       {
                         "type": "TEXT",
                         "label": "Vapor pressure",
-                        "align": "center"
+                        "align": "right"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -1191,7 +1192,7 @@
                 {
                   "column": 12,
                   "type": "DROPDOWN_MENU_GROUP",
-                  "selectedOptions" : {
+                  "selectedOptions": {
                     "APPROVALS": [],
                     "OPERATING_TEMPERATURE": [],
                     "OPERATING_PRESSURE": []
@@ -1200,11 +1201,12 @@
                     {
                       "id": "APPROVALS",
                       "placeholder": "APPROVALS",
-                      "options": [{
-                        "label": "Class 1 Division 1",
-                        "title": "Class 1 Division 1",
-                        "value": "CLASS_1_DIVISION_1"
-                      },
+                      "options": [
+                        {
+                          "label": "Class 1 Division 1",
+                          "title": "Class 1 Division 1",
+                          "value": "CLASS_1_DIVISION_1"
+                        },
                         {
                           "label": "Class 1 Division 2",
                           "title": "Class 1 Division 2",
@@ -1231,7 +1233,8 @@
                           "label": "Greater Than 400 F (204 C)",
                           "title": "Greater Than 400 F (204 C)",
                           "value": "GREATER_THAN_400_F"
-                        }, {
+                        },
+                        {
                           "label": "Less Than 400 F (204 C)",
                           "title": "Less Than 400 F (204 C)",
                           "value": "LESS_THAN_400_F"
@@ -1247,7 +1250,8 @@
                           "label": "Greater Than 1960psi (135 bar)",
                           "title": "Greater Than 1960psi (135 bar)",
                           "value": "GREATER_THAN_1960-PSI"
-                        }, {
+                        },
+                        {
                           "label": "Less Than 1960psi (135 bar)",
                           "title": "Less Than 1960psi (135 bar)",
                           "value": "LESS_THAN_1960_PSI"
@@ -1262,12 +1266,42 @@
                   "selectedId": "",
                   "compareIds": "",
                   "data": [
-                    { "id": "1", "name": "1", "title": "Coriolis", "imageUrl": "flow__product__coriolis.png" },
-                    { "id": "2", "name": "2", "title": "Differential Pressure Flow", "imageUrl": "https://placehold.co/150x150" },
-                    { "id": "3", "name": "3", "title": "Magnetic", "imageUrl": "flow__product__magnetic.png" },
-                    { "id": "4", "name": "4", "title": "Vortex", "imageUrl": "flow__product__vortex.jpg" },
-                    { "id": "5","name": "5", "title": "Density", "imageUrl": "https://placehold.co/150x150" },
-                    { "id": "6", "name": "6", "title": "Viscosity", "imageUrl": "flow__product__viscosity.png" }
+                    {
+                      "id": "1",
+                      "name": "1",
+                      "title": "Coriolis",
+                      "imageUrl": "flow__product__coriolis.png"
+                    },
+                    {
+                      "id": "2",
+                      "name": "2",
+                      "title": "Differential Pressure Flow",
+                      "imageUrl": "https://placehold.co/150x150"
+                    },
+                    {
+                      "id": "3",
+                      "name": "3",
+                      "title": "Magnetic",
+                      "imageUrl": "flow__product__magnetic.png"
+                    },
+                    {
+                      "id": "4",
+                      "name": "4",
+                      "title": "Vortex",
+                      "imageUrl": "flow__product__vortex.jpg"
+                    },
+                    {
+                      "id": "5",
+                      "name": "5",
+                      "title": "Density",
+                      "imageUrl": "https://placehold.co/150x150"
+                    },
+                    {
+                      "id": "6",
+                      "name": "6",
+                      "title": "Viscosity",
+                      "imageUrl": "flow__product__viscosity.png"
+                    }
                   ]
                 },
                 {
