@@ -64,13 +64,7 @@ export default function ProjectLookoutRightLayout() {
   };
 
   const handleChange = (_event, _type, newScreenSchemas, _name, _isValid) => {
-    const rightSectionSchemaNew1 = saveValuesInSchema(
-      newScreenSchemas,
-      rightSectionSchema,
-      screenIndex
-    );
-
-    const rightSectionSchemaNew2 = schemaBuilder(rightSectionSchemaNew1)
+    const rightSectionSchemaNew2 = schemaBuilder(rightSectionSchema)
       .screen(0)
       .tileThumbnail("measurement-type")
       .onChange((field, value, fieldFinder) => {
