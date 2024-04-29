@@ -23,17 +23,15 @@ export const checkValidations = (field, value) => {
 
 export const navigate = (formFields) => {
    let errorCount = 0;
-   const updatedValues = new Array(formFields.length);
-   for (let i = 0; i < formFields.length; i++) {
-      let field = { ...formFields[i] };
+   const updatedValues = formFields.map(field => {
       if (field.visibled !== "hidden") {
          if (field.required && !field.value) {
             field.error = ERRORS.FIELD_REQUIRED;
             errorCount++;
          }
       }
-      updatedValues[i] = field;
-   }
+      return field;
+   });
    return { updatedValues, errorCount };
 }
 
