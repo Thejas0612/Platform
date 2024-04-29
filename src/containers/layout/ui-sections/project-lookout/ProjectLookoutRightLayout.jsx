@@ -146,6 +146,7 @@ export default function ProjectLookoutRightLayout() {
           customFluidName.hide = value !== FLUID_SOURCE_OPTIONS.CUSTOM;
         }
       })
+      .singleSelect('line-size')
       .screen(2)
       .tableInput("TABLE_INPUT2")
       .onChange((field, value) => {

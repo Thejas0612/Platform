@@ -1,4 +1,5 @@
 import { BaseFieldBuilder } from "./BaseFieldBuilder";
+import { isEqual } from "lodash";
 
 /**
  * @typedef {import( "./FieldFinder").FieldFinder} FieldFinder
@@ -52,12 +53,16 @@ export class CustomButtonGroupBuilder extends BaseFieldBuilder {
 
   /**
    * @param screenIndex {number}
-   * @param fieldFinder {FieldFinder}
+   * @param newFieldFinder {FieldFinder}
+   * @param oldFieldFinder {FieldFinder}
    */
-  finalBuild(screenIndex, fieldFinder) {
-    const field = fieldFinder.findCustomButtonGroup(screenIndex, this.#fieldName);
-    field.defaultId = field.value;
+  finalBuild(screenIndex, newFieldFinder, oldFieldFinder) {
+    const newField = newFieldFinder.findCustomButtonGroup(screenIndex, this.#fieldName);
+    const oldField = oldFieldFinder.findCustomButtonGroup(screenIndex, this.#fieldName);
+    const hasChanged = !isEqual(newField.value, oldField.value);
 
-    this.#onChangeHandler && this.#onChangeHandler(field, field.value, fieldFinder);
+    newField.defaultId = newField.value;
+
+    hasChanged && this.#onChangeHandler && this.#onChangeHandler(newField, newField.value, newFieldFinder);
   }
 }

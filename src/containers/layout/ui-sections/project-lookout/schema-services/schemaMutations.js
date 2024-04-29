@@ -20,12 +20,7 @@ export const saveValuesInSchema = (formData, rightSectionSchema, activeIndex) =>
       componentProps: {
         schema: rightSectionSchema[0]?.componentProps?.schema.map((screens) => {
           if (screens.id == activeIndex) {
-            const { id, fields } = formData[0];
-
-            return {
-              id: id,
-              fields: fields
-            };
+            return screens
           } else {
             if (screens.id === 2 && activeIndex === 1) {
               const result = screens.fields.map((elementField, key) => {
