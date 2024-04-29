@@ -65,7 +65,7 @@ function CustomLayout() {
           disabled: false,
           value: "",
           options: [],
-          required: true,
+          required: false,
           error: "",
           errorClass: "",
           display: true,
