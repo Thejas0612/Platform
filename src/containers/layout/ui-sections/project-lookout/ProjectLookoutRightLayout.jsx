@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ButtonStepperCommon from "../../../../components/button/ButtonStepperCommon";
 import getSchemaForDynamicForm from "../../../../adapterDataManager/schema/getSchema";
 import MSOLDynamicForm from "../../../../components/shared/dynamicform";
-import { saveValuesInSchema, updateNavigationStatus } from "./schema-services/schemaMutations";
+import { updateNavigationStatus } from "./schema-services/schemaMutations";
 import {
   updateLeftSection,
   updateRightSection
