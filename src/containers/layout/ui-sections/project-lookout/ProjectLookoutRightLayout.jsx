@@ -196,6 +196,7 @@ export default function ProjectLookoutRightLayout() {
         }
 
         if (value === "DATABASE") {
+          tableInput2.value.density_options = "density"
           tableInput2.data[1][1] = {
             type: "TEXT_INPUT",
             name: "density_min",
