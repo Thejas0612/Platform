@@ -242,6 +242,29 @@
                   "labelClass": "app-content-label camelCase"
                 },
                 {
+                  "hide": true,
+                  "column": 12,
+                  "type": "RADIO_INPUT",
+                  "name": "saturatedTemperaturePressure",
+                  "value": "superheated",
+                  "options": [
+                    {
+                      "value": "superheated",
+                      "label": "Superheated: Pressure and Temperature must be specified"
+                    },
+                    {
+                      "value": "saturated-temperature",
+                      "label": "Based on Saturated Temperature"
+                    },
+                    {
+                      "value": "saturated-pressure",
+                      "label": "Based on Saturated Pressure"
+                    }
+                  ],
+                  "error": "",
+                  "errorClass": ""
+                },
+                {
                   "column": 2,
                   "type": "RADIO_INPUT",
                   "name": "fluid-source",
@@ -747,8 +770,8 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "min": -273.15,
-                        "minError": "Entered Minimum Temperature is below -273.15 C"
+                        "min": -459.67,
+                        "minError": "Entered Minimum Temperature is below -459.67 F"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -757,9 +780,9 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "min": -273.15,
+                        "min": -459.67,
                         "required": true,
-                        "minError": "Entered Normal Temperature is below -273.15 C"
+                        "minError": "Entered Normal Temperature is below -459.67 F"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -767,8 +790,8 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "min": -273.15,
-                        "minError": "Entered Maximum Temperature is below -273.15 C"
+                        "min": -459.67,
+                        "minError": "Entered Maximum Temperature is below -459.67 F"
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -792,8 +815,8 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "min": -273.15,
-                        "minError": "Entered Minimum Ambient Temperature is below -273.15 C"
+                        "min": -459.67,
+                        "minError": "Entered Minimum Ambient Temperature is below -459.67 F"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -802,9 +825,9 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "min": -273.15,
+                        "min": -459.67,
                         "required": true,
-                        "minError": "Entered Normal Ambient Temperature is below -273.15 C"
+                        "minError": "Entered Normal Ambient Temperature is below -459.67 F"
                       },
                       {
                         "type": "TEXT_INPUT",
@@ -812,8 +835,8 @@
                         "disabled": false,
                         "align": "center",
                         "precision": 4,
-                        "min": -273.15,
-                        "minError": "Entered Maximum Ambient Temperature is below -273.15 C"
+                        "min": -459.67,
+                        "minError": "Entered Maximum Ambient Temperature is below -459.67 F"
                       },
                       {
                         "type": "SINGLE_SELECT",
@@ -1268,6 +1291,93 @@
             {
               "id": 3,
               "fields": [
+                {
+                  "column": 12,
+                  "type": "FILTER_BUTTON",
+                  "label": "Filters"
+                },
+                {
+                  "column": 12,
+                  "type": "DROPDOWN_MENU_GROUP",
+                  "selectedOptions" : {
+                    "APPROVALS": [],
+                    "OPERATING_TEMPERATURE": [],
+                    "OPERATING_PRESSURE": []
+                  },
+                  "data": [
+                    {
+                      "id": "APPROVALS",
+                      "placeholder": "APPROVALS",
+                      "options": [{
+                        "label": "Class 1 Division 1",
+                        "title": "Class 1 Division 1",
+                        "value": "CLASS_1_DIVISION_1"
+                      },
+                        {
+                          "label": "Class 1 Division 2",
+                          "title": "Class 1 Division 2",
+                          "value": "CLASS_1_DIVISION_2"
+                        },
+                        {
+                          "label": "Zone 1",
+                          "title": "Zone 1",
+                          "value": "ZONE_1"
+                        },
+                        {
+                          "label": "Zone 2",
+                          "title": "Zone 2",
+                          "value": "ZONE_2"
+                        }
+                      ]
+                    },
+
+                    {
+                      "id": "OPERATING_TEMPERATURE",
+                      "placeholder": "OPERATING TEMPERATURE",
+                      "options": [
+                        {
+                          "label": "Greater Than 400 F (204 C)",
+                          "title": "Greater Than 400 F (204 C)",
+                          "value": "GREATER_THAN_400_F"
+                        }, {
+                          "label": "Less Than 400 F (204 C)",
+                          "title": "Less Than 400 F (204 C)",
+                          "value": "LESS_THAN_400_F"
+                        }
+                      ]
+                    },
+
+                    {
+                      "id": "OPERATING_PRESSURE",
+                      "placeholder": "OPERATING PRESSURE",
+                      "options": [
+                        {
+                          "label": "Greater Than 1960psi (135 bar)",
+                          "title": "Greater Than 1960psi (135 bar)",
+                          "value": "GREATER_THAN_1960-PSI"
+                        }, {
+                          "label": "Less Than 1960psi (135 bar)",
+                          "title": "Less Than 1960psi (135 bar)",
+                          "value": "LESS_THAN_1960_PSI"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "column": 12,
+                  "type": "CARD_CHECKBOX_GROUP",
+                  "selectedId": "",
+                  "compareIds": "",
+                  "data": [
+                    { "id": "1", "name": "1", "title": "Coriolis", "imageUrl": "flow__product__coriolis.png" },
+                    { "id": "2", "name": "2", "title": "Differential Pressure Flow", "imageUrl": "https://placehold.co/150x150" },
+                    { "id": "3", "name": "3", "title": "Magnetic", "imageUrl": "flow__product__magnetic.png" },
+                    { "id": "4", "name": "4", "title": "Vortex", "imageUrl": "flow__product__vortex.jpg" },
+                    { "id": "5","name": "5", "title": "Density", "imageUrl": "https://placehold.co/150x150" },
+                    { "id": "6", "name": "6", "title": "Viscosity", "imageUrl": "flow__product__viscosity.png" }
+                  ]
+                },
                 {
                   "column": 6,
                   "type": "LABEL_TEXT",

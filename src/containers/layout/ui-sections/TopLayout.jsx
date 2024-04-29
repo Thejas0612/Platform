@@ -44,11 +44,11 @@ export default function TopLayout() {
                   data: [
                     {
                       text: "Preferences",
-                      url: "/"
+                      url: "/preferences"
                     },
                     {
                       text: "Search Sizing",
-                      url: "/"
+                      url: "/search-sizing"
                     }
                   ],
                   labelClass: "ddl-typography--paragraph",

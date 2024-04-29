@@ -139,7 +139,7 @@ export const Test: FC = () => {
           />
         </Stack>
 
-        {showDropdownMenuGroup && <DropdownMenuGroup dropdowns={DROPDOWNS}
+        {showDropdownMenuGroup && <DropdownMenuGroup data={DROPDOWNS}
                                                      onChange={handleDropdownChange} selectedOptions={selectedOptions} />}
 
         <Box sx={{ paddingTop: 2 }}>
