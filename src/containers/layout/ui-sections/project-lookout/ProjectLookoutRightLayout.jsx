@@ -111,13 +111,63 @@ export default function ProjectLookoutRightLayout() {
         const fluidSource = fieldFinder.findRadioInput(1, "fluid-source");
         const textInput = fieldFinder.findTextInput(1, "custom-fluid-name");
         const tableInput1 = fieldFinder.findTableInput(2, "TABLE_INPUT1");
+        const tableInput2 = fieldFinder.findTableInput(2, "TABLE_INPUT2");
 
         if (value === "STEAM") {
           saturatedTemperaturePressure.hide = false;
+          saturatedTemperaturePressure.value = "superheated";
           fluidSource.hide = true;
           fluidsDatabase.hide = true;
           textInput.hide = true;
 
+          tableInput2.data[1][0].disabled = true;
+          tableInput2.data[1][1].disabled = true;
+          tableInput2.data[1][2].disabled = true;
+          tableInput2.data[1][2].required = false;
+          tableInput2.data[1][3].disabled = true;
+          tableInput2.data[2][1].disabled = true;
+          tableInput2.data[2][2].disabled = true;
+          tableInput2.data[2][2].required = false;
+          tableInput2.data[2][3].disabled = true;
+          tableInput2.data[3][2].disabled = true;
+          tableInput2.data[3][1].disabled = true;
+        } else {
+          fluidSource.value = "DATABASE";
+          fluidSource.hide = false;
+          saturatedTemperaturePressure.hide = true;
+          fluidsDatabase.hide = false;
+          textInput.hide = true;
+
+          tableInput1.data[2][2].disabled = false;
+          tableInput1.data[2][2].required = true;
+          tableInput1.data[3][2].disabled = false;
+
+          tableInput1.data[3][2].required = true;
+
+          tableInput2.data[1][0].disabled = true;
+          tableInput2.data[1][1].disabled = true;
+          tableInput2.data[1][2].disabled = true;
+          tableInput2.data[1][2].required = false;
+          tableInput2.data[1][3].disabled = true;
+          tableInput2.data[2][1].disabled = true;
+          tableInput2.data[2][2].disabled = true;
+          tableInput2.data[2][2].required = false;
+          tableInput2.data[2][3].disabled = true;
+          tableInput2.data[3][2].disabled = true;
+          tableInput2.data[3][1].disabled = true;
+        }
+      })
+      .radioInput("saturatedTemperaturePressure")
+      .onChange((_field, value, fieldFinder) => {
+        const tableInput1 = fieldFinder.findTableInput(2, "TABLE_INPUT1");
+        const saturatedTemperaturePressure = fieldFinder.findRadioInput(
+          1,
+          "saturatedTemperaturePressure"
+        );
+
+        const fluidType = fieldFinder.findCustomButtonGroup(1, "fluid-type");
+
+        if (fluidType.value === "STEAM") {
           tableInput1.data[2][2].disabled =
             saturatedTemperaturePressure.value === "saturated-temperature" ? true : false;
           tableInput1.data[2][2].required =
@@ -127,8 +177,6 @@ export default function ProjectLookoutRightLayout() {
           tableInput1.data[3][2].required =
             saturatedTemperaturePressure.value === "saturated-pressure" ? false : true;
         } else {
-          fluidSource.hide = false;
-          saturatedTemperaturePressure.hide = true;
           tableInput1.data[2][2].disabled = false;
           tableInput1.data[2][2].required = true;
           tableInput1.data[3][2].disabled = false;
@@ -146,7 +194,7 @@ export default function ProjectLookoutRightLayout() {
           customFluidName.hide = value !== FLUID_SOURCE_OPTIONS.CUSTOM;
         }
       })
-      .singleSelect('line-size')
+      .singleSelect("line-size")
       .screen(2)
       .tableInput("TABLE_INPUT2")
       .onChange((field, value) => {
