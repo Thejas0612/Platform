@@ -5,7 +5,7 @@ import { MultipleSelectInput } from "./MultipleSelectInput";
 import { MsolComponentHighlighter } from "../msol-component-highlighter/MsolComponentHighlighter";
 
 export const DropdownMenuGroup = ({
-                               dropdowns,
+                               data,
                                selectedOptions,
                                onChange,
                            }) => {
@@ -15,7 +15,7 @@ export const DropdownMenuGroup = ({
                 <Grid item xs={12}>
                     <Typography variant="subtitle2">Filter By:</Typography>
                 </Grid>
-                {dropdowns.map((dropdown) => (
+                {data.map((dropdown) => (
                     <Grid key={dropdown.id} item xs={6} md={4} xl={3}>
                         <MultipleSelectInput
                             {...dropdown}
@@ -32,7 +32,7 @@ export const DropdownMenuGroup = ({
 };
 
 DropdownMenuGroup.propTypes = {
-    dropdowns: PropTypes.arrayOf(PropTypes.shape({
+    data: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.string.isRequired,
       placeholder: PropTypes.string.isRequired,
       options: PropTypes.arrayOf(PropTypes.shape({

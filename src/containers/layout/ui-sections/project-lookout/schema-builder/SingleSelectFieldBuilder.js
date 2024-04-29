@@ -1,4 +1,5 @@
 import { BaseFieldBuilder } from "./BaseFieldBuilder";
+import { isEqual } from "lodash";
 
 /**
  * @typedef {import( "./FieldFinder").FieldFinder} FieldFinder
@@ -38,7 +39,7 @@ export class SingleSelectFieldBuilder extends BaseFieldBuilder {
    * @param screenBuilder {ScreenBuilder}
    */
   constructor(fieldName, workflowBuilder, screenBuilder) {
-    super(workflowBuilder, screenBuilder)
+    super(workflowBuilder, screenBuilder);
 
     this.#fieldName = fieldName;
   }
@@ -59,13 +60,16 @@ export class SingleSelectFieldBuilder extends BaseFieldBuilder {
 
   /**
    * @param screenIndex {number}
-   * @param fieldFinder {FieldFinder}
+   * @param newFieldFinder {FieldFinder}
+   * @param oldFieldFinder {FieldFinder}
    */
-  finalBuild(screenIndex, fieldFinder) {
-    const field = fieldFinder.findSingleSelect(screenIndex, this.#fieldName)
+  finalBuild(screenIndex, newFieldFinder, oldFieldFinder) {
+    const newField = newFieldFinder.findSingleSelect(screenIndex, this.#fieldName);
+    const oldField = oldFieldFinder.findSingleSelect(screenIndex, this.#fieldName);
+    const hasChanged = !isEqual(newField.value, oldField.value);
 
-    field.defaultIds = field.value;
+    newField.defaultIds = newField.value;
 
-    this.#onChangeHandler && this.#onChangeHandler(field, field.value, fieldFinder);
+    hasChanged && this.#onChangeHandler && this.#onChangeHandler(newField, newField.value, newFieldFinder);
   }
 }

@@ -1,4 +1,5 @@
 import { BaseFieldBuilder } from "./BaseFieldBuilder";
+import { isEqual } from "lodash";
 
 /**
  * @typedef {import( "./FieldFinder").FieldFinder} FieldFinder
@@ -66,11 +67,14 @@ export class TableInputBuilder extends BaseFieldBuilder {
 
   /**
    * @param screenIndex {number}
-   * @param fieldFinder {FieldFinder}
+   * @param newFieldFinder {FieldFinder}
+   * @param oldFieldFinder {FieldFinder}
    */
-  finalBuild(screenIndex, fieldFinder) {
-    const field = fieldFinder.findTableInput(screenIndex, this.#fieldName )
+  finalBuild(screenIndex, newFieldFinder, oldFieldFinder) {
+    const newField = newFieldFinder.findTableInput(screenIndex, this.#fieldName);
+    const oldField = oldFieldFinder.findTableInput(screenIndex, this.#fieldName);
+    const hasChanged = !isEqual(newField.value, oldField.value);
 
-    this.#onChangeHandler && this.#onChangeHandler(field, field.value, fieldFinder);
+    hasChanged && this.#onChangeHandler && this.#onChangeHandler(newField, newField.value, newFieldFinder);
   }
 }

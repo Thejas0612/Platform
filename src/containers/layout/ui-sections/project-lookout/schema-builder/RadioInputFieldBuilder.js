@@ -1,4 +1,5 @@
 import { BaseFieldBuilder } from "./BaseFieldBuilder";
+import { isEqual } from "lodash";
 
 /**
  * @typedef {import( "./FieldFinder").FieldFinder} FieldFinder
@@ -46,11 +47,14 @@ export class RadioInputFieldBuilder extends BaseFieldBuilder {
 
   /**
    * @param screenIndex {number}
-   * @param fieldFinder {FieldFinder}
+   * @param newFieldFinder {FieldFinder}
+   * @param oldFieldFinder {FieldFinder}
    */
-  finalBuild(screenIndex, fieldFinder) {
-    const field = fieldFinder.findRadioSelect(screenIndex, this.#fieldName)
+  finalBuild(screenIndex, newFieldFinder, oldFieldFinder) {
+    const newField = newFieldFinder.findRadioSelect(screenIndex, this.#fieldName);
+    const oldField = oldFieldFinder.findRadioSelect(screenIndex, this.#fieldName);
+    const hasChanged = !isEqual(newField.value, oldField.value);
 
-    this.#onChangeHandler && this.#onChangeHandler(field, field.value, fieldFinder);
+    hasChanged && this.#onChangeHandler && this.#onChangeHandler(newField, newField.value, newFieldFinder);
   }
 }

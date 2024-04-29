@@ -3,6 +3,7 @@
  * @typedef {import( "./FieldFinder").FieldFinder} FieldFinder
  */
 import { BaseFieldBuilder } from "./BaseFieldBuilder";
+import { isEqual } from "lodash";
 
 export class TileThumbnailFieldBuilder extends BaseFieldBuilder {
   /**
@@ -43,12 +44,16 @@ export class TileThumbnailFieldBuilder extends BaseFieldBuilder {
 
   /**
    * @param screenIndex {number}
-   * @param fieldFinder {FieldFinder}
+   * @param newFieldFinder {FieldFinder}
+   * @param oldFieldFinder {FieldFinder}
    */
-  finalBuild(screenIndex, fieldFinder) {
-    const field = fieldFinder.findTileThumbnail(screenIndex, this.#fieldName)
-    field.defaultIds = field.value;
+  finalBuild(screenIndex, newFieldFinder, oldFieldFinder) {
+    const newField = newFieldFinder.findTileThumbnail(screenIndex, this.#fieldName);
+    const oldField = oldFieldFinder.findTileThumbnail(screenIndex, this.#fieldName);
+    const hasChanged = !isEqual(newField.value, oldField.value);
 
-    this.#onChangeHandler && this.#onChangeHandler(field, field.value, fieldFinder);
+    newField.defaultIds = newField.value;
+
+    hasChanged && this.#onChangeHandler && this.#onChangeHandler(newField, newField.value, newFieldFinder);
   }
 }
