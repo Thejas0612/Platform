@@ -10,7 +10,7 @@ import {
 } from "../../../../redux/reducers/initialBuDataSlice";
 import { cloneDeep } from "lodash";
 import { schemaBuilder } from "./schema-builder/schemaBuilder";
-import { notNullOrUndefined } from "../../../../utils/assert";
+import {isRequiredArrayValue, notNullOrUndefined} from "../../../../utils/assert";
 import { FLUID_SOURCE_OPTIONS, TECHNOLOGY_TYPES_OPTIONS } from "./constants";
 import { environment } from "../../../../config/environment";
 
@@ -81,7 +81,18 @@ export default function ProjectLookoutRightLayout() {
           (_) => _.id === TECHNOLOGY_TYPES_OPTIONS.VISCOSITY_ID
         );
         notNullOrUndefined(viscosityOption, "Could not find viscosityOption.");
-
+        /**
+         * This example shows the error when the element changes.
+         * If validation needs to be checked when Next button is clicked, a field named "valid"
+         * can be added to the schema, and updated when the element is checked with the callback function.
+         * Next button then checks the valid property of all components in page.
+         *
+         */
+        isRequiredArrayValue(value, ()=> {
+          field.error = "Selection is required.";
+        }, () => {
+          field.error = "";
+        });
         const isFlowSelected = value.includes(TECHNOLOGY_TYPES_OPTIONS.FLOW_ID);
         const isViscositySelected = value.includes(TECHNOLOGY_TYPES_OPTIONS.VISCOSITY_ID);
 
