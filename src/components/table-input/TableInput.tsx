@@ -3,17 +3,20 @@ import Input from "./Input";
 import SingleSelect from "./SingleSelect";
 import Label from "./Label";
 import "./table-input.scss";
+import React, { useState } from 'react';
 
-const TableInput = ({data, column = 12, onChange, name }: {
+const TableInput = ({ data, column = 12, onChange, name }: {
   data: any,
   column: number,
   onChange: any,
   name: string
 }) => {
+  const [storedValues, setStoredValues] = useState<{ [key: string]: string }>({});
   function handleChange(e: any, propertyValue: string, propertyName: string): void {
-    const value: { [key: string]: string } = {};
+    const value = { ...storedValues };
     value[propertyName] = propertyValue;
-    
+    setStoredValues(value);
+
     onChange(e, "", name, value);
   }
 
@@ -33,6 +36,7 @@ const TableInput = ({data, column = 12, onChange, name }: {
                   <Input
                     schemaProps={cell}
                     size="small"
+                    onChange={handleChange}
                   />
                 ) : cell.type === "SINGLE_SELECT" ? (
                   <SingleSelect
