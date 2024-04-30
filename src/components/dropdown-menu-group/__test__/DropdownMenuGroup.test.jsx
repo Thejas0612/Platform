@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { DropdownMenuGroup } from "../DropdownMenuGroup";
 
 const PROPS = {
-  dropdowns: [
+  data: [
     {
       id: "OPERATING_TEMPERATURE",
       placeholder: "OPERATING TEMPERATURE",

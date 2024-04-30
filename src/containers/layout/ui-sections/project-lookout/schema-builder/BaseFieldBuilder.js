@@ -78,9 +78,11 @@ export class BaseFieldBuilder {
 
   /**
    * @param _screenIndex {number}
-   * @param _fieldFinder {FieldFinder}
+   * @param _newFieldFinder {FieldFinder}
+   * @param _oldFieldFinder {FieldFinder}
+   * @returns void
    */
- finalBuild(_screenIndex, _fieldFinder) {
+  finalBuild(_screenIndex, _newFieldFinder, _oldFieldFinder){
     throw new Error("Function 'finalBuild()' must be implemented in extend class.");
   }
 }
