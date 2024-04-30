@@ -143,9 +143,11 @@ const MSOLDynamicForm = ({
               function handleChange(e, type, _name, val) {
                 updateFormData(e, type, fieldObj.name, val)
               }
-              function handleBlur(e, type, _name, val) {
-                updateFormData(e, type, fieldObj.name, val)
+
+              function handleBlur(e) {
+                updateFormData(e, undefined, fieldObj.name, fieldObj.value)
               }
+
               return (
                 <>
                 {fieldObj.hide && fieldObj.hide === true ? (

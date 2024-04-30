@@ -63,7 +63,7 @@ export const MsolTitleOrThumbnailItem: FC<MsolTitleOrThumbnailItemProps> = ({
     <Stack direction="row"
            alignItems="center">
 
-      {!hideCheckbox && <Checkbox checked={checked} disabled={disabled} />}
+     {!hideCheckbox && <Checkbox checked={checked} disabled={disabled} />}
 
       <Box
         component="img"
