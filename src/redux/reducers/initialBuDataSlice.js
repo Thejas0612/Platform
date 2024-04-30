@@ -26,7 +26,8 @@ export const fetchSchema = createAsyncThunk("loadSchema/fetchSchema", async (buT
   }
 
   if (buType.buType === "dpFlow") {
-    return isolateSchema(dpFlowSchema?.dpFlow);
+    const schemaWithEnvironmentVariables = transformJson(dpFlowSchema?.dpFlow, environment);
+    return isolateSchema(schemaWithEnvironmentVariables);
   }
 
   try {
@@ -65,7 +66,7 @@ const initialBuSchema = createSlice({
     },
     updateRightSection: (state, action) => {
       state.rightSection = action.payload;
-    },
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchSchema.pending, (state) => {
@@ -92,6 +93,6 @@ export const {
   resetActiveIndex,
   updateBu,
   updateLeftSection,
-  updateRightSection,
+  updateRightSection
 } = initialBuSchema.actions;
 export default initialBuSchema.reducer;
