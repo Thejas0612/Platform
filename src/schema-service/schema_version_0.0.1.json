@@ -150,14 +150,14 @@
                   "isApiOnEvent": {
                     "isApiCall": true,
                     "apiInfo": {
-                      "url": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingPipeSchedule?buCode=dpflow&lineSize=",
+                      "url": "<%= VITE_API_URL %>/api/processcondition/processPipingPipeSchedule?buCode=dpflow&lineSize=",
                       "method": "GET",
                       "payload": {}
                     },
                     "targetUiElement": "pipeschedule",
                     "targetProperty": "options"
                   },
-                  "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingLineSize?buCode=dpflow",
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/processPipingLineSize?buCode=dpflow",
                   "display": true,
                   "order": 1
                 },
@@ -189,7 +189,11 @@
                   "errorClass": "",
                   "display": false,
                   "order": 3,
-                  "placeholder": "Enter Text"
+                  "placeholder": "Enter Text",
+                  "validations": {
+                    "minValue": 0.25,
+                    "maxValue": 999
+                  }
                 },
                 {
                   "column": 3,
@@ -230,6 +234,7 @@
                 {
                   "type": "CUSTOM_BUTTON_GROUP",
                   "column": 12,
+                  "size": "large",
                   "title": "Fluid Type",
                   "label": "Fluid Type",
                   "name": "fluidtype",
@@ -257,10 +262,10 @@
                   ],
                   "defaultId": "fluid_type_liquid",
                   "showLabel": true,
-                  "wrapperId": "",
+                  "wrapperId": "fluid_type_gas",
                   "wrapperClass": "cutsom_class",
                   "labelClass": "ddl-from-custom-label camelCase",
-                  "value": "0",
+                  "value": "fluid_type_liquid",
                   "required": true,
                   "display": true,
                   "order": 6
@@ -304,7 +309,7 @@
                   "error": "",
                   "errorClass": "",
                   "placeholder": "Pick One",
-                  "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID",
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID",
                   "display": true,
                   "order": 8
                 },
@@ -325,6 +330,22 @@
                 },
                 {
                   "column": 4,
+                  "type": "SINGLE_SELECT",
+                  "name": "fluid_database_dropdown_naturalgas",
+                  "label": "Fluids Database",
+                  "labelClass": "app-content-label camelCase",
+                  "value": "",
+                  "options": [],
+                  "required": true,
+                  "error": "",
+                  "errorClass": "",
+                  "placeholder": "Pick One",
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID",
+                  "display": false,
+                  "order": 10
+                },
+                {
+                  "column": 3,
                   "type": "TEXT_INPUT",
                   "name": "natural_gas__name",
                   "label": "Natural Gas Name",
@@ -335,8 +356,54 @@
                   "errorClass": "",
                   "placeholder": "Enter Text",
                   "display": false,
-                  "order": 10,
+                  "order": 11,
                   "maxLength": 40
+                },
+                {
+                  "column": 4,
+                  "type": "BUTTON",
+                  "labelClass": "app-content-label mt-2",
+                  "label": "PICK FROM DATABASE",
+                  "required": false,
+                  "display": false,
+                  "btnType": "primary",
+                  "order": 12,
+                  "name": "pick_from_database",
+                  "customClass": "pick_from_database_btn",
+                  "showIcon": false
+                },
+                {
+                  "column": 4,
+                  "type": "SINGLE_SELECT",
+                  "name": "user_defiened_pre_defined_natural_gas_dropdown",
+                  "label": "Fluids Database",
+                  "labelClass": "app-content-label camelCase",
+                  "value": "",
+                  "options": [],
+                  "required": true,
+                  "error": "",
+                  "errorClass": "",
+                  "placeholder": "Pick One",
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/naturalgas?ngaslistid=1713795132271&emailId=nithin.kumar@emerson.com&userId=0",
+                  "display": false,
+                  "order": 13
+                },
+                {
+                  "column": 8,
+                  "type": "SINGLE_SELECT",
+                  "name": "composition_method_dropdown_natural_gas",
+                  "label": "Natural Gas Composition Method",
+                  "labelClass": "app-content-label camelCase",
+                  "value": "",
+                  "options": [],
+                  "required": true,
+                  "error": "",
+                  "errorClass": "",
+                  "placeholder": "Pick One",
+                  "display": false,
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=NATURAL_GAS",
+                  "order": 14,
+                  "wrapperClass": "composition_method_dropdown_naturalgas"
                 },
                 {
                   "column": 12,
@@ -350,7 +417,7 @@
                   "type": "BUTTON",
                   "value": "",
                   "display": true,
-                  "order": 11,
+                  "order": 15,
                   "name": "additional_options_label"
                 },
                 {
@@ -375,7 +442,7 @@
                   "showAlert": false,
                   "type": "CHECKBOX_INPUT",
                   "display": true,
-                  "order": 12
+                  "order": 16
                 }
               ]
             },

@@ -1,18 +1,16 @@
-import { useEffect,useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ButtonStepper from "../../../../components/common/ButtonStepper";
 import { getDynamicFormSchema, updateSchema } from "../../../../schema-service/schemaService";
 import MSOLDynamicForm from "../../../../components/shared/dynamicform";
 import { updateRightSection } from "../../../../redux/reducers/initialBuDataSlice";
 import SCHEMA_CONSTANTS from "../../../../schema-service/dpflowSchemaConstants";
-const windowUrl = window.location.search;
-const params = new URLSearchParams(windowUrl);
+import { cloneDeep } from "lodash";
+
 export default function DpFlowRightLayout() {
-  const [refId, setRefId] = useState(params.get('Source_type'));
   const activeIndex = useSelector((state) => state.initialBuData?.activeIndex);
   const rightSectionSchema = useSelector((state) => state.initialBuData?.rightSection);
   const dispatch = useDispatch();
-  const copyRightSectionSchema = structuredClone(rightSectionSchema);
+  const copyRightSectionSchema = cloneDeep(rightSectionSchema);
   const data = getDynamicFormSchema(activeIndex, copyRightSectionSchema);
 
   let invisibleElements = [];
@@ -24,13 +22,22 @@ export default function DpFlowRightLayout() {
       } else {
         invisibleElements.push(ele);
       }
-    }); 
+    });
 
-  const onUpdateSchema = async (e, formObj, formData, name) => {
-    const obj = await updateSchema(e, formObj, formData, name, activeIndex, invisibleElements);
-    copyRightSectionSchema[0][SCHEMA_CONSTANTS.COMP_PROPS][SCHEMA_CONSTANTS.SCHEMA][activeIndex] =
+  const onUpdateSchema = async (e, formObj, formData, name, fieldError) => {
+    const obj = await updateSchema(
+      e,
+      formObj,
+      formData,
+      name,
+      fieldError,
+      activeIndex,
+      invisibleElements
+    );
+    const cpoied_data = [...copyRightSectionSchema];
+    cpoied_data[0][SCHEMA_CONSTANTS.COMP_PROPS][SCHEMA_CONSTANTS.SCHEMA][activeIndex] =
       obj?.updatedSchema;
-    dispatch(updateRightSection(copyRightSectionSchema));
+    dispatch(updateRightSection(cpoied_data));
   };
 
   if (visibleElements?.fields?.length > 0) {
@@ -38,7 +45,9 @@ export default function DpFlowRightLayout() {
       <div>
         <MSOLDynamicForm
           schema={[visibleElements]}
-          handleChange={(e, formObj, formData, name) => onUpdateSchema(e, formObj, formData, name)}
+          handleChange={(e, formObj, formData, name, fieldError) =>
+            onUpdateSchema(e, formObj, formData, name, fieldError)
+          }
         />
         <div>
           <ButtonStepper
