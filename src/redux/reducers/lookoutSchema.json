@@ -1186,7 +1186,8 @@
                 {
                   "column": 12,
                   "type": "FILTER_BUTTON",
-                  "label": "Filters"
+                  "label": "Filters",
+                  "name": "filter-button"
                 },
                 {
                   "column": 12,

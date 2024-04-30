@@ -276,6 +276,11 @@ export default function ProjectLookoutRightLayout() {
           }
         }
       })
+      .screen(3)
+      .filterButton("filter-button")
+      .onChange((field, value, fieldFinder) => {
+        debugger
+      })
       .build(screenIndex, newScreenSchemas);
 
     dispatch(updateRightSection(rightSectionSchemaNew2));

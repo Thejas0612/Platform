@@ -122,6 +122,16 @@ export class FieldFinder {
   }
 
   /**
+   * @param screenIndex
+   * @param fieldName
+   * @return {*}
+   */
+  findFilterButton(screenIndex, fieldName) {
+    return this.find(screenIndex, FIELD_TYPE.FILTER_BUTTON, fieldName);
+  }
+
+
+  /**
    * @param screenIndex {number}
    * @return {*}
    */

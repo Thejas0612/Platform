@@ -8,13 +8,13 @@ import { grey } from "@mui/material/colors";
 
 export const FilterButton = ({
                         label,
-                        onClick,
+                        value = true,
+                        onChange,
                       }) => {
-  const [expanded, setExpanded] = useState(false);
 
-  const handleButtonClick = () => {
-    setExpanded(!expanded);
-    onClick();
+  const handleButtonClick = (e) => {
+    const newValue = !value
+    onChange(e, undefined, name, newValue);
   };
 
   return (
@@ -22,7 +22,7 @@ export const FilterButton = ({
       <Button
         variant="text"
         size="large"
-        endIcon={expanded ? <CloseIcon /> : <TuneIcon />}
+        endIcon={value ? <CloseIcon /> : <TuneIcon />}
         onClick={handleButtonClick}
         sx={{
           textTransform: "none",
@@ -37,9 +37,10 @@ export const FilterButton = ({
 
 FilterButton.propTypes = {
   label: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
+  onChange: PropTypes.func,
+  value: PropTypes.bool
 };
 
 FilterButton.defaultProps = {
-  onClick: () => {},
+  onChange: () => {},
 };

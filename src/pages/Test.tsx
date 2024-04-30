@@ -133,7 +133,7 @@ export const Test: FC = () => {
         <Stack direction="row-reverse">
           <FilterButton
             label="Filters"
-            onClick={() => {
+            onChange={() => {
               setShowDropdownMenuGroup(!showDropdownMenuGroup);
             }}
           />

@@ -5,6 +5,7 @@ import { CustomButtonGroupBuilder } from "./CustomButtonGroupBuilder";
 import { FieldFinder } from "./FieldFinder";
 import { cloneDeep } from "lodash";
 import { RadioInputFieldBuilder } from "./RadioInputFieldBuilder";
+import { FilterButtonBuilder } from "./FilterButtonBuilder";
 
 export class ScreenBuilder {
   /**
@@ -85,6 +86,16 @@ export class ScreenBuilder {
     const radioInputFieldBuilder = new RadioInputFieldBuilder(name, this.#workflowBuilder, this);
     this.#fieldBuilders.push(radioInputFieldBuilder);
     return radioInputFieldBuilder;
+  }
+
+  /**
+   *
+   * @param name
+   */
+  filterButton(name){
+    const filterButtonBuilder = new FilterButtonBuilder(name, this.#workflowBuilder, this);
+    this.#fieldBuilders.push(filterButtonBuilder);
+    return filterButtonBuilder;
   }
 
   /**

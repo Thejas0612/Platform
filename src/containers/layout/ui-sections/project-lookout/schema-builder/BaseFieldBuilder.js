@@ -77,6 +77,14 @@ export class BaseFieldBuilder {
   }
 
   /**
+   *
+   * @param name
+   */
+  filterButton(name){
+    return this.#screenBuilder.filterButton(name)
+  }
+
+  /**
    * @param _screenIndex {number}
    * @param _newFieldFinder {FieldFinder}
    * @param _oldFieldFinder {FieldFinder}
