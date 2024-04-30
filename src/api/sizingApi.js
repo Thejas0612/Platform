@@ -8,7 +8,7 @@ const getSizing = async (data) => {
   return response.data;
 };
 
-const createSizing = async () => {
+const createSizing = async (schema) => {
   // As of now harcoding after ui data is saving in redux we will add dynamically
   const data = {
     PA_REFERENCE_ID: "",
@@ -153,7 +153,13 @@ const createSizing = async () => {
   const response = await axios.post(SIZING_URL, data);
   return response.data;
 };
-export default {
+
+const getValve=async (schema,value)=>{
+  let foundIndex = schema.findIndex(obj => obj.name === value);
+
+console.log(schema[foundIndex].value)
+}
+export  {
   getSizing,
   createSizing
 };
