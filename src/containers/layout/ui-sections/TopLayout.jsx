@@ -3,8 +3,10 @@ import { ButtonInput, CustomTop, LabelText } from "@emerson/dynamic-ui-public";
 import AlertDialog from "../../../components/dialog/AlertDialog";
 import "./TopLayout.css";
 import { createSizing } from "../../../api/sizingApi";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function TopLayout() {
+  const rightSectionSchema = useSelector((state) => state.initialBuData?.rightSection);
   const [open, setOpen] = React.useState(false);
   const [refId, setRefId] = React.useState("");
 
@@ -17,9 +19,17 @@ export default function TopLayout() {
   };
 
   const saveSizing = async () => {
-    const result = await createSizing();
-    setRefId(result.data.PA_REFERENCE_ID);
-    handleClickOpen();
+    try {
+      let schemaData = [];
+      rightSectionSchema[0].componentProps.schema.map((c) => {
+        schemaData.push(...c.fields), console.log(c);
+      });
+      const result = await createSizing(schemaData);
+      setRefId(result.data.PA_REFERENCE_ID);
+      handleClickOpen();
+    } catch (error) {
+      console.log("Error during saveSizing:", error);
+    }
   };
 
   return (
