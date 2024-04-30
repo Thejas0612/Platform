@@ -127,18 +127,20 @@ const MSOLDynamicForm = ({
   };
 
   const onformSubmit = (e) => {
-    let isFormValid = true;
-    const updatedErrors = {};
+    const updatedErrors = { ...formError };
+    let isFormValid = Object.values(updatedErrors).every((error) => !error);
     formData.forEach((formGroup) => {
       formGroup.fields.forEach((field) => {
-        if (field.required && !formDataObj[field.name]) {
-          updatedErrors[field.name] = "Field is required";
-          isFormValid = false;
+        if (field.visibled !== "hidden" || !field.hide) {
+          if (field.required && !formDataObj[field.name] && !updatedErrors[field.name]) {
+            updatedErrors[field.name] = "Field is required";
+            isFormValid = false;
+          }
         }
       });
     });
     setFormError(updatedErrors);
-    onSubmit(isFormValid, formDataObj)
+    onSubmit(isFormValid, formDataObj);
   }
 
   const onformPrevious = (e) => {

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import MSOLDynamicForm from "../../../components/shared/dynamicform";
 import { Grid } from "@mui/material";
-import { ButtonInput } from '@emerson/dynamic-ui-public'
-import { navigate, generateFields } from "../../../utils/validation.service";
+import { generateFields } from "../../../utils/validation.service";
 
 function CustomLayout() {
   const [schema, setSchema] = React.useState([
@@ -215,35 +214,27 @@ function CustomLayout() {
       ]
     }
   ]);
-  const [stepperIndex, setStepperIndex] = useState(0);
 
   const handleInput = React.useCallback((e, formData, schemaData, fieldName, formErrors) => {
   }, []);
-
-  const submitForm = (fields) => {
-    const { updatedValues, errorCount } = navigate(fields)
-    setSchema([{ ...schema[0], fields: updatedValues }]);
-  }
 
   return (
     <>
       <Grid container>
         <Grid item xs={6}>
-          {stepperIndex === 0 ? (
-            <MSOLDynamicForm
-              schema={[
-                {
-                  fields: generateFields(schema[0].fields)
-                }
-              ]}
-              handleChange={(event, a, b, c, formErrors) => handleInput(event, a, b, c, formErrors)}
-              handleKeyPress={function noRefCheck() { }}
-              handleSubmit={function noRefCheck() { }}
-              updateData={function noRefCheck() { }}
-              onSubmit={(isFormValid, inputData) => console.log({ isFormValid, inputData })}
-              onPrevious={(e) => console.log(e)}
-            />
-          ) : <h1>Second Screen</h1> }
+          <MSOLDynamicForm
+            schema={[
+              {
+                fields: generateFields(schema[0].fields)
+              }
+            ]}
+            handleChange={(event, a, b, c, formErrors) => handleInput(event, a, b, c, formErrors)}
+            handleKeyPress={function noRefCheck() { }}
+            handleSubmit={function noRefCheck() { }}
+            updateData={function noRefCheck() { }}
+            onSubmit={(isFormValid, inputData) => console.log({ isFormValid, inputData })}
+            onPrevious={(e) => console.log(e)}
+          />
         </Grid>
       </Grid>
     </>

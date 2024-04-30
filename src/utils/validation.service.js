@@ -21,20 +21,6 @@ export const checkValidations = (field, value) => {
    return error
 }
 
-export const navigate = (formFields) => {
-   let errorCount = 0;
-   const updatedValues = formFields.map(field => {
-      if (field.visibled !== "hidden") {
-         if (field.required && !field.value) {
-            field.error = ERRORS.FIELD_REQUIRED;
-            errorCount++;
-         }
-      }
-      return field;
-   });
-   return { updatedValues, errorCount };
-}
-
 export const generateFields = (formFields) => {
    if (!formFields.length) {
       return [];
