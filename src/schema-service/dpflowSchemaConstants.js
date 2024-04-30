@@ -26,8 +26,8 @@ const SCHEMA_CONSTANTS = {
   NATURAL_GAS_NAME: "natural_gas__name",
   NATURAL_GAS_DROPDOWN_NAME: "fluid_database_dropdown_naturalgas",
   FLUID_TYPE_NATURALGAS: "fluid_type_naturalgas",
-  COMPOSITION_METHOD_DROPDOWN_NATURALGAS: "composition_method_dropdown_naturalgas",
+  COMPOSITION_METHOD_DROPDOWN_NATURALGAS: "composition_method_dropdown_natural_gas",
   PICK_FROM_DATABASE_BTN_NATURALGAS: "pick_from_database",
-  DEFAULTID: "defaultId"
+  DEFAULTID: "default_id"
 };
 export default SCHEMA_CONSTANTS;

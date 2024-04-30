@@ -150,14 +150,14 @@
                   "isApiOnEvent": {
                     "isApiCall": true,
                     "apiInfo": {
-                      "url": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingPipeSchedule?buCode=dpflow&lineSize=",
+                      "url": "<%= VITE_API_URL %>/api/processcondition/processPipingPipeSchedule?buCode=dpflow&lineSize=",
                       "method": "GET",
                       "payload": {}
                     },
                     "targetUiElement": "pipeschedule",
                     "targetProperty": "options"
                   },
-                  "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingLineSize?buCode=dpflow",
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/processPipingLineSize?buCode=dpflow",
                   "display": true,
                   "order": 1
                 },
@@ -309,7 +309,7 @@
                   "error": "",
                   "errorClass": "",
                   "placeholder": "Pick One",
-                  "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID",
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID",
                   "display": true,
                   "order": 8
                 },
@@ -340,7 +340,7 @@
                   "error": "",
                   "errorClass": "",
                   "placeholder": "Pick One",
-                  "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID",
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID",
                   "display": false,
                   "order": 10
                 },
@@ -373,9 +373,25 @@
                   "showIcon": false
                 },
                 {
+                  "column": 4,
+                  "type": "SINGLE_SELECT",
+                  "name": "user_defiened_pre_defined_natural_gas_dropdown",
+                  "label": "Fluids Database",
+                  "labelClass": "app-content-label camelCase",
+                  "value": "",
+                  "options": [],
+                  "required": true,
+                  "error": "",
+                  "errorClass": "",
+                  "placeholder": "Pick One",
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/naturalgas?ngaslistid=1713795132271&emailId=nithin.kumar@emerson.com&userId=0",
+                  "display": false,
+                  "order": 13
+                },
+                {
                   "column": 8,
                   "type": "SINGLE_SELECT",
-                  "name": "composition_method_dropdown_naturalgas",
+                  "name": "composition_method_dropdown_natural_gas",
                   "label": "Natural Gas Composition Method",
                   "labelClass": "app-content-label camelCase",
                   "value": "",
@@ -385,8 +401,8 @@
                   "errorClass": "",
                   "placeholder": "Pick One",
                   "display": false,
-                  "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=NATURAL_GAS",
-                  "order": 13,
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=NATURAL_GAS",
+                  "order": 14,
                   "wrapperClass": "composition_method_dropdown_naturalgas"
                 },
                 {
@@ -401,7 +417,7 @@
                   "type": "BUTTON",
                   "value": "",
                   "display": true,
-                  "order": 14,
+                  "order": 15,
                   "name": "additional_options_label"
                 },
                 {
@@ -426,7 +442,7 @@
                   "showAlert": false,
                   "type": "CHECKBOX_INPUT",
                   "display": true,
-                  "order": 15
+                  "order": 16
                 }
               ]
             },
