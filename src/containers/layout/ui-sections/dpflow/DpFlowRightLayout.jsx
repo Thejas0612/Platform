@@ -11,7 +11,6 @@ export default function DpFlowRightLayout() {
   const [refId, setRefId] = useState(params.get('Source_type'));
   const activeIndex = useSelector((state) => state.initialBuData?.activeIndex);
   const rightSectionSchema = useSelector((state) => state.initialBuData?.rightSection);
-  console.log(rightSectionSchema)
   const dispatch = useDispatch();
   const copyRightSectionSchema = structuredClone(rightSectionSchema);
   const data = getDynamicFormSchema(activeIndex, copyRightSectionSchema);
@@ -31,9 +30,7 @@ export default function DpFlowRightLayout() {
     }, [refId]);
 
   const onUpdateSchema = async (e, formObj, formData, name) => {
-    console.log(e, formObj, formData, name)
     const obj = await updateSchema(e, formObj, formData, name, activeIndex, invisibleElements);
-    console.log(obj)
     copyRightSectionSchema[0][SCHEMA_CONSTANTS.COMP_PROPS][SCHEMA_CONSTANTS.SCHEMA][activeIndex] =
       obj?.updatedSchema;
     dispatch(updateRightSection(copyRightSectionSchema));
