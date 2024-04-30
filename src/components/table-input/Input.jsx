@@ -17,6 +17,8 @@ const Input = (props) => {
   const handleChange = (e) => {
     const value = e.target.value;
     
+    props.onChange(e, e.target.value, props.schemaProps.name)
+    
       setDefaultvalue(value);
       if (props.schemaProps.min != null && value !== "" && value < props.schemaProps.min) {
         setError(true);
