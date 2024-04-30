@@ -35,7 +35,6 @@ export const updateSchema = async (
 ) => {
   const allUiElements = [...formData[0].fields, ...invisibleUiElements];
   const mappedFields = mapFieldsByName(allUiElements);
-  console.log("MappedFields", mappedFields);
   const field = mappedFields[name];
   field["required"] = true;
   field["error"] = fieldError[name] !== undefined && fieldError[name] ? fieldError[name] : "";
