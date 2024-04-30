@@ -19,13 +19,17 @@ export default function TopLayout() {
   };
 
   const saveSizing = async () => {
-    let schemaData=[]
-    rightSectionSchema[0].componentProps.schema.map(c=>{
-    schemaData.push(...c.fields),console.log(c)
-    })
-    const result = await createSizing(schemaData);
-    setRefId(result.data.PA_REFERENCE_ID);
-    handleClickOpen();
+    try {
+      let schemaData = [];
+      rightSectionSchema[0].componentProps.schema.map((c) => {
+        schemaData.push(...c.fields), console.log(c);
+      });
+      const result = await createSizing(schemaData);
+      setRefId(result.data.PA_REFERENCE_ID);
+      handleClickOpen();
+    } catch (error) {
+      console.log("Error during saveSizing:", error);
+    }
   };
 
   return (

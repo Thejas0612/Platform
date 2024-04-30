@@ -25,9 +25,6 @@ export default function DpFlowRightLayout() {
         invisibleElements.push(ele);
       }
     }); 
-     useEffect(() => {
-     
-    }, [refId]);
 
   const onUpdateSchema = async (e, formObj, formData, name) => {
     const obj = await updateSchema(e, formObj, formData, name, activeIndex, invisibleElements);
