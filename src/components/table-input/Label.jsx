@@ -5,7 +5,7 @@ import CustomTooltip from "./CustomTooltip";
 const Label = (props) => {
   return (
     <>
-      <Typography align="center">
+      <Typography align={props.schemaProps.align}>
       {props.schemaProps.title ? (
           <CustomTooltip title={props.schemaProps.title}>
             <span className="dui-circle-info">

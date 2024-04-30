@@ -1,0 +1,40 @@
+[
+  {
+    "fields": [
+      {
+        "type": "SINGLE_SELECT",
+        "name": "line-size",
+        "value": "1/4_INCH_(DN8)",
+        "options": [
+          {
+            "id": 1,
+            "label": "<1/4 INCH (<DN8)",
+            "value": "<1/4_INCH_(<DN8)"
+          },
+          {
+            "id": 2,
+            "label": "1/4 INCH (DN8)",
+            "value": "1/4_INCH_(DN8)"
+          }
+        ]
+      },
+      {
+        "type": "SINGLE_SELECT",
+        "name": "flow-rate",
+        "value": "ACFD",
+        "options": [
+          {
+            "id": 1,
+            "value": "ACFD",
+            "label": "ft3/day (ACFD)"
+          },
+          {
+            "id": 2,
+            "value": "USGPS",
+            "label": "Gallons(US)/sec"
+          }
+        ]
+      }
+    ]
+  }
+]
