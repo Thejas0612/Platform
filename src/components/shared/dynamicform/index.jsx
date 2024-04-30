@@ -24,31 +24,31 @@ import { MsolTileOrThumbnail } from "../msol-tile-or-thumbnail/MsolTileOrThumbna
 import { checkValidations } from '../../../utils/validation.service';
 import { FilterButton } from "../../filter-button/FilterButton";
 import { CardCheckboxGroup } from "../../card-checkbox-group/CardCheckboxGroup";
-import {DropdownMenuGroup} from "../../dropdown-menu-group/DropdownMenuGroup";
+import { DropdownMenuGroup } from "../../dropdown-menu-group/DropdownMenuGroup";
 
 const FORM_FIELDS = {
-    SINGLE_SELECT: SelectInput,
-    TEXT_INPUT: TextInput,
-    NUMBER_INPUT: NumberInput,
-    BUTTON: ButtonInput,
-    TILE_THUMBNAIL: MsolTileOrThumbnail,
-    CHECKBOX_INPUT: CheckboxInput,
-    TABLE_INPUT: TableInput,
-    RADIO_INPUT: RadioInput,
-    CUSTOM_TOGGLE_BUTTON: CustomToggleButton,
-    CUSTOM_BUTTON_GROUP: CustomButtonGroup,
-    PRODUCTS_LIST: ProductsList,
-    SUGGESTION_CARD: SuggestionCard,
-    ITEMS_TABLE: ItemsTable,
-    LABEL_TEXT: LabelText,
-    IMAGE_CARD: ImageCard,
-    DATA_TABLE: DataTable,
-    IMAGE_THUMBNAIL: ImageThumbnail,
-    IMAGE_BUTTON: ImageButtonInput,
-    DRAG_AND_DROP: DragAndDrop,
-    FILTER_BUTTON: FilterButton,
-    CARD_CHECKBOX_GROUP: CardCheckboxGroup,
-    DROPDOWN_MENU_GROUP: DropdownMenuGroup
+  SINGLE_SELECT: SelectInput,
+  TEXT_INPUT: TextInput,
+  NUMBER_INPUT: NumberInput,
+  BUTTON: ButtonInput,
+  TILE_THUMBNAIL: MsolTileOrThumbnail,
+  CHECKBOX_INPUT: CheckboxInput,
+  TABLE_INPUT: TableInput,
+  RADIO_INPUT: RadioInput,
+  CUSTOM_TOGGLE_BUTTON: CustomToggleButton,
+  CUSTOM_BUTTON_GROUP: CustomButtonGroup,
+  PRODUCTS_LIST: ProductsList,
+  SUGGESTION_CARD: SuggestionCard,
+  ITEMS_TABLE: ItemsTable,
+  LABEL_TEXT: LabelText,
+  IMAGE_CARD: ImageCard,
+  DATA_TABLE: DataTable,
+  IMAGE_THUMBNAIL: ImageThumbnail,
+  IMAGE_BUTTON: ImageButtonInput,
+  DRAG_AND_DROP: DragAndDrop,
+  FILTER_BUTTON: FilterButton,
+  CARD_CHECKBOX_GROUP: CardCheckboxGroup,
+  DROPDOWN_MENU_GROUP: DropdownMenuGroup
 };
 
 const MSOLDynamicForm = ({
@@ -56,6 +56,7 @@ const MSOLDynamicForm = ({
   handleChange,
   updateData,
   onSubmit,
+  onPrevious,
   handleKeyPress,
   formKey,
   dataSourceUrl,
@@ -93,7 +94,7 @@ const MSOLDynamicForm = ({
     const updatedFormData = formData.map((group) => {
       const updatedFields = group.fields.map((field) => {
         if (field.name === name) {
-          return { ...field, value };
+          return { ...field, value, error: formError[name] };
         }
         return field;
       });
@@ -124,6 +125,25 @@ const MSOLDynamicForm = ({
       return checkValidations(currentField, value);
     }
   };
+
+  const onformSubmit = (e) => {
+    let isFormValid = true;
+    const updatedErrors = {};
+    formData.forEach((formGroup) => {
+      formGroup.fields.forEach((field) => {
+        if (field.required && !formDataObj[field.name]) {
+          updatedErrors[field.name] = "Field is required";
+          isFormValid = false;
+        }
+      });
+    });
+    setFormError(updatedErrors);
+    onSubmit(isFormValid, formDataObj)
+  }
+
+  const onformPrevious = (e) => {
+    onPrevious(e);
+  }
 
   const generateForm =
     formData &&
@@ -161,6 +181,27 @@ const MSOLDynamicForm = ({
                 </>
               );
             })}
+          </Grid>
+          <Grid item xs={12} sx={{ mt: 4 }}>
+            <Grid container spacing={2} display={'flex'} justifyContent={'space-between'}>
+              <Grid item xs={3}>
+                <ButtonInput
+                  type="button"
+                  btnType="secondary"
+                  showBackIcon={true}
+                  label="previous"
+                  onClick={onformPrevious}
+                />
+              </Grid>
+              <Grid item xs={3}>
+                <ButtonInput
+                  type="button"
+                  label="Next"
+                  btnType="primary"
+                  onClick={onformSubmit}
+                />
+              </Grid>
+            </Grid>
           </Grid>
         </div>
       );

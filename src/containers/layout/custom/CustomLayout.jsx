@@ -218,18 +218,6 @@ function CustomLayout() {
   const [stepperIndex, setStepperIndex] = useState(0);
 
   const handleInput = React.useCallback((e, formData, schemaData, fieldName, formErrors) => {
-    setSchema(prevSchema => {
-      const updatedSchema = [...prevSchema];
-      const fieldIndex = updatedSchema[0].fields.findIndex(field => field.name === fieldName);
-      if (fieldIndex !== -1) {
-        updatedSchema[0].fields[fieldIndex] = {
-          ...updatedSchema[0].fields[fieldIndex],
-          value: formData[fieldName],
-          error: formErrors[fieldName]
-        };
-      }
-      return updatedSchema;
-    });
   }, []);
 
   const submitForm = (fields) => {
@@ -252,13 +240,10 @@ function CustomLayout() {
               handleKeyPress={function noRefCheck() { }}
               handleSubmit={function noRefCheck() { }}
               updateData={function noRefCheck() { }}
+              onSubmit={(isFormValid, inputData) => console.log({ isFormValid, inputData })}
+              onPrevious={(e) => console.log(e)}
             />
           ) : <h1>Second Screen</h1> }
-          <ButtonInput
-            btnType=""
-            label="Submit"
-            onClick={() => submitForm(schema[0].fields)}
-          />
         </Grid>
       </Grid>
     </>
