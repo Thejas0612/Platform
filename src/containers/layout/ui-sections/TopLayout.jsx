@@ -20,7 +20,6 @@ export default function TopLayout() {
 
   const saveSizing = async () => {
     let schemaData=[]
-    console.log(rightSectionSchema[0].componentProps.schema)
     rightSectionSchema[0].componentProps.schema.map(c=>{
     schemaData.push(...c.fields),console.log(c)
     })
