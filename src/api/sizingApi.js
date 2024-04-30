@@ -156,8 +156,6 @@ const createSizing = async (schema) => {
 
 const getValve=async (schema,value)=>{
   let foundIndex = schema.findIndex(obj => obj.name === value);
-
-console.log(schema[foundIndex].value)
 }
 export  {
   getSizing,
