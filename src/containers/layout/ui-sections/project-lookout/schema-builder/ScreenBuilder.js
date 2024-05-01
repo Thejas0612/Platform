@@ -1,24 +1,16 @@
 import { TileThumbnailFieldBuilder } from "./TileThumbnailFieldBuilder";
-// import { WorkflowBuilder } from "./WorkflowBuilder";
 import { SingleSelectFieldBuilder } from "./SingleSelectFieldBuilder";
 import { TableInputBuilder } from "./TableInputBuilder";
+import { CustomButtonGroupBuilder } from "./CustomButtonGroupBuilder";
+import { FieldFinder } from "./FieldFinder";
+import { cloneDeep } from "lodash";
+import { RadioInputFieldBuilder } from "./RadioInputFieldBuilder";
 
 export class ScreenBuilder {
   /**
-   * @type {TileThumbnailFieldBuilder[]}
+   * @type {BaseFieldBuilder[]}
    */
-  #tileThumbnailBuilders = [];
-
-  /**
-   * @type {SingleSelectFieldBuilder[]}
-   */
-  #singleSelectBuilders = [];
-
-
-  /**
-   * @type {TableInputBuilder[]}
-   */
-  #tableInputBuilders = [];
+  #fieldBuilders = [];
 
   /**
    * @type {WorkflowBuilder}
@@ -46,9 +38,20 @@ export class ScreenBuilder {
    * @return {TileThumbnailFieldBuilder}
    */
   tileThumbnail(name) {
-    const tileThumbnailBuilder = new TileThumbnailFieldBuilder(name, this.#workflowBuilder);
-    this.#tileThumbnailBuilders.push(tileThumbnailBuilder);
+    const tileThumbnailBuilder = new TileThumbnailFieldBuilder(name, this.#workflowBuilder, this);
+    this.#fieldBuilders.push(tileThumbnailBuilder);
     return tileThumbnailBuilder;
+  }
+
+  /**
+   *
+   * @param name {string}
+   * @return {CustomButtonGroupBuilder}
+   */
+  customButtonGroup(name) {
+    const customButtonGroupBuilder = new CustomButtonGroupBuilder(name, this.#workflowBuilder, this);
+    this.#fieldBuilders.push(customButtonGroupBuilder);
+    return customButtonGroupBuilder;
   }
 
   /**
@@ -56,12 +59,11 @@ export class ScreenBuilder {
    * @param name {string}
    * @return {TableInputBuilder}
    */
-  tableInput(name){
-    const tableInputBuilder = new TableInputBuilder(name, this.#workflowBuilder);
-    this.#tableInputBuilders.push(tableInputBuilder);
+  tableInput(name) {
+    const tableInputBuilder = new TableInputBuilder(name, this.#workflowBuilder, this);
+    this.#fieldBuilders.push(tableInputBuilder);
     return tableInputBuilder;
   }
-
 
   /**
    *
@@ -69,9 +71,20 @@ export class ScreenBuilder {
    * @return {SingleSelectFieldBuilder}
    */
   singleSelect(name) {
-    const singleSelectBuilder = new SingleSelectFieldBuilder(name, this.#workflowBuilder);
-    this.#singleSelectBuilders.push(singleSelectBuilder);
+    const singleSelectBuilder = new SingleSelectFieldBuilder(name, this.#workflowBuilder, this);
+    this.#fieldBuilders.push(singleSelectBuilder);
     return singleSelectBuilder;
+  }
+
+  /**
+   *
+   * @param name {string}
+   * @return {SingleSelectFieldBuilder}
+   */
+  radioInput(name){
+    const radioInputFieldBuilder = new RadioInputFieldBuilder(name, this.#workflowBuilder, this);
+    this.#fieldBuilders.push(radioInputFieldBuilder);
+    return radioInputFieldBuilder;
   }
 
   /**
@@ -85,18 +98,14 @@ export class ScreenBuilder {
       throw new Error(`Could not find screen with '${this.#screenIndex}' index.`);
     }
 
-    schemaWorkflow[0].componentProps.schema[this.#screenIndex] = screenSchemaNew;
+    const screenSchemaOldClone = cloneDeep(schemaWorkflow);
+    const oldFieldFinder = new FieldFinder(screenSchemaOldClone)
 
-    this.#tileThumbnailBuilders.forEach((tileThumbnailBuilder) => {
-      tileThumbnailBuilder.finalBuild(screenSchemaNew);
-    });
+    schemaWorkflow[0].componentProps.schema[this.#screenIndex] = cloneDeep(screenSchemaNew);
+    const newFieldFinder = new FieldFinder(schemaWorkflow);
 
-    this.#singleSelectBuilders.forEach((singleSelectBuilder) => {
-      singleSelectBuilder.finalBuild(screenSchemaNew)
-    });
-
-    this.#tableInputBuilders.forEach((tableInputBuilder) => {
-      tableInputBuilder.finalBuild(screenSchemaNew)
+    this.#fieldBuilders.forEach((fieldBuilder) => {
+      fieldBuilder.finalBuild(this.#screenIndex, newFieldFinder, oldFieldFinder);
     });
   }
 }

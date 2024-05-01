@@ -1,0 +1,122 @@
+[
+  {
+    "componentProps": {
+      "schema": [
+        {
+          "fields": [
+            {
+              "type": "TABLE_INPUT",
+              "column": 12,
+              "name": "FLUID_PROPERTIES",
+              "data": [
+                [
+                  {
+                    "type": "TEXT",
+                    "label": "",
+                    "name": "r1height",
+                    "align": "center"
+                  },
+                  {
+                    "type": "TEXT",
+                    "label": "Min",
+                    "align": "center"
+                  },
+                  {
+                    "type": "TEXT",
+                    "label": "Normal",
+                    "align": "center"
+                  },
+                  {
+                    "type": "TEXT",
+                    "label": "Max",
+                    "align": "center"
+                  },
+                  {
+                    "type": "TEXT",
+                    "label": "Units",
+                    "align": "center"
+                  }
+                ],
+                [
+                  {
+                    "type": "SINGLE_SELECT",
+                    "name": "density",
+                    "value": "",
+                    "disabled": true,
+                    "options": [
+                      {
+                        "value": "DENSITY",
+                        "label": "Density",
+                        "selected": true
+                      },
+                      {
+                        "value": "SPECIFIC_GRAVITY",
+                        "label": "Specific Gravity"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "name": "density_min",
+                    "disabled": true,
+                    "align": "center",
+                    "precision": 4,
+                    "min": 0.0001,
+                    "minError": "Entered Minimum Density is below or equal to 0"
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "name": "density_norm",
+                    "inputClass": "customRequired",
+                    "disabled": true,
+                    "required": false,
+                    "align": "center",
+                    "precision": 4,
+                    "min": 0.0001,
+                    "minError": "Entered Normal Density is below or equal to 0"
+                  },
+                  {
+                    "type": "TEXT_INPUT",
+                    "name": "density_max",
+                    "disabled": true,
+                    "align": "center",
+                    "precision": 4,
+                    "min": 0.0001,
+                    "minError": "Entered Maximum Density is below or equal to 0"
+                  },
+                  {
+                    "type": "SINGLE_SELECT",
+                    "name": "density_unit",
+                    "value": "Meter",
+                    "disabled": false,
+                    "align": "center",
+                    "inputClass": "unitClass",
+                    "options": [
+                      {
+                        "value": "kg/m3",
+                        "label": "kg/m3"
+                      },
+                      {
+                        "value": "g/cm3",
+                        "label": "g/cm3",
+                        "selected": true
+                      },
+                      {
+                        "value": "lb/ft3",
+                        "label": "lb/ft3"
+                      },
+                      {
+                        "value": "lb/gallon(US)",
+                        "label": "lb/gallon(US)"
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

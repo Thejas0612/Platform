@@ -1,8 +1,6 @@
-const HorizontalLine = (props) => {
-  const { schema } = props;
+const HorizontalLine = (schema) => {
   return (
     <div>
-      {schema.horizontalLine ? (
         <hr
           style={{
             border: "none",
@@ -10,12 +8,9 @@ const HorizontalLine = (props) => {
             backgroundColor: "#DEDFE0",
             color: "#DEDFE0",
             borderRadius: "1rem",
-            margin: "2rem"
+            margin: "2rem 0"
           }}
         />
-      ) : (
-        <div></div>
-      )}
     </div>
   );
 };

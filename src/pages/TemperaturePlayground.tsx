@@ -10,7 +10,7 @@ import { MsolTileOrThumbnail } from "../components/shared/msol-tile-or-thumbnail
 const schema = {
    "type": "TABLE_INPUT",
    "name": "TABLE_INPUT",
-   "options": [
+   "data": [
       [
          {
             "type": "TEXT",
@@ -427,7 +427,8 @@ const schema_Checkmark_dash = {
    
 
 const schema_Horizontal_Line = {
-   "horizontalLine":true,
+   "type": "HORIZONTAL_LINE",
+
 }
 function percentage(num: number, per: number)
 {

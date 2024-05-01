@@ -1,11 +1,11 @@
-import { CardCheckboxGroup, CardCheckboxGroupProps } from "../components/card-checkbox-group/CardCheckboxGroup";
+import { CardCheckboxGroup } from "../components/card-checkbox-group/CardCheckboxGroup";
 import { FC, useState } from "react";
 import { FilterButton } from "../components/filter-button/FilterButton";
 import { Box, Paper, Stack } from "@mui/material";
-import { Dropdown, DropdownMenuGroup } from "../components/dropdown-menu-group/DropdownMenuGroup";
+import { DropdownMenuGroup } from "../components/dropdown-menu-group/DropdownMenuGroup";
 import { MsolTileOrThumbnail, MsolTileOrThumbnailItem } from "../components/shared/msol-tile-or-thumbnail/MsolTileOrThumbnail";
 
-const DROPDOWNS: Dropdown[] = [
+const DROPDOWNS = [
   {
     id: "APPROVALS",
     placeholder: "APPROVALS",
@@ -65,7 +65,7 @@ const DROPDOWNS: Dropdown[] = [
   }
 ];
 
-const CARD_CHECKBOX_GROUP_DATA: CardCheckboxGroupProps["data"] = [
+const CARD_CHECKBOX_GROUP_DATA = [
   { id: "1", name: "1", title: "Coriolis", imageUrl: "flow__product__coriolis.png" },
   { id: "2", name: "2", title: "Differential Pressure Flow", imageUrl: "https://placehold.co/150x150" },
   { id: "3", name: "3", title: "Magnetic", imageUrl: "flow__product__magnetic.png" },
@@ -139,7 +139,7 @@ export const Test: FC = () => {
           />
         </Stack>
 
-        {showDropdownMenuGroup && <DropdownMenuGroup dropdowns={DROPDOWNS}
+        {showDropdownMenuGroup && <DropdownMenuGroup data={DROPDOWNS}
                                                      onChange={handleDropdownChange} selectedOptions={selectedOptions} />}
 
         <Box sx={{ paddingTop: 2 }}>

@@ -94,12 +94,12 @@
                   },
                   "showAlert": false,
                   "defaultIds": [],
-                  "options": [
+                  "data": [
                     {
                       "id": "flow_1",
                       "title": "DP Flow",
                       "description": "Innovative products enhance your flow measurement capabilities by expanding on time-tested and proven technology.",
-                      "imgUrl": "https://tools.emerson.com/OA_HTML/ibcGetAttachment.jsp?cItemId=454559"
+                      "imgUrl": "flow_primary_element.PNG"
                     }
                   ],
                   "np_id": 7,
@@ -139,7 +139,7 @@
                   "type": "SINGLE_SELECT",
                   "name": "line_size",
                   "label": "Line Size",
-                  "labelClass": "app-content-label",
+                  "labelClass": "app-content-label camelCase",
                   "disabled": false,
                   "value": "",
                   "options": [],
@@ -150,14 +150,14 @@
                   "isApiOnEvent": {
                     "isApiCall": true,
                     "apiInfo": {
-                      "url": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingPipeSchedule?buCode=dpflow&lineSize=",
+                      "url": "<%= VITE_API_URL %>/api/processcondition/processPipingPipeSchedule?buCode=dpflow&lineSize=",
                       "method": "GET",
                       "payload": {}
                     },
                     "targetUiElement": "pipeschedule",
                     "targetProperty": "options"
                   },
-                  "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingLineSize?buCode=dpflow",
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/processPipingLineSize?buCode=dpflow",
                   "display": true,
                   "order": 1
                 },
@@ -166,7 +166,7 @@
                   "type": "SINGLE_SELECT",
                   "name": "pipeschedule",
                   "label": "Pipe Schedule",
-                  "labelClass": "app-content-label",
+                  "labelClass": "app-content-label camelCase",
                   "disabled": false,
                   "value": "",
                   "options": [],
@@ -180,22 +180,27 @@
                   "column": 3,
                   "type": "NUMBER_INPUT",
                   "name": "Pipe Id",
-                  "label": "Pipe Id",
-                  "labelClass": "app-content-label",
+                  "label": "Pipe ID",
+                  "labelClass": "app-content-label camelCase",
                   "disabled": false,
                   "value": "",
                   "required": true,
                   "error": "",
                   "errorClass": "",
                   "display": false,
-                  "order": 3
+                  "order": 3,
+                  "placeholder": "Enter Text",
+                  "validations": {
+                    "minValue": 0.25,
+                    "maxValue": 999
+                  }
                 },
                 {
                   "column": 3,
                   "type": "SINGLE_SELECT",
                   "name": "units",
                   "label": "Units",
-                  "labelClass": "app-content-label",
+                  "labelClass": "app-content-label camelCase",
                   "disabled": false,
                   "value": "Inch",
                   "options": [
@@ -229,42 +234,38 @@
                 {
                   "type": "CUSTOM_BUTTON_GROUP",
                   "column": 12,
+                  "size": "large",
                   "title": "Fluid Type",
                   "label": "Fluid Type",
                   "name": "fluidtype",
                   "data": [
                     {
-                      "id": "0",
+                      "id": "fluid_type_liquid",
                       "label": "Liquid"
                     },
                     {
-                      "id": "1",
+                      "id": "fluid_type_gas",
                       "label": "Gas"
                     },
                     {
-                      "id": "2",
+                      "id": "fluid_type_steam",
                       "label": "Steam"
                     },
                     {
-                      "id": "3",
+                      "id": "fluid_type_naturalgas",
                       "label": "Natural Gas"
                     },
                     {
-                      "id": "4",
+                      "id": "fluid_type_slurry",
                       "label": "Slurry"
                     }
                   ],
-                  "defaultIds": ["0"],
-                  "multiple": true,
+                  "defaultId": "fluid_type_liquid",
                   "showLabel": true,
-                  "wrapperId": "",
+                  "wrapperId": "fluid_type_gas",
                   "wrapperClass": "cutsom_class",
-                  "labelClass": "ddl-from-custom-label",
-                  "value": "0",
-                  "attribute_code_value": {
-                    "multiple": true,
-                    "size": "medium"
-                  },
+                  "labelClass": "ddl-from-custom-label camelCase",
+                  "value": "fluid_type_liquid",
                   "required": true,
                   "display": true,
                   "order": 6
@@ -301,14 +302,14 @@
                   "type": "SINGLE_SELECT",
                   "name": "fluidsdatabase",
                   "label": "Fluids Database",
-                  "labelClass": "app-content-label",
+                  "labelClass": "app-content-label camelCase",
                   "value": "",
                   "options": [],
                   "required": true,
                   "error": "",
                   "errorClass": "",
                   "placeholder": "Pick One",
-                  "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID",
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID",
                   "display": true,
                   "order": 8
                 },
@@ -317,7 +318,7 @@
                   "type": "TEXT_INPUT",
                   "name": "custom_fluid_name",
                   "label": "Custom Fluid Name",
-                  "labelClass": "app-content-label",
+                  "labelClass": "app-content-label camelCase",
                   "value": "",
                   "required": true,
                   "error": "",
@@ -326,6 +327,83 @@
                   "display": false,
                   "order": 9,
                   "maxLength": 40
+                },
+                {
+                  "column": 4,
+                  "type": "SINGLE_SELECT",
+                  "name": "fluid_database_dropdown_naturalgas",
+                  "label": "Fluids Database",
+                  "labelClass": "app-content-label camelCase",
+                  "value": "",
+                  "options": [],
+                  "required": true,
+                  "error": "",
+                  "errorClass": "",
+                  "placeholder": "Pick One",
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID",
+                  "display": false,
+                  "order": 10
+                },
+                {
+                  "column": 3,
+                  "type": "TEXT_INPUT",
+                  "name": "natural_gas__name",
+                  "label": "Natural Gas Name",
+                  "labelClass": "app-content-label camelCase",
+                  "value": "",
+                  "required": true,
+                  "error": "",
+                  "errorClass": "",
+                  "placeholder": "Enter Text",
+                  "display": false,
+                  "order": 11,
+                  "maxLength": 40
+                },
+                {
+                  "column": 4,
+                  "type": "BUTTON",
+                  "labelClass": "app-content-label mt-2",
+                  "label": "PICK FROM DATABASE",
+                  "required": false,
+                  "display": false,
+                  "btnType": "primary",
+                  "order": 12,
+                  "name": "pick_from_database",
+                  "customClass": "pick_from_database_btn",
+                  "showIcon": false
+                },
+                {
+                  "column": 4,
+                  "type": "SINGLE_SELECT",
+                  "name": "user_defiened_pre_defined_natural_gas_dropdown",
+                  "label": "Fluids Database",
+                  "labelClass": "app-content-label camelCase",
+                  "value": "",
+                  "options": [],
+                  "required": true,
+                  "error": "",
+                  "errorClass": "",
+                  "placeholder": "Pick One",
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/naturalgas?ngaslistid=1713795132271&emailId=nithin.kumar@emerson.com&userId=0",
+                  "display": false,
+                  "order": 13
+                },
+                {
+                  "column": 8,
+                  "type": "SINGLE_SELECT",
+                  "name": "composition_method_dropdown_natural_gas",
+                  "label": "Natural Gas Composition Method",
+                  "labelClass": "app-content-label camelCase",
+                  "value": "",
+                  "options": [],
+                  "required": true,
+                  "error": "",
+                  "errorClass": "",
+                  "placeholder": "Pick One",
+                  "display": false,
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=NATURAL_GAS",
+                  "order": 14,
+                  "wrapperClass": "composition_method_dropdown_naturalgas"
                 },
                 {
                   "column": 12,
@@ -339,7 +417,7 @@
                   "type": "BUTTON",
                   "value": "",
                   "display": true,
-                  "order": 10,
+                  "order": 15,
                   "name": "additional_options_label"
                 },
                 {
@@ -364,7 +442,7 @@
                   "showAlert": false,
                   "type": "CHECKBOX_INPUT",
                   "display": true,
-                  "order": 11
+                  "order": 16
                 }
               ]
             },
@@ -734,7 +812,7 @@
                 {
                   "type": "TABLE_INPUT",
                   "column": 12,
-                  "options": [
+                  "data": [
                     [
                       {
                         "type": "TEXT",
@@ -898,246 +976,6 @@
                   "tableClass": "",
                   "labelClass": "app-content-label",
                   "label": "Fluid Properties"
-                }
-              ]
-            }
-          ]
-        }
-      }
-    ]
-  },
-  "tempPA": {
-    "uiComponents": [
-      {
-        "componentName": "NavigationMenu",
-        "alignment": "left",
-        "componentProps": {
-          "schema": [
-            {
-              "label": "Instrument Type",
-              "enabled": true,
-              "selected": true,
-              "name": "fpa_InstrumentType",
-              "ne_id": 0,
-              "np_id": 7,
-              "sn_id": 4347,
-              "step_order": 1,
-              "bu_code": "FLOW_PA_NEW",
-              "gui_type_code": "TEXT",
-              "attribute_code_json": "N/A",
-              "html_field_name": "fpa_InstrumentType",
-              "badges": []
-            },
-            {
-              "label": "Transmitter Requirements",
-              "enabled": true,
-              "selected": true,
-              "name": "fpa_transmitterRequirements",
-              "sn_id": 4347,
-              "ne_id": 1,
-              "bu_code": "FLOW_PA_NEW",
-              "np_id": 7,
-              "element_label": "Process Condition",
-              "step_order": 2,
-              "gui_type_code": "TEXT",
-              "attribute_code_json": "N/A",
-              "html_field_name": "fpa_transmitterRequirements",
-              "badges": []
-            },
-            {
-              "label": "Transmitter Selection",
-              "enabled": true,
-              "selected": false,
-              "name": "fpa_tSelection",
-              "badges": [],
-              "sn_id": 4347,
-              "ne_id": 2,
-              "bu_code": "FLOW_PA_NEW",
-              "np_id": 7,
-              "step_order": 3,
-              "gui_type_code": "TEXT",
-              "attribute_code_json": "N/A",
-              "html_field_name": "fpa_tSelection"
-            }
-          ]
-        }
-      },
-      {
-        "componentName": "DynamicForm",
-        "alignment": "right",
-        "componentProps": {
-          "schema": [
-            {
-              "id": 0,
-              "fields": [
-                {
-                  "column": 12,
-                  "label": "LABEL_TEXT",
-                  "labelClass": "app-content-label",
-                  "name": "LABEL_TEXT",
-                  "showLabel": false,
-                  "subText": "",
-                  "tableClass": "",
-                  "text": "Instrument Type",
-                  "textClass": "ddl-typography--h5",
-                  "title": "this is title",
-                  "type": "LABEL_TEXT",
-                  "textStyles": {
-                    "textAlign": "center"
-                  }
-                },
-                {
-                  "column": 12,
-                  "type": "TILE_THUMBNAIL",
-                  "name": "Instrument Type",
-                  "label": "Test Thumbnail",
-                  "labelClass": "app-content-label",
-                  "description": "here is a toggle button",
-                  "attribute_code_value": {
-                    "defaultIds": [],
-                    "defaultDirection": "tile"
-                  },
-                  "options": [
-                    {
-                      "id": 1,
-                      "title": "Transmitter",
-                      "description": "Rosemount Temperature Transmitter offer innovative, industry-leading technologies engineered to accomodate tough environments and challenging application.",
-                      "imgUrl": ""
-                    },
-                    {
-                      "id": 2,
-                      "title": "X-well",
-                      "description": "Rosemount X-well technology measures process temperature accurately and reliably without thermowell.",
-                      "imgUrl": ""
-                    }
-                  ],
-                  "required": true,
-                  "error": "",
-                  "errorClass": ""
-                }
-              ]
-            }
-          ]
-        }
-      }
-    ]
-  },
-  "project_Lookout": {
-    "uiComponents": [
-      {
-        "componentName": "NavigationMenu",
-        "alignment": "left",
-        "componentProps": {
-          "schema": [
-            {
-              "label": "Measurement Type",
-              "enabled": true,
-              "selected": true,
-              "name": "fpa_MeasurementType",
-              "ne_id": 0,
-              "np_id": 7,
-              "sn_id": 4347,
-              "step_order": 1,
-              "bu_code": "FLOW_PA_NEW",
-              "gui_type_code": "TEXT",
-              "attribute_code_json": "N/A",
-              "html_field_name": "fpa_MeasurementType",
-              "badges": []
-            },
-            {
-              "label": "Process Condition",
-              "enabled": true,
-              "selected": true,
-              "name": "fpa_processCondition",
-              "sn_id": 4347,
-              "ne_id": 1,
-              "bu_code": "FLOW_PA_NEW",
-              "np_id": 7,
-              "element_label": "Process Condition",
-              "step_order": 2,
-              "gui_type_code": "TEXT",
-              "attribute_code_json": "N/A",
-              "html_field_name": "fpa_processCondition",
-              "badges": []
-            },
-            {
-              "label": "Process Variable",
-              "enabled": true,
-              "selected": false,
-              "name": "fpa_lh_processVariable",
-              "badges": [],
-              "sn_id": 4347,
-              "ne_id": 2,
-              "bu_code": "FLOW_PA_NEW",
-              "np_id": 7,
-              "element_label": "Fluid Selection",
-              "step_order": 3,
-              "left_right_anchor_flag": "L",
-              "gui_type_code": "TEXT",
-              "attribute_code_json": "N/A",
-              "html_field_name": "fpa_lh_processVariable"
-            }
-          ]
-        }
-      },
-      {
-        "componentName": "DynamicForm",
-        "alignment": "right",
-        "componentProps": {
-          "schema": [
-            {
-              "id": 0,
-              "fields": [
-                {
-                  "column": 12,
-                  "label": "LABEL_TEXT",
-                  "labelClass": "app-content-label",
-                  "name": "LABEL_TEXT",
-                  "showLabel": false,
-                  "subText": "",
-                  "tableClass": "",
-                  "text": "Measurment Type",
-                  "textClass": "ddl-typography--h5",
-                  "title": "this is title",
-                  "type": "LABEL_TEXT",
-                  "textStyles": {
-                    "textAlign": "center"
-                  }
-                },
-                {
-                  "column": 12,
-                  "type": "TILE_THUMBNAIL",
-                  "name": "measurmenttype",
-                  "label": "Test Thumbnail",
-                  "labelClass": "app-content-label",
-                  "description": "here is a toggle button",
-                  "attribute_code_value": {
-                    "defaultIds": [],
-                    "defaultDirection": "tile"
-                  },
-                  "options": [
-                    {
-                      "id": 1,
-                      "title": "Flow",
-                      "description": "Flow Measurement is the process of measuring fluid in your plant or industry. You can measure flow through a variety of different devices such as Coriolis, Differential Pressure, Vortex, Magnetic, Ultrasonic, Turbine and positive displacement meters.",
-                      "imgUrl": "https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png"
-                    },
-                    {
-                      "id": 2,
-                      "title": "Density",
-                      "description": "Our density & viscosity measurement devices offer unbeatableperformance for applications in alcohol concentration, API gravity, specific gravity and more.",
-                      "imgUrl": "https://emerson-cdn.azurewebsites.net/7bd555544cf68071bafa.png"
-                    },
-                    {
-                      "id": 3,
-                      "title": "Viscosity",
-                      "description": "Our inline viscosity meter offers accurate repeatable measurement in industries such as refining chemical, life Science and more.",
-                      "imgUrl": "https://emerson-cdn.azurewebsites.net/940becae8b116d587fbd.png"
-                    }
-                  ],
-                  "required": true,
-                  "error": "",
-                  "errorClass": ""
                 }
               ]
             }

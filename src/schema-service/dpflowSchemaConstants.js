@@ -16,6 +16,18 @@ const SCHEMA_CONSTANTS = {
   DATABASE: "Database",
   ID: "id",
   CUSTOM_FLUID_NAME: "custom_fluid_name",
-  FLUID_DATABASE_NAME: "fluidsdatabase"
+  FLUID_DATABASE_NAME: "fluidsdatabase",
+  FLOW_TAIL_THUMBNAIL: "flow_tial_or_thumbnail",
+  FIELDS: "fields",
+  COMP_PROPS: "componentProps",
+  SCHEMA: "schema",
+  FLUIDTYPE_NAME: "fluidtype",
+  FLUID_TYPE_LIQUID: "fluid_type_liquid",
+  NATURAL_GAS_NAME: "natural_gas__name",
+  NATURAL_GAS_DROPDOWN_NAME: "fluid_database_dropdown_naturalgas",
+  FLUID_TYPE_NATURALGAS: "fluid_type_naturalgas",
+  COMPOSITION_METHOD_DROPDOWN_NATURALGAS: "composition_method_dropdown_natural_gas",
+  PICK_FROM_DATABASE_BTN_NATURALGAS: "pick_from_database",
+  DEFAULTID: "defaultId"
 };
 export default SCHEMA_CONSTANTS;

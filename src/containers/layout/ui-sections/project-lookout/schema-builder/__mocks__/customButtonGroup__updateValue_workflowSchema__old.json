@@ -1,0 +1,29 @@
+[
+  {
+    "componentProps": {
+      "schema": [
+        {
+          "fields": [
+            {
+              "type": "CUSTOM_BUTTON_GROUP",
+              "column": 12,
+              "label": "Fluid Type",
+              "name": "fluid-type",
+              "defaultId": "1",
+              "data": [
+                {
+                  "id": "1",
+                  "label": "Liquid"
+                },
+                {
+                  "id": "2",
+                  "label": "Gas"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

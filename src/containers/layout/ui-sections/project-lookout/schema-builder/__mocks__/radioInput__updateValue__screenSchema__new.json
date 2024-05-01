@@ -1,0 +1,23 @@
+[
+  {
+    "fields": [
+      {
+        "type": "RADIO_INPUT",
+        "name": "fluid-source",
+        "label": "Fluid Source",
+        "labelClass": "app-content-label camelCase",
+        "value": "DATABASE",
+        "options": [
+          {
+            "value": "DATABASE",
+            "label": "Database"
+          },
+          {
+            "value": "CUSTOM",
+            "label": "Custom"
+          }
+        ]
+      }
+    ]
+  }
+]

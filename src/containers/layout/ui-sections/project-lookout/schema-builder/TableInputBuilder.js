@@ -1,8 +1,37 @@
-const TABLE_INPUT_TYPE = "TABLE_INPUT";
+import { BaseFieldBuilder } from "./BaseFieldBuilder";
+import { isEqual } from "lodash";
 
-export class TableInputBuilder {
+/**
+ * @typedef {import( "./FieldFinder").FieldFinder} FieldFinder
+ *
+ * @typedef {{
+ *   data: TableInputData[][]
+ *   label: string
+ *   value: Value
+ * }} TableInput
+ *
+ * @typedef {{
+ *   align?: string
+ *   label: string
+ *   name: string
+ *   textStyles?: TableInputDataTextStyles
+ *   type: string
+ *   required?: boolean
+ *   options?: TableInputDataOption[]
+ * }} TableInputData
+ *
+ * @typedef {{
+ *   fontSize: string
+ * }} TableInputDataTextStyles
+ *
+ * @typedef {{
+ *   label: string
+ *   value: string
+ * }} TableInputDataOption
+ */
+export class TableInputBuilder extends BaseFieldBuilder {
   /**
-   * @type { (fieldProps: MsolTileOrThumbnailProps, value: string[]) => void}
+   * @type { (fieldProps: TableInput, value: string[], fieldFinder: FieldFinder) => void}
    */
   #onChangeHandler;
 
@@ -12,27 +41,23 @@ export class TableInputBuilder {
   #fieldName;
 
   /**
-   * @type {WorkflowBuilder}
-   */
-  #workflowBuilder;
-
-  /**
    *
    * @param fieldName {string}
    * @param workflowBuilder {WorkflowBuilder}
+   * @param screenBuilder {ScreenBuilder}
    */
-  constructor(fieldName, workflowBuilder) {
+  constructor(fieldName, workflowBuilder, screenBuilder) {
+    super(workflowBuilder, screenBuilder)
     this.#fieldName = fieldName;
-    this.#workflowBuilder = workflowBuilder;
   }
 
   /**
    *
-   // * @param onChangeHandler {(fieldProps: MsolTileOrThumbnailProps, value: string[]) => void}
+   * @param onChangeHandler {(fieldProps: TableInput, value: { [key: string]: string | number}) => void}
    * @return {TableInputBuilder}
    */
   onChange(onChangeHandler) {
-    if (this.onChangeHandler != null) {
+    if (this.#onChangeHandler != null) {
       throw new Error("The 'onChange' function was called 2 or more times.");
     }
 
@@ -42,33 +67,14 @@ export class TableInputBuilder {
 
   /**
    * @param screenIndex {number}
-   * @return {ScreenBuilder}
+   * @param newFieldFinder {FieldFinder}
+   * @param oldFieldFinder {FieldFinder}
    */
-  screen(screenIndex) {
-    return this.#workflowBuilder.screen(screenIndex);
-  }
+  finalBuild(screenIndex, newFieldFinder, oldFieldFinder) {
+    const newField = newFieldFinder.findTableInput(screenIndex, this.#fieldName);
+    const oldField = oldFieldFinder.findTableInput(screenIndex, this.#fieldName);
+    const hasChanged = !isEqual(newField.value, oldField.value);
 
-  /**
-   * @param screenIndex {index}
-   * @param newScreenSchema {object}
-   * @return {object}
-   */
-  build(screenIndex, newScreenSchema) {
-    return this.#workflowBuilder.finalBuild(screenIndex, newScreenSchema);
-  }
-
-  /**
-   * @param screen {any}
-   */
-  finalBuild(screen) {
-    const field = screen.fields.find((_) => {
-      return _.name === this.#fieldName && _.type === TABLE_INPUT_TYPE;
-    });
-
-    if (field == null) {
-      throw new Error(`Could not find field with '${this.#fieldName}' name and ${TABLE_INPUT_TYPE} type.`);
-    }
-
-    this.#onChangeHandler && this.#onChangeHandler(field, field.value);
+    hasChanged && this.#onChangeHandler && this.#onChangeHandler(newField, newField.value, newFieldFinder);
   }
 }
