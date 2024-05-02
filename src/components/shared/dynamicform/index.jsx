@@ -61,6 +61,7 @@ const MSOLDynamicForm = ({
   formKey,
   dataSourceUrl,
   components,
+  showPervious,
   overrideComponents = {},
   ...props
 }) => {
@@ -126,7 +127,7 @@ const MSOLDynamicForm = ({
     }
   };
 
-  const onformSubmit = (e) => {
+  const handleNext = (e) => {
     const updatedErrors = { ...formError };
     let isFormValid = Object.values(updatedErrors).every((error) => !error);
     formData.forEach((formGroup) => {
@@ -143,7 +144,7 @@ const MSOLDynamicForm = ({
     onSubmit(isFormValid, formDataObj);
   }
 
-  const onformPrevious = (e) => {
+  const handlePrevious = (e) => {
     onPrevious(e);
   }
 
@@ -187,20 +188,20 @@ const MSOLDynamicForm = ({
           <Grid item xs={12} sx={{ mt: 4 }}>
             <Grid container spacing={2} display={'flex'} justifyContent={'space-between'}>
               <Grid item xs={3}>
-                <ButtonInput
+               { !showPervious && <ButtonInput
                   type="button"
                   btnType="secondary"
                   showBackIcon={true}
-                  label="previous"
-                  onClick={onformPrevious}
-                />
+                  label="Previous"
+                  onClick={handlePrevious}
+                /> } 
               </Grid>
               <Grid item xs={3}>
                 <ButtonInput
                   type="button"
                   label="Next"
                   btnType="primary"
-                  onClick={onformSubmit}
+                  onClick={handleNext}
                 />
               </Grid>
             </Grid>
