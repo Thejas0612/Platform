@@ -3,10 +3,10 @@ import SCHEMA_CONSTANTS from "./dpflowSchemaConstants";
 import { mapFieldsByName, orderSchemaFields } from "./schemaServiceHelper";
 
 /*  function is used to retrieve the schema of the "NavigationMenu" */
-export const getNavigationMenuSchema = (buCode, componentName, schema) => {
+export const getNavigationMenuSchema = (MSOLPAType, componentName, schema) => {
   const schema_data = [];
-  if (buCode && componentName) {
-    schema[buCode]?.uiComponents?.forEach((comp) => {
+  if (MSOLPAType && componentName) {
+    schema[MSOLPAType]?.uiComponents?.forEach((comp) => {
       if (comp.componentName === "NavigationMenu") {
         comp.componentProps.schema.forEach((obj) => {
           schema_data.push(obj);

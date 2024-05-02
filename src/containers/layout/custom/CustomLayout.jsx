@@ -42,7 +42,7 @@ function CustomLayout() {
           isApiOnEvent: {
             isApiCall: true,
             apiInfo: {
-              url: "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingPipeSchedule?buCode=dpflow&lineSize=",
+              url: "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingPipeSchedule?MSOLPAType=dpflow&lineSize=",
               method: "GET",
               payload: {}
             },
@@ -50,7 +50,7 @@ function CustomLayout() {
             targetProperty: "options"
           },
           dataSourceUrl:
-            "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingLineSize?buCode=dpflow",
+            "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingLineSize?MSOLPAType=dpflow",
           display: true,
           order: 1
         },
@@ -206,7 +206,7 @@ function CustomLayout() {
           errorClass: "",
           placeholder: "Pick One",
           dataSourceUrl:
-            "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID",
+            "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/fluidsDatabase?MSOLPAType=dpflow&fluidType=LIQUID",
           display: true,
           order: 8
         },

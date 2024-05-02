@@ -33,7 +33,7 @@ export function generateLineSizeUrl(measurementTypes) {
 export function generateFluidDatabase(fluidType) {
   const url = new URL("/api/processcondition/fluidsDatabase", environment.VITE_API_URL);
   url.searchParams.set("fluidType", fluidType);
-  url.searchParams.set("buCode", "project_Lookout");
+  url.searchParams.set("MSOLPAType", "project_Lookout");
 
   return url.toString();
 }

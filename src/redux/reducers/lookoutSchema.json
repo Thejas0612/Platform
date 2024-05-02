@@ -266,7 +266,7 @@
                   "label": "Fluids Database",
                   "labelClass": "app-content-label camelCase",
                   "inputClass": "customRequired",
-                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/fluidsDatabase?fluidType=LIQUID&buCode=project_Lookout"
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/fluidsDatabase?fluidType=LIQUID&MSOLPAType=project_Lookout"
                 },
                 {
                   "label": "Enter Custom Fluid Name",

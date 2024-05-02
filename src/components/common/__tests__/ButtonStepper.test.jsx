@@ -11,7 +11,7 @@ const PROPS = {
     schema: {},
     updateValidations: ()=> {},
     data: [],
-    buCode: 'test'
+    MSOLPAType: 'test'
 }
 
 describe('<ButtonStepper/>', () => {
