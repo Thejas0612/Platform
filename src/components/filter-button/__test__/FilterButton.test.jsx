@@ -14,7 +14,7 @@ describe("<TechnologyTypeFilter />", () => {
 
     test("should fire onClose event when clicked.", async () => {
         const handleClick = jest.fn();
-        const { container } = render(<FilterButton {...PROPS} onClick={handleClick} />);
+        const { container } = render(<FilterButton {...PROPS} onChange={handleClick} />);
 
         const button = screen.getByText("Filters");
         fireEvent.click(button);

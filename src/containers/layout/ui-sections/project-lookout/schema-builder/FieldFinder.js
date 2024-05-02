@@ -113,12 +113,30 @@ export class FieldFinder {
   }
 
   /**
-   * @param screenIndex
-   * @param fieldName
+   * @param screenIndex {number}
+   * @param fieldName {string}
    * @return {*}
    */
-  findTextInput(screenIndex, fieldName) {
-    return this.find(screenIndex, FIELD_TYPE.TEXT_INPUT, fieldName);
+  findFilterButton(screenIndex, fieldName){
+    return this.find(screenIndex, FIELD_TYPE.FILTER_BUTTON, fieldName);
+  }
+
+  /**
+   * @param screenIndex {number}
+   * @param fieldName {string}
+   * @return {*}
+   */
+  findDropdownMenuGroup(screenIndex, fieldName){
+    return this.find(screenIndex, FIELD_TYPE.DROPDOWN_MENU_GROUP, fieldName);
+  }
+
+  /**
+   * @param screenIndex {number}
+   * @param fieldName {string}
+   * @return {*}
+   */
+  findCardCheckboxGroup(screenIndex, fieldName){
+    return this.find(screenIndex, FIELD_TYPE.CARD_CHECKBOX_GROUP, fieldName);
   }
 
   /**

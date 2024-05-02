@@ -11,7 +11,7 @@ import {
 import { cloneDeep } from "lodash";
 import { schemaBuilder } from "./schema-builder/schemaBuilder";
 import { notNullOrUndefined } from "../../../../utils/assert";
-import { FLUID_SOURCE_OPTIONS, TECHNOLOGY_TYPES_OPTIONS } from "./constants";
+import {FLUID_SOURCE_OPTIONS, FLUID_TYPE_OPTIONS, TECHNOLOGY_TYPES_OPTIONS} from "./constants";
 import { environment } from "../../../../config/environment";
 
 const DISABLE_TOOLTIP = "There are no products that measure both Flow and Viscosity.";
@@ -63,6 +63,20 @@ export default function ProjectLookoutRightLayout() {
     dispatch(updateLeftSection(leftSectionSchemaNew));
   };
 
+  //helper method to disable options inside arrays of dropdowns.
+  const updateIsDisabledDropdowns = (data, id, optionValue, newValue) =>{
+    // Find the item with the given filter id
+    const item = data.find(item => item.id === id);
+    if (item) {
+      // Find the option with the given option value
+      const option = item.options.find(option => option.value === optionValue);
+      if (option) {
+        // Update isDisabled property
+        option.isDisabled = newValue;
+      }
+    }
+  }
+
   const handleChange = (_event, _type, newScreenSchemas, _name, _isValid) => {
     const rightSectionSchemaNew2 = schemaBuilder(rightSectionSchema)
       .screen(0)
@@ -106,7 +120,20 @@ export default function ProjectLookoutRightLayout() {
         const textInput = fieldFinder.findTextInput(1, "custom-fluid-name");
         const tableInput1 = fieldFinder.findTableInput(2, "TABLE_INPUT1");
         const tableInput2 = fieldFinder.findTableInput(2, "TABLE_INPUT2");
+        const dropdownFilters = fieldFinder.findDropdownMenuGroup(3, "dropdowns-filter");
 
+        if (value === FLUID_TYPE_OPTIONS.LIQUID || value === FLUID_TYPE_OPTIONS.SLURRY) {
+          updateIsDisabledDropdowns(dropdownFilters.data,"ACCURACY", "High_Accuracy", false);
+        }
+        else {
+          updateIsDisabledDropdowns(dropdownFilters.data,"ACCURACY", "High_Accuracy", true);
+        }
+        dropdownFilters.value = {
+          "ACCURACY": [],
+          "APPLICATION": []
+        };
+        const cardCheckboxGroup = fieldFinder.findCardCheckboxGroup(3, "filter-card-group");
+        cardCheckboxGroup.data.find(item => item.title === "Vortex").disabled = false;
         if (value === "STEAM") {
           saturatedTemperaturePressure.hide = false;
           saturatedTemperaturePressure.value = "superheated";
@@ -352,6 +379,25 @@ export default function ProjectLookoutRightLayout() {
           }
         }
       })
+      .screen(3)
+      .filterButton("filter-button")
+      .onChange((_field, value, fieldFinder) => {
+        const dropdownFilters = fieldFinder.findDropdownMenuGroup(3, "dropdowns-filter");
+        dropdownFilters.hide = !value;
+      })
+      .dropdownMenuGroup("dropdowns-filter")
+      .onChange((field, value, fieldFinder) => {
+        const cardCheckboxGroup = fieldFinder.findCardCheckboxGroup(3, "filter-card-group");
+        const vortex = cardCheckboxGroup.data.find(item => item.title === "Vortex");
+
+        if (value.ACCURACY?.find(item => item === "High_Accuracy") || value.APPLICATION?.find(item => item === "Hygienic_Sanitary")) {
+          vortex.disabled = true;
+        } else {
+          vortex.disabled = false;
+        }
+
+      })
+      .cardCheckboxGroup("filter-card-group")
       .build(screenIndex, newScreenSchemas);
 
     dispatch(updateRightSection(rightSectionSchemaNew2));

@@ -62,9 +62,9 @@ CardCheckboxGroup.propTypes = {
       title: PropTypes.string.isRequired,
       imageUrl: PropTypes.string.isRequired,
       disabledTooltip: PropTypes.string,
-      disabled: PropTypes.bool,
+      disabled: PropTypes.bool
     })
   ).isRequired,
   error: PropTypes.string,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func
 };

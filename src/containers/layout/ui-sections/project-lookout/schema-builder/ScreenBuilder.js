@@ -5,6 +5,9 @@ import { CustomButtonGroupBuilder } from "./CustomButtonGroupBuilder";
 import { FieldFinder } from "./FieldFinder";
 import { cloneDeep } from "lodash";
 import { RadioInputFieldBuilder } from "./RadioInputFieldBuilder";
+import { FilterButtonBuilder } from "./FilterButtonBuilder";
+import { DropdownMenuGroupBuilder } from "./DropdownMenuGroupBuilder";
+import { CardCheckboxGroupBuilder } from "./CardCheckboxGroupBuilder";
 
 export class ScreenBuilder {
   /**
@@ -85,6 +88,39 @@ export class ScreenBuilder {
     const radioInputFieldBuilder = new RadioInputFieldBuilder(name, this.#workflowBuilder, this);
     this.#fieldBuilders.push(radioInputFieldBuilder);
     return radioInputFieldBuilder;
+  }
+
+  /**
+   *
+   * @param name {string}
+   * @return {FilterButtonBuilder}
+   */
+  filterButton(name){
+    const filterButtonBuilder = new FilterButtonBuilder(name, this.#workflowBuilder, this);
+    this.#fieldBuilders.push(filterButtonBuilder);
+    return filterButtonBuilder;
+  }
+
+  /**
+   *
+   * @param name {string}
+   * @return {DropdownMenuGroupBuilder}
+   */
+  dropdownMenuGroup(name){
+    const dropdownMenuGroupBuilder = new DropdownMenuGroupBuilder(name, this.#workflowBuilder, this);
+    this.#fieldBuilders.push(dropdownMenuGroupBuilder);
+    return dropdownMenuGroupBuilder;
+  }
+
+  /**
+   *
+   * @param name {string}
+   * @return {CardCheckboxGroupBuilder}
+   */
+  cardCheckboxGroup(name){
+    const cardCheckboxGroupBuilder = new CardCheckboxGroupBuilder(name, this.#workflowBuilder, this);
+    this.#fieldBuilders.push(cardCheckboxGroupBuilder);
+    return cardCheckboxGroupBuilder;
   }
 
   /**
