@@ -150,14 +150,14 @@
                   "isApiOnEvent": {
                     "isApiCall": true,
                     "apiInfo": {
-                      "url": "<%= VITE_API_URL %>/api/processcondition/processPipingPipeSchedule?buCode=dpflow&lineSize=",
+                      "url": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingPipeSchedule?MSOLPAType=dpflow&lineSize=",
                       "method": "GET",
                       "payload": {}
                     },
                     "targetUiElement": "pipeschedule",
                     "targetProperty": "options"
                   },
-                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/processPipingLineSize?buCode=dpflow",
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/processPipingLineSize?MSOLPAType=dpflow",
                   "display": true,
                   "order": 1
                 },
@@ -309,7 +309,7 @@
                   "error": "",
                   "errorClass": "",
                   "placeholder": "Pick One",
-                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID",
+                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/fluidsDatabase?MSOLPAType=dpflow&fluidType=LIQUID",
                   "display": true,
                   "order": 8
                 },
