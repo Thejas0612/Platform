@@ -90,12 +90,12 @@ const MSOLDynamicForm = ({
     initializeFormData(schema)
   }, [JSON.stringify(schema)]);
 
-  const updateFormData = (e, type, name, value) => {
-    const newFormDataObj = { ...formDataObj, [name]: value }
+  const updateFormData = (fieldName, fieldValue) => {
+    const newFormDataObj = { ...formDataObj, [fieldName]: fieldValue }
     const updatedFormData = formData.map((group) => {
       const updatedFields = group.fields.map((field) => {
-        if (field.name === name) {
-          return { ...field, value, error: formError[name] };
+        if (field.name === fieldName) {
+          return { ...field, value: fieldValue };
         }
         return field;
       });
@@ -103,19 +103,20 @@ const MSOLDynamicForm = ({
     });
     setFormData(updatedFormData);
     setFormDataObj(newFormDataObj);
-    const message = fieldValidation(e, type, name, value);
-    setFormError({ ...formError, [name]: message });
-    handleChange(
-      e,
+
+    const message = fieldValidation(fieldName, fieldValue);
+    const formErrorNew = { ...formError, [fieldName]: message }
+    setFormError(formErrorNew);
+
+    return {
       newFormDataObj,
       updatedFormData,
-      name,
-      { ...formError, [name]: message },
-    );
+      formErrors: formErrorNew
+    }
   }
 
-  const fieldValidation = (e, type, name, value) => {
-    if (name != undefined) {
+  const fieldValidation = (name, value) => {
+    if (name != null) {
       const currentField = formData
         .flatMap((group) => group.fields)
         .find(
@@ -125,7 +126,7 @@ const MSOLDynamicForm = ({
         );
       return checkValidations(currentField, value);
     }
-  };
+  }
 
   const handleNext = (e) => {
     const updatedErrors = { ...formError };
@@ -148,8 +149,8 @@ const MSOLDynamicForm = ({
     onPrevious(e);
   }
 
-  const generateForm =
-    formData &&
+
+  return formData &&
     formData.length &&
     formData.map((formGroup, index) => {
       return (
@@ -164,12 +165,19 @@ const MSOLDynamicForm = ({
               // CustomButtonGroup onChange event always returns undefined as the name. Now we
               // use the name in the schema.
               // https://dev.azure.com/EmersonAutomationSolutions/AS-MSOL-Digital%20Experience%20Tools/_workitems/edit/1708287/
-              function handleChange(e, type, _name, val) {
-                updateFormData(e, type, fieldObj.name, val)
+              function handleFieldChange(event, _type, _name, val) {
+                const { newFormDataObj, updatedFormData, formErrors } = updateFormData(fieldObj.name, val);
+                handleChange(
+                  event,
+                  newFormDataObj,
+                  updatedFormData,
+                  fieldObj.name,
+                  formErrors
+                );
               }
 
-              function handleBlur(e) {
-                updateFormData(e, undefined, fieldObj.name, fieldObj.value)
+              function handleFieldBlur() {
+                updateFormData(fieldObj.name, fieldObj.value)
               }
 
               return (
@@ -178,7 +186,7 @@ const MSOLDynamicForm = ({
                     <></>
                   ) : (
                     <Grid item key={fieldObj.name} xs={fieldObj.column ? fieldObj.column : 12}>
-                      {FieldComponent ? <FieldComponent {...fieldObj} onChange={handleChange} onBlur={handleBlur} /> : null}
+                      {FieldComponent ? <FieldComponent {...fieldObj} onChange={handleFieldChange} onBlur={handleFieldBlur} /> : null}
                     </Grid>
                   )}
                 </>
@@ -188,13 +196,13 @@ const MSOLDynamicForm = ({
           <Grid item xs={12} sx={{ mt: 4 }}>
             <Grid container spacing={2} display={'flex'} justifyContent={'space-between'}>
               <Grid item xs={3}>
-               { !showPervious && <ButtonInput
+                {!showPervious && <ButtonInput
                   type="button"
                   btnType="secondary"
                   showBackIcon={true}
                   label="Previous"
                   onClick={handlePrevious}
-                /> } 
+                />}
               </Grid>
               <Grid item xs={3}>
                 <ButtonInput
@@ -209,8 +217,6 @@ const MSOLDynamicForm = ({
         </div>
       );
     });
-
-  return generateForm;
 };
 
 export default MSOLDynamicForm

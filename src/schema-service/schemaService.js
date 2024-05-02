@@ -29,6 +29,7 @@ export const updateSchema = async (
   formObj,
   formData,
   name,
+  fieldError,
   activeIndex,
   invisibleUiElements
 ) => {
@@ -36,13 +37,12 @@ export const updateSchema = async (
   const mappedFields = mapFieldsByName(allUiElements);
   const field = mappedFields[name];
   field["required"] = true;
-  field["error"] = "";
+  field["error"] = fieldError[name] !== undefined && fieldError[name] ? fieldError[name] : "";
   if (name === SCHEMA_CONSTANTS.FLOW_TAIL_THUMBNAIL) {
     field["defaultIds"] = field?.value;
   }
-
   let response;
-  if (field?.isApiOnEvent) {
+  if (field?.isApiOnEvent && e?.id) {
     response = await getApi(field?.isApiOnEvent?.apiInfo, e?.id);
     response.unshift({
       id: SCHEMA_CONSTANTS.DEFAULT_DROPDOWN_ID,
@@ -56,13 +56,17 @@ export const updateSchema = async (
     if (field?.value === SCHEMA_CONSTANTS.SPECIAL) {
       mappedFields[SCHEMA_CONSTANTS.PIPE_ID][SCHEMA_CONSTANTS.DISPLAY] = true;
       mappedFields[SCHEMA_CONSTANTS.PIPE_SCHEDULE][SCHEMA_CONSTANTS.DISPLAY] = false;
+      mappedFields[SCHEMA_CONSTANTS.PIPE_SCHEDULE][SCHEMA_CONSTANTS.VALUE] = "";
       mappedFields[SCHEMA_CONSTANTS.UNITS][SCHEMA_CONSTANTS.DISPLAY] = true;
       mappedFields[SCHEMA_CONSTANTS.PIPE_ID][SCHEMA_CONSTANTS.VALUE] = "";
       mappedFields[SCHEMA_CONSTANTS.UNITS][SCHEMA_CONSTANTS.VALUE] = SCHEMA_CONSTANTS.INCH;
     } else {
       mappedFields[SCHEMA_CONSTANTS.PIPE_SCHEDULE][SCHEMA_CONSTANTS.DISPLAY] = true;
+      mappedFields[SCHEMA_CONSTANTS.PIPE_SCHEDULE][SCHEMA_CONSTANTS.VALUE] = "";
       mappedFields[SCHEMA_CONSTANTS.PIPE_ID][SCHEMA_CONSTANTS.DISPLAY] = false;
+      mappedFields[SCHEMA_CONSTANTS.PIPE_ID][SCHEMA_CONSTANTS.VALUE] = "";
       mappedFields[SCHEMA_CONSTANTS.UNITS][SCHEMA_CONSTANTS.DISPLAY] = false;
+      mappedFields[SCHEMA_CONSTANTS.UNITS][SCHEMA_CONSTANTS.VALUE] = "";
     }
   }
 
@@ -78,18 +82,80 @@ export const updateSchema = async (
     }
   }
 
-  if (name === SCHEMA_CONSTANTS.FLUID_SOURCE) {
-    const selectedId = mappedFields[name].value;
+  if (mappedFields[SCHEMA_CONSTANTS.FLUIDTYPE_NAME]?.value === SCHEMA_CONSTANTS.FLUID_TYPE_LIQUID) {
+    mappedFields[SCHEMA_CONSTANTS.NATURAL_GAS_NAME][SCHEMA_CONSTANTS.DISPLAY] = false;
+    mappedFields[SCHEMA_CONSTANTS.NATURAL_GAS_DROPDOWN_NAME][SCHEMA_CONSTANTS.DISPLAY] = false;
+    mappedFields[SCHEMA_CONSTANTS.NATURAL_GAS_NAME][SCHEMA_CONSTANTS.VALUE] = "";
+    mappedFields[SCHEMA_CONSTANTS.NATURAL_GAS_DROPDOWN_NAME][SCHEMA_CONSTANTS.VALUE] = "";
+    mappedFields[SCHEMA_CONSTANTS.COMPOSITION_METHOD_DROPDOWN_NATURALGAS][
+      SCHEMA_CONSTANTS.DISPLAY
+    ] = false;
+    mappedFields[SCHEMA_CONSTANTS.PICK_FROM_DATABASE_BTN_NATURALGAS][
+      SCHEMA_CONSTANTS.DISPLAY
+    ] = false;
+
+    const selectedDataSourceId =
+      mappedFields[SCHEMA_CONSTANTS.FLUID_SOURCE][SCHEMA_CONSTANTS.VALUE];
     if (
-      mappedFields[name][SCHEMA_CONSTANTS.OPTIONS][selectedId]?.label === SCHEMA_CONSTANTS.CUSTOM
+      mappedFields[SCHEMA_CONSTANTS.FLUID_SOURCE][SCHEMA_CONSTANTS.OPTIONS][selectedDataSourceId]
+        ?.label === SCHEMA_CONSTANTS.CUSTOM
     ) {
+      mappedFields[SCHEMA_CONSTANTS.FLUIDTYPE_NAME][SCHEMA_CONSTANTS.DEFAULTID] =
+        mappedFields[SCHEMA_CONSTANTS.FLUIDTYPE_NAME]?.value;
       mappedFields[SCHEMA_CONSTANTS.FLUID_DATABASE_NAME][SCHEMA_CONSTANTS.DISPLAY] = false;
       mappedFields[SCHEMA_CONSTANTS.FLUID_DATABASE_NAME][SCHEMA_CONSTANTS.VALUE] = "";
       mappedFields[SCHEMA_CONSTANTS.CUSTOM_FLUID_NAME][SCHEMA_CONSTANTS.DISPLAY] = true;
     } else {
+      mappedFields[SCHEMA_CONSTANTS.FLUIDTYPE_NAME][SCHEMA_CONSTANTS.DEFAULTID] =
+        mappedFields[SCHEMA_CONSTANTS.FLUIDTYPE_NAME]?.value;
       mappedFields[SCHEMA_CONSTANTS.FLUID_DATABASE_NAME][SCHEMA_CONSTANTS.DISPLAY] = true;
       mappedFields[SCHEMA_CONSTANTS.CUSTOM_FLUID_NAME][SCHEMA_CONSTANTS.DISPLAY] = false;
       mappedFields[SCHEMA_CONSTANTS.CUSTOM_FLUID_NAME][SCHEMA_CONSTANTS.VALUE] = "";
+    }
+  }
+
+  if (
+    mappedFields[SCHEMA_CONSTANTS.FLUIDTYPE_NAME]?.value === SCHEMA_CONSTANTS.FLUID_TYPE_NATURALGAS
+  ) {
+    mappedFields[SCHEMA_CONSTANTS.FLUID_DATABASE_NAME][SCHEMA_CONSTANTS.DISPLAY] = false;
+    mappedFields[SCHEMA_CONSTANTS.FLUID_DATABASE_NAME][SCHEMA_CONSTANTS.VALUE] = "";
+    mappedFields[SCHEMA_CONSTANTS.CUSTOM_FLUID_NAME][SCHEMA_CONSTANTS.DISPLAY] = false;
+    mappedFields[SCHEMA_CONSTANTS.CUSTOM_FLUID_NAME][SCHEMA_CONSTANTS.VALUE] = "";
+
+    const selectedDataSourceId =
+      mappedFields[SCHEMA_CONSTANTS.FLUID_SOURCE][SCHEMA_CONSTANTS.VALUE];
+
+    if (
+      mappedFields[SCHEMA_CONSTANTS.FLUID_SOURCE][SCHEMA_CONSTANTS.OPTIONS][selectedDataSourceId]
+        ?.label === SCHEMA_CONSTANTS.CUSTOM
+    ) {
+      mappedFields[SCHEMA_CONSTANTS.FLUIDTYPE_NAME][SCHEMA_CONSTANTS.DEFAULTID] =
+        mappedFields[SCHEMA_CONSTANTS.FLUIDTYPE_NAME]?.value;
+      mappedFields[SCHEMA_CONSTANTS.NATURAL_GAS_DROPDOWN_NAME][SCHEMA_CONSTANTS.VALUE] = "";
+      mappedFields[SCHEMA_CONSTANTS.NATURAL_GAS_NAME][SCHEMA_CONSTANTS.DISPLAY] = true;
+      mappedFields[SCHEMA_CONSTANTS.NATURAL_GAS_DROPDOWN_NAME][SCHEMA_CONSTANTS.DISPLAY] = false;
+      mappedFields[SCHEMA_CONSTANTS.PICK_FROM_DATABASE_BTN_NATURALGAS][
+        SCHEMA_CONSTANTS.DISPLAY
+      ] = true;
+      mappedFields[SCHEMA_CONSTANTS.COMPOSITION_METHOD_DROPDOWN_NATURALGAS][
+        SCHEMA_CONSTANTS.DISPLAY
+      ] = true;
+    } else {
+      mappedFields[SCHEMA_CONSTANTS.FLUIDTYPE_NAME][SCHEMA_CONSTANTS.DEFAULTID] =
+        mappedFields[SCHEMA_CONSTANTS.FLUIDTYPE_NAME]?.value;
+      mappedFields[SCHEMA_CONSTANTS.FLUID_DATABASE_NAME][SCHEMA_CONSTANTS.DISPLAY] = false;
+      mappedFields[SCHEMA_CONSTANTS.FLUID_DATABASE_NAME][SCHEMA_CONSTANTS.VALUE] = "";
+      mappedFields[SCHEMA_CONSTANTS.NATURAL_GAS_DROPDOWN_NAME][SCHEMA_CONSTANTS.DISPLAY] = true;
+      mappedFields[SCHEMA_CONSTANTS.NATURAL_GAS_NAME][SCHEMA_CONSTANTS.DISPLAY] = false;
+      mappedFields[SCHEMA_CONSTANTS.PICK_FROM_DATABASE_BTN_NATURALGAS][
+        SCHEMA_CONSTANTS.DISPLAY
+      ] = false;
+      mappedFields[SCHEMA_CONSTANTS.COMPOSITION_METHOD_DROPDOWN_NATURALGAS][
+        SCHEMA_CONSTANTS.DISPLAY
+      ] = false;
+      mappedFields[SCHEMA_CONSTANTS.COMPOSITION_METHOD_DROPDOWN_NATURALGAS][
+        SCHEMA_CONSTANTS.VALUE
+      ] = "";
     }
   }
 
