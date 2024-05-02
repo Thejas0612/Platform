@@ -20,3 +20,40 @@ export const checkValidations = (field, value) => {
    })
    return error
 }
+
+export const checkVisibility = (input, visibilityRules, inputFields) => {
+   let visible = true;
+   if (input.visibility === undefined) {
+      return true;
+   }
+   if (typeof input.visibility !== 'object') {
+      return !!input.visibility;
+   }
+   visibilityRules.map(rule => {
+      const targetField = inputFields.find(field => field.id === rule.id);
+      if (typeof targetField?.value === 'object') {
+         const value = targetField?.value[targetField?.name];
+         if (value !== rule.value || !rule.value.includes(value)) {
+            visible = false;
+         }
+      } else {
+         const targetValue = targetField.value || targetField.defaultId;
+         if (targetValue !== rule.value || !rule.value.includes(targetValue)) {
+            visible = false;
+         }
+      }
+   })
+   return visible;
+}
+
+export const generateFields = (formFields) => {
+   if (!formFields.length) {
+      return [];
+   }
+   return formFields.map((field) => {
+      const { visibility, value } = field;
+      const newItem = { ...field };
+      newItem.hide = checkVisibility(newItem, visibility, formFields) ? false : true;
+      return newItem;
+   });
+}
