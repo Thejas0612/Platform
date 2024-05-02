@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MSOLDynamicForm from "../../../components/shared/dynamicform";
 import { Grid } from "@mui/material";
+import { generateFields } from "../../../utils/validation.service";
 
 function CustomLayout() {
   const [schema, setSchema] = React.useState([
@@ -36,7 +37,7 @@ function CustomLayout() {
           value: "",
           options: [],
           required: true,
-          error: "required",
+          error: "",
           errorClass: "",
           placeholder: "Pick One",
           isApiOnEvent: {
@@ -63,7 +64,7 @@ function CustomLayout() {
           disabled: false,
           value: "",
           options: [],
-          required: true,
+          required: false,
           error: "",
           errorClass: "",
           display: true,
@@ -99,7 +100,7 @@ function CustomLayout() {
             { id: "Inch", label: "Inch", value: "Inch" },
             { id: "mm", label: "mm", value: "mm" }
           ],
-          required: true,
+          required: false,
           error: "",
           errorClass: "",
           display: false,
@@ -187,7 +188,7 @@ function CustomLayout() {
             }
           ],
           value: "0",
-          required: true,
+          required: false,
           error: "",
           errorClass: "",
           display: true,
@@ -209,90 +210,30 @@ function CustomLayout() {
             "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID",
           display: true,
           order: 8
-        },
-        {
-          column: 12,
-          align: "left",
-          btnType: "textary",
-          error: "",
-          errorClass: "",
-          label: "Additional Options",
-          required: true,
-          showBackIcon: false,
-          type: "BUTTON",
-          value: "",
-          display: true,
-          order: 9,
-          name: "additional_options_label"
-        },
-        {
-          column: 12,
-          disabledIds: [],
-          error: "",
-          errorClass: "",
-          labelClass: "app-content-label",
-          name: "additional_options",
-          options: [
-            {
-              label:
-                "Fluid Plugs or Clogs (High Viscosity, Slurry, Entrained Solids, Solidifies, Etc)",
-              value: "0"
-            },
-            {
-              label: "Fluid Causes Wear and Erosion ( Entrained Solids, Abrasive, Etc.)",
-              value: "1"
-            }
-          ],
-          required: true,
-          selectedIds: ["1"],
-          showAlert: false,
-          type: "CHECKBOX_INPUT",
-          display: true,
-          order: 10
         }
       ]
     }
   ]);
 
-  //create a function to loop throug the above schema array
-
-  const generateFeilds = (inputFeilds) => {
-    if (!inputFeilds.length) {
-      return [];
-    }
-    return inputFeilds;
-    //find the datasource url and make the api call
-  };
-
-  const handleInput = (e, formData, schemaData, fieldName) => {
-    // const newSchema = schemaData.slice();
-    // const latestSchema = newSchema.map((group, i) => {
-    //   group.fields.map(field => {
-    //     if (field.id === "email") {
-    //       field.value = "hello@gmail.com"
-    //     }
-    //     return field
-    //   })
-    //   return group
-    // })
-    // console.log(latestSchema);
-    // setSchema(JSON.parse(JSON.stringify(latestSchema)))
-    // const currentFeild = schema.reduce((prev, curr, i) => {
-    //     const field = prev || curr.fields.find(field => field.name === fieldName);
-    //     if(field !== 'undefined') return field
-    // }, undefined)
-  };
+  const handleInput = React.useCallback((e, formData, schemaData, fieldName, formErrors) => {
+  }, []);
 
   return (
     <>
       <Grid container>
         <Grid item xs={6}>
           <MSOLDynamicForm
-            schema={schema}
-            handleChange={(event, a, b, c) => handleInput(event, a, b, c)}
-            handleKeyPress={function noRefCheck() {}}
-            handleSubmit={function noRefCheck() {}}
-            updateData={function noRefCheck() {}}
+            schema={[
+              {
+                fields: generateFields(schema[0].fields)
+              }
+            ]}
+            handleChange={(event, a, b, c, formErrors) => handleInput(event, a, b, c, formErrors)}
+            handleKeyPress={function noRefCheck() { }}
+            handleSubmit={function noRefCheck() { }}
+            updateData={function noRefCheck() { }}
+            onSubmit={(isFormValid, inputData) => console.log({ isFormValid, inputData })}
+            onPrevious={(e) => console.log(e)}
           />
         </Grid>
       </Grid>

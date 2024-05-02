@@ -20,3 +20,10 @@ export const checkValidations = (field, value) => {
    })
    return error
 }
+
+export const generateFields = (formFields) => {
+   if (!formFields.length) {
+      return [];
+   }
+   return formFields
+}
