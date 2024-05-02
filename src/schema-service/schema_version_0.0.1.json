@@ -150,22 +150,14 @@
                   "isApiOnEvent": {
                     "isApiCall": true,
                     "apiInfo": {
-<<<<<<< HEAD
                       "url": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingPipeSchedule?MSOLPAType=dpflow&lineSize=",
-=======
-                      "url": "<%= VITE_API_URL %>/api/processcondition/processPipingPipeSchedule?buCode=dpflow&lineSize=",
->>>>>>> 681f91ca6b4ffdef4c2d0b5ac7ee54e2825449af
                       "method": "GET",
                       "payload": {}
                     },
                     "targetUiElement": "pipeschedule",
                     "targetProperty": "options"
                   },
-<<<<<<< HEAD
                   "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/processPipingLineSize?MSOLPAType=dpflow",
-=======
-                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/processPipingLineSize?buCode=dpflow",
->>>>>>> 681f91ca6b4ffdef4c2d0b5ac7ee54e2825449af
                   "display": true,
                   "order": 1
                 },
@@ -317,11 +309,7 @@
                   "error": "",
                   "errorClass": "",
                   "placeholder": "Pick One",
-<<<<<<< HEAD
                   "dataSourceUrl": "https://webapp-z-autosol-msolst-n-001.azurewebsites.net/api/processcondition/fluidsDatabase?MSOLPAType=dpflow&fluidType=LIQUID",
-=======
-                  "dataSourceUrl": "<%= VITE_API_URL %>/api/processcondition/fluidsDatabase?buCode=dpflow&fluidType=LIQUID",
->>>>>>> 681f91ca6b4ffdef4c2d0b5ac7ee54e2825449af
                   "display": true,
                   "order": 8
                 },
