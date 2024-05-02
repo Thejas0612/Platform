@@ -98,16 +98,14 @@ export class ScreenBuilder {
       throw new Error(`Could not find screen with '${this.#screenIndex}' index.`);
     }
 
-    // TODO: create old field finder.
-    // const screenSchemaOldClone = cloneDeep(schemaWorkflow);
-    // const oldFieldFinder = new FieldFinder(screenSchemaOldClone)
+    const screenSchemaOldClone = cloneDeep(schemaWorkflow);
+    const oldFieldFinder = new FieldFinder(screenSchemaOldClone)
 
-    // new
     schemaWorkflow[0].componentProps.schema[this.#screenIndex] = cloneDeep(screenSchemaNew);
     const newFieldFinder = new FieldFinder(schemaWorkflow);
 
     this.#fieldBuilders.forEach((fieldBuilder) => {
-      fieldBuilder.finalBuild(this.#screenIndex, newFieldFinder);
+      fieldBuilder.finalBuild(this.#screenIndex, newFieldFinder, oldFieldFinder);
     });
   }
 }

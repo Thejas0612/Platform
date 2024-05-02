@@ -11,13 +11,19 @@ import tileThumbnail__updateValue__workflowSchema__old
 import tileThumbnail__updateValue__screenSchema__new
   from "../__mocks__/tileThumbnail__updateValue__screenSchema__new.json";
 import tableInput__updateValue__screenSchema__new from "../__mocks__/tableInput__updateValue__screenSchema__new.json";
-import singleSelect__updateValue__screenSchema__new from "../__mocks__/singleSelect__updateValue__screenSchema__new.json";
+import singleSelect__updateValue__screenSchema__new
+  from "../__mocks__/singleSelect__updateValue__screenSchema__new.json";
 import singleSelect__updateValue__workflowSchema__old
   from "../__mocks__/singleSelect__updateValue__workflowSchema__old.json";
 import tableInput__updateValue__workflowSchema__old
   from "../__mocks__/tableInput__updateValue__workflowSchema__old.json";
-import radioInput__updateValue__screenSchema__new from "../__mocks__/radioInput__updateValue__screenSchema__new.json"
-import radioInput__updateValue__workflowSchema__old from "../__mocks__/radioInput__updateValue__workflowSchema__old.json"
+import runOnlyOneOnChange__screenSchema__new from "../__mocks__/runOnlyOneOnChange__screenSchema__new.json";
+import runOnlyOneOnChange__workflowSchema__old
+  from "../__mocks__/runOnlyOneOnChange__workflowSchema__old.json";
+import radioInput__updateValue__screenSchema__new from "../__mocks__/radioInput__updateValue__screenSchema__new.json";
+import radioInput__updateValue__workflowSchema__old
+  from "../__mocks__/radioInput__updateValue__workflowSchema__old.json";
+
 import { schemaBuilder } from "../schemaBuilder";
 import { notNullOrUndefined } from "../../../../../../utils/assert";
 import { TECHNOLOGY_TYPES_OPTIONS } from "../../constants";
@@ -110,7 +116,7 @@ describe("schemaBuilder", () => {
         .onChange((field, value) => {
           valueActual = value;
 
-          field.label = "Fluid Type - UPDATE"
+          field.label = "Fluid Type - UPDATE";
         })
         .build(0, customButtonGroup__updateValue__screenSchema__new);
 
@@ -128,12 +134,32 @@ describe("schemaBuilder", () => {
         .onChange((field, value) => {
           valueActual = value;
 
-          field.label = "Fluid Source - UPDATE"
+          field.label = "Fluid Source - UPDATE";
         })
         .build(0, radioInput__updateValue__screenSchema__new);
 
       expect(valueActual).toBe("DATABASE");
       expect(schema).toMatchSnapshot();
     });
+  });
+
+  test("when Flow Rate and Line Size exist and Line Size is updated, then run onChange on only Line Size", () => {
+    let lineSizeActual = "";
+    let flowRateOnChange = false;
+
+    schemaBuilder(runOnlyOneOnChange__workflowSchema__old)
+      .screen(0)
+      .singleSelect("line-size")
+      .onChange((_field, value) => {
+        lineSizeActual = value;
+      })
+      .singleSelect("flow-rate")
+      .onChange(() => {
+        flowRateOnChange = true;
+      })
+      .build(0, runOnlyOneOnChange__screenSchema__new);
+
+    expect(lineSizeActual).toBe("1/4_INCH_(DN8)");
+    expect(flowRateOnChange).toBe(false);
   });
 });
