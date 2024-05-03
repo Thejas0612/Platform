@@ -314,7 +314,7 @@
                   "order": 8
                 },
                 {
-                  "column": 4,
+                  "column": 5,
                   "type": "TEXT_INPUT",
                   "name": "custom_fluid_name",
                   "label": "Custom Fluid Name",
@@ -389,7 +389,7 @@
                   "order": 13
                 },
                 {
-                  "column": 8.6,
+                  "column": 8.5,
                   "type": "SINGLE_SELECT",
                   "name": "composition_method_dropdown_natural_gas",
                   "label": "Natural Gas Composition Method",
