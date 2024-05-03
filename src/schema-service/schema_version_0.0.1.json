@@ -298,7 +298,7 @@
                   "order": 7
                 },
                 {
-                  "column": 4,
+                  "column": 5,
                   "type": "SINGLE_SELECT",
                   "name": "fluidsdatabase",
                   "label": "Fluids Database",
@@ -329,7 +329,7 @@
                   "maxLength": 40
                 },
                 {
-                  "column": 4,
+                  "column": 5,
                   "type": "SINGLE_SELECT",
                   "name": "fluid_database_dropdown_naturalgas",
                   "label": "Fluids Database",
@@ -345,7 +345,7 @@
                   "order": 10
                 },
                 {
-                  "column": 3,
+                  "column": 5,
                   "type": "TEXT_INPUT",
                   "name": "natural_gas__name",
                   "label": "Natural Gas Name",
@@ -389,7 +389,7 @@
                   "order": 13
                 },
                 {
-                  "column": 8,
+                  "column": 8.6,
                   "type": "SINGLE_SELECT",
                   "name": "composition_method_dropdown_natural_gas",
                   "label": "Natural Gas Composition Method",
