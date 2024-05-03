@@ -33,7 +33,7 @@ export const MultipleSelectInput = ({
                              }) => {
   const handleChange = (event) => {
     const newValue = isString(event.target.value) ? event.target.value.split(",") : event.target.value;
-    onChange(newValue);
+    onChange(event, newValue);
   };
 
   return (
@@ -66,6 +66,7 @@ export const MultipleSelectInput = ({
         >
           {options.map((option) => (
               <MenuItem
+                  disabled={option.isDisabled}
                   dense
                   disableGutters
                   key={option.value}

@@ -36,7 +36,7 @@ const PROPS = {
       ]
     }
   ],
-  selectedOptions: {
+  value: {
     OPERATING_PRESSURE: [],
     OPERATING_TEMPERATURE: []
   }

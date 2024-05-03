@@ -1187,74 +1187,41 @@
                 {
                   "column": 12,
                   "type": "FILTER_BUTTON",
+                  "name": "filter-button",
+                  "value": false,
                   "label": "Filters"
                 },
                 {
                   "column": 12,
                   "type": "DROPDOWN_MENU_GROUP",
-                  "selectedOptions": {
-                    "APPROVALS": [],
-                    "OPERATING_TEMPERATURE": [],
-                    "OPERATING_PRESSURE": []
+                  "name": "dropdowns-filter",
+                  "hide": true,
+                  "value": {
+                    "ACCURACY": [],
+                    "APPLICATION": []
                   },
                   "data": [
                     {
-                      "id": "APPROVALS",
-                      "placeholder": "APPROVALS",
+                      "id": "ACCURACY",
+                      "placeholder": "ACCURACY",
                       "options": [
                         {
-                          "label": "Class 1 Division 1",
-                          "title": "Class 1 Division 1",
-                          "value": "CLASS_1_DIVISION_1"
-                        },
-                        {
-                          "label": "Class 1 Division 2",
-                          "title": "Class 1 Division 2",
-                          "value": "CLASS_1_DIVISION_2"
-                        },
-                        {
-                          "label": "Zone 1",
-                          "title": "Zone 1",
-                          "value": "ZONE_1"
-                        },
-                        {
-                          "label": "Zone 2",
-                          "title": "Zone 2",
-                          "value": "ZONE_2"
+                          "label": "High Accuracy (0.25% or better)",
+                          "title": "High Accuracy (0.25% or better)",
+                          "value": "High_Accuracy",
+                          "isDisabled": false
                         }
                       ]
                     },
-
                     {
-                      "id": "OPERATING_TEMPERATURE",
-                      "placeholder": "OPERATING TEMPERATURE",
+                      "id": "APPLICATION",
+                      "placeholder": "APPLICATION",
                       "options": [
                         {
-                          "label": "Greater Than 400 F (204 C)",
-                          "title": "Greater Than 400 F (204 C)",
-                          "value": "GREATER_THAN_400_F"
-                        },
-                        {
-                          "label": "Less Than 400 F (204 C)",
-                          "title": "Less Than 400 F (204 C)",
-                          "value": "LESS_THAN_400_F"
-                        }
-                      ]
-                    },
-
-                    {
-                      "id": "OPERATING_PRESSURE",
-                      "placeholder": "OPERATING PRESSURE",
-                      "options": [
-                        {
-                          "label": "Greater Than 1960psi (135 bar)",
-                          "title": "Greater Than 1960psi (135 bar)",
-                          "value": "GREATER_THAN_1960-PSI"
-                        },
-                        {
-                          "label": "Less Than 1960psi (135 bar)",
-                          "title": "Less Than 1960psi (135 bar)",
-                          "value": "LESS_THAN_1960_PSI"
+                          "label": "Hygienic/Sanitary",
+                          "title": "Hygienic/Sanitary",
+                          "value": "Hygienic_Sanitary",
+                          "isDisabled": false
                         }
                       ]
                     }
@@ -1263,6 +1230,7 @@
                 {
                   "column": 12,
                   "type": "CARD_CHECKBOX_GROUP",
+                  "name": "filter-card-group",
                   "selectedId": "",
                   "compareIds": "",
                   "data": [

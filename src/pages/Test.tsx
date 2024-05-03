@@ -119,11 +119,8 @@ export const Test: FC = () => {
   const [cardCheckboxGroupCompareIds, setCardCheckboxGroupCompareIds] = useState<string[]>([]);
   const [blockCheckboxGroupSelectedIds, setBlockCheckboxGroupSelectedIds] = useState<string[]>([]);
 
-  const handleDropdownChange = (id: string, value: string[]) => {
-    setSelectedOptions((prevState) => ({
-      ...prevState,
-      [id]: value
-    }));
+  const handleDropdownChange = (field: any, type: any, name: any, value: any) => {
+    setSelectedOptions(value);
   };
 
   return <>
@@ -133,14 +130,14 @@ export const Test: FC = () => {
         <Stack direction="row-reverse">
           <FilterButton
             label="Filters"
-            onClick={() => {
+            onChange={() => {
               setShowDropdownMenuGroup(!showDropdownMenuGroup);
             }}
           />
         </Stack>
 
         {showDropdownMenuGroup && <DropdownMenuGroup data={DROPDOWNS}
-                                                     onChange={handleDropdownChange} selectedOptions={selectedOptions} />}
+                                                     onChange={handleDropdownChange} value={selectedOptions} />}
 
         <Box sx={{ paddingTop: 2 }}>
           <>

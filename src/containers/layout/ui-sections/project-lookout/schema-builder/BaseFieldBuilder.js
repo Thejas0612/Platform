@@ -2,6 +2,8 @@
  *  @typedef {import('./TileThumbnailFieldBuilder').TileThumbnailFieldBuilder} TileThumbnailFieldBuilder
  *  @typedef {import('./TableInputBuilder').TableInputBuilder} TableInputBuilder
  *  @typedef {import('./SingleSelectFieldBuilder').SingleSelectFieldBuilder} SingleSelectFieldBuilder
+ *  @typedef {import('./FilterButtonBuilder').FilterButtonBuilder} FilterButtonBuilder
+ *  @typedef {import('./DropdownMenuGroupBuilder').DropdownMenuGroupBuilder} DropdownMenuGroupBuilder
  */
 export class BaseFieldBuilder {
   /**
@@ -74,6 +76,33 @@ export class BaseFieldBuilder {
    */
   radioInput(name){
     return this.#screenBuilder.radioInput(name)
+  }
+
+  /**
+   *
+   * @param name
+   * @return {FilterButtonBuilder}
+   */
+  filterButton(name){
+    return this.#screenBuilder.filterButton(name)
+  }
+
+  /**
+   *
+   * @param name
+   * @return {DropdownMenuGroupBuilder}
+   */
+  dropdownMenuGroup(name){
+    return this.#screenBuilder.dropdownMenuGroup(name)
+  }
+
+  /**
+   *
+   * @param name
+   * @return {CardCheckboxGroupBuilder}
+   */
+  cardCheckboxGroup(name){
+    return this.#screenBuilder.cardCheckboxGroup(name)
   }
 
   /**

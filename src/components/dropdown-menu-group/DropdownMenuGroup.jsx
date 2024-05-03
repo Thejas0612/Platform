@@ -4,11 +4,14 @@ import { Grid, Typography } from "@mui/material";
 import { MultipleSelectInput } from "./MultipleSelectInput";
 import { MsolComponentHighlighter } from "../msol-component-highlighter/MsolComponentHighlighter";
 
-export const DropdownMenuGroup = ({
-                               data,
-                               selectedOptions,
-                               onChange,
-                           }) => {
+export const DropdownMenuGroup = ({ data, value, onChange }) => {
+  function handleChange(e, dropId, dropVal){
+    const newValue = {
+      ...value,
+      [dropId]: dropVal
+    }
+    onChange(e, undefined, "", newValue);
+  }
     return (
         <MsolComponentHighlighter>
             <Grid container spacing={2}>
@@ -19,9 +22,9 @@ export const DropdownMenuGroup = ({
                     <Grid key={dropdown.id} item xs={6} md={4} xl={3}>
                         <MultipleSelectInput
                             {...dropdown}
-                            value={selectedOptions[dropdown.id]}
-                            onChange={(value) => {
-                                onChange(dropdown.id, value);
+                            value={value[dropdown.id]}
+                            onChange={(event, value) => {
+                                handleChange(event, dropdown.id, value);
                             }}
                         />
                     </Grid>
@@ -41,6 +44,6 @@ DropdownMenuGroup.propTypes = {
         value: PropTypes.string.isRequired,
       })).isRequired,
     })).isRequired,
-    selectedOptions: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
+    value: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
     onChange: PropTypes.func,
 };
